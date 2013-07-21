@@ -145,11 +145,10 @@ CREATE  TABLE IF NOT EXISTS `modelo`.`Notas` (
   `Estudiante_identificacion` INT(15) NOT NULL ,
   `Clase_numero` INT(15) NOT NULL ,
   `fecha_ingreso` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
-  `year` YEAR NOT NULL ,
-  `periodo1` FLOAT NULL ,
-  `periodo2` FLOAT NULL ,
-  `periodo3` FLOAT NULL ,
-  `periodo4` FLOAT NULL ,
+  `periodo` TINYINT NOT NULL ,
+  `nota` FLOAT NULL ,
+  `porcentaje` FLOAT NOT NULL ,
+  `concepto` TEXT NULL ,
   PRIMARY KEY (`Estudiante_identificacion`, `Clase_numero`) ,
   INDEX `fk_Estudiante_has_Clase_Clase1_idx` (`Clase_numero` ASC) ,
   INDEX `fk_Estudiante_has_Clase_Estudiante1_idx` (`Estudiante_identificacion` ASC) ,
@@ -184,6 +183,113 @@ CREATE  TABLE IF NOT EXISTS `modelo`.`Matricula` (
   CONSTRAINT `fk_Estudiante_has_Curso_Curso1`
     FOREIGN KEY (`Curso_codigo` )
     REFERENCES `modelo`.`Curso` (`codigo` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `modelo`.`Sesion`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `modelo`.`Sesion` (
+  `session_id` VARCHAR(40) NOT NULL DEFAULT '0' ,
+  `ip_address` VARCHAR(45) NOT NULL ,
+  `user_agent` VARCHAR(50) NOT NULL ,
+  `fecha` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `Usuario_id` INT(15) NOT NULL ,
+  PRIMARY KEY (`session_id`, `Usuario_id`, `fecha`) ,
+  INDEX `fk_Sesion_Usuario1_idx` (`Usuario_id` ASC) ,
+  CONSTRAINT `fk_Sesion_Usuario1`
+    FOREIGN KEY (`Usuario_id` )
+    REFERENCES `modelo`.`Usuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `modelo`.`Foro`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `modelo`.`Foro` (
+  `id_time` VARCHAR(40) NOT NULL ,
+  `titulo` TEXT NOT NULL ,
+  `cuerpo` TEXT NOT NULL ,
+  `fecha_creacion` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `puntos` INT NOT NULL DEFAULT 0 ,
+  `Clase_numero` INT(15) NOT NULL ,
+  `Materia_id` INT NOT NULL ,
+  `Usuario_id` INT(15) NOT NULL ,
+  `estado` TINYINT NOT NULL DEFAULT 1 ,
+  PRIMARY KEY (`id_time`, `Clase_numero`, `Materia_id`) ,
+  INDEX `fk_Foro_Clase1_idx` (`Clase_numero` ASC, `Materia_id` ASC) ,
+  INDEX `fk_Foro_Usuario1_idx` (`Usuario_id` ASC) ,
+  CONSTRAINT `fk_Foro_Clase1`
+    FOREIGN KEY (`Clase_numero` , `Materia_id` )
+    REFERENCES `modelo`.`Clase` (`numero` , `Materia_id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Foro_Usuario1`
+    FOREIGN KEY (`Usuario_id` )
+    REFERENCES `modelo`.`Usuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `modelo`.`Comentario`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `modelo`.`Comentario` (
+  `id_time` VARCHAR(40) NOT NULL ,
+  `fecha_creacion` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `puntos` INT NOT NULL DEFAULT 0 ,
+  `cuerpo` TEXT NOT NULL ,
+  `Usuario_id` INT(15) NOT NULL ,
+  `estado` TINYINT NOT NULL DEFAULT 1 ,
+  `Foro_id_time` VARCHAR(40) NOT NULL ,
+  `Clase_numero` INT(15) NOT NULL ,
+  `Materia_id` INT NOT NULL ,
+  PRIMARY KEY (`id_time`, `Foro_id_time`, `Clase_numero`, `Materia_id`) ,
+  INDEX `fk_Comentario_Usuario1_idx` (`Usuario_id` ASC) ,
+  INDEX `fk_Comentario_Foro1_idx` (`Foro_id_time` ASC, `Clase_numero` ASC, `Materia_id` ASC) ,
+  CONSTRAINT `fk_Comentario_Usuario1`
+    FOREIGN KEY (`Usuario_id` )
+    REFERENCES `modelo`.`Usuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_Comentario_Foro1`
+    FOREIGN KEY (`Foro_id_time` , `Clase_numero` , `Materia_id` )
+    REFERENCES `modelo`.`Foro` (`id_time` , `Clase_numero` , `Materia_id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION)
+ENGINE = InnoDB;
+
+
+-- -----------------------------------------------------
+-- Table `modelo`.`SubComentario`
+-- -----------------------------------------------------
+CREATE  TABLE IF NOT EXISTS `modelo`.`SubComentario` (
+  `id_time_Sub` VARCHAR(40) NOT NULL ,
+  `fecha_creacion` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP ,
+  `puntos` INT NOT NULL DEFAULT 0 ,
+  `cuerpo` TEXT NOT NULL ,
+  `Usuario_id` INT(15) NOT NULL ,
+  `estado` TINYINT NOT NULL DEFAULT 1 ,
+  `Comentario_id_time` VARCHAR(40) NOT NULL ,
+  `Foro_id_time` VARCHAR(40) NOT NULL ,
+  `Clase_numero` INT(15) NOT NULL ,
+  `Materia_id` INT NOT NULL ,
+  PRIMARY KEY (`id_time_Sub`, `Comentario_id_time`, `Foro_id_time`, `Clase_numero`, `Materia_id`) ,
+  INDEX `fk_SubComentario_Usuario1_idx` (`Usuario_id` ASC) ,
+  INDEX `fk_SubComentario_Comentario1_idx` (`Comentario_id_time` ASC, `Foro_id_time` ASC, `Clase_numero` ASC, `Materia_id` ASC) ,
+  CONSTRAINT `fk_SubComentario_Usuario1`
+    FOREIGN KEY (`Usuario_id` )
+    REFERENCES `modelo`.`Usuario` (`id` )
+    ON DELETE NO ACTION
+    ON UPDATE NO ACTION,
+  CONSTRAINT `fk_SubComentario_Comentario1`
+    FOREIGN KEY (`Comentario_id_time` , `Foro_id_time` , `Clase_numero` , `Materia_id` )
+    REFERENCES `modelo`.`Comentario` (`id_time` , `Foro_id_time` , `Clase_numero` , `Materia_id` )
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
