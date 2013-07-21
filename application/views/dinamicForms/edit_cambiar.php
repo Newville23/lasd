@@ -9,6 +9,14 @@
 	<?php echo form_open('') ?>
 		
 		<div class="control-group">
+			<label for="label" >label: </label>
+			<input type="text" id="label" name="label" value="<?php if (isset($campo['label'])) echo $campo['label']; ?>" />
+
+			<label for="type" >Seleccionar tipo de campo: </label>
+			<select id="type" name="type">
+				<?php include('select/type.php'); ?>
+			</select>
+
 			<label for="name" >name: </label>
 			<input type="text" id="name" name="name" value="<?php if (isset($campo['name'])) echo $campo['name']; ?>" />
 

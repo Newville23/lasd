@@ -1,0 +1,9 @@
+	<option value="text"> Texto </option>
+    <option value="number"> Number </option>
+    <option value="checkbox"> Checkbox </option>
+    <option value="radio"> Radio </option>
+<!--     <option value="select"> Select</option> -->
+    <option value="date"> Date</option>
+    <option value="email"> Email</option>
+    <option value="url"> Url</option>
+    <option value="range"> Range</option>

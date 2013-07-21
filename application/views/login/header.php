@@ -10,15 +10,15 @@
 		<style type="text/css">
 
       body {
-        background: url("//d7mj4aqfscim2.cloudfront.net/images/landscapes/duo-land_mv_5b500a4f052f4985943c1cc44a06a7ff.jpg") 
-      no-repeat bottom center fixed #bdddeb;
+        padding-top: 40px;
+        padding-bottom: 40px;
+        background-color: rgb(224, 224, 224);
       }
 
       .container-fluid {
         max-width: 80%;
         padding: 19px 29px 29px;
         margin: 0 auto 20px;
-        margin-top: 5%;
         background-color: #fff;
         border: 1px solid #e5e5e5;
         -webkit-border-radius: 5px;
@@ -39,22 +39,17 @@
         margin-bottom: 15px;
       }
 
-      .span4{
+      .span3{
         background-color: rgba(254, 254, 254, 0.95);
         padding: 2%;
         margin: 2%;
         border-radius: 5px; 
       }
-      footer{
-        position: fixed;
-        bottom: 0;
-        text-align: center;
-      }
 
     </style>
 	</head>
 <body>
-  <div class="navbar navbar-fixed-top navbar-inverse">
+    <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container">
 
@@ -68,8 +63,6 @@
           <div class="nav-collapse navbar-responsive-collapse collapse">
             <ul class="nav">
               <li class="divider-vertical active"><a href="#">Inicio</a></li>
-              <li class="divider-vertical"><a href="#">Hola</a></li>
-              <li class="divider-vertical"><a href="#">Hola</a></li>
             </ul>
 
             <form class="navbar-search pull-right">
@@ -77,12 +70,13 @@
             </form>
 
             <ul class="nav pull-right">
-              <li class="divider-vertical"><a href="#">Configuración</a></li>
+              <li class="divider-vertical"><a href="#"><i class="icon-user icon-white"></i> Entrar</a></li>
             </ul>
           </div>
             
         </div>
       </div>
     </div>
+
 
 

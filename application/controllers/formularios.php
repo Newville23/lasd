@@ -11,6 +11,8 @@ class Formularios extends CI_Controller
 		$this->load->helper('url');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
+		$this->load->library('sesion');
+		$this->sesion->acceso('admin');
 	}
 
 	public function index()
@@ -23,10 +25,13 @@ class Formularios extends CI_Controller
 		$this->load->view('templates/header', $data);
 		$this->load->view('dinamicForms/index', $data);
 		$this->load->view('templates/footer', $data);
+
 	}
 
 	private function validacion_atributos()
 	{
+		$this->form_validation->set_rules('label', 'label', 'xss_clean|htmlspecialchars');
+		$this->form_validation->set_rules('type', 'type', 'required|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('name', 'name', 'required|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('class', 'class', 'htmlspecialchars|xss_clean');
 		$this->form_validation->set_rules('id_', 'id_', 'htmlspecialchars|xss_clean');
@@ -50,6 +55,8 @@ class Formularios extends CI_Controller
 
 			$data['form_data'] = $this->form_model->get_Form($id_form, 'formulariosDinamicos');
 			$data['campo'] = $this->form_model->get_tabla_estatica($id_form);
+
+			$data['form_class'] = array('class' => 'form-horizontal' );
 		
 			//echo "<pre>"; print_r($data['campo']); echo "</pre>";
 

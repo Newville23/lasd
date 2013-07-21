@@ -11,9 +11,31 @@ class Form_model extends CI_Model
 		$this->load->database();
 		$this->load->helper('date');
 	}
+
+/**
+	D A T A S
+*/
+private function data_dform()
+{
+	$data = array(
+		'label' => $this->input->post('label'),
+		'name' => $this->input->post('name'),
+		'type' => $this->input->post('type'),
+		'class' => $this->input->post('class'),
+		'id_' => $this->input->post('id'),
+		'value' => $this->input->post('value'),
+		'placeholder' => $this->input->post('placeholder')
+	);	
+	return $data;
+}
 /**
 	G E T T E R S
 */
+	//-------------------------------------------------------------------------
+	/*
+	* Obtiene los campos de una tabla determinada
+	* 
+	*/
 	public function get_Form($id = FALSE, $modelo = 'campos')
 	{
 		if ($id === FALSE)
@@ -37,13 +59,7 @@ class Form_model extends CI_Model
 */
 	public function update_Form($id)
 	{
-		$data = array(
-			'name' => $this->input->post('name'),
-			'class' => $this->input->post('class'),
-			'id_' => $this->input->post('id'),
-			'value' => $this->input->post('value'),
-			'placeholder' => $this->input->post('placeholder')
-		);
+		$data = $this->data_dform(); // carga los datos recibidos por post
 
 		$this->db->where('id', $id);
 		$this->db->update('campos', $data);
@@ -65,6 +81,7 @@ class Form_model extends CI_Model
 	public function set_DForm($id_form)
 	{
 		$data = array(
+			'label' => $this->input->post('label'),
 			'name' => $this->input->post('name'),
 			'id_form' => $id_form,
 			'class' => $this->input->post('class'),
@@ -84,6 +101,7 @@ class Form_model extends CI_Model
 		$id_form = $query->row_array();
 
 		$data = array(
+			'label' => $this->input->post('label'),
 			'name' => $this->input->post('name'),
 			'id_form' => $id_form['id'],
 			'class' => $this->input->post('class'),

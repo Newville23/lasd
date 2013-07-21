@@ -13,6 +13,14 @@
 		<input type="text" id="FormName" name="FormName" value="" required/>
 		
 		<div class="control-group">
+			<label for="label" >label: </label>
+			<input type="text" id="label" name="label" value="" />
+
+			<label for="type" >Seleccionar tipo de campo: </label>
+			<select id="type" name="type">
+				<?php include('select/type.php'); ?>
+			</select>
+
 			<label for="name" >name: </label>
 			<input type="text" id="name" name="name" value="" required/>
 
