@@ -8,6 +8,7 @@
 		
 		<script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
 		<script src="<?php  echo base_url("bootstrap/js/bootstrap.js"); ?>"></script>
+		<script src="<?php echo base_url("bootstrap/js/lasd.js"); ?>"></script>
 
 	</body>
 </html>

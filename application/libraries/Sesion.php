@@ -10,7 +10,7 @@ class Sesion
 	function __construct()
 	{
 		// Define el tiempo de sesion donde el valor entero indica en tiempo en minutos.
-		define('SESSION_TIME', 5);
+		define('SESSION_TIME', 50);
 		session_start();
 	}
 
@@ -136,6 +136,7 @@ class Sesion
 		{
 			$role['admin'] = 3;
 			$role['especial'] = 2;
+			$role['estudiante'] = 2;
 			$role['usuario'] = 1;
 
 			// 'array_key_exists' Verifica si el índice o clave dada existe en el array

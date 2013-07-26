@@ -7,9 +7,10 @@ class Login extends CI_Controller
 	{
 		parent::__construct();
 		$this->load->library('sesion');
+		$this->load->library('session'); // Sesion nativa de codeIgniter
+
 		$this->load->helper('url');
 		$this->load->model('login_model'); // Carga el modelo
-		$this->load->model('generic_model');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 	}
@@ -34,8 +35,8 @@ class Login extends CI_Controller
                 $data['error'] = 'Datos incorrectos';
                 
                 $this->load->view('login/header', $data);
-				$this->load->view('login/index', $data);
-				//$this->load->view('login/footer', $data);
+				//$this->load->view('login/index', $data);
+				$this->load->view('templates/footer', $data);
 				
             }
             elseif ($row['estado'] != 1) 
@@ -43,26 +44,29 @@ class Login extends CI_Controller
                 $data['error'] = 'Usuario deshabilitado';
 
                 $this->load->view('login/header', $data);
-				$this->load->view('login/index', $data);
-				//$this->load->view('login/footer', $data);
+				//$this->load->view('login/index', $data);
+				$this->load->view('templates/footer', $data);
 				
             }
             else
             {
 				$this->sesion->set('autenticado', true);
-		        $this->sesion->set('level', $row['role']);
+		        $this->sesion->set('level', $row['rol']);
 		        $this->sesion->set('usuario', $row['usuario']);
 		        $this->sesion->set('id_usuario', $row['id']);
 		        $this->sesion->set('tiempo', time());
 
-	        	redirect('formularios');
+		        // Se almacenan los datos de sesión
+		        $this->login_model->setSesion($row['id']);
+		        
+	        	redirect('estudiante');
 	    	}
 		}
 		else
 		{
 			$this->load->view('login/header', $data);
-			$this->load->view('login/index', $data);
-			//$this->load->view('login/footer', $data);
+			//$this->load->view('login/index', $data);
+			$this->load->view('templates/footer', $data);//
 		}
 
         

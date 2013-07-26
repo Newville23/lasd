@@ -7,6 +7,7 @@
 			
 		<link rel="stylesheet" type="text/css" href="<?php  echo base_url("bootstrap/css/bootstrap.css"); ?>">
 		<link href="<?php  echo base_url("bootstrap/css/bootstrap-responsive.css"); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
 		<style type="text/css">
 
       body {
@@ -14,37 +15,6 @@
       no-repeat bottom center fixed #bdddeb;
       }
 
-      .container-fluid {
-        max-width: 80%;
-        padding: 19px 29px 29px;
-        margin: 0 auto 20px;
-        margin-top: 5%;
-        background-color: #fff;
-        border: 1px solid #e5e5e5;
-        -webkit-border-radius: 5px;
-           -moz-border-radius: 5px;
-                border-radius: 5px;
-        -webkit-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-           -moz-box-shadow: 0 1px 2px rgba(0,0,0,.05);
-                box-shadow: 0 1px 2px rgba(0,0,0,.05);
-      }
-      .container-fluid .container-fluid-heading,
-      .container-fluid .checkbox {
-        margin-bottom: 10px;
-      }
-      .container-fluid input[type="text"],
-      .container-fluid input[type="password"] {
-        font-size: 16px;
-        height: auto;
-        margin-bottom: 15px;
-      }
-
-      .span4{
-        background-color: rgba(254, 254, 254, 0.95);
-        padding: 2%;
-        margin: 2%;
-        border-radius: 5px; 
-      }
       footer{
         position: fixed;
         bottom: 0;
@@ -58,18 +28,18 @@
       <div class="navbar-inner">
         <div class="container">
 
-          <a class="btn btn-navbar collapsed" data-toggle="collapse" data-target=".navbar-responsive-collapse">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
             <span class="icon-user icon-white"></span>
           </a>
 
-          <a class="brand" href="#">Project name</a>
+          <a class="brand" href="<?php echo site_url('formularios#'); ?>">Project name</a>
 
-          <div class="nav-collapse navbar-responsive-collapse collapse">
+          <div class="nav-collapse collapse">
             <ul class="nav">
-              <li class="divider-vertical active"><a href="#">Inicio</a></li>
-              <li class="divider-vertical"><a href="#">Hola</a></li>
-              <li class="divider-vertical"><a href="#">Hola</a></li>
+              <li class="active"><a href="#">Inicio</a></li>
+              <li><a href="#">Hola</a></li>
+              <li><a href="#">Hola</a></li>
             </ul>
 
             <form class="navbar-search pull-right">
@@ -77,7 +47,17 @@
             </form>
 
             <ul class="nav pull-right">
-              <li class="divider-vertical"><a href="#">Configuración</a></li>
+
+              <li class="dropdown">
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Configuración <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                    <li><a href="#">Ayuda</a></li>
+                    <li class="divider"></li>
+                    <li><a href="<?php echo site_url('login/cerrar'); ?>">Cerrar Sesión</a></li>
+                </ul>
+
+              </li>
+
             </ul>
           </div>
             

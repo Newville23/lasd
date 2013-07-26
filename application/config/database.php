@@ -64,6 +64,22 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
+$db['lasd']['hostname'] = 'localhost';
+$db['lasd']['username'] = 'root';
+$db['lasd']['password'] = '12345';
+$db['lasd']['database'] = 'lasd';
+$db['lasd']['dbdriver'] = 'mysql';
+$db['lasd']['dbprefix'] = '';
+$db['lasd']['pconnect'] = TRUE;
+$db['lasd']['db_debug'] = TRUE;
+$db['lasd']['cache_on'] = FALSE;
+$db['lasd']['cachedir'] = '';
+$db['lasd']['char_set'] = 'utf8';
+$db['lasd']['dbcollat'] = 'utf8_general_ci';
+$db['lasd']['swap_pre'] = '';
+$db['lasd']['autoinit'] = TRUE;
+$db['lasd']['stricton'] = FALSE;
+
 
 /* End of file database.php */
 /* Location: ./application/config/database.php */
