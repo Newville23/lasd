@@ -13,6 +13,7 @@
       body {
         background: url("//d7mj4aqfscim2.cloudfront.net/images/landscapes/duo-land_mv_5b500a4f052f4985943c1cc44a06a7ff.jpg") 
       no-repeat bottom center fixed #bdddeb;
+
       }
 
       footer{
@@ -30,7 +31,8 @@
 
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
-            <span class="icon-user icon-white"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </a>
 
           <a class="brand" href="<?php echo site_url('formularios#'); ?>">Project name</a>
@@ -46,7 +48,7 @@
               <input type="text" class="search-query" placeholder="Search">
             </form>
 
-            <ul class="nav pull-right">
+            <ul class="nav pull-right visible-desktop">
 
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#">Configuración <b class="caret"></b></a>
@@ -55,10 +57,15 @@
                     <li class="divider"></li>
                     <li><a href="<?php echo site_url('login/cerrar'); ?>">Cerrar Sesión</a></li>
                 </ul>
-
               </li>
 
             </ul>
+
+            <ul class="nav hidden-desktop pull-right">
+              <li><a href="#">Ayuda</a></li>
+              <li><a href="<?php echo site_url('login/cerrar'); ?>">Cerrar Sesión</a></li>
+            </ul>
+
           </div>
             
         </div>

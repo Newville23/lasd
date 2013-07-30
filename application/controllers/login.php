@@ -65,7 +65,7 @@ class Login extends CI_Controller
 		else
 		{
 			$this->load->view('login/header', $data);
-			//$this->load->view('login/index', $data);
+			$this->load->view('login/index', $data);
 			$this->load->view('templates/footer', $data);//
 		}
 

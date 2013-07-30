@@ -30,6 +30,18 @@ class Estudiante extends CI_Controller
 
 		$this->load->view('templates/footer', $data);
 	}
+
+	public function materia()
+	{
+		$data['title'] = 'Materias';
+		$data['lasd'] = 'Lasd';
+
+		$this->load->view('templates/header', $data);
+
+		$this->load->view('estudiante/materia'); //, $row);
+
+		$this->load->view('templates/footer', $data);
+	}
 }
 
  ?>

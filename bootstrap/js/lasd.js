@@ -78,6 +78,18 @@ $(function(){
 	}
 	/***************************************************************/
 
+	/*
+	*
+	*/
+	function activarLink(atributoGeneral, atributo, addClass){ 
+		
+		$(atributoGeneral).removeClass(addClass);
+
+		$(atributo).addClass(addClass);
+	}
+	/***************************************************************/
+	
+
 	//***************** PAGINA DE ESTUDIANTES ****************************
 
 	/*********Elementos ocultos por defecto**********/
@@ -96,12 +108,18 @@ $(function(){
 	desaparecer('.menu', '#miniatura');
 	desaparecer('.menu', '#perfil-caption');
 
-	// Cambios al hacer clic en el Menú: profesores
+	// ======= Cambios al hacer clic en el Menú: materias =======
 	aparecer('#apuntadorMaterias', '#materias');
 	
 	desaparecer('#apuntadorMaterias', '#profes');
 	desaparecer('#apuntadorMaterias', '#horario');
 
+	$('#apuntadorMaterias').on('click', function(){
+
+		activarLink('#menu div div', '#apuntadorMaterias', 'Matbar-selected');
+	});
+
+	//==============================================================
 
 	// Cambios al hacer clic en el Menú: profesores
 	desaparecer('#apuntadorProfes', '#materias');
@@ -109,11 +127,21 @@ $(function(){
 
 	aparecer('#apuntadorProfes', '#profes');
 
-	// Cambios al hacer clic en el Menú: profesores
+	$('#apuntadorProfes').on('click', function(){
+
+		activarLink('#menu div div', '#apuntadorProfes', 'Matbar-selected');
+	});
+
+	// Cambios al hacer clic en el Menú: horario
 	desaparecer('#apuntadorHorario', '#materias');
 	desaparecer('#apuntadorHorario', '#profes');
 
 	aparecer('#apuntadorHorario', '#horario');
+
+	$('#apuntadorHorario').on('click', function(){
+
+		activarLink('#menu div div', '#apuntadorHorario', 'Matbar-selected');
+	});
 
 	
 

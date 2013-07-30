@@ -11,7 +11,6 @@
     <style type="text/css">
 
       body {
-        padding-top: 40px;
         padding-bottom: 40px;
         background-color: rgb(224, 224, 224);
         background: url("//www.hostpaperz.com/wp-content/uploads/2013/06/3d-desktop-wallpaper-hd.jpg")
@@ -31,7 +30,8 @@
 
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
-            <span class="icon-user icon-white"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
           </button>
 
           <a class="brand" href="#">Project name</a>
@@ -52,8 +52,8 @@
 
             <ul class="nav pull-right">
 
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-user icon-white"></i> Entrar <b class="caret"></b></a>
+              <li class="dropdown visible-desktop">
+                <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown"><i class="icon-user icon-white"></i> Entrar </button>
                 
                 <ul class="dropdown-menu">
                     <li class="nav-header"><h4>Iniciar sesión</h4></li>
@@ -90,9 +90,9 @@
 
             </ul>
 
-            <form class="navbar-search pull-right">
+<!--             <form class="navbar-search pull-right">
               <input type="text" class="search-query" placeholder="Search">
-            </form>
+            </form> -->
 
           </div>
             
