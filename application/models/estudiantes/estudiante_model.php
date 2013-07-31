@@ -43,18 +43,55 @@ class Estudiante_model extends CI_model
 		return $row;
 	}
 
-	public function getClases()
+	// Obtiene toda la informacion relacionada con clada clase.
+	public function getClases($clase)
 	{
-		$query = $this->db->get_where('Clase', array('Usuario_id' => $_SESSION['id_usuario']));
+		for ($i=0; $i < count($clase) ; $i++) {
+
+			$query1 = $this->db->get_where('Profesor', array('identificacion' => $clase[$i]['Profesor_identificacion']));
+			$profesor = $query1->row_array();
+
+			$query2 = $this->db->get_where('Materia',  array('id' => $clase[$i]['Materia_id'] ));
+			$materia = $query2->row_array();
+
+			$clase[$i]['profesor'] = $profesor['nombre'];
+
+			$clase[$i]['materia'] = $materia['nombre'];
+		 }
 		
-		return $query->row_array();
+		return $clase;
 	}
 
-	public function getProfes()
+	// Crea un array (multiD) con los datos no repetidos de los profesores que dictan las clases
+	public function getProfes($clase)
 	{
-		$query = $this->db->get_where('Estudiante', array('Usuario_id' => $_SESSION['id_usuario']));
+		for ($i=0; $i < count($clase) ; $i++) {
+			$listaProfesores[$i] = $clase[$i]['Profesor_identificacion']; 
+		}
+
+		$listaProfesores = array_unique($listaProfesores);
+
+		for ($i=0; $i < count($listaProfesores); $i++) { 
+			$query1 = $this->db->get_where('Profesor', array('identificacion' => $listaProfesores[$i]));
+			$profesor = $query1->row_array();
+
+			$arrayDeProfesoresNoRepetidos[$i] = $profesor;
+		}
 		
-		return $query->row_array();
+		//echo "<pre>"; print_r($arrayDeProfesoresNoRepetidos); echo "</pre>";
+
+		return $arrayDeProfesoresNoRepetidos;
+	}
+
+	public function verificarClase($numeroClase, $cursoCodigo)
+	{
+		$data = array('numero' => $numeroClase,
+						'Curso_codigo' => $cursoCodigo );
+
+		$query = $this->db->get_where('Clase', $data);
+		$consulta = $query->row_array();
+
+		return $consulta;
 	}
 }
 

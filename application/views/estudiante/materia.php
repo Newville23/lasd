@@ -8,7 +8,7 @@
 				<div class="span6 well fontSize2">
 
 					<div class="row-fluid">
-						<div class="span12 Matbar" id="">
+						<div class="span12 Matbar Matbar-selected" id="">
 							<div class="notificacion">3</div>
 							<div>Materias</div>
 						</div>
@@ -34,45 +34,11 @@
 				<div class="span6 well" id="materias2">
 
 					<div class="row-fluid text-center">
-						<div class="Matbar">
-							<p>Matematicas</p>
+						<?php foreach ($clase as $value): ?>
+						<div href="#" class="Matbar <?php if ($value['numero'] == $numeroClase) echo "Matbar-selected"; ?>">
+							<p><a href="<?php echo site_url("estudiante/materia/" . $value['numero']); ?>"><?php echo $value['materia']; ?></a></p>
 						</div>
-
-						<div class="Matbar">
-							<p>Español</p>
-						</div>
-
-						<div class="Matbar">
-							<p>Ciencias Sociales</p>
-						</div>
-
-						<div class="Matbar">
-							<p>Matematicas Lorem ipsum dolor sit amet, consectetur adipisicing.</p>
-						</div>
-
-						<div class="Matbar">
-							<p>Matematicas</p>
-						</div>
-
-						<div class="Matbar">
-							<p>Matematicas</p>
-						</div>
-
-						<div class="Matbar">
-							<p>Matematicas</p>
-						</div>
-
-						<div class="Matbar">
-							<p>Lorem ipsum dolor sit amet.</p>
-						</div>
-
-						<div class="Matbar">
-							<p>Matematicas</p>
-						</div>
-
-						<div class="Matbar">
-							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae!</p>
-						</div>
+						<?php endforeach; ?>
 
 					</div>
 				</div>
