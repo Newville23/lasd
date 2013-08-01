@@ -46,7 +46,7 @@
 			</div>
 		</div>
 
-		<div class="span6">
+		<div class="span6 well-margin-botton">
 			<div class="row-fluid bloquePegadoUp">
 				<div class="">
 					<div class="media">
@@ -83,23 +83,20 @@
 								<?php echo validation_errors(); ?>
 								<?php echo form_open('', array('class' => 'form-horizontal')) ?>
 								
-								<div class="control-group">
-									<p Class="label label-info"><i class="icon-pencil icon-white"></i> Crea un nuevo foro de discución</p>				
-									<textarea name="tituloforo" id="tituloforo" required class="input-block-level text-info fontSize3 bordersize1" cols="30" rows="1" placeholder="Titulo"></textarea>
-								</div>
+									<div class="control-group">
+										<p Class="label"><i class="icon-pencil icon-white"></i> Crea un nuevo foro de discución</p>				
+										<textarea name="tituloforo" id="tituloforo" required class="textprincipal input-block-level text-info fontSize3 bordersize1" cols="30" rows="1" placeholder="Titulo"></textarea>
+									</div>
 
-								<div class="control-group">
-									<textarea name="cuerpoforo" id="cuerpoforo" class="input-block-level fontSize3 bordersize1" cols="30" rows="5" placeholder="Cuerpo"></textarea>	
-								</div>
+									<div class="control-group">
+										<textarea name="cuerpoforo" id="cuerpoforo" class="input-block-level fontSize3 bordersize1" cols="30" rows="5" placeholder="Cuerpo"></textarea>	
+									</div>
 
-								
-								<div class="btn-group" id="btn-foro">
-									<button id="enviarforo" class="btn btn-success btn-large" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
-									<button id="cancelarforo" class="btn btn-danger btn-large" type="reset"><i class="icon-remove icon-white"></i></button>
-									<!-- <input type="text" name="tituloforo" id="tituloforo" required class="input-block-level" placeholder="Titulo"> -->
-								</div>
-								
-										
+									
+									<div class="btn-group btn-foro" id="">
+										<button id="enviarforo" class="btn btn-primary btn-large" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
+										<button id="" class="btn btn-large cancelarforo" type="reset"><i class="icon-remove"></i></button>
+									</div>		
 									
 								</form>
 
@@ -143,30 +140,147 @@
 </div>
 
 <!-- Modal del foro -->
-		<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+		<div id="myModal" class="modal modal-correccion hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-header">
-				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-
-				  <div class="media">
-						<a class="pull-left" href="#">
-							<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
-						</a>
-						<div class="media-body">
-							<h3 id="myModalLabel" class="media-heading"><?php echo $value['titulo']; ?></h3>
-							<p class="well-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore nesciunt quasi obcaecati ducimus maiores hic doloremque. Doloremque reiciendis molestiae consequuntur temporibus excepturi expedita! Beatae, tempore dolores debitis dolore eaque ut.</p>
-							<p>
-								<span class="voto"><?php echo $value['puntos']; ?></span> 
-								<span class=""><i class="icon-heart"></i></span>
-								<span class="inforo"> hace 2 días por <a href="#">Juanita</a></span>
-							</p>
-						</div>
-					</div>
+				  <button type="button" class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> </button>
+				  <!-- <h5 class="muted">Foro de discución de la materia</h5> -->
 			</div>
 			<div class="modal-body">
-				<h3>Lennin Alonso Suescun Devia</h3>
+
+<!-- ***************Pregunta principal********************************* -->
+				<div class="media">
+					<a class="pull-left" href="#">
+						<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
+					</a>
+					<div class="media-body">
+						<h3 id="myModalLabel" class="media-heading"><?php echo $value['titulo']; ?></h3>
+						<p class="well-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, voluptatem nulla et perspiciatis laborum. Ad, cupiditate, exercitationem quis incidunt repudiandae laboriosam repellat dignissimos perspiciatis aperiam libero voluptatem delectus ratione harum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore nesciunt quasi obcaecati ducimus maiores hic doloremque. Doloremque reiciendis molestiae consequuntur temporibus excepturi expedita! Beatae, tempore dolores debitis dolore eaque ut.</p>
+						<p>
+							<span class="voto"><?php echo $value['puntos']; ?></span> 
+							<span class=""><i class="icon-heart"></i></span>
+							<span class="inforo"> hace 2 días por <a href="#">Juanita</a></span>
+						</p>
+					</div>
+				</div>
+<!-- ****************************************************************** -->
+
+<!-- ================== Cometar en el foro ============================= -->
+				<div class="media bloque-top">
+					<a class="pull-left" href="#">
+						<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
+					</a>
+					<div class="media-body">
+
+						<?php echo validation_errors(); ?>
+						<?php echo form_open('', array('class' => 'form-horizontal')) ?>
+							<div class="control-group">
+								<textarea name="" placeholder="Escribe un comentario." class="input-block-level bordersize1 textprincipal" wrap="hard" id="" cols="30" rows="2"></textarea>
+							</div>
+							<div class="btn-group btn-foro" id="">
+								<button id="enviarComentario" class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
+								<button id="cancelarComentario" class="btn cancelarforo" type="reset"><i class="icon-remove"></i></button>
+							</div>
+						</form>
+					</div>
+				</div>
+<!-- ====================================================================== -->
+
+
+<!-- ---------------------------Comentarios----------------------------- -->
+				<div class="media bloque-top well-white">
+					<a class="pull-left" href="#">
+						<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
+					</a>
+					<div class="media-body">
+						<h5 id="myModalLabel" class="media-heading"><a href="#">Isabella</a></h5>
+						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+						
+							<span class="voto">5</span> 
+							<span class=""><i class="icon-heart"></i></span>
+							<span class="inforo"><a href="#" class="muted"> Responder</a></span>
+							<span class="inforo"> hace 2 días </span>
+							
+							<?php echo validation_errors(); ?>
+							<?php echo form_open('', array('class' => 'form-horizontal')) ?>
+								<div class="control-group">
+									<textarea name="comentar" id="comentar" placeholder="Escribe un comentario." class="input-block-level bordersize1" wrap="hard" cols="30" rows="2"></textarea>
+								</div>
+								
+								<div class="btn-group" id="">
+									<button id="Subcomentar" class="btn btn-primary btn-small" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
+									<button id="cancelarSubComentario" class="btn btn-small" type="reset"><i class="icon-remove"></i></button>
+								</div>
+							</form>
+						</p>
+					</div>
+				</div>
+
+				<div class="media bloque-top well-white">
+					<a class="pull-left" href="#">
+						<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
+					</a>
+					<div class="media-body">
+						<h5 id="myModalLabel" class="media-heading"><a href="#">Isabella</a></h5>
+						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+						
+							<span class="voto">5</span> 
+							<span class=""><i class="icon-heart"></i></span>
+							<span class="inforo"><a href="#" class="muted"> Responder</a></span>
+							<span class="inforo"> hace 2 días </span>
+						</p>
+
+						<div class="media bloque-top well-white">
+							<a class="pull-left" href="#">
+								<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 40px; height: 40px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
+							</a>
+							<div class="media-body">
+								<strong id="myModalLabel" class="media-heading"><a href="#">Isabella</a></strong>
+								Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+								<p
+									<span class="voto">5</span> 
+									<span class=""><i class="icon-heart"></i></span>
+									<span class="inforo"> hace 2 días </span>
+								</p>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<div class="media bloque-top well-white">
+					<a class="pull-left" href="#">
+						<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
+					</a>
+					<div class="media-body">
+						<h5 id="myModalLabel" class="media-heading"><a href="#">Isabella</a></h5>
+						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+						
+							<span class="voto">5</span> 
+							<span class=""><i class="icon-heart"></i></span>
+							<span class="inforo"> hace 2 días </span>
+						</p>
+					</div>
+				</div>
+
+				<div class="media bloque-top well-white">
+					<a class="pull-left" href="#">
+						<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
+					</a>
+					<div class="media-body">
+						<h5 id="myModalLabel" class="media-heading"><a href="#">Isabella</a></h5>
+						<p class="well-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
+						
+							<span class="voto">5</span> 
+							<span class=""><i class="icon-heart"></i></span>
+							<span class="inforo"> hace 2 días </span>
+						</p>
+					</div>
+				</div>
+
+				<!-- <h3>Lennin Alonso Suescun Devia</h3>
 				<p class="muted">
 					Info completa, resumen de cosas, en editar saldrá un formulario en model con cambio de imagen algunos datos etc,
-				</p>
+				</p> -->
 				
 			</div>
 			<div class="modal-footer">
