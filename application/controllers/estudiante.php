@@ -10,6 +10,8 @@ class Estudiante extends CI_Controller
 		$this->load->library('sesion');
 		$this->sesion->acceso('estudiante');
 		$this->load->model('estudiantes/estudiante_model');
+		$this->load->library('form_validation');
+		$this->load->helper('form');
 	}
 
 	public function index()
@@ -21,10 +23,10 @@ class Estudiante extends CI_Controller
 		$row = $this->estudiante_model->getEstudiante();
 
 		$row['clase'] = $this->estudiante_model->getClases($row['clase']);
+		//echo "<pre>"; print_r($row); echo "</pre>";
+
 
 		$row['profesores'] = $this->estudiante_model->getProfes($row['clase']);
-
-		// echo "<pre>"; print_r($row); echo "</pre>";
 
 		$this->load->view('templates/header', $data);
 
@@ -49,6 +51,12 @@ class Estudiante extends CI_Controller
 
 		$row['clase'] = $this->estudiante_model->getClases($row['clase']);
 
+		$row['ProfesorFromClase'] = $this->estudiante_model->getProfesorFromClase($row['curso']['codigo'], $numeroClase);
+
+		$row['foros'] = $this->estudiante_model->getForoFromClase($row['ProfesorFromClase']['Materia_id'], $numeroClase);
+
+		//echo "<pre>"; print_r($row); echo "</pre>";
+
 		// verifica que la clase escrita en la URI sea valida si no, redirecciona a error 404
 		$verificacionDeClase = $this->estudiante_model->verificarClase($numeroClase, $row['curso']['codigo']);
 		if (!$verificacionDeClase) {
@@ -56,11 +64,27 @@ class Estudiante extends CI_Controller
 			exit;
 		}
 
-		$this->load->view('templates/header', $data);
+		$this->form_validation->set_rules('tituloforo', 'Titulo del foro', 'trim|required|xss_clean|htmlspecialchars');
+		$this->form_validation->set_rules('cuerpoforo', 'Cuerpo del foro', 'trim|xss_clean|htmlspecialchars');
 
-		$this->load->view('estudiante/materia', $row, $data);
 
-		$this->load->view('templates/footer', $data);
+		if ($this->form_validation->run() === FALSE) {
+			
+			$this->load->view('templates/header', $data);
+
+			$this->load->view('estudiante/materia', $row, $data);
+
+			$this->load->view('templates/footer', $data);
+		}
+		else
+		{
+
+			$this->estudiante_model->setForo($numeroClase, $row['ProfesorFromClase']['Materia_id']);
+
+			redirect('estudiante/materia/' . $numeroClase);
+		}
+
+
 	}
 }
 // cuando se digite un numero incorrecto redireccione

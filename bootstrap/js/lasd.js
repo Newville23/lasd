@@ -143,6 +143,23 @@ $(function(){
 		activarLink('#menu div div', '#apuntadorHorario', 'Matbar-selected');
 	});
 
-	
+	//***************** PAGINA DE ESTUDIANTES/MATERIAS ****************************
+	$('#btn-foro').fadeOut(0);
+	$('#cuerpoforo').fadeOut(0);
+
+	// cambios al 
+	$('#tituloforo').on('focus', function(){
+
+		$('#btn-foro, #cuerpoforo').fadeIn(500);
+		$( "#tituloforo" ).attr( "rows", "2" ).addClass("fontSize3");
+	});
+
+	$('#cancelarforo').on('click', function(){
+
+		$('#btn-foro, #cuerpoforo').fadeOut(500);
+		$( "#tituloforo" ).attr( "rows", "1" );
+	});
+
+
 
 });

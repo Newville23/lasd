@@ -50,11 +50,11 @@
 				<div class="span6 well" id="materias">
 					<div class="row-fluid">
 						<?php foreach ($clase as $value): ?>
-						<div class="Matbar2">
+						<a class="Matbar2" href="<?php echo site_url('estudiante/materia/' . $value['numero']); ?>">
 							<p><strong><?php echo $value['materia']; ?></strong><br>
 								  <small><?php echo $value['profesor']; ?></small>
 							</p>
-						</div>
+						</a>
 						<?php endforeach; ?>
 					</div>
 				</div>

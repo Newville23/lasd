@@ -70,12 +70,13 @@ class Estudiante_model extends CI_model
 		}
 
 		$listaProfesores = array_unique($listaProfesores);
+		
+		foreach ($listaProfesores as $key => $value) {
 
-		for ($i=0; $i < count($listaProfesores); $i++) { 
-			$query1 = $this->db->get_where('Profesor', array('identificacion' => $listaProfesores[$i]));
+			$query1 = $this->db->get_where('Profesor', array('identificacion' => $value));
 			$profesor = $query1->row_array();
 
-			$arrayDeProfesoresNoRepetidos[$i] = $profesor;
+			$arrayDeProfesoresNoRepetidos[$key] = $profesor;
 		}
 		
 		//echo "<pre>"; print_r($arrayDeProfesoresNoRepetidos); echo "</pre>";
@@ -93,6 +94,87 @@ class Estudiante_model extends CI_model
 
 		return $consulta;
 	}
+
+	public function getProfesorFromClase($codigoCurso, $numeroClase)
+	{
+		$data = array('numero' => $numeroClase, 
+					'Curso_codigo' => $codigoCurso);
+
+		$this->db->select('numero, Materia_id, nombre, profesion');
+		$this->db->from('Clase');
+		$this->db->join('Profesor', 'Profesor.identificacion = Clase.Profesor_identificacion');
+		$this->db->where($data);
+
+		$query = $this->db->get();
+		$row = $query->row_array();
+
+		//echo "<pre>"; print_r($row); echo "</pre>";
+		return $row;
+	}
+
+	public function getForoFromClase($Materia_id, $Clase_numero)
+	{
+		$data = array('Clase_numero' => $Clase_numero, 
+					'Materia_id' => $Materia_id);
+
+		//$this->db->join('Profesor', 'Profesor.Usuario_id = Foro.Usuario_id');
+
+		$query1 = $this->db->get_where('Foro', $data);
+		$row1 = $query1->result_array();
+
+
+		// $this->db->join('Estudiante', 'Estudiante.Usuario_id = Foro.Usuario_id');
+
+		// $query2 = $this->db->get_where('Foro', $data);
+		// $row2 = $query2->result_array();
+
+		// echo "<pre>"; print_r($row1); echo "</pre>";
+		// echo "<pre>"; print_r($row2); echo "</pre>";
+
+		// echo "<pre>"; echo count($row1); echo "</pre>";
+		// echo "<pre>"; echo count($row2); echo "</pre>";
+		return $row1;
+	}
+
+	/**
+	S E T T E R S
+	*/
+
+	public function setForo($Clase_numero, $Materia_id)
+	{
+		$data = array('Usuario_id' => $_SESSION['id_usuario'],
+						'id_time' => microtime(),
+						'titulo' => $this->input->post('tituloforo'),
+						'cuerpo' => $this->input->post('cuerpoforo'),
+						'Clase_numero' => $Clase_numero,
+						'Materia_id' => $Materia_id);
+
+		$this->db->insert('Foro', $data);
+	}
+	public function votarForo()
+	{
+
+	}
+
+	public function setComentar()
+	{
+
+	}
+	public function votarComentario()
+	{
+
+	}
+
+	public function setSubComentar()
+	{
+
+	}
+	public function votarSubComentario()
+	{
+
+	}
+
+
 }
 
 ?>
