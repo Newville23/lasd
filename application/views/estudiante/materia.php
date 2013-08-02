@@ -139,7 +139,8 @@
 	</div>
 </div>
 
-<!-- Modal del foro -->
+
+<!-- --------------------------------------  Modal del foro  --------------------------------------------------- -->
 		<div id="myModal" class="modal modal-correccion hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-header">
 				  <button type="button" class="btn" data-dismiss="modal" aria-hidden="true"><i class="icon-remove"></i> </button>

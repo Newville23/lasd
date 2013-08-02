@@ -35,7 +35,7 @@ class Login extends CI_Controller
                 $data['error'] = 'Datos incorrectos';
                 
                 $this->load->view('login/header', $data);
-				//$this->load->view('login/index', $data);
+				$this->load->view('login/index', $data);
 				$this->load->view('templates/footer', $data);
 				
             }
@@ -44,7 +44,7 @@ class Login extends CI_Controller
                 $data['error'] = 'Usuario deshabilitado';
 
                 $this->load->view('login/header', $data);
-				//$this->load->view('login/index', $data);
+				$this->load->view('login/index', $data);
 				$this->load->view('templates/footer', $data);
 				
             }

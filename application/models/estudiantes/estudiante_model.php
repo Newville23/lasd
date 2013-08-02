@@ -112,13 +112,14 @@ class Estudiante_model extends CI_model
 		return $row;
 	}
 
+	// Entrega los foros de una clase en particular
 	public function getForoFromClase($Materia_id, $Clase_numero)
 	{
 		$data = array('Clase_numero' => $Clase_numero, 
 					'Materia_id' => $Materia_id);
 
 		//$this->db->join('Profesor', 'Profesor.Usuario_id = Foro.Usuario_id');
-
+		$this->db->order_by('fecha_creacion', 'desc');
 		$query1 = $this->db->get_where('Foro', $data);
 		$row1 = $query1->result_array();
 
