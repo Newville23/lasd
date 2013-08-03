@@ -112,7 +112,7 @@
 									    		<h5 class="media-heading text-info"><a href="#myModal" title="first tooltip" data-toggle="modal"><?php echo $value['titulo']; ?></a></h5>
 									    		<p>
 									    			<span class="voto"><?php echo $value['puntos']; ?></span> 
-									    			<span class=""><i class="icon-heart"></i></span>
+									    			<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 									    			<span class="inforo"> hace 2 días por <a href="#">Juanita</a></span>
 									    		</p>
 									  		</div>
@@ -158,7 +158,7 @@
 						<p class="well-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Odio, voluptatem nulla et perspiciatis laborum. Ad, cupiditate, exercitationem quis incidunt repudiandae laboriosam repellat dignissimos perspiciatis aperiam libero voluptatem delectus ratione harum? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore nesciunt quasi obcaecati ducimus maiores hic doloremque. Doloremque reiciendis molestiae consequuntur temporibus excepturi expedita! Beatae, tempore dolores debitis dolore eaque ut.</p>
 						<p>
 							<span class="voto"><?php echo $value['puntos']; ?></span> 
-							<span class=""><i class="icon-heart"></i></span>
+							<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 							<span class="inforo"> hace 2 días por <a href="#">Juanita</a></span>
 						</p>
 					</div>
@@ -197,7 +197,7 @@
 						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
 						
 							<span class="voto">5</span> 
-							<span class=""><i class="icon-heart"></i></span>
+							<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 							<span class="inforo"><a href="#" class="muted"> Responder</a></span>
 							<span class="inforo"> hace 2 días </span>
 							
@@ -225,7 +225,7 @@
 						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
 						
 							<span class="voto">5</span> 
-							<span class=""><i class="icon-heart"></i></span>
+							<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 							<span class="inforo"><a href="#" class="muted"> Responder</a></span>
 							<span class="inforo"> hace 2 días </span>
 						</p>
@@ -239,7 +239,7 @@
 								Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
 								<p
 									<span class="voto">5</span> 
-									<span class=""><i class="icon-heart"></i></span>
+									<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 									<span class="inforo"> hace 2 días </span>
 								</p>
 							</div>
@@ -257,7 +257,7 @@
 						<p class="">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
 						
 							<span class="voto">5</span> 
-							<span class=""><i class="icon-heart"></i></span>
+							<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 							<span class="inforo"> hace 2 días </span>
 						</p>
 					</div>
@@ -272,7 +272,7 @@
 						<p class="well-white">Lorem ipsum dolor sit amet, consectetur adipisicing elit. <br>
 						
 							<span class="voto">5</span> 
-							<span class=""><i class="icon-heart"></i></span>
+							<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 							<span class="inforo"> hace 2 días </span>
 						</p>
 					</div>

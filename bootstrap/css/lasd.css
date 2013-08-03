@@ -33,11 +33,12 @@ a.Matbar2:hover{
   margin-right: 4%;
   padding-top: 4%;
   padding-bottom: 4%;
+
  text-align: center;
   color: #fff;
 /*  font-size: 1.5em;*/
-  width: 45%%;
-  border-radius: 2px;
+  width: 45%;
+  border-radius: 4px;
   transition:All 0.2s;
   -webkit-transition:All 0.2s;
 }
@@ -181,4 +182,8 @@ a.Matbar2:hover{
   top: 5%;
   width: 720px;
   left: 45%;
+}
+
+.oculto{
+  visibility: hidden;
 }

@@ -163,5 +163,62 @@ $(function(){
 	});
 
 
+//============================================================================
+//============================ AJAX ==========================================
+//============================================================================
+
+	//login
+	var peticion = $('.main form').attr('action');
+
+	$('.main form').on('submit',function(e){
+
+		e.preventDefault();
+
+		$.ajax({
+
+			beforeSend: function(){
+				// se ejuecuta antes de realizar la peticion
+				$('.main form .btn').html('<i class="icon-spinner icon-spin icon-large icon-muted"></i>');
+				
+			},
+
+			url: peticion,
+			type: "POST",
+			data: $('.main form').serialize(),
+
+			success: function(resp){
+
+				var obj = jQuery.parseJSON(resp);
+
+				console.log(obj["msj"])
+
+				if (obj["estado"] == 1) {
+					self.location = obj["msj"];
+				}
+				else if (obj["estado"] == 0){
+					
+					// $('#errorvalidation .alert').html(obj["msj"]);
+					// $('#errorvalidation').removeClass('oculto');
+
+					$('#errorvalidation2 .alert').html(obj["msj"]);
+					$('#errorvalidation2').removeClass('oculto');
+				}
+			},
+
+			error: function(jqXHR,estado,error){
+				
+				console.log(estado)
+				console.log(error)
+			},
+			complete: function(jqXHR, estado){
+				console.log(estado)
+				$('.main form .btn').html('Enviar');
+			},
+
+			timeout: 10000,
+
+		});
+
+	});
 
 });

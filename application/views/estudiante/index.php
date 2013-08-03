@@ -26,23 +26,23 @@
 					<div class="row-fluid">
 						<div class="span12 Matbar menu" id="apuntadorMaterias">
 							<div class="notificacion">3</div>
-							<div>Materias</div>
+							<div><i class="icon-book icon-large"></i> Materias</div>
 						</div>
 					</div>
 
 					<div class="row-fluid">
-						<div class="span12 Matbar menu" id="apuntadorProfes">Profesores</div>
+						<div class="span12 Matbar menu" id="apuntadorProfes"><i class="icon-group"></i> Profesores</div>
 					</div>
 
 					<div class="row-fluid">
 						<div class="span12 Matbar menu" id="apuntadorMensaje">
 							<div class="notificacion">3</div>
-							Mensajes
+							<div><i class="icon-envelope-alt icon-large"></i> Mensajes</div>
 						</div>
 					</div>
 
 					<div class="row-fluid">
-						<div class="span12 Matbar menu" id="apuntadorHorario">Horario</div>
+						<div class="span12 Matbar menu" id="apuntadorHorario"><i class="icon-th icon-large"></i> Horario</div>
 					</div>
 
 				</div>
@@ -60,7 +60,7 @@
 				</div>
 
 				<div class="span6 well" id="profes">
-					<ul>
+					<ul class="unstyled">
 						<li>
 							<?php foreach ($profesores as $value): ?>
 							<div class="media well well-white">

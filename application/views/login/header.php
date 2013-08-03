@@ -7,6 +7,7 @@
 			
 		<link rel="stylesheet" type="text/css" href="<?php  echo base_url("bootstrap/css/bootstrap.css"); ?>">
 		<link href="<?php  echo base_url("bootstrap/css/bootstrap-responsive.css"); ?>" rel="stylesheet">
+    <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
 		<link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
     <style type="text/css">
 
@@ -63,25 +64,25 @@
                         <div class="row">
                           <div class="span3">
 
-                              <?php if (isset($error)): ?>
-                              <div class="alert alert-error">
-                                <button type="button" class="close" data-dismiss="alert">&times;</button>
-                                <?php echo $error; ?>
-                              </div>
-                            <?php endif; ?>
-
-                            <?php echo validation_errors(); ?>
-
-                            <?php echo form_open('') ?>
-
-                                <div class="control-group">
-                                    <input type="text" id="usuario" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" />
-
-                                    <input type="password" id="pass" placeholder="Password" name="pass" >
+                              <div id="errorvalidation2" class="oculto">
+                                <div class="alert alert-error">
+                                  <button type="button" class="close" data-dismiss="alert">&times;</button>   
                                 </div>
-                             
-                                    <input class="btn btn-primary" type="submit" value="Enviar" >
-                            </form>
+                             </div>
+
+                              <div class="main">
+                                <?php echo form_open('login/loginajax') ?>
+
+                                  <div class="control-group">
+                                      <input type="text" id="usuario" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" />
+
+                                      <input type="password" id="pass" placeholder="Password" name="pass" >
+                                  </div>
+                               
+                                      <button class="btn btn-primary" type="submit" >Enviar </button>
+                                </form>
+                              </div>
+
                           </div>
                         </div>
                     </li>
