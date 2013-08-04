@@ -52,11 +52,11 @@
             <ul class="nav pull-right visible-desktop">
 
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#">Configuración <b class="caret"></b></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog icon-large"> Configuración</i> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#">Ayuda</a></li>
+                    <li><a href="#"><i class="icon-wrench"></i> Ayuda</a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo site_url('login/cerrar'); ?>">Cerrar Sesión</a></li>
+                    <li><a href="<?php echo site_url('login/cerrar'); ?>"><i class="icon-off"></i> Cerrar Sesión</a></li>
                 </ul>
               </li>
 

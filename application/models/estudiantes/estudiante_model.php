@@ -112,7 +112,7 @@ class Estudiante_model extends CI_model
 		return $row;
 	}
 
-	// Entrega los foros de una clase en particular
+	// Entrega de la tabla Foro, los foros de una clase en particular
 	public function getForoFromClase($Materia_id, $Clase_numero)
 	{
 		$data = array('Clase_numero' => $Clase_numero, 
@@ -137,14 +137,54 @@ class Estudiante_model extends CI_model
 		return $row1;
 	}
 
+	function getForo($Materia_id, $Clase_numero, $id_time)
+	{
+		$data = array('id_time' => $id_time,
+						'Clase_numero' => $Clase_numero,
+						'Materia_id' => $Materia_id);
+
+		$query = $this->db->get_where('Foro', $data);
+		$row = $query->row_array();
+		return $row;
+
+	}
+
+	function getComentario($Foro_id_time, $Clase_numero, $Materia_id)
+	{
+		$data = array('Foro_id_time' => $Foro_id_time,
+						'Clase_numero' => $Clase_numero,
+						'Materia_id' => $Materia_id);
+
+		$this->db->order_by('fecha_creacion', 'desc');
+		$query = $this->db->get_where('Comentario', $data);
+		$row = $query->result_array();
+		return $row;
+	}
+
+	function getSubComentario($Foro_id_time, $Clase_numero, $Materia_id, $Comentario_id_time)
+	{
+		$data = array('Foro_id_time' => $Foro_id_time,
+						'Clase_numero' => $Clase_numero,
+						'Materia_id' => $Materia_id,
+						'Comentario_id_time' => $Comentario_id_time);
+
+		$this->db->order_by('fecha_creacion', 'desc');
+		$query = $this->db->get_where('SubComentario', $data);
+		$row = $query->result_array();
+
+		return $row;
+	}
+
 	/**
 	S E T T E R S
 	*/
 
 	public function setForo($Clase_numero, $Materia_id)
 	{
+		$filtro = array(" ", ".");
+
 		$data = array('Usuario_id' => $_SESSION['id_usuario'],
-						'id_time' => microtime(),
+						'id_time' => str_replace($filtro, '', microtime()),
 						'titulo' => $this->input->post('tituloforo'),
 						'cuerpo' => $this->input->post('cuerpoforo'),
 						'Clase_numero' => $Clase_numero,

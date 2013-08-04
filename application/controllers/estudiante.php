@@ -49,20 +49,22 @@ class Estudiante extends CI_Controller
 		// leer tabla estudiantes con la id
 		$row = $this->estudiante_model->getEstudiante();
 
-		$row['clase'] = $this->estudiante_model->getClases($row['clase']);
-
-		$row['ProfesorFromClase'] = $this->estudiante_model->getProfesorFromClase($row['curso']['codigo'], $numeroClase);
-
-		$row['foros'] = $this->estudiante_model->getForoFromClase($row['ProfesorFromClase']['Materia_id'], $numeroClase);
-
-		//echo "<pre>"; print_r($row); echo "</pre>";
-
 		// verifica que la clase escrita en la URI sea valida si no, redirecciona a error 404
 		$verificacionDeClase = $this->estudiante_model->verificarClase($numeroClase, $row['curso']['codigo']);
 		if (!$verificacionDeClase) {
 			show_404();
 			exit;
 		}
+
+		$row['clase'] = $this->estudiante_model->getClases($row['clase']);
+
+		$row['ProfesorFromClase'] = $this->estudiante_model->getProfesorFromClase($row['curso']['codigo'], $numeroClase);
+
+		$row['foros'] = $this->estudiante_model->getForoFromClase($row['ProfesorFromClase']['Materia_id'], $numeroClase);
+
+		// echo "<pre>"; print_r($row); echo "</pre>";
+
+
 
 		$this->form_validation->set_rules('tituloforo', 'Titulo del foro', 'trim|required|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('cuerpoforo', 'Cuerpo del foro', 'trim|xss_clean|htmlspecialchars');
@@ -86,6 +88,24 @@ class Estudiante extends CI_Controller
 
 
 	}
+
+	function foro($Materia_id = FALSE, $Clase_numero = FALSE, $id_time = FALSE){
+
+		if ($this->input->is_ajax_request()) {
+
+			$arrayForo = $this->estudiante_model->getForo($Materia_id, $Clase_numero, $id_time);
+
+			$this->load->view('estudiante/foro', $arrayForo);
+
+
+			//echo "<pre>"; print_r($arrayForo); echo "</pre>";
+
+		}
+		else{
+			redirect('estudiante/materia/' . $Clase_numero);
+			exit();
+		}
+	}
 }
-// cuando se digite un numero incorrecto redireccione
- ?>
+
+?>
