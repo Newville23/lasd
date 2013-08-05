@@ -105,9 +105,6 @@ class Estudiante extends CI_Controller
 
 			$this->load->view('estudiante/foro', $arrayForo);
 
-
-			//echo "<pre>"; print_r($arrayForo); echo "</pre>";
-
 		}
 		else{
 			redirect('estudiante/materia/' . $Clase_numero);

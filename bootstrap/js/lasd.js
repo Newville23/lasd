@@ -2,8 +2,6 @@
 ** Al hacer clic sobre la entidades estas desapareco o aparece.
 */
 
-
-
 $(function(){
 
 	/*

@@ -187,3 +187,6 @@ a.Matbar2:hover{
 .oculto{
   visibility: hidden;
 }
+.desaparecer{
+  display: none;
+}
