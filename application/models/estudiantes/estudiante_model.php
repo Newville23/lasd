@@ -139,6 +139,7 @@ class Estudiante_model extends CI_model
 
 	function getForo($Materia_id, $Clase_numero, $id_time)
 	{
+
 		$data = array('id_time' => $id_time,
 						'Clase_numero' => $Clase_numero,
 						'Materia_id' => $Materia_id);

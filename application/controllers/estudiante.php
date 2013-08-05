@@ -95,6 +95,14 @@ class Estudiante extends CI_Controller
 
 			$arrayForo = $this->estudiante_model->getForo($Materia_id, $Clase_numero, $id_time);
 
+			$arrayForo['Comentario'] = $this->estudiante_model->getComentario($id_time, $Clase_numero, $Materia_id);
+
+			foreach ($arrayForo['Comentario'] as $key => $value) {
+
+				$arrayForo['Comentario'][$key]['SubComentario'] = 
+					$this->estudiante_model->getSubComentario($id_time, $Clase_numero, $Materia_id, $value['id_time']);
+			}
+
 			$this->load->view('estudiante/foro', $arrayForo);
 
 
