@@ -156,7 +156,7 @@ class Estudiante_model extends CI_model
 						'Clase_numero' => $Clase_numero,
 						'Materia_id' => $Materia_id);
 
-		$this->db->order_by('fecha_creacion', 'desc');
+		$this->db->order_by('fecha_creacion', 'asc');
 		$query = $this->db->get_where('Comentario', $data);
 		$row = $query->result_array();
 		return $row;
@@ -169,7 +169,7 @@ class Estudiante_model extends CI_model
 						'Materia_id' => $Materia_id,
 						'Comentario_id_time' => $Comentario_id_time);
 
-		$this->db->order_by('fecha_creacion', 'desc');
+		$this->db->order_by('fecha_creacion', 'asc');
 		$query = $this->db->get_where('SubComentario', $data);
 		$row = $query->result_array();
 
@@ -198,9 +198,18 @@ class Estudiante_model extends CI_model
 
 	}
 
-	public function setComentar()
+	public function setComentar($Materia_id, $Clase_numero, $Foro_id_time) 
 	{
+		$filtro = array(" ", ".");
 
+		$data = array('id_time' => str_replace($filtro, '', microtime()),
+						'cuerpo' => $this->input->post('lenninSuescun'),
+						'Usuario_id' => $_SESSION['id_usuario'],
+						'Foro_id_time' => $Foro_id_time,
+						'Clase_numero' => $Clase_numero,
+						'Materia_id' => $Materia_id);
+
+		$this->db->insert('Comentario', $data);
 	}
 	public function votarComentario()
 	{

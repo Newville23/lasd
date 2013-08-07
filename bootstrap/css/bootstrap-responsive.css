@@ -885,8 +885,8 @@
     position: fixed;
     top: 20px;
     right: 20px;
-    left: 20px;
-    width: auto;
+    left: 20px !important;
+    width: auto !important;
     margin: 0;
   }
   .modal.fade {

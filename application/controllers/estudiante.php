@@ -104,6 +104,29 @@ class Estudiante extends CI_Controller
 			}
 
 			$this->load->view('estudiante/foro', $arrayForo);
+			//echo "<pre>"; print_r($arrayForo); echo "</pre>";
+
+		}
+		else{
+			redirect('estudiante/materia/' . $Clase_numero);
+			exit();
+		}
+	}
+
+	function foroAjax($Materia_id = FALSE, $Clase_numero = FALSE, $id_time = FALSE)
+	{
+		if ($this->input->is_ajax_request()) {
+			
+			$this->form_validation->set_rules('lenninSuescun', 'Comentario', 'required|trim|xss_clean|htmlspecialchars');
+
+			if ($this->form_validation->run()) {
+				
+				$this->estudiante_model->setComentar($Materia_id, $Clase_numero, $id_time);
+			}
+			else{
+				echo validation_errors();
+			}
+			
 
 		}
 		else{
