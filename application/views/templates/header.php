@@ -52,7 +52,7 @@
             <ul class="nav pull-right visible-desktop">
 
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog icon-large"> Configuración</i> <b class="caret"></b></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog icon-large"> </i> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
                     <li><a href="#"><i class="icon-wrench"></i> Ayuda</a></li>
                     <li class="divider"></li>

@@ -121,10 +121,13 @@ class Estudiante extends CI_Controller
 
 			if ($this->form_validation->run()) {
 				
-				$this->estudiante_model->setComentar($Materia_id, $Clase_numero, $id_time);
+				$data = $this->estudiante_model->setComentar($Materia_id, $Clase_numero, $id_time);
+
+				$this->load->view('estudiante/comentario', $data);
+				
 			}
 			else{
-				echo validation_errors();
+				echo "textAreaVacio";
 			}
 			
 

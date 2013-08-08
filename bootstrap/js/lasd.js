@@ -165,7 +165,21 @@ $(function(){
 //============================ AJAX ==========================================
 //============================================================================
 
-	//login
+
+//========== F O R O==================================================================
+
+	$('.foroTitulo a').on('click', function() {
+			var id_enlace_foro = $(this).attr('id');
+			var enlace_foro = $(this).attr('href');
+			
+			$('#cuerpoModalDelForo').load(enlace_foro);
+
+
+	});
+
+
+//======== L O G I N ====================================================================
+
 	var peticion = $('.main form').attr('action');
 
 	$('.main form').on('submit',function(e){

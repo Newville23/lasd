@@ -28,7 +28,7 @@
 					<a class="pull-left" href="#">
 						<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
 					</a>
-					<div class="media-body">
+					<div class="media-body clase-comentario-foro">
 
 						<?php echo form_open('estudiante/foroAjax/' . $Materia_id . '/' . $Clase_numero . '/' . $id_time, 
 						array('class' => 'form-horizontal', 'id' => $id_FormForo)) ?>
@@ -98,21 +98,8 @@
 				<?php endforeach; ?>
 			</div>
 			
-			<div class="conejillo">
-				<div class="media bloque-top well-white desaparecer">
-					<a class="pull-left" href="#">
-						<img class="media-object" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
-					</a>
-					<div class="media-body">
-						<h5 id="myModalLabel" class="media-heading"><a href="#">Isabellita</a></h5>
-						<p class="cuerpo">cuerpo <br>
-						
-						<span class="voto">0</span> 
-						<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
-						<span class="inforo"><a href="#" id="6788" class="muted"> Responder</a></span>
-						<span class="inforo"> ahora </span>
-					</div>
-				</div>
+			<div id="conejillo">
+				
 			</div>
 					
 	
@@ -145,13 +132,19 @@
 //============================ AJAX ==========================================
 //============================================================================
 
-	$('form').on('submit',function(e){
+	$('.clase-comentario-foro form').on('submit',function(e){
 
 		e.preventDefault();
 
+		// id del formulario capturado
 		var id = '#' + $(this).attr('id');
 
+		// URL del formulario
 		var peticion = $(this).attr('action');
+
+		// Crea div con Id aleatorio.
+		var ran2=Math.floor(Math.random()*1000000);
+		$('#conejillo').after("<div id='" + ran2.toString() + "'></div>");
 
 		$.ajax({
 
@@ -163,23 +156,22 @@
 			data: $(id).serialize(),
 
 			success: function(resp){
-				console.log(resp)
-
-				// var id_aleatoria = Math.floor(Math.random()*1000000);
-				// console.log(id_aleatoria);
-				// var comentario = $(id + ' textarea').val();
 				
-				// $(id + ' textarea').val(' ');
+				
+				var ran=Math.floor(Math.random()*1000000);
 
-				// var copiaConejillo = $('.conejillo ').html();
-				// //console.log(copiaConejillo)
-				// $(copiaConejillo).insertAfter('.conejillo').addClass(id_aleatoria.toString());
+				if (resp !== 'textAreaVacio') {
 
-				// var clase_aleatoria = '.' + id_aleatoria.toString();
+					// Sobre el Div con id aleatorio se cre atro div aleatorio en el que se insertará el
+					// comentario recién agregado
+					$('#' + ran2.toString()).after("<div id='" + ran.toString() + "'></div>");
 
-				// $(clase_aleatoria).removeClass('desaparecer');
-				// $(clase_aleatoria + ' .media-body .cuerpo').text(comentario);
+					$('#' + ran.toString()).html(resp);
 
+					ran2 = ran;
+
+					$('.clase-comentario-foro form textarea').val(' '); // Limpia el text-Area
+				};
 			},
 
 			error: function(jqXHR,estado,error){

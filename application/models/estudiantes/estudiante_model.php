@@ -210,6 +210,8 @@ class Estudiante_model extends CI_model
 						'Materia_id' => $Materia_id);
 
 		$this->db->insert('Comentario', $data);
+
+		return $data;
 	}
 	public function votarComentario()
 	{
