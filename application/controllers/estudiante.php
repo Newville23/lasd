@@ -64,8 +64,6 @@ class Estudiante extends CI_Controller
 
 		// echo "<pre>"; print_r($row); echo "</pre>";
 
-
-
 		$this->form_validation->set_rules('tituloforo', 'Titulo del foro', 'trim|required|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('cuerpoforo', 'Cuerpo del foro', 'trim|xss_clean|htmlspecialchars');
 
@@ -117,7 +115,7 @@ class Estudiante extends CI_Controller
 	{
 		if ($this->input->is_ajax_request()) {
 			
-			$this->form_validation->set_rules('lenninSuescun', 'Comentario', 'required|trim|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('comentarForo', 'Comentario', 'required|trim|xss_clean|htmlspecialchars');
 
 			if ($this->form_validation->run()) {
 				
@@ -137,6 +135,32 @@ class Estudiante extends CI_Controller
 			exit();
 		}
 	}
+
+	function comentarioAjax($Materia_id = FALSE, $Clase_numero = FALSE, $Foro_id_time = FALSE, $Comentario_id_time = FALSE)
+	{
+		if ($this->input->is_ajax_request()) {
+			
+			$this->form_validation->set_rules('comentarComentario', 'SubComentario', 'required|trim|xss_clean|htmlspecialchars');
+
+			if ($this->form_validation->run()) {
+				
+				$data = $this->estudiante_model->setSubComentar($Materia_id, $Clase_numero, $Foro_id_time, $Comentario_id_time);
+
+				$this->load->view('estudiante/subcomentario', $data);
+				
+			}
+			else{
+				echo "textAreaVacio";
+			}
+			
+
+		}
+		else{
+			redirect('estudiante/materia/' . $Clase_numero);
+			exit();
+		}
+	}
+
 }
 
 ?>

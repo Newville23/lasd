@@ -34,7 +34,7 @@
 						array('class' => 'form-horizontal', 'id' => $id_FormForo)) ?>
 
 							<div class="control-group">
-								<textarea name="lenninSuescun" id="<?php echo $cometarForo; ?>" placeholder="Escribe un comentario." class="input-block-level bordersize1 comentarForo" wrap="hard" cols="30" rows="2"></textarea>
+								<textarea name="comentarForo" id="<?php echo $cometarForo; ?>" placeholder="Escribe un comentario." class="input-block-level bordersize1 comentarForo" wrap="hard" cols="30" rows="2"></textarea>
 							</div>
 							<div class="btn-group desaparecer" id="<?php echo $botonesComentario; ?>">
 								<button id="" class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
@@ -46,7 +46,7 @@
 				
 <!-- ====================================================================== -->
 
-<!-- ---------------------------Comentarios----------------------------- -->
+<!-- ---------------------------Comentarios---------------------------- -->
 			<div class="bloqueComentarios">
 				<?php foreach ($Comentario as $key => $value):  ?>
 				<?php 
@@ -66,15 +66,18 @@
 							<span class="inforo"><a href="#" id="<?php echo $id_responder[$key]; ?>" class="muted"> Responder</a></span>
 							<span class="inforo"> <?php echo $value['fecha_creacion']; ?> </span>
 							
-							<?php echo form_open('', array('class' => 'form-horizontal desaparecer', 'id' => $id_FormSubComentario[$key])) ?>
-								<div class="control-group">
-									<textarea name="comentar" id="comentar" placeholder="Escribe un comentario." class="input-block-level bordersize1" wrap="hard" cols="30" rows="2"></textarea>
-								</div>
-								
-								<div class="btn-group" id="">
-									<button id="Subcomentar" class="btn btn-primary btn-small" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
-								</div>
-							</form>
+							<div class="clase-Subcomentario-foro">
+								<?php echo form_open('estudiante/comentarioAjax/' . $value['Materia_id'] . '/' . $value['Clase_numero'] . '/' . $value['Foro_id_time'] . '/' . $value['id_time'], 
+												array('class' => 'form-horizontal desaparecer', 'id' => $id_FormSubComentario[$key])) ?>
+									<div class="control-group">
+										<textarea name="comentarComentario" id="comentar" placeholder="Escribe un comentario." class="input-block-level bordersize1" wrap="hard" cols="30" rows="2"></textarea>
+									</div>
+									
+									<div class="btn-group" id="">
+										<button id="Subcomentar" class="btn btn-primary btn-small" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
+									</div>
+								</form>
+							</div>
 							
 							<?php foreach ($value['SubComentario'] as $key => $SubComentario): ?>
 							<div class="media bloque-top well-white">
@@ -84,7 +87,7 @@
 								<div class="media-body">
 									<strong id="myModalLabel" class="media-heading"><a href="#">pello</a></strong>
 									<?php echo $SubComentario['cuerpo']; ?> <br>
-									<p
+									<p>
 										<span class="voto"><?php echo $SubComentario['puntos']; ?></span> 
 										<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 										<span class="inforo"> <?php echo $SubComentario['fecha_creacion']; ?> </span>
@@ -132,6 +135,7 @@
 //============================ AJAX ==========================================
 //============================================================================
 
+//---------- comentarios ------------------------------------------//
 	$('.clase-comentario-foro form').on('submit',function(e){
 
 		e.preventDefault();
@@ -148,15 +152,11 @@
 
 		$.ajax({
 
-			beforeSend: function(){
-			},
-
 			url: peticion,
 			type: "POST",
 			data: $(id).serialize(),
 
 			success: function(resp){
-				
 				
 				var ran=Math.floor(Math.random()*1000000);
 
@@ -170,7 +170,7 @@
 
 					ran2 = ran;
 
-					$('.clase-comentario-foro form textarea').val(' '); // Limpia el text-Area
+					$('.clase-comentario-foro form textarea').val(''); // Limpia el text-Area
 				};
 			},
 
@@ -181,7 +181,6 @@
 			},
 			complete: function(jqXHR, estado){
 				console.log(estado)
-				//$('.main form .btn').html('Enviar');
 			},
 
 			timeout: 10000,
@@ -189,5 +188,39 @@
 		});
 
 	});
+
+// ---------- SubComentarios ----------------------------------
+	$('.clase-Subcomentario-foro form').on('submit',function(e){
+
+		e.preventDefault();
+
+		var peticion = $(this).attr('action');
+		var id = '#' + $(this).attr('id');
+
+		$.ajax({
+
+			url: peticion,
+			type: 'POST',
+			data: $(id).serialize(),
+
+			success: function(resp){
+				console.log(resp)
+
+				if (resp !== 'textAreaVacio') {
+
+					$('.clase-Subcomentario-foro form').after(resp);
+
+					$('.clase-Subcomentario-foro form textarea').val('');
+
+				}
+			},
+
+			timeout: 10000,
+
+		});
+
+	});
+
+//------------------------------------------------------------
 
 </script>

@@ -203,7 +203,7 @@ class Estudiante_model extends CI_model
 		$filtro = array(" ", ".");
 
 		$data = array('id_time' => str_replace($filtro, '', microtime()),
-						'cuerpo' => $this->input->post('lenninSuescun'),
+						'cuerpo' => $this->input->post('comentarForo'),
 						'Usuario_id' => $_SESSION['id_usuario'],
 						'Foro_id_time' => $Foro_id_time,
 						'Clase_numero' => $Clase_numero,
@@ -218,9 +218,20 @@ class Estudiante_model extends CI_model
 
 	}
 
-	public function setSubComentar()
+	public function setSubComentar($Materia_id, $Clase_numero, $Foro_id_time, $Comentario_id_time)
 	{
+		$filtro = array(" ", ".");
 
+		$data = array('id_time_Sub' => str_replace($filtro, '', microtime()),
+						'cuerpo' => $this->input->post('comentarComentario'),
+						'Usuario_id' => $_SESSION['id_usuario'],
+						'Comentario_id_time' => $Comentario_id_time,
+						'Foro_id_time' => $Foro_id_time,
+						'Clase_numero' => $Clase_numero,
+						'Materia_id' => $Materia_id);
+
+		$this->db->insert('SubComentario', $data);
+		return $data;
 	}
 	public function votarSubComentario()
 	{
