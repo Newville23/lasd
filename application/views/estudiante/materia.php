@@ -10,23 +10,23 @@
 					<div class="row-fluid">
 						<div class="span12 Matbar Matbar-selected" id="">
 							<div class="notificacion">3</div>
-							<div>Materias</div>
+							<div><i class="icon-book"></i> Materias</div>
 						</div>
 					</div>
 
 					<div class="row-fluid">
-						<div class="span12 Matbar" id="">Profesores</div>
+						<div class="span12 Matbar" id=""><i class="icon-group"></i> Profesores</div>
 					</div>
 
 					<div class="row-fluid">
 						<div class="span12 Matbar" id="">
 							<div class="notificacion">32</div>
-							Mensajes
+							<i class="icon-envelope-alt"></i> Mensajes
 						</div>
 					</div>
 
 					<div class="row-fluid">
-						<div class="span12 Matbar" id="">Horario</div>
+						<div class="span12 Matbar" id=""><i class="icon-th"></i> Horario</div>
 					</div>
 
 				</div>

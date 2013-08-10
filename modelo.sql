@@ -21,7 +21,8 @@ CREATE  TABLE IF NOT EXISTS `lasd`.`Usuario` (
   PRIMARY KEY (`id`) ,
   UNIQUE INDEX `email_UNIQUE` (`email` ASC) ,
   UNIQUE INDEX `facebook_UNIQUE` (`facebook` ASC) ,
-  UNIQUE INDEX `twiter_UNIQUE` (`twiter` ASC) )
+  UNIQUE INDEX `twiter_UNIQUE` (`twiter` ASC) ,
+  UNIQUE INDEX `usuario_UNIQUE` (`usuario` ASC) )
 ENGINE = InnoDB;
 
 
@@ -77,6 +78,7 @@ CREATE  TABLE IF NOT EXISTS `lasd`.`Profesor` (
   PRIMARY KEY (`identificacion`) ,
   INDEX `fk_Profesor_Usuario1_idx` (`Usuario_id` ASC) ,
   INDEX `fk_Profesor_Institucion1_idx` (`Institucion_rut` ASC) ,
+  UNIQUE INDEX `Usuario_id_UNIQUE` (`Usuario_id` ASC) ,
   CONSTRAINT `fk_Profesor_Usuario1`
     FOREIGN KEY (`Usuario_id` )
     REFERENCES `lasd`.`Usuario` (`id` )
@@ -159,6 +161,7 @@ CREATE  TABLE IF NOT EXISTS `lasd`.`Notas` (
   `nota` FLOAT NULL ,
   `porcentaje` FLOAT NOT NULL ,
   `concepto` TEXT NULL ,
+  `tipo_evaluacion` TEXT NULL ,
   PRIMARY KEY (`Estudiante_identificacion`, `Clase_numero`) ,
   INDEX `fk_Estudiante_has_Clase_Clase1_idx` (`Clase_numero` ASC) ,
   INDEX `fk_Estudiante_has_Clase_Estudiante1_idx` (`Estudiante_identificacion` ASC) ,
