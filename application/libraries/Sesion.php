@@ -135,8 +135,9 @@ class Sesion
 		public static function getLevel($level)
 		{
 			$role['admin'] = 3;
-			$role['especial'] = 2;
+			$role['especial'] = 4;
 			$role['estudiante'] = 2;
+			$role['profesor'] = 2;
 			$role['usuario'] = 1;
 
 			// 'array_key_exists' Verifica si el índice o clave dada existe en el array
