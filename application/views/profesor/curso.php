@@ -2,24 +2,29 @@
 
 	<div class="row-fluid">
 		
-		<div class="span4 offset1 well bloque" id="menu">
+		<div class="span4 well bloque" id="menu">
 
 			<div class="row-fluid">
 
-				<div class="span6 well fontSize2">
-
-					<?php $this->load->view('profesor/menu') ?>
-
+				<div class="span7 well fontSize2">
+					<?php // Carga el menu principal para el profesor
+					$this->load->view('profesor/includes/menu'); ?>
 				</div>
 
-				<div class="span6 well" id="materias2">
-					<?php $this->load->view('profesor/menu-curso') ?>
+				<div class="span5 well" id="materias2">
+					<?php // Carga la lista de curson que da el profesor
+					$this->load->view('profesor/includes/menu-curso'); ?>
 				</div>
-
 			</div>
-		
 		</div>
+		
+		<div class="span7 well-margin-botton">
+			<?php // Carga el muro, cuadro principal donde se despliegan varias tareas (foro, trabajos...)
+			$this->load->view('profesor/includes/muro'); ?>
+		</div>
+		
 	
 	</div>
 
 </div>
+

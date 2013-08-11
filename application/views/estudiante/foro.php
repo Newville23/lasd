@@ -114,7 +114,9 @@
 	});
 
 	// Al hacer click sobre el boton cancelar, los botones del comentar desaparecen
-	$('#<?php echo $resetComentario; ?>').on('click', function() {
+	$('#<?php echo $resetComentario; ?>').on('click', function(e) {
+		e.preventDefault();
+
 		$('#<?php echo $botonesComentario; ?>').fadeOut(500).addClass('desaparecer');
 	});
 
@@ -122,8 +124,8 @@
 	<?php if (isset($id_responder)): ?>
 		<?php foreach ($id_responder as $key => $value): ?>
 
-			$('#<?php echo $value; ?>').on('click', function() {
-				event.preventDefault();
+			$('#<?php echo $value; ?>').on('click', function(e) {
+				e.preventDefault();
 				$('#<?php echo $id_FormSubComentario[$key]; ?>').fadeToggle(500).toggleClass('desaparecer');
 
 			});
