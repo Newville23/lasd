@@ -161,6 +161,20 @@ $(function(){
 	});
 
 
+
+	// tablas de notas
+	$('.tabla-notas th.tabla-cabecera').on('click', function() {
+
+		$('.tabla-notas tr span').addClass('desaparecer');
+
+		var clasesita = $(this).attr('id');
+		
+		$('.' + clasesita).toggleClass('desaparecer');			
+	});
+
+
+
+
 //============================================================================
 //============================ AJAX ==========================================
 //============================================================================

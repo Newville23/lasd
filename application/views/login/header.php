@@ -27,7 +27,7 @@
 <body>
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
 
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
@@ -53,41 +53,47 @@
 
             <ul class="nav pull-right">
 
-              <li class="dropdown visible-desktop">
-                <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown"><i class="icon-user icon-white"></i> Entrar </button>
-                
-                <ul class="dropdown-menu">
-                    <li class="nav-header"><h4>Iniciar sesión</h4></li>
-                    <li class="divider"></li>
+                <li class="dropdown visible-desktop">
+                    <div class="btn-group">
+                        <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown"><i class="icon-user icon-white"></i> 
+                        Entrar <span class="caret"></span></button>
                     
-                    <li>
-                        <div class="row">
-                          <div class="span3">
+                      <ul class="dropdown-menu pull-right">
+                          <li class="nav-header"><h4>Iniciar sesión</h4></li>
+                          <li class="divider"></li>
+                          
+                          <li>
+                              <div class="">
+                                <div class="span3">
 
-                              <div id="errorvalidation2" class="oculto">
-                                <div class="alert alert-error">
-                                  <button type="button" class="close" data-dismiss="alert">&times;</button>   
+                                    <div id="errorvalidation2" class="oculto">
+                                      <div class="alert alert-error">
+                                        <button type="button" class="close" data-dismiss="alert">&times;</button>   
+                                      </div>
+                                   </div>
+
+                                    <div class="main">
+                                      <?php echo form_open('login/loginajax', array('class' => 'form-horizontal', )) ?>
+
+                                        <span class="control-group">
+                                            <input type="text"  id="usuario" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" >
+                                        </span>
+
+                                        <span class="control-group">
+                                            <input type="password"  id="pass" placeholder="Password" name="pass" >
+                                        </span>
+
+                                        <button class="btn btn-primary" type="submit" >Enviar </button>
+                                        
+                                      </form>
+                                    </div>
+
                                 </div>
-                             </div>
-
-                              <div class="main">
-                                <?php echo form_open('login/loginajax') ?>
-
-                                  <div class="control-group">
-                                      <input type="text" id="usuario" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" />
-
-                                      <input type="password" id="pass" placeholder="Password" name="pass" >
-                                  </div>
-                               
-                                      <button class="btn btn-primary" type="submit" >Enviar </button>
-                                </form>
                               </div>
-
-                          </div>
-                        </div>
-                    </li>
-                </ul
-              </li>
+                          </li>
+                      </ul
+                    </div>
+                </li>
 
             </ul>
 
