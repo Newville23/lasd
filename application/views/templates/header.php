@@ -9,6 +9,7 @@
 		<link href="<?php  echo base_url("bootstrap/css/bootstrap-responsive.css"); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
+    <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
 		<style type="text/css">
 
       body {
@@ -25,10 +26,10 @@
 
     </style>
 	</head>
-<body>
-  <div class="navbar navbar-fixed-top navbar-inverse">
+<body data-spy="scroll" data-target="#nav-ejemplo">
+  <div class="navbar navbar-fixed-top navbar-inverse" style="z-index: 100;">
       <div class="navbar-inner">
-        <div class="container">
+        <div class="container-fluid">
 
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>

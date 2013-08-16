@@ -18,9 +18,7 @@
 		<div class="tab-content">
 
 			<div class="tab-pane" id="contenido">
-				<p>Seccion numero 1
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, consequatur, rerum laboriosam voluptatibus quasi non provident repudiandae accusantium odit eligendi architecto tempora fuga explicabo officiis vel corporis assumenda ipsa nihil exercitationem dolorem veritatis quidem debitis enim suscipit quisquam libero quos eum mollitia et dolorum quia corrupti dicta soluta magni consequuntur aperiam adipisci reprehenderit! Ipsam sed qui accusantium vel esse dolore explicabo architecto eos in facilis. Perspiciatis, enim sunt eius iure maiores ipsum laudantium corrupti quibusdam minus. Odit, voluptate, eos, tempora eveniet explicabo rem quo tenetur delectus officia maiores asperiores quam iusto pariatur ipsum ducimus qui labore doloribus dolore nulla inventore.
-				</p>
+				<?php $this->load->view('templates/writer') ?>
 			</div>
 
 			<div class="tab-pane" id="foro">

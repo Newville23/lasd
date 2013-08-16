@@ -172,6 +172,10 @@ $(function(){
 		$('.' + clasesita).toggleClass('desaparecer');			
 	});
 
+// ******************* Barra de Menú de administrador *****************
+	$('#boton-barra').on('click', function(){
+		$('.barra-propiedades div').toggleClass('bp-envoltura');
+	});
 
 
 

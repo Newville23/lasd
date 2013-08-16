@@ -3,7 +3,7 @@
 /**
 * 
 */
-class Admin extends CI_Controller
+class Mensajes extends CI_Controller
 {
 	
 	function __construct()
@@ -18,16 +18,17 @@ class Admin extends CI_Controller
 		$this->load->helper('form');
 	}
 
-	function index()
+	function index($nombre_usuario = FALSE)
 	{
 		$data['title'] = 'Inicio administradores';
 		$data['lasd'] = 'Lasd';
 
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('admin/index');
+		$this->load->view('mensajes/index');
 		$this->load->view('templates/footer', $data);
 	}
 }
+
 
  ?>

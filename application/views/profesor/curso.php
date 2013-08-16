@@ -6,19 +6,19 @@
 
 			<div class="row-fluid">
 
-				<div class="span7 well fontSize2">
+				<div class="span7 fontSize2">
 					<?php // Carga el menu principal para el profesor
 					$this->load->view('profesor/includes/menu'); ?>
 				</div>
 
-				<div class="span5 well" id="materias2">
+				<div class="span5 padding1" id="materias2">
 					<?php // Carga la lista de curson que da el profesor
 					$this->load->view('profesor/includes/menu-curso'); ?>
 				</div>
 			</div>
 		</div>
 		
-		<div class="span7 well-margin-botton">
+		<div class="span8 padding2 well-margin-botton">
 			<?php // Carga el muro, cuadro principal donde se despliegan varias tareas (foro, trabajos...)
 			$this->load->view('profesor/includes/muro'); ?>
 		</div>
