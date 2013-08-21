@@ -26,7 +26,7 @@
 
     </style>
 	</head>
-<body data-spy="scroll" data-target="#nav-ejemplo">
+<body data-spy="scroll" data-target="#nav-ejemplo" data-offset="100">
   <div class="navbar navbar-fixed-top navbar-inverse" style="z-index: 100;">
       <div class="navbar-inner">
         <div class="container-fluid">

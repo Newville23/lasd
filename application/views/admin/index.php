@@ -10,10 +10,10 @@
 				<ul class="unstyled">
 					<li><i style="padding-right: 8px" class="icon-picture icon-large"></i><a href="#"> Propiedad</a></li>
 					<li class="active"><a href="#"></a><i style="padding-right: 8px" class="icon-list-alt icon-large"></i> Formularios</li>
-					<li><a href="#"></a><i style="padding-right: 8px" class="icon-film icon-large"></i> Propiedad</li>
+					<li><a href="#"></a><i style="padding-right: 8px" class="icon-film icon-large"></i> Estudiantes</li>
 					<li><a href="#"></a><i style="padding-right: 8px" class="icon-th-list icon-large"></i> Propiedad</li>
 					<li><a href="#"></a><i style="padding-right: 8px" class="icon-folder-open icon-large"></i> Propiedad</li>
-					<li><a href="#"></a><i style="padding-right: 8px" class="icon-bar-chart icon-large"></i> Propiedad</li>
+					<li><a href="#"></a><i style="padding-right: 8px" class="icon-bar-chart icon-large"></i> Estadisticas</li>
 					<li><a href="#"></a><i style="padding-right: 8px" class="icon-picture icon-large"></i> Propiedad</li>
 				</ul>
 			</div>
@@ -37,161 +37,15 @@
 			</div>
 		</div>
 
-		<div class="span6 offset5">
-			
-			<div id="institucion" class="Matbar margen1">
+		<div class="span8 offset4">
 
-				<form action="#" method="POST" class="form-horizontal">
-					<div class="control-group">
-						<input type="text" placeholder="RUT de la Intitución" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="Escriba el nombre de la Institución" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="Nombre del Rector" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
+			<?php $this->load->view('admin/includes/form-institucion');?>
 
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
+			<?php $this->load->view('admin/includes/form-estudiantes');?>
 
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
+			<?php $this->load->view('admin/includes/form-profesor');?>
 
-					
-					<div class="btn-group">
-						<button class="btn btn-large" type="submmit"><span class="muted">Guardar</span></button>
-						<button class="btn btn-large" type="reset"><i class="icon-remove icon-large muted"></i></button>
-					</div>
-				</form>
-			</div>
-
-			<div id="estudiante" class="Matbar margen1" style="background-color: ForestGreen;">
-				<form action="#" method="POST" class="form-horizontal">
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					
-					<div class="btn-group">
-						<button class="btn btn-large" type="submmit"><span class="muted">Guardar</span></button>
-						<button class="btn btn-large" type="reset"><i class="icon-remove icon-large muted"></i></button>
-					</div>
-				</form>
-			</div>
-
-			<div id="profesor" class="Matbar margen1" style="background-color: #52b9e9;">
-				<form action="#" method="POST" class="form-horizontal">
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					
-					<div class="btn-group">
-						<button class="btn btn-large" type="submmit"><span class="muted">Guardar</span></button>
-						<button class="btn btn-large" type="reset"><i class="icon-remove icon-large muted"></i></button>
-					</div>
-				</form>
-			</div>
-
-			<div id="materia" class="Matbar margen1" style="background-color: #932ab6;">
-				<form action="#" method="POST" class="form-horizontal">
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					<div class="btn-group">
-						<button class="btn btn-large" type="submmit"><span class="muted">Guardar</span></button>
-						<button class="btn btn-large" type="reset"><i class="icon-remove icon-large muted"></i></button>
-					</div>
-				</form>
-			</div>
-
-			<div id="curso" class="Matbar margen1" style="background-color: #f88529;">
-				<form action="#" method="POST" class="form-horizontal">
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-
-					<div class="control-group">
-						<input type="text" placeholder="hola" class="input-block-level tipoTexto">
-					</div>
-					
-					<div class="btn-group">
-						<button class="btn btn-large" type="submmit"><span class="muted">Guardar</span></button>
-						<button class="btn btn-large" type="reset"><i class="icon-remove icon-large muted"></i></button>
-					</div>
-				</form>
-			</div>
+			<?php $this->load->view('admin/includes/formularios');?>
 
 		</div>
 	</div>

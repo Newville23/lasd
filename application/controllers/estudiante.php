@@ -8,7 +8,7 @@ class Estudiante extends CI_Controller
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('sesion');
-		$this->sesion->acceso('estudiante');
+		//$this->sesion->acceso('estudiante');
 		$this->load->model('estudiantes/estudiante_model');
 		$this->load->library('form_validation');
 		$this->load->helper('form');

@@ -3,7 +3,7 @@
 
 		<div class="span3 offset2 well fontSize3" id="menu">
 
-			<?php $this->load->view('profesor/menu'); ?>
+			<?php $this->load->view('profesor/includes/menu'); ?>
 
 		</div>
 

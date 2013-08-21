@@ -12,7 +12,7 @@ class Profesor extends CI_Controller
 
 		$this->load->helper('url');
 		$this->load->library('sesion');
-		$this->sesion->acceso('profesor');
+		//$this->sesion->acceso('profesor');
 
 		$this->load->library('form_validation');
 		$this->load->helper('form');
