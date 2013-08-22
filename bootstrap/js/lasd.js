@@ -251,4 +251,24 @@ $(function(){
 
 	});
 
+
+	//========== F O R M U L A R I O S  ==================================================================
+		$('form.formajax').on('submit', function(event) {
+
+			event.preventDefault();
+
+			var enlace = $(this).attr('action');
+
+			$.post(enlace, $(this).serialize(), function(data) {
+
+				$('form div.alerta').html(data);
+
+				$('form.formajax')[0].reset();
+
+				console.log(data);
+
+			});
+			
+
+		});
 });
