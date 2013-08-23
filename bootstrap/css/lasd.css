@@ -406,15 +406,17 @@ ul li.active a{
 
 .tipoTexto{
   padding: 2% !important;
-  transition:All 0.33s ease !important;
--webkit-transition:All 0.33s ease !important;
--moz-transition:All 0.33s ease !important;
--o-transition:All 0.33s ease !important;
+  font-size: 1.2em !important;
+  transition:All 0.15s ease !important;
+-webkit-transition:All 0.15s ease !important;
+-moz-transition:All 0.15s ease !important;
+-o-transition:All 0.15s ease !important;
 }
 .tipoTexto:focus{
-  font-size: 2em !important;
-  -webkit-transform: translate(5%) !important;
-  transform: translate(5%);
+  font-size: 1.8em !important;
+  padding: 4% !important;
+/*  -webkit-transform: translate(5%) !important;
+  transform: translate(5%);*/
 }
 
 .barra-propiedades li{

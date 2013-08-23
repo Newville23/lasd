@@ -27,11 +27,11 @@
     </style>
 	</head>
 <body data-spy="scroll" data-target="#nav-ejemplo" data-offset="100">
-  <div class="navbar navbar-fixed-top navbar-inverse" style="z-index: 100;">
+  <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
         <div class="container-fluid">
 
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" >
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
@@ -45,10 +45,6 @@
               <li><a href="#">Hola</a></li>
               <li><a href="#">Hola</a></li>
             </ul>
-
-            <form class="navbar-search pull-right">
-              <input type="text" class="search-query" placeholder="Search">
-            </form>
 
             <ul class="nav pull-right visible-desktop">
 

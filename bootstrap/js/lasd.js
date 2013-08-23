@@ -257,13 +257,17 @@ $(function(){
 
 			event.preventDefault();
 
+			var ran=Math.floor(Math.random()*1000000);
+
 			var enlace = $(this).attr('action');
+
+			$(this).attr('id', ran);
 
 			$.post(enlace, $(this).serialize(), function(data) {
 
-				$('form div.alerta').html(data);
+				$('#'+ ran.toString() + ' div.alerta').html(data);
 
-				$('form.formajax')[0].reset();
+				//$('form.formajax')[0].reset();
 
 				console.log(data);
 

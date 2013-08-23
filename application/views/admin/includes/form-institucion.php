@@ -1,5 +1,3 @@
-			<?php echo validation_errors(); ?>
-
 			<?php echo form_open('admin/institucion', array('class' => 'form-horizontal formajax', 'id' => '')) ?>
 			
 				<div id="institucion" class="row-fluid">
@@ -19,7 +17,7 @@
 						
 						<div class="btn-group">
 							<button class="btn btn-large" type="submmit"><span class="muted">Guardar</span></button>
-							<button class="btn btn-large" type="reset"><i class="icon-remove icon-large muted"></i></button>
+							<button class="btn btn-large" type="reset"><i class="icon-remove icon-large muted"></i><span class="muted"> Limpiar</span></button>
 						</div>
 					</div>
 				</div>
