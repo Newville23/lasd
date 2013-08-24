@@ -88,6 +88,13 @@ $(function(){
 	/***************************************************************/
 	
 
+
+
+
+
+
+
+
 	//***************** PAGINA DE ESTUDIANTES ****************************
 
 	/*********Elementos ocultos por defecto**********/
@@ -141,6 +148,11 @@ $(function(){
 		activarLink('#menu div div', '#apuntadorHorario', 'Matbar-selected');
 	});
 
+
+
+
+
+
 	//***************** PAGINA DE ESTUDIANTES/MATERIAS ****************************
 	$('.btn-foro').fadeOut(0);
 	$('#cuerpoforo').fadeOut(0);
@@ -172,10 +184,99 @@ $(function(){
 		$('.' + clasesita).toggleClass('desaparecer');			
 	});
 
+
+
+
+
+
+
+
+
+
 // ******************* Barra de Menú de administrador *****************
 	$('#boton-barra').on('click', function(){
 		$('.barra-propiedades div').toggleClass('bp-envoltura');
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+// ******************* bloque admin#institucion selector de colegios *****************
+	// al cargar el documento hacer una consulta "Get" 
+		// verificar si existe y no es 0, la variable de session $_SESSION[$'Institucion_rut']
+		// SI
+			// no es 0  fadeIn
+			//sino fadeOut
+	var enlaceSelectorInstituto = $('#selector-colegio #uriOculta').attr('value');
+
+	$.post(enlaceSelectorInstituto, $('#selector-colegio').serialize(), function(data) {
+
+		if (data != 0) {
+
+			$('#selector-colegio select').val(data);
+
+			$('#forms-registro').fadeIn(100);
+			$('#forms-registro :input').attr('disabled', false);
+			console.log(data);
+		}
+		else {
+			$('#forms-registro :input').attr('disabled', true);
+			$('#forms-registro').fadeOut(500);
+			console.log(data);
+		}
+				
+	});
+
+	$('#selector-colegio').on('change', function(event){
+		// $('#forms-registro').fadeToggle(0);
+
+		// hacer una consulta post ajax, en la que SI el valor no es nulo:
+			// almacenar en una variable session el Rut del colegio,
+			// si se almacena enviar una variable BOLeana 1
+		// si es nulo se envia la variable bolena 0
+
+		// si es nulo fadeOut
+		// sino fadeIn
+		
+			event.preventDefault();
+
+			var enlace = $(this).attr('action');
+
+			$.post(enlace, $(this).serialize(), function(data) {
+
+				if (data != 0) {
+					$('#forms-registro').fadeIn(100);
+					$('#forms-registro :input').attr('disabled', false);
+					console.log(data);
+				}
+				else {
+					$('#forms-registro').fadeOut(100);
+				}
+				
+
+			});
+	})
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

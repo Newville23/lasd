@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="es">
 	<head>
 		<title><?php echo $title ?> - Tutorial de CodeIgniter 2</title>

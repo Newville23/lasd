@@ -30,6 +30,17 @@ class Admin extends CI_Controller
 		
 	}
 
+	function agregarInstitucion()
+	{
+		$data['title'] = 'Inicio administradores';
+		$data['lasd'] = 'Lasd';
+		
+		$this->load->view('templates/header', $data);
+		$this->load->view('admin/agregarInstitucion');
+		$this->load->view('templates/footer', $data);
+		
+	}
+
 	function institucion()
 	{
 
@@ -178,6 +189,54 @@ class Admin extends CI_Controller
 			$data['mensaje'] = validation_errors(); 
 			$data['clase'] = 'alert-error';
 			$this->load->view('templates/alerta', $data);
+		}
+	}
+
+	function selectinstitucion(){
+
+		if ($this->input->is_ajax_request()) {
+
+			$this->form_validation->set_rules('Institucion_rut', 'RUT de Institucion', 'trim|required|xss_clean|htmlspecialchars');
+
+			if ($this->form_validation->run()) {
+
+				$rut = $this->input->post('Institucion_rut');
+
+				Sesion::set('Institucion_rut', $rut);
+
+				echo Sesion::get('Institucion_rut');
+
+			}
+			else
+			{
+				// Elimina la variable de sesion
+				Sesion::destroy('Institucion_rut');
+				echo 0;
+			}
+
+		}
+		else
+		{
+			redirect('admin');
+		}
+	}
+
+	function verificarinstitucion(){
+
+		if ($this->input->is_ajax_request()) {
+
+			if (isset($_SESSION['Institucion_rut'])){
+
+				echo Sesion::get('Institucion_rut');
+			}
+			else
+			{
+				echo 0;
+			}
+		}
+		else
+		{
+			redirect('admin');
 		}
 	}
 }
