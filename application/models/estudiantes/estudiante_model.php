@@ -8,7 +8,7 @@ class Estudiante_model extends CI_model
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->database('lasd2');
+		$this->load->database();
 	}
 
 	/**
@@ -19,8 +19,11 @@ class Estudiante_model extends CI_model
 	{
 		// Datos personales del estudiante
 		// Salida: Array simple
+		// $this->db->select('nombre, apellido');
+		$this->db->join('Usuario', 'Usuario.id = Estudiante.Usuario_id');
 		$query = $this->db->get_where('Estudiante', array('Usuario_id' => $_SESSION['id_usuario']));
 		$row['datos'] = $query->row_array();
+
 
 		// Datos del la matriculado en el año actual
 		// Salida: Array Simple, 
@@ -48,13 +51,14 @@ class Estudiante_model extends CI_model
 	{
 		for ($i=0; $i < count($clase) ; $i++) {
 
-			$query1 = $this->db->get_where('Profesor', array('identificacion' => $clase[$i]['Profesor_identificacion']));
-			$profesor = $query1->row_array();
+			$profesor = $this->getNombreFromIdent($clase[$i]['Profesor_identificacion'], 'Profesor');
 
+			$this->db->select('nombre');
 			$query2 = $this->db->get_where('Materia',  array('id' => $clase[$i]['Materia_id'] ));
 			$materia = $query2->row_array();
 
-			$clase[$i]['profesor'] = $profesor['nombre'];
+
+			$clase[$i]['profesor'] = $profesor['nombre'] . ' ' . $profesor['apellido'];
 
 			$clase[$i]['materia'] = $materia['nombre'];
 		 }
@@ -73,16 +77,54 @@ class Estudiante_model extends CI_model
 		
 		foreach ($listaProfesores as $key => $value) {
 
-			$query1 = $this->db->get_where('Profesor', array('identificacion' => $value));
-			$profesor = $query1->row_array();
+			$profesor = $this->getUserFromIdent($value, 'Profesor');
 
 			$arrayDeProfesoresNoRepetidos[$key] = $profesor;
 		}
-		
+	
 		//echo "<pre>"; print_r($arrayDeProfesoresNoRepetidos); echo "</pre>";
-
 		return $arrayDeProfesoresNoRepetidos;
 	}
+
+
+
+
+	// $identificacion = cedula dèl usuario
+	// $TablaUsuario = si es 'Estudiante' o 'Profesor'
+	function getUserFromIdent($identificacion, $TablaUsuario)
+	{
+		$query1 = $this->db->get_where($TablaUsuario, array('identificacion' => $identificacion));
+		$profesor = $query1->row_array();
+
+		$this->db->select('nombre, apellido');
+		$query2 = $this->db->get_where('Usuario', array('id' => $profesor['Usuario_id']));
+		$profesor2 = $query2->row_array();
+
+		$profesor['nombre'] = $profesor2['nombre'];
+		$profesor['apellido'] = $profesor2['apellido'];
+
+		return $profesor;
+	}
+
+
+	// $identificacion = cedula dèl usuario
+	// $TablaUsuario = si es 'Estudiante' o 'Profesor'
+	function getNombreFromIdent($identificacion, $TablaUsuario)
+	{
+		$this->db->select('Usuario_id');
+		$query1 = $this->db->get_where($TablaUsuario, array('identificacion' => $identificacion));
+		$profesor = $query1->row_array();
+
+		$this->db->select('nombre, apellido');
+		$query2 = $this->db->get_where('Usuario', array('id' => $profesor['Usuario_id']));
+		$profesor = $query2->row_array();
+
+		return $profesor;
+	}
+
+
+
+
 
 	public function verificarClase($numeroClase, $cursoCodigo)
 	{
@@ -100,13 +142,17 @@ class Estudiante_model extends CI_model
 		$data = array('numero' => $numeroClase, 
 					'Curso_codigo' => $codigoCurso);
 
-		$this->db->select('numero, Materia_id, nombre, profesion');
+		$this->db->select('numero, Materia_id, profesion, Usuario_id');
 		$this->db->from('Clase');
 		$this->db->join('Profesor', 'Profesor.identificacion = Clase.Profesor_identificacion');
 		$this->db->where($data);
 
 		$query = $this->db->get();
 		$row = $query->row_array();
+
+		$this->db->select('nombre, apellido');
+		$query2 = $this->db->get_where('Usuario', array('id' => $row['Usuario_id']));
+		$row['nombre_profesor'] = $query2->row_array();
 
 		//echo "<pre>"; print_r($row); echo "</pre>";
 		return $row;

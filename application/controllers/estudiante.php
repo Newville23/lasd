@@ -27,6 +27,7 @@ class Estudiante extends CI_Controller
 
 
 		$row['profesores'] = $this->estudiante_model->getProfes($row['clase']);
+		//echo "<pre>"; print_r($row); echo "</pre>";
 
 		$this->load->view('templates/header', $data);
 

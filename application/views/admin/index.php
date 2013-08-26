@@ -38,21 +38,30 @@
 			</div>
 		</div>
 
-		<div class="span8 offset4">
+		<div class="span8 offset3">
 
-			<?php $this->load->view('admin/includes/select-institucion');?>
+			<div class="row-fluid">
+				<div class="span11 offset1">
+					
+					<?php $this->load->view('admin/includes/select-institucion');?>
 			
-			<div class="" id="forms-registro">
-				<?php $this->load->view('admin/includes/form-estudiantes');?>
+					<div class="" id="forms-registro">
+				
+						<?php $this->load->view('admin/includes/form-estudiantes');?>
 
-				<?php $this->load->view('admin/includes/form-profesor');?>
+						<?php $this->load->view('admin/includes/form-profesor');?>
 
-				<?php $this->load->view('admin/includes/form-materia');?>
+						<?php $this->load->view('admin/includes/form-materia');?>
 
-				<?php $this->load->view('admin/includes/form-curso');?>
+						<?php $this->load->view('admin/includes/form-curso');?>
 
-				<?php $this->load->view('admin/includes/form-clase');?>
+						<?php $this->load->view('admin/includes/form-clase');?>
+					</div>
+
+				</div>
+
 			</div>
 		</div>
+		
 	</div>
 </div>

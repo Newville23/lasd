@@ -226,12 +226,10 @@ $(function(){
 
 			$('#forms-registro').fadeIn(100);
 			$('#forms-registro :input').attr('disabled', false);
-			console.log(data);
 		}
 		else {
 			$('#forms-registro :input').attr('disabled', true);
 			$('#forms-registro').fadeOut(500);
-			console.log(data);
 		}
 				
 	});
@@ -256,7 +254,6 @@ $(function(){
 				if (data != 0) {
 					$('#forms-registro').fadeIn(100);
 					$('#forms-registro :input').attr('disabled', false);
-					console.log(data);
 				}
 				else {
 					$('#forms-registro').fadeOut(100);
@@ -321,7 +318,7 @@ $(function(){
 
 				var obj = jQuery.parseJSON(resp);
 
-				console.log(obj["msj"])
+				// console.log(obj["msj"])
 
 				if (obj["estado"] == 1) {
 					self.location = obj["msj"];

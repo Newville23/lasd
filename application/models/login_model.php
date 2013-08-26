@@ -10,7 +10,7 @@ class Login_model extends CI_Model
 	{
 		parent::__construct();
 
-		$this->load->database('lasd2');
+		$this->load->database();
 
 		//echo "<pre>"; print_r($DB2); echo "</pre>";
 

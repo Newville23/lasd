@@ -9,7 +9,7 @@ class Admin_model extends CI_model
 	function __construct()
 	{
 		parent::__construct();
-		$this->load->database('lasd2');
+		$this->load->database();
 	}
 
 /**
@@ -63,32 +63,55 @@ class Admin_model extends CI_model
 
 	function setEstudiante()
 	{
-		$id = time();	//time().rand(1345, 9999999)
-		$this->setUsuario('estudiante', $id);
+		if (isset($_SESSION['Institucion_rut'])) {
 
-		$data = array(	'identificacion' => $this->input->post('identificacion'),
-						'tipo_identificacion' => $this->input->post('tipo_identificacion'),
-						'fecha_nacimiento' => $this->input->post('fecha_nacimiento'),
-						'tipo_sangre' => $this->input->post('tipo_sangre'). " " . $this->input->post('rh'),
-						'Institucion_rut' => $this->input->post('Institucion_rut'),
-						'Usuario_id' => $id
-					 );
-		$this->db->insert('Estudiante', $data);
+			$id = time();	//time().rand(1345, 9999999)
+			$this->setUsuario('estudiante', $id);
+
+			$data = array(	'identificacion' => $this->input->post('identificacion'),
+							'tipo_identificacion' => $this->input->post('tipo_identificacion'),
+							'fecha_nacimiento' => $this->input->post('fecha_nacimiento'),
+							'tipo_sangre' => $this->input->post('tipo_sangre'). " " . $this->input->post('rh'),
+							'Institucion_rut' => $_SESSION['Institucion_rut'],
+							'Usuario_id' => $id
+						 );
+			$this->db->insert('Estudiante', $data);
+
+		}
+
 	}
 
 	function setProfesor()
 	{
-		$id = time();	//time().rand(1345, 9999999)
-		$this->setUsuario('profesor', $id);
+		if (isset($_SESSION['Institucion_rut'])) {
+			
+			$id = time();	//time().rand(1345, 9999999)
+			$this->setUsuario('profesor', $id);
 
-		$data = array(	'identificacion' => $this->input->post('identificacion'),
-						'tipo_identificacion' => $this->input->post('tipo_identificacion'),
-						'fecha_nacimiento' => $this->input->post('fecha_nacimiento'),
-						'profesion' => $this->input->post('profesion'),
-						'Institucion_rut' => $this->input->post('Institucion_rut'),
-						'Usuario_id' => $id
+			$data = array(	'identificacion' => $this->input->post('identificacion'),
+							'tipo_identificacion' => $this->input->post('tipo_identificacion'),
+							'fecha_nacimiento' => $this->input->post('fecha_nacimiento'),
+							'profesion' => $this->input->post('profesion'),
+							'Institucion_rut' => $_SESSION['Institucion_rut'],
+							'Usuario_id' => $id
+						 );
+			$this->db->insert('Profesor', $data);
+		}
+
+	}
+
+	function setMateria()
+	{
+		if (isset($_SESSION['Institucion_rut'])) {
+			
+			$id = time();	//time().rand(1345, 9999999)
+			
+			$data = array(	'nombre' => $this->input->post('nombre_materia'),
+							'Institucion_rut' => $_SESSION['Institucion_rut'],
+							'id' => $id
 					 );
-		$this->db->insert('Profesor', $data);
+			$this->db->insert('Materia', $data);
+		}
 	}
 }
 

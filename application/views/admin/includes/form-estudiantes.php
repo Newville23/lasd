@@ -70,17 +70,6 @@
 		        	<option>Negativo</option>
 				</select>
 			</div>
-
-			<div class="control-group">
-				<label for="" style="color: #666;">Institución en la que estudia:</label>
-				<select name="Institucion_rut" id="" class="input-block-level">
-					<option value="">Seleccione:</option>
-		        	<option value="10">Colegio 1</option>
-		        	<option value="11">Colegio 2</option>
-		        	<option value="12">Colegio 3</option>
-		        	<option value="13">Colegio 4</option>
-				</select>
-			</div>
 		</div>
 	</div>
 </form>

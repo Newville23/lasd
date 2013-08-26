@@ -1,4 +1,4 @@
-<form action="#" method="POST" class="form-horizontal">
+<?php echo form_open('admin/curso', array('class' => 'form-horizontal formajax')) ?>
 	<div class="row-fluid" id="curso">
 		<div id="" class="Matbar margen1 span10 offset1" style="background-color: #f88529;">
 			
@@ -30,9 +30,9 @@
 				<div class="control-group">
 					<select name="" id="" class="input-block-level transformarEscala1 span9 fontSize2">
 				        <option class="muted" value="">Docente director de grupo:</option>
-				        <option value="10">Profesor</option>
-				        <option value="10">Profesor</option>
-				        <option value="10">Profesor</option>
+				        <option value="10">Pedro José Torres</option>
+				        <option value="11">Alba Bonet</option>
+				        <option value="901206">Alfredo Lora</option>
 					</select>
 				</div>
 			</div>

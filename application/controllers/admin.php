@@ -91,8 +91,7 @@ class Admin extends CI_Controller
 		$this->form_validation->set_rules('fecha_nacimiento', 'Fecha de nacimiento', 'trim|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('tipo_sangre', 'tipo_sangre', 'trim|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('rh', 'Factor RH', 'trim|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('Institucion_rut', 'Institucion rut', 'trim|required|xss_clean|htmlspecialchars');
-		
+	
 		if ($this->form_validation->run()) {
 			
 			$usuario = $this->input->post('usuario');
@@ -145,8 +144,7 @@ class Admin extends CI_Controller
 		$this->form_validation->set_rules('tipo_identificacion', 'Tipo de identificacion', 'trim|required|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('fecha_nacimiento', 'Fecha de nacimiento', 'trim|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('profesion', 'Profesion', 'trim|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('Institucion_rut', 'Institucion rut', 'trim|required|xss_clean|htmlspecialchars');
-		
+	
 		if ($this->form_validation->run()) {
 			
 			$usuario = $this->input->post('usuario');
@@ -191,6 +189,68 @@ class Admin extends CI_Controller
 			$this->load->view('templates/alerta', $data);
 		}
 	}
+
+
+
+
+	function materia(){
+		if ($this->input->is_ajax_request()) {
+
+			$this->form_validation->set_rules('nombre_materia', 'Nombre de la materia', 'trim|required|xss_clean|htmlspecialchars');
+			
+			if ($this->form_validation->run()) {
+
+				// Verificar que el nombre de la materia no esté repetido
+				$nombre_materia = $this->input->post('nombre_materia');
+
+				if ($this->admin_model->verificarKey('Materia', 'nombre', $nombre_materia)){
+				
+					$data['mensaje'] = "El nombre de la Materia " . $nombre_materia . " ya está en uso";
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+					return;
+				}
+
+				$this->admin_model->setMateria();
+
+				$data['mensaje'] = "¡Materia Registrada!";
+				$data['clase'] = 'alert-success';
+				$this->load->view('templates/alerta', $data);
+			}
+			else
+			{
+				$data['mensaje'] = validation_errors(); 
+				$data['clase'] = 'alert-error';
+				$this->load->view('templates/alerta', $data);
+			}
+		}
+		else
+		{
+			redirect('admin');
+		}
+	}
+
+
+	function curso(){
+
+		$this->form_validation->set_rules('fieldname', 'fieldlabel', 'trim|required|htmlspecialchars|xss_clean');
+		$this->form_validation->set_rules('fieldname', 'fieldlabel', 'trim|htmlspecialchars|xss_clean');
+		$this->form_validation->set_rules('fieldname', 'fieldlabel', 'trim|htmlspecialchars|xss_clean');
+
+		if ($this->form_validation->run()) {
+			# code...
+		}
+		else
+		{
+			$data['mensaje'] = validation_errors(); 
+			$data['clase'] = 'alert-error';
+			$this->load->view('templates/alerta', $data);
+		}
+	}
+
+
+
+
 
 	function selectinstitucion(){
 
