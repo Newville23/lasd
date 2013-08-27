@@ -43,30 +43,36 @@ class Admin extends CI_Controller
 
 	function institucion()
 	{
+		if ($this->input->is_ajax_request()) {
 
-		$this->form_validation->set_rules('rut_institucion', 'Rut de la institucion', 'trim|required|max_length[11]|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('nombre_institucion', 'Nombre de la institucion', 'trim|required|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('rector_institucion', 'Nombre del rector', 'trim|required|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('rut_institucion', 'Rut de la institucion', 'trim|required|max_length[11]|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('nombre_institucion', 'Nombre de la institucion', 'trim|required|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('rector_institucion', 'Nombre del rector', 'trim|required|xss_clean|htmlspecialchars');
 
-		if ($this->form_validation->run()) {
-			$data['alerta'] = $this->admin_model->setInstitucion();
+			if ($this->form_validation->run()) {
+				$data['alerta'] = $this->admin_model->setInstitucion();
 
-			if ($data['alerta'] == 0) {
-				$data['mensaje'] = "Formulario guardado satisfactoriamente";
-				$data['clase'] = 'alert-success';
-				$this->load->view('templates/alerta', $data);
+				if ($data['alerta'] == 0) {
+					$data['mensaje'] = "Formulario guardado satisfactoriamente";
+					$data['clase'] = 'alert-success';
+					$this->load->view('templates/alerta', $data);
+				}
+				elseif ($data['alerta'] == 1) {
+					$data['mensaje'] = "Institucion ya existe";
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+				}
 			}
-			elseif ($data['alerta'] == 1) {
-				$data['mensaje'] = "Institucion ya existe";
+			else
+			{
+				$data['mensaje'] = validation_errors(); 
 				$data['clase'] = 'alert-error';
 				$this->load->view('templates/alerta', $data);
 			}
 		}
 		else
 		{
-			$data['mensaje'] = validation_errors(); 
-			$data['clase'] = 'alert-error';
-			$this->load->view('templates/alerta', $data);
+			redirect('admin');
 		}
 		
 	}
@@ -84,109 +90,124 @@ class Admin extends CI_Controller
 
 	function estudiante()
 	{
-		$this->validarUsuario();
+		if ($this->input->is_ajax_request()) {
 
-		$this->form_validation->set_rules('identificacion', 'Numero de identificacion', 'trim|required|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('tipo_identificacion', 'Tipo de identificacion', 'trim|required|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('fecha_nacimiento', 'Fecha de nacimiento', 'trim|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('tipo_sangre', 'tipo_sangre', 'trim|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('rh', 'Factor RH', 'trim|xss_clean|htmlspecialchars');
-	
-		if ($this->form_validation->run()) {
-			
-			$usuario = $this->input->post('usuario');
-			$email = $this->input->post('email');
-			$identificacion = $this->input->post('identificacion');
+			$this->validarUsuario();
 
-			//verificar usuario, si el usuario existe...
-			if ($this->admin_model->verificarKey('Usuario', 'usuario', $usuario)){
+			$this->form_validation->set_rules('identificacion', 'Numero de identificacion', 'trim|required|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('tipo_identificacion', 'Tipo de identificacion', 'trim|required|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('fecha_nacimiento', 'Fecha de nacimiento', 'trim|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('tipo_sangre', 'tipo_sangre', 'trim|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('rh', 'Factor RH', 'trim|xss_clean|htmlspecialchars');
+		
+			if ($this->form_validation->run()) {
 				
-				$data['mensaje'] = "El nombre usuario " . $usuario . " ya está en uso";
+				$usuario = $this->input->post('usuario');
+				$email = $this->input->post('email');
+				$identificacion = $this->input->post('identificacion');
+
+				//verificar usuario, si el usuario existe... array($indice => $key) 
+				if ($this->admin_model->verificarKey('Usuario', array('usuario' => $usuario )))
+				{
+					
+					$data['mensaje'] = "El nombre usuario " . $usuario . " ya está en uso";
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+					return;
+				}
+				// vericar Email
+				if ($this->admin_model->verificarKey('Usuario', array('email' => $email ))) {
+
+					$data['mensaje'] = "El email " . $email . " ya está en uso";
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+					return;
+				}
+				// verificar numero identificacion
+				if ($this->admin_model->verificarKey('Estudiante', array('identificacion' => $identificacion))) {
+
+					$data['mensaje'] = "Un estudiante ya se encuentra inscrito con el número de identificacion " . $identificacion;
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+					return;
+				}
+
+				$this->admin_model->setEstudiante();
+
+				$data['mensaje'] = "¡Estudiante inscrito!";
+				$data['clase'] = 'alert-success';
+				$this->load->view('templates/alerta', $data);
+
+			}else{
+				$data['mensaje'] = validation_errors(); 
 				$data['clase'] = 'alert-error';
 				$this->load->view('templates/alerta', $data);
-				return;
 			}
-			// vericar Email
-			if ($this->admin_model->verificarKey('Usuario', 'email', $email)) {
-
-				$data['mensaje'] = "El email " . $email . " ya está en uso";
-				$data['clase'] = 'alert-error';
-				$this->load->view('templates/alerta', $data);
-				return;
-			}
-			// verificar numero identificacion
-			if ($this->admin_model->verificarKey('Estudiante', 'identificacion', $identificacion)) {
-
-				$data['mensaje'] = "Un estudiante ya se encuentra inscrito con el número de identificacion " . $identificacion;
-				$data['clase'] = 'alert-error';
-				$this->load->view('templates/alerta', $data);
-				return;
-			}
-
-			$this->admin_model->setEstudiante();
-
-			$data['mensaje'] = "¡Estudiante inscrito!";
-			$data['clase'] = 'alert-success';
-			$this->load->view('templates/alerta', $data);
-
-		}else{
-			$data['mensaje'] = validation_errors(); 
-			$data['clase'] = 'alert-error';
-			$this->load->view('templates/alerta', $data);
+		}
+		else
+		{
+			redirect('admin');
 		}
 	}
 
 	function profesor()
 	{
-		$this->validarUsuario();
+		if ($this->input->is_ajax_request()) {
 
-		$this->form_validation->set_rules('identificacion', 'Numero de identificacion', 'trim|required|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('tipo_identificacion', 'Tipo de identificacion', 'trim|required|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('fecha_nacimiento', 'Fecha de nacimiento', 'trim|xss_clean|htmlspecialchars');
-		$this->form_validation->set_rules('profesion', 'Profesion', 'trim|xss_clean|htmlspecialchars');
-	
-		if ($this->form_validation->run()) {
-			
-			$usuario = $this->input->post('usuario');
-			$email = $this->input->post('email');
-			$identificacion = $this->input->post('identificacion');
+			$this->validarUsuario();
 
-			//verificar usuario, si el usuario existe...
-			if ($this->admin_model->verificarKey('Usuario', 'usuario', $usuario)){
+			$this->form_validation->set_rules('identificacion', 'Numero de identificacion', 'trim|required|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('tipo_identificacion', 'Tipo de identificacion', 'trim|required|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('fecha_nacimiento', 'Fecha de nacimiento', 'trim|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('profesion', 'Profesion', 'trim|xss_clean|htmlspecialchars');
+		
+			if ($this->form_validation->run()) {
 				
-				$data['mensaje'] = "El nombre usuario " . $usuario . " ya está en uso";
+				$usuario = $this->input->post('usuario');
+				$email = $this->input->post('email');
+				$identificacion = $this->input->post('identificacion');
+
+				//verificar usuario, si el usuario existe...
+				if ($this->admin_model->verificarKey('Usuario', array('usuario' => $usuario ))){
+					
+					$data['mensaje'] = "El nombre usuario " . $usuario . " ya está en uso";
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+					return;
+				}
+				// vericar Email
+				if ($this->admin_model->verificarKey('Usuario', array('email' => $email ))) {
+
+					$data['mensaje'] = "El email " . $email . " ya está en uso";
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+					return;
+				}
+				// verificar numero identificacion
+				if ($this->admin_model->verificarKey('Profesor', array('identificacion' => $identificacion))) {
+
+					$data['mensaje'] = "Un docente ya se encuentra inscrito con el número de identificacion " . $identificacion;
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+					return;
+				}
+
+				$this->admin_model->setProfesor();
+
+				$data['mensaje'] = "¡Docente Registrado!";
+				$data['clase'] = 'alert-success';
+				$this->load->view('templates/alerta', $data);
+			}
+			else
+			{
+				$data['mensaje'] = validation_errors(); 
 				$data['clase'] = 'alert-error';
 				$this->load->view('templates/alerta', $data);
-				return;
 			}
-			// vericar Email
-			if ($this->admin_model->verificarKey('Usuario', 'email', $email)) {
-
-				$data['mensaje'] = "El email " . $email . " ya está en uso";
-				$data['clase'] = 'alert-error';
-				$this->load->view('templates/alerta', $data);
-				return;
-			}
-			// verificar numero identificacion
-			if ($this->admin_model->verificarKey('Profesor', 'identificacion', $identificacion)) {
-
-				$data['mensaje'] = "Un docente ya se encuentra inscrito con el número de identificacion " . $identificacion;
-				$data['clase'] = 'alert-error';
-				$this->load->view('templates/alerta', $data);
-				return;
-			}
-
-			$this->admin_model->setProfesor();
-
-			$data['mensaje'] = "¡Docente Registrado!";
-			$data['clase'] = 'alert-success';
-			$this->load->view('templates/alerta', $data);
 		}
 		else
 		{
-			$data['mensaje'] = validation_errors(); 
-			$data['clase'] = 'alert-error';
-			$this->load->view('templates/alerta', $data);
+			redirect('admin');
 		}
 	}
 
@@ -203,7 +224,7 @@ class Admin extends CI_Controller
 				// Verificar que el nombre de la materia no esté repetido
 				$nombre_materia = $this->input->post('nombre_materia');
 
-				if ($this->admin_model->verificarKey('Materia', 'nombre', $nombre_materia)){
+				if ($this->admin_model->verificarKey('Materia', array('nombre' => $nombre_materia))) {
 				
 					$data['mensaje'] = "El nombre de la Materia " . $nombre_materia . " ya está en uso";
 					$data['clase'] = 'alert-error';
@@ -233,21 +254,90 @@ class Admin extends CI_Controller
 
 	function curso(){
 
-		$this->form_validation->set_rules('fieldname', 'fieldlabel', 'trim|required|htmlspecialchars|xss_clean');
-		$this->form_validation->set_rules('fieldname', 'fieldlabel', 'trim|htmlspecialchars|xss_clean');
-		$this->form_validation->set_rules('fieldname', 'fieldlabel', 'trim|htmlspecialchars|xss_clean');
+		if ($this->input->is_ajax_request()) {
 
-		if ($this->form_validation->run()) {
-			# code...
+			$this->form_validation->set_rules('nombre_curso', 'Nombre del curso', 'trim|required|htmlspecialchars|xss_clean');
+			$this->form_validation->set_rules('nombre_indice', 'indice', 'trim|max_length[3]|required|htmlspecialchars|xss_clean');
+			$this->form_validation->set_rules('director_grupo', 'Docente director de grupo', 'trim|htmlspecialchars|xss_clean');
+
+			if ($this->form_validation->run()) {
+				
+				$nombre_curso = $this->input->post('nombre_curso');
+				$indice = $this->input->post('nombre_indice');
+
+				$arreglo = array('nombre' => $nombre_curso,
+								'indice' => $indice);
+
+				if ($this->admin_model->verificarKey('Curso', $arreglo))
+				{
+					$data['mensaje'] = "El Curso (" . $nombre_curso . " " . $indice. ") ya está en uso";
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+					return;
+				}
+				$this->admin_model->setCurso();
+
+				$data['mensaje'] = "¡Curso Registrado!";
+				$data['clase'] = 'alert-success';
+				$this->load->view('templates/alerta', $data);
+			}
+			else
+			{
+				$data['mensaje'] = validation_errors(); 
+				$data['clase'] = 'alert-error';
+				$this->load->view('templates/alerta', $data);
+			}
 		}
 		else
 		{
-			$data['mensaje'] = validation_errors(); 
-			$data['clase'] = 'alert-error';
-			$this->load->view('templates/alerta', $data);
+			redirect('admin');
 		}
 	}
 
+
+	function clase(){
+
+		if ($this->input->is_ajax_request()) {
+
+			$this->form_validation->set_rules('materia_identificacion', 'Materia', 'trim|required|htmlspecialchars|xss_clean');
+			$this->form_validation->set_rules('Curso_codigo', 'Curso', 'trim|required|htmlspecialchars|xss_clean');
+			$this->form_validation->set_rules('Profesor_identificacion', 'Docente', 'trim|required|htmlspecialchars|xss_clean');
+
+			if ($this->form_validation->run()) {
+				
+				$materia = $this->input->post('materia_identificacion');
+				$curso = $this->input->post('Curso_codigo');
+
+				$arreglo = array('Materia_id' => $materia,
+									'Curso_codigo' => $curso);
+
+				if ($this->admin_model->verificarKey('Clase', $arreglo))
+				{
+					$data['mensaje'] = "¡La clase ya existe!";
+					$data['clase'] = 'alert-error';
+					$this->load->view('templates/alerta', $data);
+					return;
+				}
+
+				$this->admin_model->setClase();
+
+				$data['mensaje'] = "¡Clase Registrada!";
+				$data['clase'] = 'alert-success';
+				$this->load->view('templates/alerta', $data);
+
+			}
+			else
+			{
+				$data['mensaje'] = validation_errors(); 
+				$data['clase'] = 'alert-error';
+				$this->load->view('templates/alerta', $data);
+			}
+		}
+		else
+		{
+			redirect('admin');
+		}
+	}
 
 
 

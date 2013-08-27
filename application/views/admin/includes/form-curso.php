@@ -7,7 +7,7 @@
 			<div class="row-fluid">
 				
 				<div class="control-group span5">
-					<select name="" id="" class="input-block-level transformarEscala1 fontSize2">
+					<select name="nombre_curso" id="" class="input-block-level transformarEscala1 fontSize2">
 						<option class="muted" value="">Grado del curso:</option>
 				        <option value="11">Undécimo (11º)</option>
 				        <option value="10">Décimo (10º)</option>
@@ -24,11 +24,11 @@
 				</div>
 
 				<div class="control-group span5 offset1">
-					<input type="text" placeholder="Indice ej: A, B, C..." class="input-block-level transformarEscala1 tipoTexto" style="text-transform: uppercase;">
+					<input type="text" name="nombre_indice" placeholder="Indice ej: A, B, C..." class="input-block-level transformarEscala1 tipoTexto" style="text-transform: uppercase;">
 				</div>
 				
 				<div class="control-group">
-					<select name="" id="" class="input-block-level transformarEscala1 span9 fontSize2">
+					<select name="director_grupo" id="" class="input-block-level transformarEscala1 span9 fontSize2">
 				        <option class="muted" value="">Docente director de grupo:</option>
 				        <option value="10">Pedro José Torres</option>
 				        <option value="11">Alba Bonet</option>

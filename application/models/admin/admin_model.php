@@ -15,9 +15,13 @@ class Admin_model extends CI_model
 /**
 	G E T T E R S
 */
-	function verificarKey($tabla, $indice, $key)
+	// Entradas:
+	// $tabla = La tabla de la BD.
+	// $indiceYkey
+
+	function verificarKey($tabla, $indiceYkey)
 	{	
-		$query = $this->db->get_where($tabla, array($indice => $key));
+		$query = $this->db->get_where($tabla, $indiceYkey);
 
 		$row = $query->num_rows();
 
@@ -25,6 +29,17 @@ class Admin_model extends CI_model
 		// echo '<pre>'; echo $row; echo '</pre>';
 
 	}
+
+	// function verificarKey($tabla, $indice, $key)
+	// {	
+	// 	$query = $this->db->get_where($tabla, array($indice => $key));
+
+	// 	$row = $query->num_rows();
+
+	// 	return $row;
+	// 	// echo '<pre>'; echo $row; echo '</pre>';
+
+	// }
 
 /**
 	S E T T E R S
@@ -65,7 +80,7 @@ class Admin_model extends CI_model
 	{
 		if (isset($_SESSION['Institucion_rut'])) {
 
-			$id = time();	//time().rand(1345, 9999999)
+			$id = time().rand(1345, 9999999);
 			$this->setUsuario('estudiante', $id);
 
 			$data = array(	'identificacion' => $this->input->post('identificacion'),
@@ -85,7 +100,7 @@ class Admin_model extends CI_model
 	{
 		if (isset($_SESSION['Institucion_rut'])) {
 			
-			$id = time();	//time().rand(1345, 9999999)
+			$id = time().rand(1345, 9999999);
 			$this->setUsuario('profesor', $id);
 
 			$data = array(	'identificacion' => $this->input->post('identificacion'),
@@ -104,13 +119,48 @@ class Admin_model extends CI_model
 	{
 		if (isset($_SESSION['Institucion_rut'])) {
 			
-			$id = time();	//time().rand(1345, 9999999)
+			$id = time().rand(1345, 9999999);
 			
 			$data = array(	'nombre' => $this->input->post('nombre_materia'),
 							'Institucion_rut' => $_SESSION['Institucion_rut'],
 							'id' => $id
 					 );
 			$this->db->insert('Materia', $data);
+		}
+	}
+
+	function setCurso()
+	{
+		if (isset($_SESSION['Institucion_rut'])) {
+
+			$codigo = time().rand(1345, 9999999);
+
+			$data = array(	'codigo' => $codigo,
+							'nombre' => $this->input->post('nombre_curso'),
+							'indice' => $this->input->post('nombre_indice'),
+							'Profesor_director_grupo_identificacion' => $this->input->post('director_grupo'),
+							'Institucion_rut' =>  $_SESSION['Institucion_rut']);
+
+			$this->db->insert('Curso', $data);
+
+		}
+	}
+
+	function setClase()
+	{
+		if (isset($_SESSION['Institucion_rut'])) {
+
+			$numero = time().rand(1345, 9999999);
+
+			// nota: se podria filtrar validando al numero de al codigo de la materia de un colegio en particular 
+			$data = array(	'numero' => $numero,
+							'Materia_id' => $this->input->post('materia_identificacion'),
+							'Profesor_identificacion' => $this->input->post('Profesor_identificacion'),
+							'Curso_codigo' => $this->input->post('Curso_codigo'),
+							'Institucion_rut' =>  $_SESSION['Institucion_rut']);
+
+			$this->db->insert('Clase', $data);
+
 		}
 	}
 }
