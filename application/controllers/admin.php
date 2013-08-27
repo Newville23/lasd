@@ -23,6 +23,7 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'Inicio administradores';
 		$data['lasd'] = 'Lasd';
+		$data['linkIndex'] = 'admin';
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('admin/index');
@@ -34,6 +35,7 @@ class Admin extends CI_Controller
 	{
 		$data['title'] = 'Inicio administradores';
 		$data['lasd'] = 'Lasd';
+		$data['linkIndex'] = 'admin';
 		
 		$this->load->view('templates/header', $data);
 		$this->load->view('admin/agregarInstitucion');
@@ -87,12 +89,18 @@ class Admin extends CI_Controller
 		$this->form_validation->set_rules('facebook', 'Facebook', 'trim|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('twiter', 'Twiter', 'trim|xss_clean|htmlspecialchars');
 	}
+	function mensajesValidacion()
+	{
+		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
+	}
+
 
 	function estudiante()
 	{
 		if ($this->input->is_ajax_request()) {
 
 			$this->validarUsuario();
+			$this->mensajesValidacion();
 
 			$this->form_validation->set_rules('identificacion', 'Numero de identificacion', 'trim|required|xss_clean|htmlspecialchars');
 			$this->form_validation->set_rules('tipo_identificacion', 'Tipo de identificacion', 'trim|required|xss_clean|htmlspecialchars');
@@ -155,6 +163,7 @@ class Admin extends CI_Controller
 		if ($this->input->is_ajax_request()) {
 
 			$this->validarUsuario();
+			$this->mensajesValidacion();
 
 			$this->form_validation->set_rules('identificacion', 'Numero de identificacion', 'trim|required|xss_clean|htmlspecialchars');
 			$this->form_validation->set_rules('tipo_identificacion', 'Tipo de identificacion', 'trim|required|xss_clean|htmlspecialchars');

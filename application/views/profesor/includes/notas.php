@@ -7,7 +7,7 @@
 	<div class="tab-content">
 
 		<div class="tab-pane active" id="agregar">
-			<table class="table table-hover table-striped table-bordered tabla-notas fontSize2">
+			<table class="table table-hover table-striped table-bordered tabla-notas">
 				
 				<thead>
 					<tr>
@@ -103,9 +103,6 @@
 						<td contenteditable="true">33</td>
 						<td>
 							<input type="range" class="rango" name="points" min="1" max="100">
-							<div class="progress progress-info progress-striped">
-							  <div class="bar" style="width: 20%"></div>
-							</div>
 						</td>
 					</tr>
 				</tbody>

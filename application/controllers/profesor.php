@@ -22,6 +22,7 @@ class Profesor extends CI_Controller
 	{
 		$data['title'] = 'Inicio profesores';
 		$data['lasd'] = 'Lasd';
+		$data['linkIndex'] = 'profesor';
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('profesor/index');
@@ -32,6 +33,7 @@ class Profesor extends CI_Controller
 	{
 		$data['title'] = 'Inicio profesores';
 		$data['lasd'] = 'Lasd';
+		$data['linkIndex'] = 'profesor';
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('profesor/curso');

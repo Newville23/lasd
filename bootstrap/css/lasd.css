@@ -216,16 +216,16 @@ a.Matbar2:hover{
 }
 
 .bordersize1{
-  border: 2px solid #bbb;
+  border: 2px solid #ddd;
 }
 .bordersize2{
-  border: 3px solid #bbb;
+  border: 3px solid #ddd;
 }
 .bordersize3{
-  border: 4px solid #bbb;
+  border: 4px solid #ddd;
 }
 .bordersize4{
-  border: 5px solid #bbb;
+  border: 5px solid #ddd;
 }
 
 /**** M O D A L ***********************/
@@ -348,16 +348,14 @@ table tbody tr:hover{
   text-decoration: underline;
 }
 
-.rango{
-  
-}
+
 input[type=range] {
     -webkit-appearance: none;
     background-color: silver;
     width: 200px;
     height:10px;
     border-radius: 4px;
-    margin: 20px;
+    margin: 2%;
 }
 
 input[type="range"]::-webkit-slider-thumb {

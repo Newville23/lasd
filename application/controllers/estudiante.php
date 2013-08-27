@@ -18,6 +18,8 @@ class Estudiante extends CI_Controller
 	{
 		$data['title'] = 'Inicio Estudiates';
 		$data['lasd'] = 'Lasd';
+		// Link de la pagina de inicio
+		$data['linkIndex'] = 'estudiante';
 
 		// leer tabla estudiantes con la id
 		$row = $this->estudiante_model->getEstudiante();
@@ -46,6 +48,7 @@ class Estudiante extends CI_Controller
 		$data['title'] = 'Materias';
 		$data['lasd'] = 'Lasd';
 		$data['numeroClase'] = $numeroClase;
+		$data['linkIndex'] = 'estudiante';
 
 		// leer tabla estudiantes con la id
 		$row = $this->estudiante_model->getEstudiante();

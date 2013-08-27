@@ -37,7 +37,7 @@
             <span class="icon-bar"></span>
           </a>
 
-          <a class="brand" href="<?php echo site_url('formularios#'); ?>">Project name</a>
+          <a class="brand" href="<?php echo site_url($linkIndex); ?>">Project name</a>
 
           <div class="nav-collapse collapse">
             <ul class="nav">

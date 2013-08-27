@@ -18,7 +18,8 @@ class Login extends CI_Controller
 	public function index()
 	{
 		if ($this->sesion->get('autenticado')) {
-			redirect('formularios');
+			// Cambiar *__*
+			redirect($this->sesion->get('level'));
         }
 
         $data['title'] = 'Menú';
@@ -59,7 +60,8 @@ class Login extends CI_Controller
 		        // Se almacenan los datos de sesión
 		        $this->login_model->setSesion($row['id']);
 		        
-	        	redirect('estudiante');
+		        // Redirecciona al controlador con el nombre de controlador
+	        	redirect($row['rol']);
 	    	}
 		}
 		else
@@ -129,7 +131,7 @@ class Login extends CI_Controller
 			        $this->login_model->setSesion($row['id']);
 			        
 			        $data['estado'] = 1;
-			        $data['msj'] = site_url('estudiante');
+			        $data['msj'] = site_url($row['rol']);
 			        echo json_encode($data);
 		    	}
 			}
