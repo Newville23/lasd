@@ -12,7 +12,7 @@
 				</div>
 
 				<div class="span5 padding1" id="materias2">
-					<?php // Carga la lista de curson que da el profesor
+					<?php // Carga la lista de cursos que da el profesor
 					$this->load->view('profesor/includes/menu-curso'); ?>
 				</div>
 			</div>

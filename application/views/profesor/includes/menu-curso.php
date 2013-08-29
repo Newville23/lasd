@@ -1,24 +1,12 @@
 <div class="row-fluid text-center">
 
-	<?php //foreach ($clase as $value): ?>
-	<a href="<?php echo '#' //site_url("estudiante/materia/" . $value['numero']); ?>"
-		class="Matbar fontSize3 <?php //if ($value['numero'] == $numeroClase) echo "Matbar-selected"; ?>">
-		<p><?php echo '8 A'//$value['materia']; ?></p>
+	<?php foreach ($clasesDelProfe as $value): ?>
+	<a href="<?php echo site_url("profesor/clase/" . $value['numero']); ?>"
+		class="Matbar fontSize3 <?php if ($value['numero'] == $numeroClase) echo "Matbar-selected"; ?>">
+		<p><?php echo $value['nombre_curso']. 'º' . $value['indice']; ?>
+			<br><span class="fontSize0"><?php echo $value['nombre'] ?></span class="fontSize0">
+		</p>
 	</a>
-	<?php //endforeach; ?>
+	<?php endforeach; ?>
 
-	<a href="<?php echo '#' //site_url("estudiante/materia/" . $value['numero']); ?>"
-		class="Matbar fontSize3 <?php //if ($value['numero'] == $numeroClase) echo "Matbar-selected"; ?>">
-		<p><?php echo '9 A'//$value['materia']; ?></p>
-	</a>
-
-	<a href="<?php echo '#' //site_url("estudiante/materia/" . $value['numero']); ?>"
-		class="Matbar fontSize3 <?php //if ($value['numero'] == $numeroClase) echo "Matbar-selected"; ?>">
-		<p><?php echo '9 C'//$value['materia']; ?></p>
-	</a>
-
-	<a href="<?php echo '#' //site_url("estudiante/materia/" . $value['numero']); ?>"
-		class="Matbar fontSize3 <?php //if ($value['numero'] == $numeroClase) echo "Matbar-selected"; ?>">
-		<p><?php echo '11 D'//$value['materia']; ?></p>
-	</a>
 </div>

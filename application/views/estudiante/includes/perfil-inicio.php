@@ -5,7 +5,7 @@
 
 <div class="caption" id="perfil-caption">
 	<h4><?php echo $datos['nombre'] . " " . $datos['apellido']; ?> </h4>
-	<p><span class="badge">Curso: </span> <?php echo $curso['nombre']; ?></p>
+	<p><span class="badge">Curso: </span> <?php echo $curso['nombre_curso'] . $curso['indice']; ?></p>
 	<p><span class="badge">Edad: </span> <?php  echo "?";?></p>
 	<p><span class="badge"><?php echo $datos['tipo_identificacion'] ?>: </span> <?php  echo $datos['identificacion'];?></p>
 </div>

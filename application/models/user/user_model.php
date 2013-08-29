@@ -15,6 +15,22 @@ class User_model extends CI_model
 /**
 	G E T T E R S
 */
+
+	// Entradas:
+	// $tabla = La tabla de la BD.
+	// $indiceYkey
+	function verificarKey($tabla, $indiceYkey)
+	{	
+		$query = $this->db->get_where($tabla, $indiceYkey);
+
+		$row = $query->num_rows();
+
+		return $row;
+		// echo '<pre>'; echo $row; echo '</pre>';
+
+	}
+
+
 	// $identificacion = cedula dèl usuario
 	// $TablaUsuario = si es 'Estudiante' o 'profesor'
 	function getUserFromIdent($identificacion, $TablaUsuario)
@@ -49,6 +65,64 @@ class User_model extends CI_model
 	}
 
 
+	// $TablaUsuario = si es 'Estudiante' o 'profesor'
+	public function getDatosUsuario($TablaUsuario)
+	{
+		$string = 'Usuario.id = '. $TablaUsuario . '.Usuario_id';
+		//echo $_SESSION['id_usuario'];
+		$this->db->join('Usuario', $string);
+		$query = $this->db->get_where($TablaUsuario, array('Usuario_id' => $_SESSION['id_usuario']));
+		return $query->row_array();
+	}
+
+	// Obtiene una lista de estudiantes de una clase especifica.
+	function getEstudiantesFromClase($numero_clase)
+	{
+		$this->db->select('numero, codigo');
+		$this->db->join('Curso', 'Curso.codigo = Clase.Curso_codigo');
+		$query = $this->db->get_where('Clase', array('numero' => $numero_clase));
+		$arrayCurso = $query->row_array();
+							
+
+		$this->db->select('Estudiante_identificacion, tipo_identificacion, nombre, apellido');
+		$this->db->join('Estudiante', 'Estudiante.identificacion = Matricula.Estudiante_identificacion');
+		$this->db->join('Usuario', 'Usuario.id = Estudiante.Usuario_id');
+		$query2 = $this->db->get_where('Matricula', array('Curso_codigo' => $arrayCurso['codigo']));
+		$arrayCurso['listaEstudiantes'] = $query2->result_array();
+		return $arrayCurso;
+	}
+
+	// Obtiene una lista de estudiantes de un curso especifico
+	function getEstudiantesFromCurso($codigo_Curso)
+	{
+
+	}
+
+	// Obtiene una lista de estudiantes y los datos de sus notas de una clase especifica
+	function getEstudianteNotasFromClase($numero_clase)
+	{
+		//Obtiene la lista de estudiates de la clase
+		$arrayNotasCurso = $this->getEstudiantesFromClase($numero_clase);
+		
+		//para cada estudiante obtiene sus notas en la clase
+		foreach ($arrayNotasCurso['listaEstudiantes'] as $key => $lista) {
+
+			$this->db->select('nota, tipo_evaluacion, concepto, ponderacion');
+			$this->db->where('Estudiante.identificacion = Agregar_notas.Estudiante_identificacion'); 
+			$this->db->where('Agregar_notas.Calificacion_id = Calificacion.id');
+			$this->db->where('Estudiante.identificacion = ' . $lista['Estudiante_identificacion']);
+			$query = $this->db->get('Agregar_notas, Calificacion, Estudiante');
+
+			$row = $query->result_array();
+
+			$arrayNotasCurso['listaEstudiantes'][$key]['notas'] = $row;
+		
+		}
+
+		//echo "<pre>"; print_r($arrayNotasCurso); echo "</pre>";
+
+		return $arrayNotasCurso;
+	}
 
 
 	/**

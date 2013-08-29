@@ -30,16 +30,6 @@ class Admin_model extends CI_model
 
 	}
 
-	// function verificarKey($tabla, $indice, $key)
-	// {	
-	// 	$query = $this->db->get_where($tabla, array($indice => $key));
-
-	// 	$row = $query->num_rows();
-
-	// 	return $row;
-	// 	// echo '<pre>'; echo $row; echo '</pre>';
-
-	// }
 
 /**
 	S E T T E R S

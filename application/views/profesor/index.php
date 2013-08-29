@@ -9,13 +9,13 @@
 
 		<div class="span6 well" id="">
 			<div class="row-fluid">
-				<?php //foreach ($clase as $value): ?>
-				<a class="Matbar2" href="<?php echo "#"; ?>">
-					<p><strong><span class="fontSize3"><?php echo '8 A'; ?></span></strong><br>
-					  <small><?php echo 'Matematicas'; ?></small>
+				<?php foreach ($clase as $value): ?>
+				<a class="Matbar2" href="<?php echo site_url("profesor/clase/" . $value['numero']); ?>">
+					<p><strong><span class="fontSize3"><?php echo $value['nombre_curso'] .'º '. $value['indice']; ?></span></strong><br>
+					  <small><?php echo $value['nombre']; ?></small>
 					</p>
 				</a>
-				<?php //endforeach; ?>
+				<?php endforeach; ?>
 			</div>
 		</div>
 
