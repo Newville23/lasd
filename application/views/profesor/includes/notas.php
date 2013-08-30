@@ -12,53 +12,42 @@
 				<thead>
 					<tr>
 						<th></th>
-						<th class="tabla-cabecera" id="1342" colspan="2">1</th>
-						<th class="tabla-cabecera" id="1111" colspan="2">2</th>
-						<th class="tabla-cabecera" id="3444" colspan="2">3</th>
+						<?php for ($i=0; $i < count($listaAlumnos['listaEstudiantes'][0]['notas']) ; $i++): ?>
+
+							<th class="tabla-cabecera" id="<?php echo $i; ?>" colspan="2"><?php echo $i+1; ?></th>
+
+						<?php endfor; ?>
+						
 						<th></th>
 					</tr>
 					<tr>
 						<th>Nombre</th>
-						<th><span class="desaparecer 1342">Concepto</span></th>
-						<th></th>
-						<th><span class="desaparecer 1111">Concepto</span></th>
-						<th></th>
-						<th><span class="desaparecer 3444">Concepto</span></th>
-						<th></th>
+
+						<?php for ($i=0; $i < count($listaAlumnos['listaEstudiantes'][0]['notas']) ; $i++): ?>
+							<th><span class="desaparecer <?php echo $i; ?>">Concepto</span></th>
+							<th></th>
+						<?php endfor; ?>
+	
 						<th></th>
 					</tr>
 				</thead>
 				<tbody>
+					<?php foreach ($listaAlumnos['listaEstudiantes'] as $key => $value): ?>
 					<tr>
-						<td>Juan Gonzales</td>
-						<td><span class="desaparecer 1342">Lorem ipsum dolor sit.</span></td>
-						<td>4,2</td>
-						<td><span class="desaparecer 1111">Lorem ipsum dolor sit. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Pariatur, dignissimos animi commodi odit. Dignissimos, velit, fuga, tenetur, cum tempora temporibus dolores necessitatibus aliquam sapiente itaque eum eius eaque excepturi architecto?</span></td>
-						<td>4,2</td>
-						<td><span class="desaparecer 3444">Lorem ipsum dolor.</span></td>
-						<td>4,2</td>
-						<td><input type="range" class="rango" name="points" min="1" max="100"></td>
+						<td><?php echo $value['nombre'] .' '. $value['apellido']; ?></td>
+
+						<?php foreach ($value['notas'] as $key => $notas): ?>
+							<td><span class="desaparecer <?php  echo $key;?>"><?php echo $notas['concepto']; ?></span></td>
+							<td><?php echo $notas['nota']; ?></td>
+						<?php endforeach; ?>
+						
+						<?php if (!empty($value['notas'])): ?>
+							<td><input type="range" class="rango" name="points" min="1" max="100"></td>
+						<?php endif ?>
+						
 					</tr>
-					<tr>
-						<td>Pedro daniel dominguez</td>
-						<td><span class="desaparecer 1342">Lorem ipsum dolor sit amet, consectetur.</span></td>
-						<td>4,2</td>
-						<td><span class="desaparecer 1111">Lorem ipsum dolor sit amet, consectetur.</span></td>
-						<td>4,2</td>
-						<td><span class="desaparecer 3444">Lorem ipsum dolor sit amet, consectetur.</span></td>
-						<td>4,2</td>
-						<td><input type="range" class="rango" name="points" min="1" max="100"></td>
-					</tr>
-					<tr>
-						<td>Juan Gonzales</td>
-						<td><span class="desaparecer 1342">Lorem ipsum dolor </span></td>
-						<td>4,2</td>
-						<td><span class="desaparecer 1111">Lorem ipsum dolor </span></td>
-						<td>4,2</td>
-						<td><span class="desaparecer 3444">Lorem ipsum dolor </span></td>
-						<td>4,2</td>
-						<td><input type="range" class="rango" name="points" min="1" max="100"></td>
-					</tr>
+					<?php endforeach ?>
+
 				</tbody>
 			</table>
 			<div class="row-fluid">

@@ -87,6 +87,7 @@ class User_model extends CI_model
 		$this->db->select('Estudiante_identificacion, tipo_identificacion, nombre, apellido');
 		$this->db->join('Estudiante', 'Estudiante.identificacion = Matricula.Estudiante_identificacion');
 		$this->db->join('Usuario', 'Usuario.id = Estudiante.Usuario_id');
+		$this->db->order_by("apellido", "asc"); 
 		$query2 = $this->db->get_where('Matricula', array('Curso_codigo' => $arrayCurso['codigo']));
 		$arrayCurso['listaEstudiantes'] = $query2->result_array();
 		return $arrayCurso;
@@ -111,6 +112,7 @@ class User_model extends CI_model
 			$this->db->where('Estudiante.identificacion = Agregar_notas.Estudiante_identificacion'); 
 			$this->db->where('Agregar_notas.Calificacion_id = Calificacion.id');
 			$this->db->where('Estudiante.identificacion = ' . $lista['Estudiante_identificacion']);
+			$this->db->where('Calificacion.Clase_numero = ' . $numero_clase);
 			$query = $this->db->get('Agregar_notas, Calificacion, Estudiante');
 
 			$row = $query->result_array();
