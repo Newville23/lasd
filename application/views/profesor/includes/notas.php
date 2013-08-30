@@ -64,36 +64,25 @@
 				
 				<thead>
 					<tr>
-						<th>Fecha</th>
+						<th></th>
 						<th>Tipo de evaluación</th>
 						<th>Detalle</th>
 						<th colspan="2">Peso %</th>
 					</tr>
 				</thead>
 				<tbody>
-					<tr>
-						<td contenteditable="true">Lore veritatis.</td>
-						<td contenteditable="true">cuerpo</td>
-						<td contenteditable="true">Lorem ipsum dolor sit amet, conndi officiis cum ea velit veniam explicabo aut labore necessitatibus nam debitis laudantium!</td>
-						<td>33</td>
-						<td><input id="slider" type="range" class="rango" name="points" min="1" max="100"></td>
-					</tr>
-					<tr>
-						<td contenteditable="true">cuerpo</td>
-						<td contenteditable="true">cuerpo</td>
-						<td contenteditable="true">cuerpo</td>
-						<td contenteditable="true">33</td>
-						<td><input type="range" class="rango" name="points" min="1" max="100"></td>
-					</tr>
-					<tr>
-						<td contenteditable="true">lolo</td>
-						<td contenteditable="true">Lorem ipsum enda? Cupiditate, earum?</td>
-						<td contenteditable="true">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, dignissimos magni distinctio animi sit!</td>
-						<td contenteditable="true">33</td>
-						<td>
-							<input type="range" class="rango" name="points" min="1" max="100">
-						</td>
-					</tr>
+					<?php foreach ($listaCalificaciones as $key => $value): ?>
+						<?php echo form_open(''); ?>
+							<tr>
+								<td><button class="btn btn-primary" type="submmit">Save</button></td>
+								<td contenteditable="true"><?php echo $value['tipo_evaluacion']; ?></td>
+								<td contenteditable="true"><?php echo $value['concepto']; ?></td>
+								<td contenteditable="true"><?php echo $value['ponderacion']; ?></td>
+								<td><input id="slider" type="range" class="rango" name="points" min="1" max="100"></td>
+							</tr>
+						</form>
+					<?php endforeach; ?>
+					
 				</tbody>
 			</table>
 			<div class="row-fluid">

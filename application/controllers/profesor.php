@@ -44,7 +44,9 @@ class Profesor extends CI_Controller
 		$row['datos'] = $this->user_model->getDatosUsuario('Profesor');
 		$row['clasesDelProfe'] = $this->profesor_model->getClasesFromProfesor($row['datos']['identificacion']);
 
-		$row['listaAlumnos'] = $this->user_model->getEstudianteNotasFromClase($numeroClase);
+		$row['listaAlumnos'] = $this->user_model->getEstudiantesNotasFromClase($numeroClase);
+
+		$row['listaCalificaciones'] = $this->user_model->getCalificacionesFromClase($numeroClase);
 		//echo "<pre>"; print_r($row); echo "</pre>";
 
 		// ----------------------------------------------------------------

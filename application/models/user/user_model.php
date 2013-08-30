@@ -100,7 +100,7 @@ class User_model extends CI_model
 	}
 
 	// Obtiene una lista de estudiantes y los datos de sus notas de una clase especifica
-	function getEstudianteNotasFromClase($numero_clase)
+	function getEstudiantesNotasFromClase($numero_clase)
 	{
 		//Obtiene la lista de estudiates de la clase
 		$arrayNotasCurso = $this->getEstudiantesFromClase($numero_clase);
@@ -108,14 +108,16 @@ class User_model extends CI_model
 		//para cada estudiante obtiene sus notas en la clase
 		foreach ($arrayNotasCurso['listaEstudiantes'] as $key => $lista) {
 
-			$this->db->select('nota, tipo_evaluacion, concepto, ponderacion');
-			$this->db->where('Estudiante.identificacion = Agregar_notas.Estudiante_identificacion'); 
-			$this->db->where('Agregar_notas.Calificacion_id = Calificacion.id');
-			$this->db->where('Estudiante.identificacion = ' . $lista['Estudiante_identificacion']);
-			$this->db->where('Calificacion.Clase_numero = ' . $numero_clase);
-			$query = $this->db->get('Agregar_notas, Calificacion, Estudiante');
+			// $this->db->select('nota, tipo_evaluacion, concepto, ponderacion');
+			// $this->db->where('Estudiante.identificacion = Agregar_notas.Estudiante_identificacion'); 
+			// $this->db->where('Agregar_notas.Calificacion_id = Calificacion.id');
+			// $this->db->where('Estudiante.identificacion = ' . $lista['Estudiante_identificacion']);
+			// $this->db->where('Calificacion.Clase_numero = ' . $numero_clase);
+			// $query = $this->db->get('Agregar_notas, Calificacion, Estudiante');
 
-			$row = $query->result_array();
+			// $row = $query->result_array();
+
+			$row = $this->getNotasUnEstudianteFromClase($numero_clase, $lista['Estudiante_identificacion']);
 
 			$arrayNotasCurso['listaEstudiantes'][$key]['notas'] = $row;
 		
@@ -124,6 +126,27 @@ class User_model extends CI_model
 		//echo "<pre>"; print_r($arrayNotasCurso); echo "</pre>";
 
 		return $arrayNotasCurso;
+	}
+
+	function getNotasUnEstudianteFromClase($numero_clase, $Estudiante_identificacion)
+	{
+			$this->db->select('nota, tipo_evaluacion, concepto, ponderacion');
+			$this->db->where('Estudiante.identificacion = Agregar_notas.Estudiante_identificacion'); 
+			$this->db->where('Agregar_notas.Calificacion_id = Calificacion.id');
+			$this->db->where('Estudiante.identificacion = ' . $Estudiante_identificacion);
+			$this->db->where('Calificacion.Clase_numero = ' . $numero_clase);
+			$query = $this->db->get('Agregar_notas, Calificacion, Estudiante');
+
+			$row = $query->result_array();
+
+			return $row;
+	}
+
+	function getCalificacionesFromClase($numero_clase)
+	{
+		$query = $this->db->get_where('Calificacion', array('Clase_numero' => $numero_clase));
+		$row = $query->result_array();
+		return $row;
 	}
 
 

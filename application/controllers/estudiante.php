@@ -10,6 +10,7 @@ class Estudiante extends CI_Controller
 		$this->load->library('sesion');
 		//$this->sesion->acceso('estudiante');
 		$this->load->model('estudiantes/estudiante_model');
+		$this->load->model('user/user_model');
 		$this->load->library('form_validation');
 		$this->load->helper('form');
 	}
@@ -66,7 +67,8 @@ class Estudiante extends CI_Controller
 
 		$row['foros'] = $this->estudiante_model->getForoFromClase($row['ProfesorFromClase']['Materia_id'], $numeroClase);
 
-		// echo "<pre>"; print_r($row); echo "</pre>";
+		$row['notas'] = $this->user_model->getNotasUnEstudianteFromClase($numeroClase, $row['datos']['identificacion']);
+		//echo "<pre>"; print_r($row); echo "</pre>";
 
 		$this->form_validation->set_rules('tituloforo', 'Titulo del foro', 'trim|required|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('cuerpoforo', 'Cuerpo del foro', 'trim|xss_clean|htmlspecialchars');

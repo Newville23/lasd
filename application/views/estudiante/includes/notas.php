@@ -9,30 +9,21 @@
 					</tr>
 				</thead>
 				<tbody>
+
+					<?php foreach ($notas as $key => $value): ?>
 					<tr>
 						<td></td>
-						<td>cuerpo</td>
-						<td>Lorem ipsum dolor sit amet, conndi officiis cum ea velit veniam explicabo aut labore necessitatibus nam debitis laudantium!</td>
-						<td>33%</td>
-						<td>4</td>
+						<td><?php echo $value['tipo_evaluacion']; ?></td>
+						<td><?php echo $value['concepto']; ?></td>
+						<td><?php echo $value['ponderacion']; ?>%</td>
+						<td><?php echo $value['nota']; ?></td>
 					</tr>
-					<tr>
-						<td></td>
-						<td>cuerpo</td>
-						<td>cuerpo</td>
-						<td>33%</td>
-						<td>4</td>
-					</tr>
-					<tr>
-						<td></td>
-						<td>Lorem ipsum enda? Cupiditate, earum?</td>
-						<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Obcaecati, dignissimos magni distinctio animi sit!</td>
-						<td>33%</td>
-						<td>4</td>
-					</tr>
+					<?php endforeach; ?>
+
 				</tbody>
 			</table>
 
+			<?php if (!empty($notas)): ?>
 			<canvas id="myChart" width="600" height="400"></canvas>
 			<script>
 
@@ -43,28 +34,30 @@
 					var myNewChart = new Chart(ctx);					
 
 					var data = {
-						labels : ["January","February","March","April","May","June","July"],
+						labels : ["Nota1","Nota2","nota3","nota4"],
 						datasets : [
-							{
-								fillColor : "rgba(220,220,220,0.5)",
-								strokeColor : "rgba(220,220,220,1)",
-								pointColor : "rgba(220,220,220,1)",
-								pointStrokeColor : "#fff",
-								data : [65,59,90,81,56,55,40]
-							},
 							{
 								fillColor : "rgba(151,187,205,0.5)",
 								strokeColor : "rgba(151,187,205,1)",
-								pointColor : "rgba(151,187,205,1)",
-								pointStrokeColor : "#fff",
-								data : [28,48,40,19,96,27,100]
+								data : [
+										<?php 
+											foreach ($notas as $value) {
+												echo $value['nota'] . ',';
+											}
+										 ?>
+								 		0]
+								// data : [2,4.4,3.1,5,0]
 							}
 						]
 					}
+					var options = {
+						barShowStroke : true,
+						barValueSpacing : 10,
+						barDatasetSpacing : 30
+					}
 
-					new Chart(ctx).Line(data);
+					new Chart(ctx).Bar(data, options);
 				});
 
-
-
 			</script>
+			<?php endif; ?>
