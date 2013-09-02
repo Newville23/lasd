@@ -23,8 +23,5 @@
 			$this->load->view('profesor/includes/muro'); ?>
 		</div>
 		
-	
 	</div>
-
 </div>
-

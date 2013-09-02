@@ -108,15 +108,6 @@ class User_model extends CI_model
 		//para cada estudiante obtiene sus notas en la clase
 		foreach ($arrayNotasCurso['listaEstudiantes'] as $key => $lista) {
 
-			// $this->db->select('nota, tipo_evaluacion, concepto, ponderacion');
-			// $this->db->where('Estudiante.identificacion = Agregar_notas.Estudiante_identificacion'); 
-			// $this->db->where('Agregar_notas.Calificacion_id = Calificacion.id');
-			// $this->db->where('Estudiante.identificacion = ' . $lista['Estudiante_identificacion']);
-			// $this->db->where('Calificacion.Clase_numero = ' . $numero_clase);
-			// $query = $this->db->get('Agregar_notas, Calificacion, Estudiante');
-
-			// $row = $query->result_array();
-
 			$row = $this->getNotasUnEstudianteFromClase($numero_clase, $lista['Estudiante_identificacion']);
 
 			$arrayNotasCurso['listaEstudiantes'][$key]['notas'] = $row;
@@ -130,7 +121,7 @@ class User_model extends CI_model
 
 	function getNotasUnEstudianteFromClase($numero_clase, $Estudiante_identificacion)
 	{
-			$this->db->select('nota, tipo_evaluacion, concepto, ponderacion');
+			$this->db->select('Calificacion_id, nota, tipo_evaluacion, concepto, ponderacion');
 			$this->db->where('Estudiante.identificacion = Agregar_notas.Estudiante_identificacion'); 
 			$this->db->where('Agregar_notas.Calificacion_id = Calificacion.id');
 			$this->db->where('Estudiante.identificacion = ' . $Estudiante_identificacion);
@@ -154,7 +145,28 @@ class User_model extends CI_model
 	S E T T E R S
 	*/
 
+	/**
+	U P D A T E S
+	*/
 
+	function ponderacionNota($calificaion_id)
+	{
+		$data = array(
+               'ponderacion' => $this->input->post('ponderacion'));
+
+		$this->db->where('id', $calificaion_id);
+		$this->db->update('Calificacion', $data); 
+	}
+
+	function actNota($calificaion_id, $id_estudiante)
+	{
+		$data = array(
+               'nota' => $this->input->post('nota'));
+
+		$this->db->where('Calificacion_id', $calificaion_id);
+		$this->db->where('Estudiante_identificacion', $id_estudiante);
+		$this->db->update('Agregar_notas', $data); 
+	}
 
 }
 ?>

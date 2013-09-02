@@ -174,14 +174,19 @@ $(function(){
 
 
 
-	// tablas de notas
+	// tablas de notas **************************************************
 	$('.tabla-notas th.tabla-cabecera').on('click', function() {
 
+		//limpia todas las columnas
 		$('.tabla-notas tr span').addClass('desaparecer');
+		$('.tabla-notas tr td').removeClass('negrita');
+		$('.tabla-cabecera').removeClass('bordeVerde')
+		$(this).addClass('bordeVerde');
 
 		var clasesita = $(this).attr('id');
 		
-		$('.' + clasesita).toggleClass('desaparecer');			
+		$('span.' + clasesita).toggleClass('desaparecer');
+		$('td.' + clasesita).toggleClass('negrita');				
 	});
 
 
@@ -201,10 +206,29 @@ $(function(){
 
 
 
+// ******************* Formularios *********************************
+		
+	$('.rangeText').on('change', function(){
+		
+		
+		var textValue = $(this).val();
+		var id = $(this).attr('id');
+		id = id.replace('text','');
+		
+		$('#range' + id).val(textValue);
+	});
 
 
+	$('.range').change(function(){
 
+		var rangeValue = $(this).val();
+		var id = $(this).attr('id');
+		id = id.replace('range','');
+		//console.log(rangeValue);
+		$('#text' + id).val(rangeValue);
+		$('#textNoForm' + id).text(rangeValue);
 
+	});
 
 
 
@@ -263,13 +287,15 @@ $(function(){
 			});
 	})
 
+	$('.rangeAjax').on('change', function(event){
 
+		var enlace = $(this).attr('action');
 
+		$.post(enlace, $(this).serialize()).success(function(data){
 
+		});
 
-
-
-
+	});
 
 
 
