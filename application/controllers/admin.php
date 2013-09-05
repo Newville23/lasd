@@ -12,7 +12,7 @@ class Admin extends CI_Controller
 
 		$this->load->helper('url');
 		$this->load->library('sesion');
-		//$this->sesion->acceso('admin');
+		$this->sesion->acceso('admin');
 
 		$this->load->model('admin/admin_model');
 		$this->load->library('form_validation');

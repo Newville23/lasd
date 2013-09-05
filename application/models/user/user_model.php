@@ -78,7 +78,7 @@ class User_model extends CI_model
 	// Obtiene una lista de estudiantes de una clase especifica.
 	function getEstudiantesFromClase($numero_clase)
 	{
-		$this->db->select('numero, codigo');
+		$this->db->select('numero, codigo, Materia_id');
 		$this->db->join('Curso', 'Curso.codigo = Clase.Curso_codigo');
 		$query = $this->db->get_where('Clase', array('numero' => $numero_clase));
 		$arrayCurso = $query->row_array();
@@ -144,7 +144,21 @@ class User_model extends CI_model
 	/**
 	S E T T E R S
 	*/
+	function setCalificacion($Clase_numero, $materia_id)
+	{
+		$id = time().rand(1345, 9999999);
 
+		$data = array(	'id' => $id,
+		 				'tipo_evaluacion' => $this->input->post('tipoeval'),
+		 				'concepto' => $this->input->post('detalleNota'),
+		 				'ponderacion' => $this->input->post('peso'),
+		 				'Clase_numero' => $Clase_numero,
+		 				'Clase_Materia_id' => $materia_id);
+
+		$this->db->insert('Calificacion', $data);
+
+		return $data;
+	}
 	/**
 	U P D A T E S
 	*/

@@ -1,10 +1,10 @@
 <?php 
 	// Generan numeros aleatorios para los Id's del los botones y textos, para que no existan conflictos.
 	// Variables para el foro general
-	$cometarForo = rand(1345, getrandmax()); 
-	$resetComentario = rand(1345, getrandmax());
-	$botonesComentario = rand(1345, getrandmax());
-	$id_FormForo = rand(1345, getrandmax());
+	$cometarForo = rand(); 
+	$resetComentario = rand();
+	$botonesComentario = rand();
+	$id_FormForo = rand();
 
 ?>
 

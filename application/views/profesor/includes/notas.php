@@ -75,7 +75,8 @@
 				<tbody>
 					<?php foreach ($listaCalificaciones as $key => $value): ?>
 					<tr>
-						<td><button class="btn btn-info" type="button" data-toggle="modal" data-target="#myModalasd">Editar</button></td>
+						<td><a href="<?php echo site_url('user/actLogro/'); ?>" class="btn btn-info ActualizarCalificacion" type="button" data-toggle="modal" data-target="#myModalasd">Editar</a></td>
+						
 						<td><?php echo $value['tipo_evaluacion']; ?></td>
 						<td><?php echo $value['concepto']; ?></td>
 						<td class="negrita" id="textNoForm<?php echo $rand = rand(); ?>"><?php echo $value['ponderacion']; ?></td>
@@ -86,17 +87,32 @@
 						</td>
 					</tr>
 					<?php endforeach; ?>
-					<?php
-						$this->load->view('profesor/includes/modalNotas'); 
-					?>
+
 				</tbody>
 			</table>
 			<div class="row-fluid">
 				<div class="btn-group span12">
-					<button class="btn btn-large span6" data-toggle="modal" data-target="#myModalasd" type="button"><i class="icon-plus-sign icon-large"></i> Agregar calificación</button>
+					<a id="AgregarCalificacion" href="<?php echo site_url('user/actLogro/' . $listaAlumnos['numero'] .'/' . $listaAlumnos['Materia_id']); ?>" 
+						class="btn btn-large span6" data-toggle="modal" data-target="#myModalasd">
+						<i class="icon-plus-sign icon-large"></i> Agregar calificación
+					</a>
 					<button class="btn btn-large span6" type="button"><i class="icon-ok icon-large"></i> ¡Listo!</button>
 				</div>
 			</div>
 		</div>
 	</div>
+</div>
+
+<?php //$this->load->view('profesor/includes/modalNotas'); ?>
+<div id="myModalasd" class="modal hide modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large"></i></button>
+        <h4 class="muted" id="myModalLabel">Notas</h4>
+    </div>
+
+    <div class="modal-body" id="modalNotas">
+    </div>
+    <div class="modal-footer">  
+    </div>
+
 </div>

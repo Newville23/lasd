@@ -92,7 +92,7 @@
 									  		<div class="media-body">
 									    		<h5 class="media-heading text-info foroTitulo">
 									    			<a 
-										    			id="#<?php echo $value['id_time']; ?>" 
+										    			id="#<?php //echo $value['id_time']; ?>" 
 										    			href="<?php echo site_url('estudiante/foro/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
 										    			data-target="#myModal" data-toggle="modal"><?php echo $value['titulo']; ?>
 									    			</a>
@@ -128,7 +128,7 @@
 </div>
 
 <!-- --------------------------------------  Modal del foro  --------------------------------------------------- -->
-	<div class="envoltorio-modal">
+
 	<div id="myModal" class="modal hide modal-correccion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 		<div class="modal-header">
 			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
@@ -139,8 +139,6 @@
 			
 		</div>
 		<div class="modal-footer">
-			  <!-- <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-			  <button class="btn btn-primary">Save changes</button> -->
+			  
 		</div>
-	</div>
 	</div>

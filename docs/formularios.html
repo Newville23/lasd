@@ -53,3 +53,43 @@ crear vista html.
 			}
 
 	 ?>
+
+<!-- ===================================================================== -->
+GESTION MODAL:
+
+<!-- - - -->
+
+En la Vista en la que se va a llamar al modal, se coloca el lanzador o lanzadores del modal con el siguiente codigo:
+
+	<a 
+		id="#<?php echo 'idModal'//$value['id_time']; ?>" 
+		href="#Link_remoto_al_controlador_del_modal" title="" data-target="#myModal" data-toggle="modal">
+		<?php echo 'nombre del link modal'//$value['titulo']; ?>
+	</a>
+
+si son varios lanzadores se varia las id de <a id="#"></a>
+
+
+
+Al final de los <a href=""></a> se agrega el codigo del modal y cambiar la <e id > del modal y el <e data-target="#myModal">
+
+	<div class="envoltorio-modal">
+		<div id="myModal" class="modal hide modal-correccion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header">
+				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
+				  <p id="myModalLabel" class="muted">Titulo del modal</p>
+			</div>
+			<div class="modal-body" id="cuerpoModalDelForo">
+			</div>
+			<div class="modal-footer">
+			</div>
+		</div>
+	</div>
+<!-- - - -->
+
+Controlador llamado:
+Se verifica que sea una peticion ajax:
+
+	<?php if ($this->input->is_ajax_request()) {...} ?>
+	
+

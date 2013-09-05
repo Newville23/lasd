@@ -311,13 +311,23 @@ $(function(){
 //========== F O R O==================================================================
 
 	$('.foroTitulo a').on('click', function() {
-			var id_enlace_foro = $(this).attr('id');
+			//var id_enlace_foro = $(this).attr('id');
 			var enlace_foro = $(this).attr('href');
 			
 			$('#cuerpoModalDelForo').load(enlace_foro);
 
 
 	});
+
+	    
+    
+    $('#AgregarCalificacion, .ActualizarCalificacion').on('click', function() {
+            
+        var enlace = $(this).attr('href');
+        $('#modalNotas').load(enlace);
+
+    });     
+
 
 
 //======== L O G I N ====================================================================
@@ -388,6 +398,8 @@ $(function(){
 			$(this).attr('id', ran);
 
 			$.post(enlace, $(this).serialize(), function(data) {
+
+				//var obj = jQuery.parseJSON(data);
 
 				$('#'+ ran.toString() + ' div.alerta').html(data);
 
