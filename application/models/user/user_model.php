@@ -140,6 +140,13 @@ class User_model extends CI_model
 		return $row;
 	}
 
+	function getLogroFromId($Calificacion_id)
+	{
+		$query = $this->db->get_where('Calificacion', array('id' => $Calificacion_id));
+		$row = $query->row_array();
+		return $row;
+	}
+
 
 	/**
 	S E T T E R S
@@ -180,6 +187,18 @@ class User_model extends CI_model
 		$this->db->where('Calificacion_id', $calificaion_id);
 		$this->db->where('Estudiante_identificacion', $id_estudiante);
 		$this->db->update('Agregar_notas', $data); 
+	}
+
+	function actualizarCalificacion($calificaion_id)
+	{
+		$data = array(	'tipo_evaluacion' => $this->input->post('tipoeval'),
+						'concepto' => $this->input->post('detalleNota'),
+						'ponderacion' => $this->input->post('peso'));
+
+		$this->db->where('id', $calificaion_id);
+		$this->db->update('Calificacion', $data); 
+
+		return $data;
 	}
 
 }

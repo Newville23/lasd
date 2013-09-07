@@ -72,10 +72,10 @@
 						<th colspan="2">Peso %</th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="logros">
 					<?php foreach ($listaCalificaciones as $key => $value): ?>
-					<tr>
-						<td><a href="<?php echo site_url('user/actLogro/'); ?>" class="btn btn-info ActualizarCalificacion" type="button" data-toggle="modal" data-target="#myModalasd">Editar</a></td>
+					<tr id="<?php echo $value['id'] ?>">
+						<td><a href="<?php echo site_url('user/formLogroActualizar/' . $value['id']); ?>" class="btn btn-info ActualizarCalificacion" type="button" data-toggle="modal" data-target="#myModalasd">Editar</a></td>
 						
 						<td><?php echo $value['tipo_evaluacion']; ?></td>
 						<td><?php echo $value['concepto']; ?></td>
@@ -92,7 +92,7 @@
 			</table>
 			<div class="row-fluid">
 				<div class="btn-group span12">
-					<a id="AgregarCalificacion" href="<?php echo site_url('user/actLogro/' . $listaAlumnos['numero'] .'/' . $listaAlumnos['Materia_id']); ?>" 
+					<a id="AgregarCalificacion" href="<?php echo site_url('user/formLogro/' . $listaAlumnos['numero'] .'/' . $listaAlumnos['Materia_id']); ?>" 
 						class="btn btn-large span6" data-toggle="modal" data-target="#myModalasd">
 						<i class="icon-plus-sign icon-large"></i> Agregar calificación
 					</a>
