@@ -56,6 +56,8 @@ class User extends CI_Controller
 
 				$data['logro'] = $this->user_model->setCalificacion($Clase_numero, $Materia_id);
 
+				$this->user_model->setRelacionLogrosConEstudiantes($data['logro']['id'], $Clase_numero);
+
 				$data['mensaje'] = "¡Registrado!";
 				$data['clase'] = 'alert-success';
 				$data['estado'] = 1;

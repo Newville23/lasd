@@ -166,6 +166,23 @@ class User_model extends CI_model
 
 		return $data;
 	}
+
+	function setRelacionLogrosConEstudiantes($Calificacion_id, $Clase_numero)
+	{
+		$array = $this->getEstudiantesFromClase($Clase_numero);
+		
+		foreach ($array['listaEstudiantes'] as $key => $Estudiante) {
+			
+			$data = array('Estudiante_identificacion' => $Estudiante['Estudiante_identificacion'],
+							'Calificacion_id' =>  $Calificacion_id);
+
+			$this->db->insert('Agregar_notas', $data); 
+		}
+		
+	}
+
+
+
 	/**
 	U P D A T E S
 	*/

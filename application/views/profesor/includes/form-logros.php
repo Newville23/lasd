@@ -1,5 +1,5 @@
  <?php echo form_open('user/' . $controller, array('class' => 'form-horizontal formajax')); ?>
- <?php usleep(500000); ?>
+ <?php //usleep(500000); ?>
  	<div class="alerta"></div>
 	 <div class="row-fluid">         
 	    <input class="span12" name="tipoeval" placeholder="Tipo de evaluación" type="text" value="<?php if (isset($logro)) { echo $logro['tipo_evaluacion'];} ?>">
