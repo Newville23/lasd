@@ -99,12 +99,12 @@ class Estudiante extends CI_Controller
 
 			$arrayForo = $this->estudiante_model->getForo($id_time);
 
-			$arrayForo['Comentario'] = $this->estudiante_model->getComentario($id_time);
+			$arrayForo['Comentario'] = $this->estudiante_model->getComentarios($id_time);
 
 			foreach ($arrayForo['Comentario'] as $key => $value) {
 
 				$arrayForo['Comentario'][$key]['SubComentario'] = 
-					$this->estudiante_model->getSubComentario($id_time, $Clase_numero, $Materia_id, $value['id_time']);
+					$this->estudiante_model->getSubComentarios($id_time, $Clase_numero, $Materia_id, $value['id_time']);
 			}
 
 			$this->load->view('estudiante/foro', $arrayForo);
@@ -127,6 +127,8 @@ class Estudiante extends CI_Controller
 				
 				$data = $this->estudiante_model->setComentar($Materia_id, $Clase_numero, $id_time);
 
+				$data = $this->estudiante_model->getComentario($data['id_time']);
+				//echo "<pre>"; print_r($data); echo "</pre>";
 				$this->load->view('estudiante/comentario', $data);
 				
 			}
@@ -151,8 +153,13 @@ class Estudiante extends CI_Controller
 			if ($this->form_validation->run()) {
 				
 				$data = $this->estudiante_model->setSubComentar($Materia_id, $Clase_numero, $Foro_id_time, $Comentario_id_time);
+				
+				$data = $this->estudiante_model->getSubComentario($data['id_time_Sub']);
+
+				//echo "<pre>"; print_r($data); echo "</pre>";
 
 				$this->load->view('estudiante/subcomentario', $data);
+
 				
 			}
 			else{

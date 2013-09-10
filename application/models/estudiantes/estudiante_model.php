@@ -181,7 +181,15 @@ class Estudiante_model extends CI_model
 
 	}
 
-	function getComentario($Foro_id_time)
+	function getComentario($Comentario_id_time)
+	{
+		$this->db->join('Usuario', 'Usuario.id = Comentario.Usuario_id');
+		$query = $this->db->get_where('Comentario', array('id_time' => $Comentario_id_time));
+		$row = $query->row_array();
+		return $row;
+	}
+
+	function getComentarios($Foro_id_time)
 	{
 		
 		$data = array('Foro_id_time' => $Foro_id_time);
@@ -194,17 +202,26 @@ class Estudiante_model extends CI_model
 		return $row;
 	}
 
-	function getSubComentario($Foro_id_time, $Clase_numero, $Materia_id, $Comentario_id_time)
+	function getSubComentarios($Foro_id_time, $Clase_numero, $Materia_id, $Comentario_id_time)
 	{
 		$data = array('Foro_id_time' => $Foro_id_time,
 						'Clase_numero' => $Clase_numero,
 						'Materia_id' => $Materia_id,
 						'Comentario_id_time' => $Comentario_id_time);
-
-		$this->db->order_by('fecha_creacion', 'asc');
+		
+		$this->db->join('Usuario', 'Usuario.id = SubComentario.Usuario_id');
+		$this->db->order_by('fecha_creacion_sub', 'desc');
 		$query = $this->db->get_where('SubComentario', $data);
 		$row = $query->result_array();
 
+		return $row;
+	}
+
+	function getSubComentario($Subcomentario_id_time)
+	{
+		$this->db->join('Usuario', 'Usuario.id = SubComentario.Usuario_id');
+		$query = $this->db->get_where('SubComentario', array('id_time_Sub' => $Subcomentario_id_time));
+		$row = $query->row_array();
 		return $row;
 	}
 
