@@ -11,6 +11,7 @@
 		<ul class="nav nav-tabs">
 		 	<li class=""><a href="#contenido" data-toggle="tab">Contenido</a></li>
 			<li class=""><a href="#foro" data-toggle="tab">Foro</a></li>
+			<li class=""><a href="#estudiantes" data-toggle="tab">Estudiantes</a></li>
 			<li class=""><a href="#trabajos" data-toggle="tab">Trabajos</a></li>
 			<li class="active"><a href="#notas" data-toggle="tab">Notas</a></li>
 		</ul>
@@ -46,6 +47,10 @@
 					$this->load->view('profesor/includes/foro'); ?>
 
 				</div>
+			</div>
+
+			<div class="tab-pane" id="estudiantes">
+				<?php $this->load->view('estudiante/listaEstudiantes'); ?>
 			</div>
 
 			<div class="tab-pane" id="trabajos">

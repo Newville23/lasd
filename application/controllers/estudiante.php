@@ -97,9 +97,9 @@ class Estudiante extends CI_Controller
 
 		if ($this->input->is_ajax_request()) {
 
-			$arrayForo = $this->estudiante_model->getForo($Materia_id, $Clase_numero, $id_time);
+			$arrayForo = $this->estudiante_model->getForo($id_time);
 
-			$arrayForo['Comentario'] = $this->estudiante_model->getComentario($id_time, $Clase_numero, $Materia_id);
+			$arrayForo['Comentario'] = $this->estudiante_model->getComentario($id_time);
 
 			foreach ($arrayForo['Comentario'] as $key => $value) {
 

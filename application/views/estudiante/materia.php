@@ -100,7 +100,7 @@
 									    		<p>
 									    			<span class="voto"><?php echo $value['puntos']; ?></span> 
 									    			<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
-									    			<span class="inforo"> hace 2 días por <a href="#">Juanita</a></span>
+									    			<span class="inforo"><?php echo $value['fecha_creacion_foro'] ?> <a href="#"><?php echo $value['nombre'] .' '. $value['apellido']; ?></a></span>
 									    		</p>
 									  		</div>
 										</div>

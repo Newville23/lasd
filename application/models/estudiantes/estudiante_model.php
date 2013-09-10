@@ -164,45 +164,31 @@ class Estudiante_model extends CI_model
 		$data = array('Clase_numero' => $Clase_numero, 
 					'Materia_id' => $Materia_id);
 
-		//$this->db->join('Profesor', 'Profesor.Usuario_id = Foro.Usuario_id');
-		$this->db->order_by('fecha_creacion', 'desc');
+		$this->db->join('Usuario', 'Usuario.id = Foro.Usuario_id');
+		$this->db->order_by('fecha_creacion_foro', 'desc');
 		$query1 = $this->db->get_where('Foro', $data);
 		$row1 = $query1->result_array();
 
-
-		// $this->db->join('Estudiante', 'Estudiante.Usuario_id = Foro.Usuario_id');
-
-		// $query2 = $this->db->get_where('Foro', $data);
-		// $row2 = $query2->result_array();
-
-		// echo "<pre>"; print_r($row1); echo "</pre>";
-		// echo "<pre>"; print_r($row2); echo "</pre>";
-
-		// echo "<pre>"; echo count($row1); echo "</pre>";
-		// echo "<pre>"; echo count($row2); echo "</pre>";
 		return $row1;
 	}
 
-	function getForo($Materia_id, $Clase_numero, $id_time)
+	function getForo($id_time)
 	{
-
-		$data = array('id_time' => $id_time,
-						'Clase_numero' => $Clase_numero,
-						'Materia_id' => $Materia_id);
-
-		$query = $this->db->get_where('Foro', $data);
+		$this->db->join('Usuario', 'Usuario.id = Foro.Usuario_id');
+		$query = $this->db->get_where('Foro', array('id_time' => $id_time));
 		$row = $query->row_array();
 		return $row;
 
 	}
 
-	function getComentario($Foro_id_time, $Clase_numero, $Materia_id)
+	function getComentario($Foro_id_time)
 	{
-		$data = array('Foro_id_time' => $Foro_id_time,
-						'Clase_numero' => $Clase_numero,
-						'Materia_id' => $Materia_id);
+		
+		$data = array('Foro_id_time' => $Foro_id_time);
 
-		$this->db->order_by('fecha_creacion', 'asc');
+		$this->db->select('id_time, fecha_creacion_comentario, cuerpo, puntos, Usuario_id, Foro_id_time, Clase_numero, Materia_id, usuario, nombre, apellido');
+		$this->db->join('Usuario', 'Usuario.id = Comentario.Usuario_id');
+		$this->db->order_by('fecha_creacion_comentario', 'desc');
 		$query = $this->db->get_where('Comentario', $data);
 		$row = $query->result_array();
 		return $row;
