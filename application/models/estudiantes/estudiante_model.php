@@ -229,19 +229,6 @@ class Estudiante_model extends CI_model
 	S E T T E R S
 	*/
 
-	public function setForo($Clase_numero, $Materia_id)
-	{
-		$filtro = array(" ", ".");
-
-		$data = array('Usuario_id' => $_SESSION['id_usuario'],
-						'id_time' => str_replace($filtro, '', microtime()),
-						'titulo' => $this->input->post('tituloforo'),
-						'cuerpo' => $this->input->post('cuerpoforo'),
-						'Clase_numero' => $Clase_numero,
-						'Materia_id' => $Materia_id);
-
-		$this->db->insert('Foro', $data);
-	}
 	public function votarForo()
 	{
 

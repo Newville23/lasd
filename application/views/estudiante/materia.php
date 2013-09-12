@@ -49,6 +49,7 @@
 					<ul class="nav nav-tabs">
 					 	<li class=""><a href="#contenido" data-toggle="tab">Contenido</a></li>
 						<li class="active"><a href="#foro" data-toggle="tab">Foro</a></li>
+						<li class=""><a href="#estudiantes" data-toggle="tab">Estudiantes</a></li>
 						<li class=""><a href="#trabajos" data-toggle="tab">Trabajos</a></li>
 						<li class=""><a href="#notas" data-toggle="tab">Notas</a></li>
 					</ul>
@@ -66,11 +67,11 @@
 								
 									<div class="control-group">
 										<p Class="muted"><i class="icon-pencil icon-2x"></i><span> Crea un nuevo foro de discución</span></p>				
-										<textarea name="tituloforo" id="tituloforo" required class="textprincipal input-block-level text-info fontSize3 bordersize1" cols="30" rows="1" placeholder="Escribe un titulo o idea principal..."></textarea>
+										<textarea name="tituloforo" id="tituloforo" required class="textprincipal input-block-level text-info fontSize3  " cols="30" rows="1" placeholder="Escribe un titulo o idea principal..."></textarea>
 									</div>
 
 									<div class="control-group">
-										<textarea name="cuerpoforo" id="cuerpoforo" class="input-block-level fontSize3 bordersize1" cols="30" rows="5" placeholder="Desarrolla la pregunta.."></textarea>	
+										<textarea name="cuerpoforo" id="cuerpoforo" class="input-block-level fontSize3  " cols="30" rows="5" placeholder="Desarrolla la pregunta.."></textarea>	
 									</div>
 
 									
@@ -93,7 +94,7 @@
 									    		<h5 class="media-heading text-info foroTitulo">
 									    			<a 
 										    			id="#<?php //echo $value['id_time']; ?>" 
-										    			href="<?php echo site_url('estudiante/foro/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
+										    			href="<?php echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
 										    			data-target="#myModal" data-toggle="modal"><?php echo $value['titulo']; ?>
 									    			</a>
 									    		</h5>
@@ -109,6 +110,10 @@
 
 								</ul>
 							</div>
+						</div>
+
+						<div class="tab-pane" id="estudiantes">
+							<?php //$this->load->view('estudiante/listaEstudiantes'); ?>
 						</div>
 						
 						<div class="tab-pane" id="trabajos">

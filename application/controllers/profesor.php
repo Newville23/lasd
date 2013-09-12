@@ -12,9 +12,12 @@ class Profesor extends CI_Controller
 
 		$this->load->helper('url');
 		$this->load->library('sesion');
+
 		$this->sesion->acceso('profesor');
+
 		$this->load->model('user/user_model');
 		$this->load->model('profesor/profesor_model');
+		$this->load->model('user/foro_model');
 
 		$this->load->library('form_validation');
 		$this->load->helper('form');
@@ -48,6 +51,8 @@ class Profesor extends CI_Controller
 
 		// Obtiene la lista de alumnos con sus notas, de una determinada clase
 		$row['listaCalificaciones'] = $this->user_model->getCalificacionesFromClase($numeroClase);
+
+		$row['foros'] = $this->foro_model->getForoFromClase($numeroClase);
 		//echo "<pre>"; print_r($row); echo "</pre>";
 
 		// ----------------------------------------------------------------
@@ -66,11 +71,25 @@ class Profesor extends CI_Controller
 		$data['lasd'] = 'Lasd';
 		$data['linkIndex'] = 'profesor';
 		$data['numeroClase'] = $numeroClase;
-		
 
-		$this->load->view('templates/header', $data);
-		$this->load->view('profesor/curso', $row);
-		$this->load->view('templates/footer', $data);
+		$this->form_validation->set_rules('tituloforo', 'Titulo del foro', 'trim|required|xss_clean|htmlspecialchars');
+		$this->form_validation->set_rules('cuerpoforo', 'Cuerpo del foro', 'trim|xss_clean|htmlspecialchars');
+
+		
+		if ($this->form_validation->run() === FALSE) {
+			
+			$this->load->view('templates/header', $data);
+			$this->load->view('profesor/curso', $row);
+			$this->load->view('templates/footer', $data);
+		}
+		else
+		{
+
+			$this->foro_model->setForo($numeroClase, $row['listaAlumnos']['Materia_id']);
+			redirect('profesor/clase/' . $numeroClase);
+		}
+
+		
 	}
 }
 

@@ -1,6 +1,6 @@
 <ul class="unstyled">
 
-	<?php //foreach ($foros as $key => $value): ?>
+	<?php foreach ($foros as $key => $value): ?>
 		<li>
 			<div class="media bloque-top well-white well2">
 		  		<a class="pull-left" href="#">
@@ -9,17 +9,17 @@
 		  		<div class="media-body">
 		    		<h5 class="media-heading text-info foroTitulo">
 		    			
-		    			<a href="#myModal" role="button" class="" data-toggle="modal">			
-				    			<?php echo 'Titulo del Foro'//$value['titulo']; ?>
+		    			<a href="<?php echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
+							data-target="#myModal" data-toggle="modal"><?php echo $value['titulo']; ?>
 		    			</a>
 		    		</h5>
 		    		<p>
-		    			<span class="voto"><?php echo '4'//$value['puntos']; ?></span> 
+		    			<span class="voto"><?php echo $value['puntos']; ?></span> 
 			   			<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
-			   			<span class="inforo"> hace 2 días por <a href="#">Profesor</a></span>
+			   			<span class="inforo"><?php echo $value['fecha_creacion_foro']; ?> <a href="#"><?php echo $value['nombre'] .' '.$value['apellido']; ?></a></span>
 			   		</p>
 				</div>
 			</div>
 		</li>
-	<?php //endforeach; ?>
+	<?php endforeach; ?>
 </ul>

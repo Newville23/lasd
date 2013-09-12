@@ -8,9 +8,13 @@ class Estudiante extends CI_Controller
 		parent::__construct();
 		$this->load->helper('url');
 		$this->load->library('sesion');
-		//$this->sesion->acceso('estudiante');
+
+		$this->sesion->acceso('estudiante');
+
 		$this->load->model('estudiantes/estudiante_model');
 		$this->load->model('user/user_model');
+		$this->load->model('user/foro_model');
+
 		$this->load->library('form_validation');
 		$this->load->helper('form');
 	}
@@ -46,11 +50,6 @@ class Estudiante extends CI_Controller
 			exit;
 		}
 
-		$data['title'] = 'Materias';
-		$data['lasd'] = 'Lasd';
-		$data['numeroClase'] = $numeroClase;
-		$data['linkIndex'] = 'estudiante';
-
 		// leer tabla estudiantes con la id
 		$row = $this->estudiante_model->getEstudiante();
 
@@ -73,6 +72,10 @@ class Estudiante extends CI_Controller
 		$this->form_validation->set_rules('tituloforo', 'Titulo del foro', 'trim|required|xss_clean|htmlspecialchars');
 		$this->form_validation->set_rules('cuerpoforo', 'Cuerpo del foro', 'trim|xss_clean|htmlspecialchars');
 
+		$data['title'] = 'Materias';
+		$data['lasd'] = 'Lasd';
+		$data['numeroClase'] = $numeroClase;
+		$data['linkIndex'] = 'estudiante';
 
 		if ($this->form_validation->run() === FALSE) {
 			
@@ -85,36 +88,12 @@ class Estudiante extends CI_Controller
 		else
 		{
 
-			$this->estudiante_model->setForo($numeroClase, $row['ProfesorFromClase']['Materia_id']);
+			$this->foro_model->setForo($numeroClase, $row['ProfesorFromClase']['Materia_id']);
 
 			redirect('estudiante/materia/' . $numeroClase);
 		}
 
 
-	}
-
-	function foro($Materia_id = FALSE, $Clase_numero = FALSE, $id_time = FALSE){
-
-		if ($this->input->is_ajax_request()) {
-
-			$arrayForo = $this->estudiante_model->getForo($id_time);
-
-			$arrayForo['Comentario'] = $this->estudiante_model->getComentarios($id_time);
-
-			foreach ($arrayForo['Comentario'] as $key => $value) {
-
-				$arrayForo['Comentario'][$key]['SubComentario'] = 
-					$this->estudiante_model->getSubComentarios($id_time, $Clase_numero, $Materia_id, $value['id_time']);
-			}
-
-			$this->load->view('estudiante/foro', $arrayForo);
-			//echo "<pre>"; print_r($arrayForo); echo "</pre>";
-
-		}
-		else{
-			redirect('estudiante/materia/' . $Clase_numero);
-			exit();
-		}
 	}
 
 	function foroAjax($Materia_id = FALSE, $Clase_numero = FALSE, $id_time = FALSE)

@@ -34,7 +34,7 @@
 						array('class' => 'form-horizontal', 'id' => $id_FormForo)) ?>
 
 							<div class="control-group">
-								<textarea name="comentarForo" id="<?php echo $cometarForo; ?>" placeholder="Escribe un comentario." class="input-block-level bordersize1 comentarForo" wrap="hard" cols="30" rows="2"></textarea>
+								<textarea name="comentarForo" id="<?php echo $cometarForo; ?>" placeholder="Escribe un comentario." class="input-block-level   comentarForo" wrap="hard" cols="30" rows="2"></textarea>
 							</div>
 							<div class="btn-group desaparecer" id="<?php echo $botonesComentario; ?>">
 								<button id="" class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
@@ -75,7 +75,7 @@
 								<?php echo form_open('estudiante/comentarioAjax/' . $value['Materia_id'] . '/' . $value['Clase_numero'] . '/' . $value['Foro_id_time'] . '/' . $value['id_time'], 
 												array('class' => 'form-horizontal desaparecer', 'id' => $id_FormSubComentario[$key])) ?>
 									<div class="control-group">
-										<textarea name="comentarComentario" id="comentar" placeholder="Escribe un comentario." class="input-block-level bordersize1" wrap="hard" cols="30" rows="2"></textarea>
+										<textarea name="comentarComentario" id="comentar" placeholder="Escribe un comentario." class="input-block-level  " wrap="hard" cols="30" rows="2"></textarea>
 									</div>
 									
 									<div class="btn-group" id="">
