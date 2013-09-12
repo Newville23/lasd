@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title><?php echo $title ?> - Tutorial de CodeIgniter 2</title>
+		<title><?php echo $title ?> - Athena Project</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			
@@ -37,7 +37,7 @@
             <span class="icon-bar"></span>
           </a>
 
-          <a class="brand" href="<?php echo site_url($linkIndex); ?>">Project name</a>
+          <a class="brand" href="<?php echo site_url($linkIndex); ?>">Athena Project</a>
 
           <div class="nav-collapse collapse">
             <ul class="nav">

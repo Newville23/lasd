@@ -274,8 +274,8 @@ a.Matbar2:hover{
   color: white;
   margin-bottom: 2%;
   padding: 1%;
-  min-height: 80px;
-    transition:All 0.2s;
+  min-height: 80px !important;     
+  transition:All 0.2s;
   -webkit-transition:All 0.2s;
 }
 .targeta-verde:hover{
@@ -285,7 +285,7 @@ a.Matbar2:hover{
 .targeta-gris{
   padding: 1%;
   margin-bottom: 2%;
-  min-height: 80px;
+  min-height: 80px !important;   
   background-color: Gainsboro;
   border-radius: 4px;
   color: #777777;
@@ -299,7 +299,7 @@ a.Matbar2:hover{
 .targeta-naranja{
   padding: 1%;
   margin-bottom: 2%;
-  min-height: 100px;
+  min-height: 80px !important; 
   background-color: orange;
   border-radius: 4px;
   color: white;
@@ -314,7 +314,7 @@ a.Matbar2:hover{
 .targeta-roja{
   padding: 1%;
   margin-bottom: 2%;
-  min-height: 80px;
+  min-height: 80px !important;   
   background-color: red;
   border-radius: 4px;
   color: white;

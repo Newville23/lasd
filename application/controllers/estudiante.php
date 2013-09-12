@@ -17,6 +17,8 @@ class Estudiante extends CI_Controller
 
 		$this->load->library('form_validation');
 		$this->load->helper('form');
+
+		$this->load->library('encrypt');
 	}
 
 	public function index()
@@ -37,10 +39,12 @@ class Estudiante extends CI_Controller
 		//echo "<pre>"; print_r($row); echo "</pre>";
 
 		$this->load->view('templates/header', $data);
-
+		
 		$this->load->view('estudiante/index', $row);
 
 		$this->load->view('templates/footer', $data);
+
+
 	}
 
 	public function materia($numeroClase = false)
@@ -67,6 +71,8 @@ class Estudiante extends CI_Controller
 		$row['foros'] = $this->estudiante_model->getForoFromClase($row['ProfesorFromClase']['Materia_id'], $numeroClase);
 
 		$row['notas'] = $this->user_model->getNotasUnEstudianteFromClase($numeroClase, $row['datos']['identificacion']);
+		
+		$row['listaAlumnos'] = $this->user_model->getEstudiantesFromClase($numeroClase);
 		//echo "<pre>"; print_r($row); echo "</pre>";
 
 		$this->form_validation->set_rules('tituloforo', 'Titulo del foro', 'trim|required|xss_clean|htmlspecialchars');

@@ -113,7 +113,7 @@
 						</div>
 
 						<div class="tab-pane" id="estudiantes">
-							<?php //$this->load->view('estudiante/listaEstudiantes'); ?>
+							<?php $this->load->view('estudiante/listaEstudiantes'); ?>
 						</div>
 						
 						<div class="tab-pane" id="trabajos">

@@ -24,7 +24,8 @@ class Login_model extends CI_Model
 	{
 		$data = array(
 			'usuario' => $this->input->post('usuario'), 
-			'pass' => $this->input->post('pass'));
+			'pass' => sha1($this->input->post('pass'))
+				);
 		
 		$query = $this->db->get_where('Usuario', $data);
 		return $query->row_array();	

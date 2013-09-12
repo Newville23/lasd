@@ -17,7 +17,7 @@ class Admin_model extends CI_model
 */
 	// Entradas:
 	// $tabla = La tabla de la BD.
-	// $indiceYkey
+	// $indiceYkey =  array('campo' => $usuario )
 
 	function verificarKey($tabla, $indiceYkey)
 	{	
@@ -55,7 +55,7 @@ class Admin_model extends CI_model
 
 		$data = array(	'id' => $id,
 						'usuario' => $this->input->post('usuario'),
-						'pass' => $this->input->post('pass'),
+						'pass' => sha1($this->input->post('pass')),
 						'rol' => $rol,
 						'nombre' => $this->input->post('nombre'),
 						'apellido' => $this->input->post('apellido'),
