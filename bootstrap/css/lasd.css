@@ -48,7 +48,7 @@ a.Matbar2:hover{
 }
 
 .container-fluid2 {
-    max-width: 80%;
+    max-width: 90%;
     padding: 19px 29px 29px;
     padding-top: 4%;
     margin: 0 auto 20px;
@@ -58,9 +58,9 @@ a.Matbar2:hover{
         -webkit-border-radius: 5px;
            -moz-border-radius: 5px;
                 border-radius: 5px;
-        -webkit-box-shadow: 0px 2px 10px #aaa;
-           -moz-box-shadow: 0px 2px 10px #aaa;
-                box-shadow: 0px 2px 10px #aaa;
+        -webkit-box-shadow: 0px 2px 5px #aaa;
+           -moz-box-shadow: 0px 2px 5px #aaa;
+                box-shadow: 0px 2px 5px #aaa;
       }
       .container-fluid .container-fluid-heading,
       .container-fluid .checkbox {
@@ -106,6 +106,18 @@ a.Matbar2:hover{
   margin-bottom: 40px;
   position: relative;
   top: 10%;
+}
+
+.marcador-borde-azul, .marcador-borde-verde{
+    transition:All 0.2s;
+  -webkit-transition:All 0.2s;
+}
+.marcador-borde-azul:hover{
+  border-left: solid 3px #0088cc;
+}
+
+.marcador-borde-verde:hover{
+  border-left: solid 3px #00B147;
 }
 
 /*********************************************************************/
@@ -418,12 +430,14 @@ input[type="range"]::slider-thumb {
     background-color: #0075c4;
 /*    border: 2px #0075c4 solid;*/
     border-radius: 4px;
-    padding: 5px;
+    padding: 8%;
     padding-bottom: 6px;
     text-align: center;
-    margin: 6px;
+    margin: 10px;
     color:  #fff;
     box-shadow: 0px 0px 15px #aaa;
+    min-height: 20px;
+    min-width: 40%;
 }
 .navegacion i{
   display: block;
@@ -483,18 +497,18 @@ ul li.active a.navegacion{
   width: 95%;
 }
 
-/****** PANTALLA MEDIANA *****/
+/****** PANTALLA MEDIANA *****
 @media (min-width: 768px) and (max-width: 979px) {
     .barra-propiedades{
-    background-color: #222;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    top: 50px;
-    width: 200px;
-    float: left;
+      background-color: #222;
+      /*position: fixed;
+      bottom: 0;
+      left: 0;
+      top: 50px;
+      /*width: 200px;*/
+      /*float: left;
   }
-
+/*
   .lennin{
   position: fixed;
   background-color: #222;
@@ -508,7 +522,7 @@ ul li.active a.navegacion{
 }
 
 /******* Estilos sólo para PEQUEÑAS PANTALLAS  *************/
-@media (max-width: 767px) {
+@media (max-width: 979px) {
   .barra-propiedades{
     background-color: #222;
     
@@ -532,14 +546,14 @@ ul li.active a.navegacion{
   
 }
 
-.lennin{
+/*.lennin{
   position: fixed;
   background-color: #222;
   width: 200px;
   bottom: 0;
   left: 0;
   top: 0;
-  z-index: -100;
+  z-index: -100;*/
 }
 }
 

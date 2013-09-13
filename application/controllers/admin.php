@@ -33,7 +33,7 @@ class Admin extends CI_Controller
 
 	function agregarInstitucion()
 	{
-		$data['title'] = 'Inicio administradores';
+		$data['title'] = 'Agregar Institucion';
 		$data['lasd'] = 'Lasd';
 		$data['linkIndex'] = 'admin';
 		
@@ -41,6 +41,18 @@ class Admin extends CI_Controller
 		$this->load->view('admin/agregarInstitucion');
 		$this->load->view('templates/footer', $data);
 		
+	}
+
+	function adminEstudiantes()
+	{
+		$data['title'] = 'Administrar Estudiantes';
+		$data['lasd'] = 'Lasd';
+		$data['linkIndex'] = 'admin';
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('admin/adminEstudiantes');
+		$this->load->view('templates/footer', $data);
+
 	}
 
 	function institucion()
@@ -92,6 +104,8 @@ class Admin extends CI_Controller
 	function mensajesValidacion()
 	{
 		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
+		$this->form_validation->set_message('valid_email', 'El campo %s no es un Email valido');
+
 	}
 
 
