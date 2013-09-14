@@ -10,7 +10,7 @@
 			<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 			<span class="inforo subComentar"><a href="#" id="#" class="<?php echo $subComentar = rand(); ?>"> Responder</a></span>
 
-			<span class="inforo"><?php echo $fecha_creacion_comentario; ?></span>
+			<span class="inforo"><?php $this->tiempo->fechaHumana($fecha_creacion_comentario); ?></span>
 
 			<div class="clase-Subcomentario-foro">
 				<?php echo form_open('estudiante/comentarioAjax/' . $Materia_id . '/' . $Clase_numero . '/' . $Foro_id_time . '/' . $id_time, 

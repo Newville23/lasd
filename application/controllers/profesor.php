@@ -21,6 +21,8 @@ class Profesor extends CI_Controller
 
 		$this->load->library('form_validation');
 		$this->load->helper('form');
+
+		$this->load->library('tiempo');
 	}
 
 	function index()

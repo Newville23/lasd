@@ -319,6 +319,15 @@ $(function(){
 
 	});
 
+	$('.ModalInfo a').on('click', function() {
+			//var id_enlace_foro = $(this).attr('id');
+			var enlace_foro = $(this).attr('href');
+			
+			$('#cuerpoModalDelForo').load(enlace_foro);
+
+
+	});
+
 	    
     
     $('#AgregarCalificacion, .ActualizarCalificacion').on('click', function() {

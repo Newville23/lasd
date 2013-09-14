@@ -82,21 +82,17 @@
 		</div>
 
 		<!-- Modal del Perfil -->
-		<div id="myModal" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			<div class="modal-header">
-				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-				  <h3 id="myModalLabel">Datos del Estudiante</h3>
+		<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			<div class="modal-header" style="background-color: rgba(221, 221, 221, 0.3);">
+				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
+				  <h4 class="muted text-center" id="myModalLabel">Datos del Estudiante</h4 class="muted text-center">
 			</div>
-			<div class="modal-body">
-				<h3>Lennin Alonso Suescun Devia</h3>
-				<p class="muted">
-					Info completa, resumen de cosas, en editar saldrá un formulario en model con cambio de imagen algunos datos etc,
-				</p>
-				
+			<div class="modal-body" id="">
+				<?php $this->load->view('estudiante/includes/perfil-completo') ?>
 			</div>
-			<div class="modal-footer">
+<!-- 			<div class="modal-footer">
 				  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
 				  <button class="btn btn-primary">Editar</button>
-			</div>
+			</div> -->
 		</div>
 

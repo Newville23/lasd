@@ -18,7 +18,7 @@ class Estudiante extends CI_Controller
 		$this->load->library('form_validation');
 		$this->load->helper('form');
 
-		$this->load->library('encrypt');
+		$this->load->library('tiempo');
 	}
 
 	public function index()

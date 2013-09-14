@@ -8,7 +8,7 @@
 		
 			<span class="voto"><?php echo $puntos; ?></span> 
 			<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
-			<span class="inforo"><?php echo $fecha_creacion_sub; ?></span>
+			<span class="inforo"><?php $this->tiempo->fechaHumana($fecha_creacion_sub); ?></span>
 		
 	</div>
 </div>

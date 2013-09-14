@@ -17,6 +17,8 @@ class Foro extends CI_Controller
 
 		$this->load->library('form_validation');
 		$this->load->helper('form');
+
+		$this->load->library('tiempo');
 	}
 
 	function foroModal($Materia_id = FALSE, $Clase_numero = FALSE, $id_time = FALSE){

@@ -18,7 +18,7 @@
 						<p>
 							<span class="voto"><?php echo $puntos; ?></span> 
 							<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
-							<span class="inforo"> <?php echo $fecha_creacion_foro; ?> <a href="#"><?php echo $nombre .' '. $apellido; ?></a></span>
+							<span class="inforo"> <?php $this->tiempo->fechaHumana($fecha_creacion_foro); ?> <a href="#"><?php echo $nombre .' '. $apellido; ?></a></span>
 						</p>
 					</div>
 				</div>
@@ -69,7 +69,7 @@
 							<span class="voto"><?php echo $value['puntos']; ?></span> 
 							<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
 							<span class="inforo"><a href="#" id="<?php echo $id_responder[$key]; ?>" class="muted"> Responder</a></span>
-							<span class="inforo"> <?php echo $value['fecha_creacion_comentario']; ?> </span>
+							<span class="inforo"> <?php $this->tiempo->fechaHumana($value['fecha_creacion_comentario']); ?> </span>
 							
 							<div class="clase-Subcomentario-foro">
 								<?php echo form_open('estudiante/comentarioAjax/' . $value['Materia_id'] . '/' . $value['Clase_numero'] . '/' . $value['Foro_id_time'] . '/' . $value['id_time'], 
@@ -95,7 +95,7 @@
 									<p>
 										<span class="voto"><?php echo $SubComentario['puntos']; ?></span> 
 										<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
-										<span class="inforo"> <?php echo $SubComentario['fecha_creacion_sub']; ?> </span>
+										<span class="inforo"> <?php $this->tiempo->fechaHumana($SubComentario['fecha_creacion_sub']); ?> </span>
 									</p>
 								</div>
 							</div>
