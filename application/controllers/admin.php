@@ -24,10 +24,12 @@ class Admin extends CI_Controller
 		$data['title'] = 'Inicio administradores';
 		$data['lasd'] = 'Lasd';
 		$data['linkIndex'] = 'admin';
+		$data['active'] = 2;
 		
 		$this->load->view('templates/header', $data);
-		$this->load->view('admin/index');
+		$this->load->view('admin/index', $data);
 		$this->load->view('templates/footer', $data);
+
 		
 	}
 
@@ -36,9 +38,10 @@ class Admin extends CI_Controller
 		$data['title'] = 'Agregar Institucion';
 		$data['lasd'] = 'Lasd';
 		$data['linkIndex'] = 'admin';
+		$data['active'] = 1;
 		
 		$this->load->view('templates/header', $data);
-		$this->load->view('admin/agregarInstitucion');
+		$this->load->view('admin/agregarInstitucion', $data);
 		$this->load->view('templates/footer', $data);
 		
 	}
@@ -48,9 +51,10 @@ class Admin extends CI_Controller
 		$data['title'] = 'Administrar Estudiantes';
 		$data['lasd'] = 'Lasd';
 		$data['linkIndex'] = 'admin';
+		$data['active'] = 3;
 
 		$this->load->view('templates/header', $data);
-		$this->load->view('admin/adminEstudiantes');
+		$this->load->view('admin/adminEstudiantes', $data);
 		$this->load->view('templates/footer', $data);
 
 	}

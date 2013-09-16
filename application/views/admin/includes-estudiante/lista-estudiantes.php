@@ -4,16 +4,32 @@
 	</a>
 	<div class="media-body">
    		<div class="span4">
-   			<strong class="media-heading text-success"><?php echo 'Lennin Alonso Suescun Devia'//$estudiante['nombre'] .' '. $estudiante['apellido']; ?></strong>
+   			
+   			<a 
+				id="#<?php //echo $value['id_time']; ?>" 
+				class=""
+				href=#"<?php //echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
+				data-target="#modalPerfil" data-toggle="modal">
+				<strong class="media-heading text-success"><?php echo 'Lennin Alonso Suescun Devia'//$estudiante['nombre'] .' '. $estudiante['apellido']; ?></strong>
+			</a>
     			<br><a class="fontSize1" href="#"><i class="icon-envelope-alt"></i> Mensaje</a>
    		</div>
 				    							
 		<div class="span4" style="border-bottom: solid 3px #dadada;">
-			<span>TI: </span>11431243323
+			<div class="row-fluid">
+				<div class="span6"><span class="muted">Curso: </span>8º A</div>
+				<div class="span6"><span class="muted">TI: </span>11431243323</div>
+			</div>
 		</div>
 
-		<div class="span4" style="border-bottom: solid 3px #dadada;">
-			hola mundo
+		<div class="span4" style="text-align: right;">
+			<div class="row-fluid">
+				<div class="">
+					<button class="btn btn-info span2 offset4"><i class="icon-edit"></i> </button>
+					<button class="btn btn-warning span2"><i class="icon-arrow-down"></i> </button>
+					<button class="btn btn-danger span2"><i class="icon-remove"></i> </button>
+				</div>
+			</div>
 		</div>
 	</div>
 

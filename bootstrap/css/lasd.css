@@ -177,8 +177,8 @@ a.Matbar2:hover{
 .padding3{
   padding-bottom: 6%;
 }
-.padding1{
-  
+.padding0{
+  padding: 5%;
 }
 .padding1{
   
@@ -216,6 +216,7 @@ a.Matbar2:hover{
   border-radius: 0 0 4px 4px;
   
   box-shadow: 0px 2px 10px #aaa;
+  margin-bottom: 5%;
 }
 .bloquePegadoRight{
   background-color: rgba(180, 180, 180, 0.7);

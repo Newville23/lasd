@@ -1,8 +1,7 @@
-<?php echo form_open('admin/profesor', array('class' => 'form-horizontal formajax', 'id' => '')) ?>
+	<?php echo form_open('admin/profesor', array('class' => 'form-horizontal formajax', 'id' => '')) ?>
 	
-	<div id="profesor" class="row-fluid">
+		<div class="Matbar span6" style="background-color: #52b9e9;">
 
-		<div class="Matbar margen1 span6 offset1" style="background-color: #52b9e9;">
 			<div class="alerta"></div>
 
 			<h4 class="padding3">Datos de Usuario</h4>
@@ -34,7 +33,7 @@
 			</div>
 		</div>
 
-		<div class="margen1 span5 bloquePegadoRight">
+		<div class="span6 Matbar" style="background-color: rgba(180, 180, 180, 0.7);">
 
 			<h4 class="padding3">Datos del Docente</h4>
 			<div class="control-group">
@@ -59,5 +58,4 @@
 			</div>
 
 		</div>
-	</div>
-</form>
+	</form>

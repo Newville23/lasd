@@ -7,15 +7,7 @@
 				<i class="icon-arrow-down icon-large"></i>
 			</button>
 			<div class="bp-envoltura">
-				<ul class="unstyled">
-					<li><a href="<?php echo site_url('admin/agregarInstitucion'); ?>"><i style="padding-right: 8px" class="icon-building icon-large"></i> Agregar Institución</a></li>
-					<li class="active"><a href="<?php echo site_url('admin'); ?>"><i style="padding-right: 8px" class="icon-list-alt icon-large"></i> Formularios</a></li>
-					<li><a href="<?php echo site_url('admin/adminEstudiantes'); ?>"><i style="padding-right: 8px" class="icon-user icon-large"></i> Estudiantes</a></li>
-					<li><a href="#"><i style="padding-right: 8px" class="icon-th-list icon-large"></i> Propiedad</a></li>
-					<li><a href="#"><i style="padding-right: 8px" class="icon-folder-open icon-large"></i> Propiedad</a></li>
-					<li><a href="#"><i style="padding-right: 8px" class="icon-bar-chart icon-large"></i> Estadisticas</a></li>
-					<li><a href="#"><i style="padding-right: 8px" class="icon-picture icon-large"></i> Propiedad</a></li>
-				</ul>
+				<?php $this->load->view('admin/includes/menu-admin'); ?>
 			</div>
 		</div>
 
@@ -45,10 +37,14 @@
 					<?php $this->load->view('admin/includes/select-institucion');?>
 			
 					<div class="" id="forms-registro">
-				
-						<?php $this->load->view('admin/includes/form-estudiantes');?>
 
-						<?php $this->load->view('admin/includes/form-profesor');?>
+						<div class="row-fluid  offset1 margen1" id="estudiante">
+							<?php $this->load->view('admin/includes/form-estudiantes');?>
+						</div>
+
+						<div class="row-fluid  offset1 margen1" id="profesor">
+							<?php $this->load->view('admin/includes/form-profesor');?>
+						</div>
 
 						<?php $this->load->view('admin/includes/form-materia');?>
 
