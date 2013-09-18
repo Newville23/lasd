@@ -8,7 +8,7 @@
 
 	<?php echo form_open('') ?>
 		
-		<div class="control-group">
+		<div class="form-group">
 			<label for="label" >label: </label>
 			<input type="text" id="label" name="label" value="<?php if (isset($campo['label'])) echo $campo['label']; ?>" />
 

@@ -8,7 +8,7 @@
 
 	<?php echo form_open('') ?>
 
-	<div class="control-group">
+	<div class="form-group">
 
 	<?php foreach ($campo as $value): ?>
 

@@ -122,28 +122,28 @@ a.Matbar2:hover{
 
 /*********************************************************************/
 .fontSize0{
-  font-size: 0.6em;
+  font-size: 0.6em !important;
 }
 .fontSize1{
-  font-size: 0.8em;
+  font-size: 0.8em !important;
 }
 .fontSize2{
-  font-size: 1.2em;
+  font-size: 1.2em !important;
 }
 .fontSize3{
-  font-size: 1.4em;
+  font-size: 1.4em !important;
 }
 .fontSize4{
-  font-size: 1.6em;
+  font-size: 1.6em !important;
 }
 .fontSize5{
-  font-size: 1.8em;
+  font-size: 1.8em !important;
 }
 .fontSize6{
-  font-size: 2em;
+  font-size: 2em !important; 
 }
 .fontSize7{
-  font-size: 2.5em;
+  font-size: 2.5em !important;
 }
 .fontSize8{
   font-size: 3em;

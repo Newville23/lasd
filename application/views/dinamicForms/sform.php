@@ -12,7 +12,7 @@
 		<label>Nombre del formulario: </label> 
 		<input type="text" id="FormName" name="FormName" value="" required/>
 		
-		<div class="control-group">
+		<div class="form-group">
 			<label for="label" >label: </label>
 			<input type="text" id="label" name="label" value="" />
 

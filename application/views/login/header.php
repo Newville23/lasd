@@ -3,109 +3,99 @@
 	<head>
 		<title><?php echo $title ?> - Tutorial de CodeIgniter 2</title>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 			
 		<link rel="stylesheet" type="text/css" href="<?php  echo base_url("bootstrap/css/bootstrap.css"); ?>">
-    <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
 		<link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
-    <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
-    <style type="text/css">
+        <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
+    
+        <style type="text/css">
 
-      body {
-        padding-bottom: 40px;
-        background-color: rgb(224, 224, 224);
-        background: url("//4.bp.blogspot.com/_MHnA5hJubcU/THAhOpwz67I/AAAAAAAADSI/LS_mN4sd-p0/s1600/finlandia.jpg")
-         no-repeat center fixed;
-      }
+          body {
+            padding-bottom: 40px;
+            background-color: rgb(224, 224, 224);
+            background: url("//4.bp.blogspot.com/_MHnA5hJubcU/THAhOpwz67I/AAAAAAAADSI/LS_mN4sd-p0/s1600/finlandia.jpg")
+             no-repeat center fixed;
+          }
 
-      .span3{
-        padding: 10px;
-      }
+          .span3{
+            padding: 10px;
+          }
+        
+        </style>
 
-    </style>
 	</head>
 <body>
-    <div class="navbar navbar-fixed-top navbar-inverse">
-      <div class="navbar-inner">
-        <div class="container">
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+        
+        <div class="navbar-header">
 
-          <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" >
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
 
-          <a class="navbar-brand" href="#">Project name</a>
+            <a class="navbar-brand" href="#">Athena Project</a>
+        </div>
 
-          <div class="nav-collapse collapse">
+        <!-- Collect the nav links, forms, and other content for toggling -->
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
 
-            <ul class="nav">
-              <li>
-                <a href="#">hola</a>
-              </li>
-              <li>
-                <a href="#">hola</a>
-              </li>
-              <li class="active">
-                <a href="#">hola</a>
-              </li>
+            <ul class="nav navbar-nav">
+                <li>
+                    <a href="#">hola</a>
+                </li>
+                <li>
+                    <a href="#">hola</a>
+                </li>
+                <li class="active">
+                    <a href="#">hola</a>
+                </li>
             </ul>
 
-            <ul class="nav pull-right">
+            <ul class="nav navbar-nav navbar-right">
 
-                <li class="dropdown visible-lg">
-                    <div class="btn-group">
-                        <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown"><i class="icon-user icon-white"></i> 
-                        Entrar <span class="caret"></span></button>
+                <li href="#" class="dropdown visible-lg navbar-form">
                     
-                      <ul class="dropdown-menu pull-right">
-                          <li class="nav-header"><h4>Iniciar sesión</h4></li>
-                          <li class="divider"></li>
+                    
+                    <button class="dropdown-toggle btn" data-toggle="dropdown"><i class="icon-user icon-white"></i> 
+                        Entrar <b class="caret"></b></button>
+                    
+
+                    <ul class="dropdown-menu" role="menu" style="padding: 20%; width: 260px;">
+                        <li role="presentation" class="nav-header"><h4>Iniciar sesión</h4></li>
+                        <li role="presentation" class="divider"></li>
                           
-                          <li>
-                              <div class="">
-                                <div class="col-md-3">
+                        <li>
+                            <div id="errorvalidation2" class="oculto">
+                                <div class="alert alert-error">
+                                    <button type="button" class="close" data-dismiss="alert">&times;</button>   
+                                </div>
+                            </div>
+                            
+                            <div class="main">
+                                <?php echo form_open('login/loginajax', array('class' => 'form-horizontal' )) ?>
 
-                                    <div id="errorvalidation2" class="oculto">
-                                      <div class="alert alert-error">
-                                        <button type="button" class="close" data-dismiss="alert">&times;</button>   
-                                      </div>
-                                   </div>
-
-                                    <div class="main">
-                                      <?php echo form_open('login/loginajax', array('class' => 'form-horizontal', )) ?>
-
-                                        <span class="control-group">
-                                            <input type="text"  id="usuario" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" >
-                                        </span>
-
-                                        <span class="control-group">
-                                            <input type="password"  id="pass" placeholder="Password" name="pass" >
-                                        </span>
-
-                                        <button class="btn btn-primary" type="submit" >Enviar </button>
-                                        
-                                      </form>
+                                    <div class="form-group">
+                                        <input class="form-control" type="text"  id="usuario" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" >
+                                        <input class="form-control" type="password"  id="pass" placeholder="Password" name="pass" >
+                                        <button class="btn btn-primary form-control" type="submit" >Enviar </button>
                                     </div>
 
-                                </div>
-                              </div>
-                          </li>
-                      </ul
-                    </div>
+                                </form>
+                            </div>
+
+                        </li>
+                    </ul>
                 </li>
 
             </ul>
 
-<!--             <form class="navbar-search pull-right">
-              <input type="text" class="search-query" placeholder="Search">
-            </form> -->
-
-          </div>
-            
         </div>
-      </div>
-    </div>
+    </nav>
 
 
 

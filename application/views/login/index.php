@@ -50,7 +50,7 @@
 
 			<?php echo form_open('') ?>
 
-			    <div class="control-group">
+			    <div class="form-group">
 			        <input type="text" id="usuario" class="col-md-12" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" />
 
 			        <input type="password" id="pass" class="col-md-12" placeholder="Password" name="pass" >

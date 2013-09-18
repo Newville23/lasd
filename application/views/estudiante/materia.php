@@ -65,12 +65,12 @@
 
 								<?php echo form_open('', array('class' => 'form-horizontal')) ?>
 								
-									<div class="control-group">
+									<div class="form-group">
 										<p Class="muted"><i class="icon-pencil icon-2x"></i><span> Crea un nuevo foro de discución</span></p>				
 										<textarea name="tituloforo" id="tituloforo" required class="textprincipal   text-info fontSize3  " cols="30" rows="1" placeholder="Escribe un titulo o idea principal..."></textarea>
 									</div>
 
-									<div class="control-group">
+									<div class="form-group">
 										<textarea name="cuerpoforo" id="cuerpoforo" class="  fontSize3  " cols="30" rows="5" placeholder="Desarrolla la pregunta.."></textarea>	
 									</div>
 

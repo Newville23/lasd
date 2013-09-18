@@ -7,9 +7,9 @@
 			
 			<input type="hidden" id="uriOculta" name="" value="<?php echo site_url('admin/verificarinstitucion'); ?>">
 
-			<div class="control-group" style="padding-top: 6%;">
+			<div class="form-group" style="padding-top: 6%;">
 				<label for="" style="color: #ddd;"><strong>Seleccionar Institución:</strong></label>
-				<select name="Institucion_rut" id="" class="  transformarEscala2 col-md-10 fontSize2">
+				<select name="Institucion_rut" id="" class="form-control input-lg">
 					<option value="">Seleccione:</option>
 	       			<option value="10">Colegio 1</option>
 	       			<option value="11">Colegio 2</option>

@@ -9,7 +9,7 @@
 	<form action="" method="POST">
 
 		<?php foreach ($campo as $value): ?>
-			<div class="control-group">
+			<div class="form-group">
 			<div class="input-group input-group">
 
 				<?php echo anchor('formularios/edit_cambiar/' . $value['id'], 'Cambiar', 'class="btn btn-default"'); ?>

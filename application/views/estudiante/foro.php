@@ -33,7 +33,7 @@
 						<?php echo form_open('estudiante/foroAjax/' . $Materia_id . '/' . $Clase_numero . '/' . $id_time, 
 						array('class' => 'form-horizontal', 'id' => $id_FormForo)) ?>
 
-							<div class="control-group">
+							<div class="form-group">
 								<textarea name="comentarForo" id="<?php echo $cometarForo; ?>" placeholder="Escribe un comentario." class="    comentarForo" wrap="hard" cols="30" rows="2"></textarea>
 							</div>
 							<div class="btn-group desaparecer" id="<?php echo $botonesComentario; ?>">
@@ -74,7 +74,7 @@
 							<div class="clase-Subcomentario-foro">
 								<?php echo form_open('estudiante/comentarioAjax/' . $value['Materia_id'] . '/' . $value['Clase_numero'] . '/' . $value['Foro_id_time'] . '/' . $value['id_time'], 
 												array('class' => 'form-horizontal desaparecer', 'id' => $id_FormSubComentario[$key])) ?>
-									<div class="control-group">
+									<div class="form-group">
 										<textarea name="comentarComentario" id="comentar" placeholder="Escribe un comentario." class="   " wrap="hard" cols="30" rows="2"></textarea>
 									</div>
 									
