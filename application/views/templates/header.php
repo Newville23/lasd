@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			
 		<link rel="stylesheet" href="<?php  echo base_url("bootstrap/css/bootstrap.css"); ?>">
-		<link href="<?php  echo base_url("bootstrap/css/bootstrap-responsive.css"); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
     <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>

@@ -6,7 +6,6 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 			
 		<link rel="stylesheet" type="text/css" href="<?php  echo base_url("bootstrap/css/bootstrap.css"); ?>">
-		<link href="<?php  echo base_url("bootstrap/css/bootstrap-responsive.css"); ?>" rel="stylesheet">
     <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
 		<link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
     <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
@@ -15,7 +14,7 @@
       body {
         padding-bottom: 40px;
         background-color: rgb(224, 224, 224);
-        background: url("//www.hostpaperz.com/wp-content/uploads/2013/06/3d-desktop-wallpaper-hd.jpg")
+        background: url("//4.bp.blogspot.com/_MHnA5hJubcU/THAhOpwz67I/AAAAAAAADSI/LS_mN4sd-p0/s1600/finlandia.jpg")
          no-repeat center fixed;
       }
 
