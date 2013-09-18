@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
 	
 	<div class="page-header">
 		<h2>Editar formulario dinamico</h2>
@@ -10,9 +10,9 @@
 
 		<?php foreach ($campo as $value): ?>
 			<div class="control-group">
-			<div class="input-append input-prepend">
+			<div class="input-group input-group">
 
-				<?php echo anchor('formularios/edit_cambiar/' . $value['id'], 'Cambiar', 'class="btn"'); ?>
+				<?php echo anchor('formularios/edit_cambiar/' . $value['id'], 'Cambiar', 'class="btn btn-default"'); ?>
 				
 				<input type="text" name="<?php echo $value['name']; ?>" 
 				class="<?php echo $value['class']; ?>"
@@ -24,7 +24,7 @@
 				readonly 
 				size="15%" >
 				<div class="btn-group">
-					<?php echo anchor('formularios/edit_eliminar/' . $value['id'], 'Eliminar', 'class="btn btn-danger span1"'); ?>
+					<?php echo anchor('formularios/edit_eliminar/' . $value['id'], 'Eliminar', 'class="btn btn-danger col-md-1"'); ?>
 				</div>
 			</div>
 			</div>

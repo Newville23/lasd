@@ -27,7 +27,7 @@
 <body>
     <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
-        <div class="container-fluid">
+        <div class="container">
 
           <button type="button" class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
             <span class="icon-bar"></span>
@@ -35,7 +35,7 @@
             <span class="icon-bar"></span>
           </button>
 
-          <a class="brand" href="#">Project name</a>
+          <a class="navbar-brand" href="#">Project name</a>
 
           <div class="nav-collapse collapse">
 
@@ -53,7 +53,7 @@
 
             <ul class="nav pull-right">
 
-                <li class="dropdown visible-desktop">
+                <li class="dropdown visible-lg">
                     <div class="btn-group">
                         <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown"><i class="icon-user icon-white"></i> 
                         Entrar <span class="caret"></span></button>
@@ -64,7 +64,7 @@
                           
                           <li>
                               <div class="">
-                                <div class="span3">
+                                <div class="col-md-3">
 
                                     <div id="errorvalidation2" class="oculto">
                                       <div class="alert alert-error">

@@ -3,8 +3,7 @@
 	<head>
 		<title><?php echo $title ?> - Athena Project</title>
 		<meta charset="UTF-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-			
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 		<link rel="stylesheet" href="<?php  echo base_url("bootstrap/css/bootstrap.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
     <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
@@ -28,7 +27,7 @@
 <body data-spy="scroll" data-target="#nav-ejemplo" data-offset="100">
   <div class="navbar navbar-fixed-top navbar-inverse">
       <div class="navbar-inner">
-        <div class="container-fluid">
+        <div class="container">
 
           <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse" >
             <span class="icon-bar"></span>
@@ -36,7 +35,7 @@
             <span class="icon-bar"></span>
           </a>
 
-          <a class="brand" href="<?php echo site_url($linkIndex); ?>">Athena Project</a>
+          <a class="navbar-brand" href="<?php echo site_url($linkIndex); ?>">Athena Project</a>
 
           <div class="nav-collapse collapse">
             <ul class="nav">
@@ -45,7 +44,7 @@
               <li><a href="#">Hola</a></li>
             </ul>
 
-            <ul class="nav pull-right visible-desktop">
+            <ul class="nav pull-right visible-lg">
 
               <li class="dropdown">
                 <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog icon-large"> </i> <b class="caret"></b></a>
@@ -58,7 +57,7 @@
 
             </ul>
 
-            <ul class="nav hidden-desktop pull-right">
+            <ul class="nav hidden-lg pull-right">
               <li><a href="#">Ayuda</a></li>
               <li><a href="<?php echo site_url('login/cerrar'); ?>">Cerrar Sesión</a></li>
             </ul>

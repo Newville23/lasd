@@ -1,4 +1,4 @@
-<div class="container-fluid">
+<div class="container">
 	
 	<div class="page-header">
 		<h2>Formulario dinamico</h2>

@@ -1,7 +1,7 @@
 <?php echo form_open('admin/selectinstitucion', array('class' => 'form-horizontal', 'id' => 'selector-colegio')) ?>
-	<div class="row-fluid" id="institucion">
+	<div class="row" id="institucion">
 
-		<div id="" class="Matbar span10 offset1 margen1" style="min-height: 300px;">
+		<div id="" class="Matbar col-md-10 col-md-offset-1 margen1" style="min-height: 300px;">
 				
 			<div class="alerta" style="position: relative; top: 30px;"></div>
 			
@@ -9,7 +9,7 @@
 
 			<div class="control-group" style="padding-top: 6%;">
 				<label for="" style="color: #ddd;"><strong>Seleccionar Institución:</strong></label>
-				<select name="Institucion_rut" id="" class="input-block-level transformarEscala2 span10 fontSize2">
+				<select name="Institucion_rut" id="" class="  transformarEscala2 col-md-10 fontSize2">
 					<option value="">Seleccione:</option>
 	       			<option value="10">Colegio 1</option>
 	       			<option value="11">Colegio 2</option>

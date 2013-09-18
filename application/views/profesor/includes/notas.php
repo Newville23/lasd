@@ -90,13 +90,13 @@
 
 				</tbody>
 			</table>
-			<div class="row-fluid">
-				<div class="btn-group span12">
+			<div class="row">
+				<div class="btn-group col-md-12">
 					<a id="AgregarCalificacion" href="<?php echo site_url('user/formLogro/' . $listaAlumnos['numero'] .'/' . $listaAlumnos['Materia_id']); ?>" 
-						class="btn btn-large span6" data-toggle="modal" data-target="#myModalasd">
+						class="btn btn-lg col-md-6" data-toggle="modal" data-target="#myModalasd">
 						<i class="icon-plus-sign icon-large"></i> Agregar calificación
 					</a>
-					<button class="btn btn-large span6" type="button"><i class="icon-ok icon-large"></i> ¡Listo!</button>
+					<button class="btn btn-lg col-md-6" type="button"><i class="icon-ok icon-large"></i> ¡Listo!</button>
 				</div>
 			</div>
 		</div>

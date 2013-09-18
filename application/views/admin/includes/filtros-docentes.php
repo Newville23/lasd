@@ -1,7 +1,7 @@
 <?php form_open(''); ?>
 
-	<div class="span4">
-		<ul class="unstyled">
+	<div class="col-md-4">
+		<ul class="list-unstyled">
 			<li>
 				<label class="checkbox" for="uno">
 					<input type="checkbox" class="category-checkbox" id="uno" value="Other"> Uno
@@ -30,8 +30,8 @@
 		</ul>
 	</div>
 
-	<div class="span4">
-		<ul class="unstyled">
+	<div class="col-md-4">
+		<ul class="list-unstyled">
 			<li>
 				<label class="checkbox" for="uno">
 					<input type="checkbox" class="category-checkbox" id="uno" value="Other"> Uno
@@ -60,8 +60,8 @@
 		</ul>
 	</div>
 
-	<div class="span4">
-		<ul class="unstyled">
+	<div class="col-md-4">
+		<ul class="list-unstyled">
 			<li>
 				<label class="checkbox" for="uno">
 					<input type="checkbox" class="category-checkbox" id="uno" value="Other"> Uno

@@ -1,39 +1,39 @@
-		<div class="container-fluid container-fluid2">
-			<div class="row-fluid">
+		<div class="container container2">
+			<div class="row">
 
-				<div class="span3 well well-white" id="perfil">
+				<div class="col-md-3 well well-white" id="perfil">
 					<?php $this->load->view('estudiante/includes/perfil-inicio'); ?>
 				</div>
 
 
-				<div class="span5 well fontSize3" id="menu">
+				<div class="col-md-5 well fontSize3" id="menu">
 
-					<div class="row-fluid">
-						<div class="span12 Matbar menu" id="apuntadorMaterias">
+					<div class="row">
+						<div class="col-md-12 Matbar menu" id="apuntadorMaterias">
 							<div class="notificacion">3</div>
 							<div><i class="icon-book icon-large"></i> Materias</div>
 						</div>
 					</div>
 
-					<div class="row-fluid">
-						<div class="span12 Matbar menu" id="apuntadorProfes"><i class="icon-group"></i> Profesores</div>
+					<div class="row">
+						<div class="col-md-12 Matbar menu" id="apuntadorProfes"><i class="icon-group"></i> Profesores</div>
 					</div>
 
-					<div class="row-fluid">
-						<div class="span12 Matbar menu" id="apuntadorMensaje">
+					<div class="row">
+						<div class="col-md-12 Matbar menu" id="apuntadorMensaje">
 							<div class="notificacion">3</div>
 							<div><i class="icon-envelope-alt icon-large"></i> Mensajes</div>
 						</div>
 					</div>
 
-					<div class="row-fluid">
-						<div class="span12 Matbar menu" id="apuntadorHorario"><i class="icon-th icon-large"></i> Horario</div>
+					<div class="row">
+						<div class="col-md-12 Matbar menu" id="apuntadorHorario"><i class="icon-th icon-large"></i> Horario</div>
 					</div>
 
 				</div>
 				
-				<div class="span6 well" id="materias">
-					<div class="row-fluid">
+				<div class="col-md-6 well" id="materias">
+					<div class="row">
 						<?php foreach ($clase as $value): ?>
 						<a class="Matbar2" href="<?php echo site_url('estudiante/materia/' . $value['numero']); ?>">
 							<p><strong><?php echo $value['materia']; ?></strong><br>
@@ -44,8 +44,8 @@
 					</div>
 				</div>
 
-				<div class="span6 well" id="profes">
-					<ul class="unstyled">
+				<div class="col-md-6 well" id="profes">
+					<ul class="list-unstyled">
 						<li>
 							<?php foreach ($profesores as $value): ?>
 							<div class="media well well-white">
@@ -67,7 +67,7 @@
 
 				</div>
 
-				<div class="span6 well" id="horario">
+				<div class="col-md-6 well" id="horario">
 					<ul>
 						<li>Nombre de las materias del horario</li>
 						<li>Nombre de las materias del horario</li>
@@ -91,7 +91,7 @@
 				<?php $this->load->view('estudiante/includes/perfil-completo') ?>
 			</div>
 <!-- 			<div class="modal-footer">
-				  <button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+				  <button class="btn btn-default" data-dismiss="modal" aria-hidden="true">Close</button>
 				  <button class="btn btn-primary">Editar</button>
 			</div> -->
 		</div>

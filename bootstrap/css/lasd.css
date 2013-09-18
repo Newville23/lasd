@@ -47,7 +47,7 @@ a.Matbar2:hover{
   box-shadow: 0px 0px 20px rgb(121, 191, 255);
 }
 
-.container-fluid2 {
+.container2 {
     max-width: 90%;
     padding: 19px 29px 29px;
     padding-top: 4%;
@@ -62,12 +62,12 @@ a.Matbar2:hover{
            -moz-box-shadow: 0px 2px 5px #aaa;
                 box-shadow: 0px 2px 5px #aaa;
       }
-      .container-fluid .container-fluid-heading,
-      .container-fluid .checkbox {
+      .container .container-heading,
+      .container .checkbox {
         margin-bottom: 10px;
       }
-      .container-fluid input[type="text"],
-      .container-fluid input[type="password"] {
+      .container input[type="text"],
+      .container input[type="password"] {
         font-size: 16px;
         height: auto;
         margin-bottom: 15px;

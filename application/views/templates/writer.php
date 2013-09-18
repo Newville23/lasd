@@ -2,32 +2,32 @@
 
 	<div class="btn-toolbar">
 		<div class="btn-group">
-			<button class="btn"><i class="icon-print"></i></button>
-			<button class="btn"><i class="icon-undo"></i></button>
-			<button class="btn"><i class="icon-repeat"></i></button>
+			<button class="btn btn-default"><i class="icon-print"></i></button>
+			<button class="btn btn-default"><i class="icon-undo"></i></button>
+			<button class="btn btn-default"><i class="icon-repeat"></i></button>
 		</div>
 		<div class="btn-group">
-			<button class="btn">normal</button>
-			<button class="btn">Calibri</button>
-			<button class="btn">11</button>
+			<button class="btn btn-default">normal</button>
+			<button class="btn btn-default">Calibri</button>
+			<button class="btn btn-default">11</button>
 		</div>
 		<div class="btn-group">
-			<button class="btn"><i class="icon-bold"></i></button>
-			<button class="btn"><i class="icon-italic"></i></button>
-			<button class="btn"><i class="icon-underline"></i></button>
-			<button class="btn"><i class="icon-strikethrough"></i></button>
-		</div>
-
-		<div class="btn-group">
-			<button class="btn"><i class="icon-align-left"></i></button>
-			<button class="btn"><i class="icon-align-center"></i></button>
-			<button class="btn"><i class="icon-align-right"></i></button>
-			<button class="btn"><i class="icon-align-justify"></i></button>
+			<button class="btn btn-default"><i class="icon-bold"></i></button>
+			<button class="btn btn-default"><i class="icon-italic"></i></button>
+			<button class="btn btn-default"><i class="icon-underline"></i></button>
+			<button class="btn btn-default"><i class="icon-strikethrough"></i></button>
 		</div>
 
 		<div class="btn-group">
-			<button class="btn"><i class="icon-list-ol"></i></button>
-			<button class="btn"><i class="icon-list-ul"></i></button>
+			<button class="btn btn-default"><i class="icon-align-left"></i></button>
+			<button class="btn btn-default"><i class="icon-align-center"></i></button>
+			<button class="btn btn-default"><i class="icon-align-right"></i></button>
+			<button class="btn btn-default"><i class="icon-align-justify"></i></button>
+		</div>
+
+		<div class="btn-group">
+			<button class="btn btn-default"><i class="icon-list-ol"></i></button>
+			<button class="btn btn-default"><i class="icon-list-ul"></i></button>
 		</div>
 	</div>
 

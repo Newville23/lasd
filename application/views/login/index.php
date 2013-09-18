@@ -1,5 +1,5 @@
-	<div class="row-fluid hidden-phone" style="margin-top: 100px">
-		<div class="span12">
+	<div class="row hidden-sm" style="margin-top: 100px">
+		<div class="col-md-12">
 
 			<div id="myCarousel" class="carousel slide">
 				<ol class="carousel-indicators">
@@ -32,9 +32,9 @@
 	</div>
 
 
-	<div class="row-fluid visible-phone">
+	<div class="row visible-sm">
 
-		<div class="span3 offset8">
+		<div class="col-md-3 col-md-offset-8">
 			
 		    <h2>Iniciar Sesión</h2>
 			
@@ -51,13 +51,13 @@
 			<?php echo form_open('') ?>
 
 			    <div class="control-group">
-			        <input type="text" id="usuario" class="span12" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" />
+			        <input type="text" id="usuario" class="col-md-12" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" />
 
-			        <input type="password" id="pass" class="span12" placeholder="Password" name="pass" >
+			        <input type="password" id="pass" class="col-md-12" placeholder="Password" name="pass" >
 			    </div>
 				 
-			    <!-- <input class="btn btn-primary span12" type="submit" value="Enviar" > -->
-			    <button class="btn btn-primary span12" type="submit" >Enviar </button>
+			    <!-- <input class="btn btn-primary col-md-12" type="submit" value="Enviar" > -->
+			    <button class="btn btn-primary col-md-12" type="submit" >Enviar </button>
 			</form>
 			
 		</div>

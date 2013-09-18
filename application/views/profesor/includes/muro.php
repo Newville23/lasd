@@ -1,11 +1,11 @@
-<div class="row-fluid bloquePegadoUp">
+<div class="row bloquePegadoUp">
 	<div class="">
 		<h4 class="text-success"><i class="icon-puzzle-piece icon-large"></i>
 			<?php echo ' Nombre de Materia'//$ProfesorFromClase['nombre']; //nombre profesor ?></h4>
 	</div>
 </div>
 
-<div class="row-fluid bloquePegadoDown">
+<div class="row bloquePegadoDown">
 	<div class="tabbable">
 
 		<ul class="nav nav-tabs">
@@ -29,16 +29,16 @@
 								
 						<div class="control-group">
 							<p Class="muted"><i class="icon-pencil icon-2x"></i><span> Crea un nuevo foro de discución</span></p>				
-							<textarea name="tituloforo" id="tituloforo" required class="textprincipal input-block-level text-info fontSize3  " cols="30" rows="1" placeholder="Escribe un titulo o idea principal..."></textarea>
+							<textarea name="tituloforo" id="tituloforo" required class="textprincipal   text-info fontSize3  " cols="30" rows="1" placeholder="Escribe un titulo o idea principal..."></textarea>
 						</div>
 
 						<div class="control-group">
-							<textarea name="cuerpoforo" id="cuerpoforo" class="input-block-level fontSize3  " cols="30" rows="5" placeholder="Desarrolla la pregunta.."></textarea>	
+							<textarea name="cuerpoforo" id="cuerpoforo" class="  fontSize3  " cols="30" rows="5" placeholder="Desarrolla la pregunta.."></textarea>	
 						</div>
 
 						<div class="btn-group btn-foro" id="">
-							<button id="enviarforo" class="btn btn-primary btn-large" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
-							<button id="" class="btn btn-large cancelarforo" type="reset"><i class="icon-remove"></i></button>
+							<button id="enviarforo" class="btn btn-primary btn-lg" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
+							<button id="" class="btn btn-lg cancelarforo" type="reset"><i class="icon-remove"></i></button>
 						</div>		
 									
 					</form>

@@ -1,9 +1,9 @@
 <div class="container" style="margin-top: 5%;">
 	<div class="row">
-		<div class="span4 well">
+		<div class="col-md-4 well">
 
-			<div class="row-fluid">
-				<div class="span4">
+			<div class="row">
+				<div class="col-md-4">
 					<div class="Matbar fontSize2">Rectoría</div>
 					<div class="Matbar fontSize2">Coordinación</div>
 					<div class="Matbar fontSize2">Psicología</div>
@@ -11,7 +11,7 @@
 					<div class="Matbar fontSize2">Estudiantes</div>
 					<div class="Matbar fontSize2">Otros</div>
 				</div>
-				<div class="span7 offset1">
+				<div class="col-md-7 col-md-offset-1">
 					<div class="Matbar">
 
 						<div class="media">
@@ -111,7 +111,7 @@
 			</div>
 		</div>
 
-		<div class="span6 well">
+		<div class="col-md-6 well">
 			<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatem, pariatur, quasi, maxime, quos perferendis aut reiciendis harum illum ex magnam cum accusantium dolores esse placeat molestias aperiam corrupti in praesentium natus quibusdam dolor neque qui iure suscipit veniam sed expedita fugiat eaque dolorum nobis culpa laboriosam minus architecto. Ab, ea, praesentium, nesciunt asperiores minus odio sapiente eos est nisi aspernatur vero aliquid assumenda totam! Molestias, ipsam, reprehenderit optio commodi quas sapiente id obcaecati quasi totam porro placeat beatae cupiditate iusto soluta dignissimos. Aut, vel, rem, minus architecto illo modi animi molestias consectetur repellendus itaque ut natus qui rerum maxime explicabo soluta obcaecati distinctio maiores sunt facilis velit reprehenderit magni iste tenetur saepe eveniet optio quos sapiente impedit molestiae ea facere voluptatum cupiditate! Officia, quas, dolor unde omnis qui laudantium dicta magni voluptatibus commodi perspiciatis doloremque asperiores quis nesciunt quo totam culpa iure tenetur odit est rem. Vel, repellat accusamus sint nihil nesciunt minus culpa molestias. Accusamus, iste provident reiciendis neque dolores quisquam enim odio fugit impedit culpa eveniet optio laudantium vitae minima veniam voluptatum itaque id eum nesciunt voluptas aliquam tenetur iure debitis sapiente distinctio exercitationem natus ut ex consectetur accusantium explicabo est sequi ad? Soluta eius harum aliquid esse vero. Perferendis, reiciendis, odit, dolores impedit quam veniam cumque consequatur nisi vitae deleniti temporibus suscipit exercitationem quos aspernatur commodi fugit sed eaque eveniet cum adipisci aliquid ea ipsam mollitia quidem a! Dignissimos hic rerum facere vitae delectus. Aliquam libero dolorem neque ut ullam! Voluptates, cupiditate, deleniti, ducimus, placeat commodi cum vitae dolorem aperiam debitis laudantium expedita consectetur assumenda architecto facere voluptatibus unde facilis consequuntur nostrum distinctio rerum. Provident, quisquam, facilis, perferendis, repellendus voluptates porro cupiditate sunt hic repellat nemo tempore laudantium excepturi veritatis similique dignissimos accusantium ullam incidunt perspiciatis optio cumque beatae itaque doloribus soluta assumenda voluptatem doloremque eum unde ratione aut vero labore corrupti quo sapiente velit alias eaque officia! Doloremque, rem, voluptate praesentium accusantium veritatis amet nemo architecto suscipit tempora est saepe odit ut similique aliquid dolor quas nihil ea debitis consequatur delectus ullam ipsam eveniet vel qui repellat perferendis natus asperiores. Dolore, non molestias doloremque odit explicabo quisquam deserunt eveniet nostrum! Aperiam, consequuntur autem nisi praesentium deleniti tempore iusto illum totam sint minus quasi eveniet enim atque eaque voluptates est suscipit veniam perferendis ratione harum accusantium similique laboriosam accusamus! Incidunt, nostrum, velit mollitia et nobis accusantium eius! Consectetur, asperiores veritatis quod quibusdam quia iusto fugit illo nemo in sint placeat eaque atque dolores amet facilis accusamus temporibus delectus dolor minus voluptatem officia repellat saepe dolore soluta totam ratione deleniti corporis dicta repellendus adipisci nulla similique labore ut necessitatibus earum porro et architecto quasi eveniet mollitia inventore vitae quos reiciendis fugiat cumque eligendi sapiente impedit aperiam esse provident. Aperiam quidem minima facere eos accusamus consequuntur quas voluptatibus suscipit optio architecto. Veniam, expedita, voluptatem, fugiat, et blanditiis consequuntur amet quos sunt voluptate rem unde at reiciendis similique delectus vitae a quaerat eum distinctio reprehenderit mollitia illo nemo labore debitis. Accusantium nihil ipsum aliquid labore quas odio fuga. Nostrum, nam!</p>
 		</div>
 

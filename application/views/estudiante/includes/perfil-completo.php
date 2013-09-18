@@ -9,7 +9,7 @@
 
 		<div class="tab-pane active" id="info">
 
-			<div class="thumbnail well" id="miniatura">
+			<div class="img-thumbnail well" id="miniatura">
 				<img class="img-rounded" data-src="holder.js/300x150" alt="300x150" style="width: 300px;" 
 				src="<?php echo base_url('bootstrap/img/images/avatar.png'); ?>">
 			</div>

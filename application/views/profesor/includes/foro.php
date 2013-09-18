@@ -1,4 +1,4 @@
-<ul class="unstyled">
+<ul class="list-unstyled">
 
 	<?php foreach ($foros as $key => $value): ?>
 		<li>

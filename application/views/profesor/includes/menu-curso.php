@@ -1,4 +1,4 @@
-<div class="row-fluid text-center">
+<div class="row text-center">
 
 	<?php foreach ($clasesDelProfe as $value): ?>
 	<a href="<?php echo site_url("profesor/clase/" . $value['numero']); ?>"

@@ -1,8 +1,8 @@
-<div class="container-fluid" style="margin-top: 5%;">
-	<div class="row-fluid">
+<div class="container" style="margin-top: 5%;">
+	<div class="row">
 		
 		<div class="barra-propiedades">
-			<button class="btn btn-large btn-inverse btn-block hidden-desktop" id="boton-barra">
+			<button class="btn btn-lg btn-inverse btn-block hidden-lg" id="boton-barra">
 				<i class="icon-arrow-down icon-large"></i>
 			</button>
 			<div class="bp-envoltura">
@@ -10,7 +10,7 @@
 			</div>
 		</div>
 
-		<div class="span9 offset2">
+		<div class="col-md-9 col-md-offset-2">
 			<div class="bloquePegadoUp">
 
 				<div class="accordion" id="accordion2" style="margin-bottom: 0">
@@ -34,17 +34,17 @@
 
 				<div class="bloquePegadoDown">
 
-					<div class="row-fluid">
-						<div class="span6 pull-left">
+					<div class="row">
+						<div class="col-md-6 pull-left">
 								<a 
 									id="#<?php //echo $value['id_time']; ?>" 
 									class=""
 									href=#"<?php //echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
 									data-target="#myModal" data-toggle="modal"><i class="icon-plus icon-large"></i> Añadir docente nuevo</a>
 						</div>
-						<div class="span6">
+						<div class="col-md-6">
 							<form class="form-search">
-								<div class="input-append pull-right">
+								<div class="input-group pull-right">
 									<input type="text" class="search-query" placeholder="Nombre del docente">
 									<span class="btn disabled"><i class="icon-search"></i> Buscar</span>
 								</div>
@@ -72,7 +72,7 @@
 		  <h5 class="muted text-center" id="myModalLabel">Agregar docente</h5>
 	</div>
 	<div class="modal-body" id="">
-		<div class="row-fluid">
+		<div class="row">
 			<?php $this->load->view('admin/includes/forms/form-profesor'); ?>
 		</div>
 	</div>

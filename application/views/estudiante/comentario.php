@@ -16,7 +16,7 @@
 				<?php echo form_open('estudiante/comentarioAjax/' . $Materia_id . '/' . $Clase_numero . '/' . $Foro_id_time . '/' . $id_time, 
 								array('class' => 'form-horizontal desaparecer', 'id' => $subComentar )) ?>
 					<div class="control-group">
-						<textarea name="comentarComentario" id="comentar" placeholder="Escribe un comentario." class="input-block-level" wrap="hard" cols="30" rows="2"></textarea>
+						<textarea name="comentarComentario" id="comentar" placeholder="Escribe un comentario." class="form-control" wrap="hard" cols="30" rows="2"></textarea>
 					</div>
 										
 					<div class="btn-group" id="">

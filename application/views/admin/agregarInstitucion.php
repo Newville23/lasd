@@ -1,9 +1,9 @@
-<div class="container-fluid" style="margin-top: 5%;">
-	<div class="row-fluid">
+<div class="container" style="margin-top: 5%;">
+	<div class="row">
 		
 		<div class="lennin"></div>
 		<div class="barra-propiedades">
-			<button class="btn btn-large btn-inverse btn-block hidden-desktop" id="boton-barra">
+			<button class="btn btn-lg btn-inverse btn-block hidden-lg" id="boton-barra">
 				<i class="icon-arrow-down icon-large"></i>
 			</button>
 			<div class="bp-envoltura">
@@ -12,7 +12,7 @@
 		</div>
 
 
-		<div class="span8 offset2">
+		<div class="col-md-8 col-md-offset-2">
 
 			<?php $this->load->view('admin/includes/forms/form-institucion');?>
 

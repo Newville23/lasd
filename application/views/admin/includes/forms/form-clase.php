@@ -1,13 +1,13 @@
 <?php echo form_open('admin/clase', array('class' => 'form-horizontal formajax')) ?>
-	<div class="row-fluid" id="clase">
-		<div id="" class="Matbar margen1 span10 offset1" style="background-color: #DD236D;">
+	<div class="row" id="clase">
+		<div id="" class="Matbar margen1 col-md-10 col-md-offset-1" style="background-color: #DD236D;">
 			
 			<div class="alerta"></div>
 			
-			<div class="row-fluid">
+			<div class="row">
 				
 				<div class="control-group">
-					<select name="materia_identificacion" id="" class="input-block-level transformarEscala1 span9 fontSize2">
+					<select name="materia_identificacion" id="" class="  transformarEscala1 col-md-9 fontSize2">
 						<option class="muted" value="">Selecciona la materia de la clase:</option>
 				        <option value="1">Matematicas</option>
 				        <option value="2">Español</option>
@@ -17,7 +17,7 @@
 				</div>
 
 				<div class="control-group">
-					<select name="Curso_codigo" id="" class="input-block-level transformarEscala1 span9 fontSize2">
+					<select name="Curso_codigo" id="" class="  transformarEscala1 col-md-9 fontSize2">
 				        <option class="muted" value="">Selecciona el curso:</option>
 				        <option value="1">Noveno (9º A)</option>
 				        <option value="2">Noveno (9º B)</option>
@@ -25,7 +25,7 @@
 				</div>
 
 				<div class="control-group">
-					<select name="Profesor_identificacion" id="" class="input-block-level transformarEscala1 span9 fontSize2">
+					<select name="Profesor_identificacion" id="" class="  transformarEscala1 col-md-9 fontSize2">
 				        <option class="muted" value="">Selecciona el Docente que dictará la clase:</option>
 				        <option value="10">Pedro José Torres</option>
 				        <option value="11">Alba Bonet</option>
@@ -35,8 +35,8 @@
 			</div>
 
 			<div class="btn-group" style="padding-top: 10%;">
-				<button class="btn btn-large" type="submmit"><span class="muted">Guardar</span></button>
-				<button class="btn btn-large" type="reset"><i class="icon-remove icon-large muted"></i></button>
+				<button class="btn btn-lg" type="submmit"><span class="muted">Guardar</span></button>
+				<button class="btn btn-lg" type="reset"><i class="icon-remove icon-large muted"></i></button>
 			</div>
 		</div>
 	</div>

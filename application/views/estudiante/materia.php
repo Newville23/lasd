@@ -1,19 +1,19 @@
-<div class="container-fluid" style="margin-top: 5%;">
+<div class="container" style="margin-top: 5%;">
 
-	<div class="row-fluid">
+	<div class="row">
 		
-		<div class="span4 well bloque" id="menu">
-			<div class="row-fluid">
+		<div class="col-md-4 well bloque" id="menu">
+			<div class="row">
 
-				<div class="span7 fontSize2">
+				<div class="col-md-7 fontSize2">
 
 					<?php $this->load->view('estudiante/includes/menu-estudiantes'); ?>
 
 				</div>
 
-				<div class="span5 padding1" id="materias2">
+				<div class="col-md-5 padding1" id="materias2">
 
-					<div class="row-fluid text-center">
+					<div class="row text-center">
 						<?php foreach ($clase as $value): ?>
 						<a href="<?php echo site_url("estudiante/materia/" . $value['numero']); ?>"
 							 class="Matbar <?php if ($value['numero'] == $numeroClase) echo "Matbar-selected"; ?>">
@@ -26,8 +26,8 @@
 			</div>
 		</div>
 
-		<div class="span8 padding2 well-margin-botton">
-			<div class="row-fluid bloquePegadoUp">
+		<div class="col-md-8 padding2 well-margin-botton">
+			<div class="row bloquePegadoUp">
 				<div class="">
 					<div class="media">
 						<a class="pull-left" href="#">
@@ -43,7 +43,7 @@
 				</div>
 			</div>
 
-			<div class="row-fluid bloquePegadoDown">
+			<div class="row bloquePegadoDown">
 				<div class="tabbable">
 
 					<ul class="nav nav-tabs">
@@ -67,22 +67,22 @@
 								
 									<div class="control-group">
 										<p Class="muted"><i class="icon-pencil icon-2x"></i><span> Crea un nuevo foro de discución</span></p>				
-										<textarea name="tituloforo" id="tituloforo" required class="textprincipal input-block-level text-info fontSize3  " cols="30" rows="1" placeholder="Escribe un titulo o idea principal..."></textarea>
+										<textarea name="tituloforo" id="tituloforo" required class="textprincipal   text-info fontSize3  " cols="30" rows="1" placeholder="Escribe un titulo o idea principal..."></textarea>
 									</div>
 
 									<div class="control-group">
-										<textarea name="cuerpoforo" id="cuerpoforo" class="input-block-level fontSize3  " cols="30" rows="5" placeholder="Desarrolla la pregunta.."></textarea>	
+										<textarea name="cuerpoforo" id="cuerpoforo" class="  fontSize3  " cols="30" rows="5" placeholder="Desarrolla la pregunta.."></textarea>	
 									</div>
 
 									
 									<div class="btn-group btn-foro" id="">
-										<button id="enviarforo" class="btn btn-primary btn-large" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
-										<button id="" class="btn btn-large cancelarforo" type="reset"><i class="icon-remove"></i></button>
+										<button id="enviarforo" class="btn btn-primary btn-lg" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
+										<button id="" class="btn btn-lg cancelarforo" type="reset"><i class="icon-remove"></i></button>
 									</div>		
 									
 								</form>
 
-								<ul class="unstyled">
+								<ul class="list-unstyled">
 
 									<?php foreach ($foros as $key => $value): ?>
 									<li>
