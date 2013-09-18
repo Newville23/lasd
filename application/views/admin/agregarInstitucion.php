@@ -14,7 +14,7 @@
 
 		<div class="span8 offset2">
 
-			<?php $this->load->view('admin/includes/form-institucion');?>
+			<?php $this->load->view('admin/includes/forms/form-institucion');?>
 
 		</div>
 	</div>

@@ -7,23 +7,23 @@
 			<h4 class="padding3">Datos de Usuario</h4>
 
 				<div class="control-group">
-					<input type="text" name="usuario" placeholder="Nombre de Usuario*" required class="input-block-level tipoTexto">
+					<input type="text" name="usuario" placeholder="Nombre de Usuario*" required class="input-block-level">
 
-					<input type="password" name="pass" placeholder="Contraseña*" required class="input-block-level tipoTexto">
+					<input type="password" name="pass" placeholder="Contraseña*" required class="input-block-level">
 				</div>
 
 				<div class="control-group">
-					<input type="text" name="nombre" placeholder="Nombres*" required class="input-block-level tipoTexto">
+					<input type="text" name="nombre" placeholder="Nombres*" required class="input-block-level">
 
-					<input type="text" name="apellido" placeholder="Apellidos*" required class="input-block-level tipoTexto">
+					<input type="text" name="apellido" placeholder="Apellidos*" required class="input-block-level">
 				</div>
 
 				<div class="control-group">
-					<input type="text" name="email" placeholder="Email*" required class="input-block-level tipoTexto">
+					<input type="text" name="email" placeholder="Email*" required class="input-block-level">
 
-					<input type="text" name="facebook" placeholder="Usuario Facebook" class="input-block-level tipoTexto">
+					<input type="text" name="facebook" placeholder="Usuario Facebook" class="input-block-level">
 				
-					<input type="text" name="twiter" placeholder="Twiter" class="input-block-level tipoTexto">
+					<input type="text" name="twiter" placeholder="Twiter" class="input-block-level">
 		
 				</div>
 

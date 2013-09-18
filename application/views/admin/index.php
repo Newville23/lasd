@@ -39,18 +39,18 @@
 					<div class="" id="forms-registro">
 
 						<div class="row-fluid  offset1 margen1" id="estudiante">
-							<?php $this->load->view('admin/includes/form-estudiantes');?>
+							<?php $this->load->view('admin/includes/forms/form-estudiantes');?>
 						</div>
 
 						<div class="row-fluid  offset1 margen1" id="profesor">
-							<?php $this->load->view('admin/includes/form-profesor');?>
+							<?php $this->load->view('admin/includes/forms/form-profesor');?>
 						</div>
 
-						<?php $this->load->view('admin/includes/form-materia');?>
+						<?php $this->load->view('admin/includes/forms/form-materia');?>
 
-						<?php $this->load->view('admin/includes/form-curso');?>
+						<?php $this->load->view('admin/includes/forms/form-curso');?>
 
-						<?php $this->load->view('admin/includes/form-clase');?>
+						<?php $this->load->view('admin/includes/forms/form-clase');?>
 					</div>
 
 				</div>
