@@ -1,6 +1,7 @@
+<div class="container">
+	<div class="row">
 
-
-	<div class="btn-toolbar">
+	<div class="btn-toolbar margen-top">
 		<div class="btn-group">
 			<button class="btn btn-default"><i class="icon-print"></i></button>
 			<button class="btn btn-default"><i class="icon-undo"></i></button>
@@ -31,22 +32,23 @@
 		</div>
 	</div>
 
-<div class="writer">
+	<div class="writer">
 
-	<div class="content-fluid">
-		<div class="hoja" contenteditable="true">
-			
-				<h1>Titulo</h1>
+		<div class="container">
+			<div class="hoja" contenteditable="true">
+				
+					<h1>Titulo</h1>
 
-				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
-					Repellendus, reiciendis, doloribus, suscipit id error vel atque 
-					maiores officia dolor perspiciatis possimus vero perferendis nulla 
-					debitis nemo nisi placeat molestiae similique.
-					Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, dicta, 
-					natus voluptate amet explicabo officia consectetur perferendis pariatur 
-					soluta suscipit nisi libero vel. Quas, eum dicta facilis delectus iure officia.</p>
+					<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. 
+						Repellendus, reiciendis, doloribus, suscipit id error vel atque 
+						maiores officia dolor perspiciatis possimus vero perferendis nulla 
+						debitis nemo nisi placeat molestiae similique.
+						Lorem ipsum dolor sit amet, consectetur adipisicing elit. Est, dicta, 
+						natus voluptate amet explicabo officia consectetur perferendis pariatur 
+						soluta suscipit nisi libero vel. Quas, eum dicta facilis delectus iure officia.</p>
 
+			</div>
 		</div>
 	</div>
-
+	</div>
 </div>

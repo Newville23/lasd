@@ -1,4 +1,4 @@
-	<div class="row hidden-sm" style="margin-top: 100px">
+	<div class="row hidden-xs" style="margin-top: 100px">
 		<div class="col-md-12">
 
 			<div id="myCarousel" class="carousel slide">
@@ -32,11 +32,11 @@
 	</div>
 
 
-	<div class="row visible-sm">
+	<div class="content visible-xs">
 
-		<div class="col-md-3 col-md-offset-8">
+		<div class="row" style="margin-top: 15%;">
 			
-		    <h2>Iniciar Sesión</h2>
+		    <h2 class="text-center">Iniciar Sesión</h2>
 			
 			<div id="errorvalidation">
 
@@ -47,18 +47,22 @@
 				</div>
 			<?php endif; ?>
 			</div>
-
+			
+			<div class="col-md-12">
 			<?php echo form_open('') ?>
 
 			    <div class="form-group">
-			        <input type="text" id="usuario" class="col-md-12" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" />
+			        <input type="text" id="usuario" class="form-control input-lg" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" />
 
-			        <input type="password" id="pass" class="col-md-12" placeholder="Password" name="pass" >
+			        <input type="password" id="pass" class="form-control input-lg" placeholder="Password" name="pass" >
 			    </div>
 				 
 			    <!-- <input class="btn btn-primary col-md-12" type="submit" value="Enviar" > -->
-			    <button class="btn btn-primary col-md-12" type="submit" >Enviar </button>
+			    <div class="form-group">
+			    	<button class="btn btn-primary form-control input-lg" type="submit" >Enviar </button>
+			    </div>
 			</form>
+			</div>
 			
 		</div>
 	</div>

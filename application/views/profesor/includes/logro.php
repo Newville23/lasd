@@ -14,7 +14,7 @@
 	    $('#AgregarCalificacion, .ActualizarCalificacion').on('click', function() {
             
 	        var enlace = $(this).attr('href');
-	        $('#modalNotas').html('<i class="icon-spinner muted icon-spin icon-4x col-md-offset-5"></i>');
+	        $('#modalNotas').html('<i class="icon-spinner text-muted icon-spin icon-4x col-md-offset-5"></i>');
 
 	        $('#modalNotas').load(enlace);
 

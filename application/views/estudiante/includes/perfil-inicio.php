@@ -11,7 +11,7 @@
 </div>
 
 <div class="caption" id="perfil-caption2">
-	<h6 class="muted"><?php echo $datos['nombre'] . " " . $datos['apellido']; ?></h6>
+	<h6 class="text-muted"><?php echo $datos['nombre'] . " " . $datos['apellido']; ?></h6>
 </div>
 
 <p class="ModalInfo">

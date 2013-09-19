@@ -8,7 +8,7 @@
 				
 				<div class="col-lg-6">
 					<select name="nombre_curso" id="" class="form-control input-lg">
-						<option class="muted" value="">Grado del curso:</option>
+						<option class="text-muted" value="">Grado del curso:</option>
 				        <option value="11">Undécimo (11º)</option>
 				        <option value="10">Décimo (10º)</option>
 				        <option value="9">Noveno (9º)</option>
@@ -31,7 +31,7 @@
 
 				<div class="">
 					<select name="director_grupo" id="" class="form-control input-lg">
-				        <option class="muted" value="">Docente director de grupo:</option>
+				        <option class="text-muted" value="">Docente director de grupo:</option>
 				        <option value="10">Pedro José Torres</option>
 				        <option value="11">Alba Bonet</option>
 				        <option value="901206">Alfredo Lora</option>
@@ -39,8 +39,8 @@
 				</div>
 
 			<div class="btn-group" style="padding-top: 10%;">
-				<button class="btn btn-default btn-lg" type="submmit"><span class="muted">Guardar</span></button>
-				<button class="btn btn-default btn-lg" type="reset"><i class="icon-remove icon-large muted"></i></button>
+				<button class="btn btn-default btn-lg" type="submmit"><span class="text-muted">Guardar</span></button>
+				<button class="btn btn-default btn-lg" type="reset"><i class="icon-remove icon-large text-muted"></i></button>
 			</div>
 
 		</div>

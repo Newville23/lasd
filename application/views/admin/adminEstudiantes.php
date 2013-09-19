@@ -10,27 +10,29 @@
 			</div>
 		</div>
 
-		<div class="col-md-9 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-2">
 			<div class="bloquePegadoUp">
 				<ul class="nav nav-pills fontSize2">
 					<?php $this->load->view('admin/includes-estudiante/menu-cursos'); ?>
 				</ul>
 
-				<div class="accordion" id="accordion2" style="margin-bottom: 0">
-					<div class="accordion-group">
-
-						<div class="accordion-heading nav" style="margin-bottom: 0">
-							<a class="accordion-toggle Matbar" style="margin-bottom: 0" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-								Filtros
-							</a>
-						</div>
-						<div id="collapseOne" class="accordion-body collapse">
-							<div class="accordion-inner">
-								<?php $this->load->view('admin/includes/filtros-estudiantes'); ?>
-							</div>
-						</div>
-
+				<div class="panel-group" id="accordion">
+				  
+					<div class="panel panel-primary">
+					    <div class="panel-heading">
+					    	<h4 class="panel-title">
+					        	<a class="accordion-toggle Matbar-clear" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+					          		Filtros
+					        	</a>
+					    	</h4>
+					    </div>
+					    <div id="collapseOne" class="panel-collapse collapse">
+					    	<div class="panel-body">
+					        	<?php $this->load->view('admin/includes/filtros-estudiantes'); ?>
+					    	</div>
+					    </div>
 					</div>
+
 				</div>
 
 			</div>
@@ -38,18 +40,19 @@
 				<div class="bloquePegadoDown">
 
 					<div class="row">
-						<div class="col-md-6 pull-left">
+						<div class="col-md-6 pull-left margen-bottom">
 								<a 
 									id="#<?php //echo $value['id_time']; ?>" 
 									class=""
 									href=#"<?php //echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
 									data-target="#myModal" data-toggle="modal"><i class="icon-plus icon-large"></i> Añadir estudiante nuevo</a>
 						</div>
-						<div class="col-md-6">
-							<form class="form-search">
+						
+						<div class="col-md-6 margen-bottom">
+							<form class="">
 								<div class="input-group pull-right">
-									<input type="text" class="search-query" placeholder="Nombre del estudiante">
-									<span class="btn disabled"><i class="icon-search"></i> Buscar</span>
+									<input type="search" class="form-control" placeholder="Nombre del estudiante">
+									<span class="btn disabled input-group-addon"><i class="icon-search"></i> Buscar</span>
 								</div>
 							</form>
 						</div>
@@ -72,7 +75,7 @@
 <div id="myModal" class="modal hide modal-correccion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header" style="background-color: rgba(221, 221, 221, 0.3);">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
-		  <h5 class="muted text-center" id="myModalLabel">Agregar estudiante</h5>
+		  <h5 class="text-muted text-center" id="myModalLabel">Agregar estudiante</h5>
 	</div>
 	<div class="modal-body" id="">
 		<div class="row">
@@ -87,7 +90,7 @@
 <div id="modalPerfil" class="modal hide modal-correccion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header" style="background-color: rgba(221, 221, 221, 0.3);">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
-		  <h5 class="muted text-center" id="myModalLabel">Perfil de estudiante</h5>
+		  <h5 class="text-muted text-center" id="myModalLabel">Perfil de estudiante</h5>
 	</div>
 	<div class="modal-body" id="">
 		<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Veniam, cum excepturi nobis animi fugit aut ad quis expedita. Excepturi, autem ea quaerat ducimus accusamus? Voluptatum voluptatibus reiciendis accusantium asperiores provident.</p>

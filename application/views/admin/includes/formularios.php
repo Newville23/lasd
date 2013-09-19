@@ -22,8 +22,8 @@
 					</div>
 					
 					<div class="btn-group">
-						<button class="btn btn-default btn-lg" type="submmit"><span class="muted">Guardar</span></button>
-						<button class="btn btn-default btn-lg" type="reset"><i class="icon-remove icon-large muted"></i></button>
+						<button class="btn btn-default btn-lg" type="submmit"><span class="text-muted">Guardar</span></button>
+						<button class="btn btn-default btn-lg" type="reset"><i class="icon-remove icon-large text-muted"></i></button>
 					</div>
 				</form>
 			</div>

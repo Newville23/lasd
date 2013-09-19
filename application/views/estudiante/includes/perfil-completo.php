@@ -21,7 +21,7 @@
 
 				<p><strong class="text-success">Edad: </strong> 
 					<?php  echo $this->tiempo->calcularEdad($datos['fecha_nacimiento']);?> Años
-					<span class="muted"><?php  echo $datos['fecha_nacimiento'];?></span></p>
+					<span class="text-muted"><?php  echo $datos['fecha_nacimiento'];?></span></p>
 
 				<p><strong class="text-success"><?php echo $datos['tipo_identificacion'] ?>: </strong> <?php  echo $datos['identificacion'];?></p>
 				<p><strong class="text-success">Tipo de Sangre: </strong><?php echo $datos['tipo_sangre'] ?></p>

@@ -85,7 +85,7 @@
 		<div id="myModal" class="modal hide" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 			<div class="modal-header" style="background-color: rgba(221, 221, 221, 0.3);">
 				  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
-				  <h4 class="muted text-center" id="myModalLabel">Datos del Estudiante</h4 class="muted text-center">
+				  <h4 class="text-muted text-center" id="myModalLabel">Datos del Estudiante</h4 class="text-muted text-center">
 			</div>
 			<div class="modal-body" id="">
 				<?php $this->load->view('estudiante/includes/perfil-completo') ?>

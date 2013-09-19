@@ -18,17 +18,17 @@
 				    							
 		<div class="col-md-5" style="border-bottom: solid 3px #dadada;">
 			<div class="row">
-				<div class="col-md-6"><span class="muted">Cedula: </span>823455345</div>
-				<div class="col-md-6"><span class="muted">Profesión: </span>Lic. Artes del kung fu</div>
+				<div class="col-md-6"><span class="text-muted">Cedula: </span>823455345</div>
+				<div class="col-md-6"><span class="text-muted">Profesión: </span>Lic. Artes del kung fu</div>
 			</div>
 		</div>
 
 		<div class="col-md-4" style="text-align: right;">
 			<div class="row">
-				<div class="">
-					<button class="btn btn-info col-md-2 col-md-offset-4"><i class="icon-edit"></i> </button>
-					<button class="btn btn-warning col-md-2"><i class="icon-arrow-down"></i> </button>
-					<button class="btn btn-danger col-md-2"><i class="icon-remove"></i> </button>
+				<div class="btn-group">
+					<button class="btn btn-info"><i class="icon-edit"></i> </button>
+					<button class="btn btn-warning"><i class="icon-arrow-down"></i> </button>
+					<button class="btn btn-danger"><i class="icon-remove"></i> </button>
 				</div>
 			</div>
 		</div>

@@ -17,7 +17,7 @@
 						<p class="well-white"><?php echo $cuerpo; ?></p>
 						<p>
 							<span class="voto"><?php echo $puntos; ?></span> 
-							<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
+							<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
 							<span class="inforo"> <?php $this->tiempo->fechaHumana($fecha_creacion_foro); ?> <a href="#"><?php echo $nombre .' '. $apellido; ?></a></span>
 						</p>
 					</div>
@@ -67,8 +67,8 @@
 						<p class=""><?php echo $value['cuerpo']; ?> <br>
 						
 							<span class="voto"><?php echo $value['puntos']; ?></span> 
-							<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
-							<span class="inforo"><a href="#" id="<?php echo $id_responder[$key]; ?>" class="muted"> Responder</a></span>
+							<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
+							<span class="inforo"><a href="#" id="<?php echo $id_responder[$key]; ?>" class="text-muted"> Responder</a></span>
 							<span class="inforo"> <?php $this->tiempo->fechaHumana($value['fecha_creacion_comentario']); ?> </span>
 							
 							<div class="clase-Subcomentario-foro">
@@ -94,7 +94,7 @@
 									<?php echo $SubComentario['cuerpo']; ?> <br>
 									<p>
 										<span class="voto"><?php echo $SubComentario['puntos']; ?></span> 
-										<span class=""><i class="icon-thumbs-up-alt icon-large muted"></i></span>
+										<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
 										<span class="inforo"> <?php $this->tiempo->fechaHumana($SubComentario['fecha_creacion_sub']); ?> </span>
 									</p>
 								</div>

@@ -27,7 +27,7 @@
 
 	</head>
 <body>
-    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <nav class="navbar navbar-fixed-top navbar-inverse" role="navigation" style="background-color: rgba(10, 10, 10, 0.8);">
         
         <div class="navbar-header">
 
@@ -58,15 +58,15 @@
 
             <ul class="nav navbar-nav navbar-right">
 
-                <li href="#" class="dropdown visible-lg navbar-form">
+                <li href="#" class="dropdown hidden-xs navbar-form">
                     
                     
-                    <button class="dropdown-toggle btn" data-toggle="dropdown"><i class="icon-user icon-white"></i> 
+                    <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown"><i class="icon-user icon-white"></i> 
                         Entrar <b class="caret"></b></button>
                     
 
                     <ul class="dropdown-menu" role="menu" style="padding: 20%; width: 260px;">
-                        <li role="presentation" class="nav-header"><h4>Iniciar sesión</h4></li>
+                        <li role="presentation" class="dropdown-header"><h4>Iniciar sesión</h4></li>
                         <li role="presentation" class="divider"></li>
                           
                         <li>
@@ -77,11 +77,11 @@
                             </div>
                             
                             <div class="main">
-                                <?php echo form_open('login/loginajax', array('class' => 'form-horizontal' )) ?>
-
+                                <?php echo form_open('login/loginajax', array('class' => '' )) ?>
+                                    
                                     <div class="form-group">
-                                        <input class="form-control" type="text"  id="usuario" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" >
-                                        <input class="form-control" type="password"  id="pass" placeholder="Password" name="pass" >
+                                        <input class="form-control well2" type="text"  id="usuario" name="usuario" placeholder="Usuario" value="<?php echo $this->input->post('usuario'); ?>" >
+                                        <input class="form-control well2" type="password"  id="pass" placeholder="Password" name="pass" >
                                         <button class="btn btn-primary form-control" type="submit" >Enviar </button>
                                     </div>
 
@@ -89,6 +89,8 @@
                             </div>
 
                         </li>
+                        <li role="presentation" class="divider"></li>
+                        <a tabindex="-1" href="#">¿Olvidaste tu contraseña?</a>
                     </ul>
                 </li>
 

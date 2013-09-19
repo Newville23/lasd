@@ -4,7 +4,7 @@
 		<h2>Editar formulario dinamico</h2>
 	</div>
 	
-	<h3 class="text-info"><?php echo $form_data['name']; ?></h3>
+	<h3 class="text-primary"><?php echo $form_data['name']; ?></h3>
 
 	<form action="" method="POST">
 

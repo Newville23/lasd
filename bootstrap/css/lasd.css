@@ -1,11 +1,13 @@
-.Matbar{
-	background-color: #0075c4;
-	margin-bottom: 3%;
-	padding: 6%;
+.Matbar, .Matbar-clear{
 	color: #fff;
 	border-radius: 4px;
 	transition:All 0.2s;
 	-webkit-transition:All 0.2s;
+}
+.Matbar{
+  background-color: #0075c4;
+  margin-bottom: 3%;
+  padding: 6%;
 }
 .Matbar-selected{
   background-color: rgb(0, 59, 99);
@@ -14,7 +16,7 @@
 	background-color: rgb(0, 105, 175);
 	box-shadow: 0px 0px 20px rgb(121, 191, 255);
 }
-a.Matbar{
+a.Matbar, a.Matbar-clear{
   display: block;
 }
 a.Matbar:hover{
@@ -91,7 +93,6 @@ a.Matbar2:hover{
 }
 
 .well-white{
-    background-color: #fff;
     padding: 9px;
     -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
@@ -194,8 +195,8 @@ a.Matbar2:hover{
 .margen-top{
   margin-top: 4%;
 }
-.margen1{
-  
+.margen-bottom{
+  margin-bottom: 2%;
 }
 .margen1{
   
@@ -359,8 +360,7 @@ a.Matbar2:hover{
   
 }
 table tbody tr:hover{
-  background-color: red !important;
-  border:solid 5px !important;
+/*  border:solid 2px !important;*/
   color: #0088cc;
 }
 .tabla-notas .tabla-cabecera{
@@ -417,10 +417,9 @@ input[type="range"]::slider-thumb {
   padding: 20px 30px;
   border: 1px solid #ddd;
   min-height: 1000px;
-  width: 80%;
+  /*width: 80%;*/
   box-shadow: 0px 0px 10px #eee;
-  margin: 2px auto;
-  margin: 10px;
+
 }
 .hoja:focus{
   box-shadow: 0px 0px 10px #999;
@@ -526,6 +525,7 @@ ul li.active a.navegacion{
 @media (max-width: 979px) {
   .barra-propiedades{
     background-color: #222;
+    padding-top: 30px;
     
   }
   .bp-envoltura{
@@ -569,4 +569,9 @@ ul li.active a.navegacion{
 }
 .bordeVerde{
   border-bottom: solid 3px #00B147;
+}
+
+/*********** Botones ****************/
+.btn-inverse{
+  background-color: #111;
 }
