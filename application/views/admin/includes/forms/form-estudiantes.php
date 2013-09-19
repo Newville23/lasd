@@ -1,4 +1,4 @@
-	<?php echo form_open('admin/estudiante', array('class' => 'form-horizontal formajax')) ?>
+	<?php echo form_open('admin/estudiante', array('class' => '  formajax')) ?>
 
 		<div class="Matbar col-md-6" style="background-color: ForestGreen;">
 
@@ -49,7 +49,7 @@
 
 			<div class="form-group">
 				<label for="fecha_de_nacimiento" style="color: #666;">Fecha de nacimiento:</label>
-				<input id="fecha_de_nacimiento" name="fecha_nacimiento" type="date" class="form-control">
+				<input id="fecha_de_nacimiento" placeholder="dd/mm/aaaa" name="fecha_nacimiento" type="date" class="form-control">
 			</div>
 
 			<div class="form-group">

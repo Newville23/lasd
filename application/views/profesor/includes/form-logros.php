@@ -1,4 +1,4 @@
- <?php echo form_open('user/' . $controller, array('class' => 'form-horizontal formajax')); ?>
+ <?php echo form_open('user/' . $controller, array('class' => '  formajax')); ?>
  <?php //usleep(500000); ?>
  	<div class="alerta"></div>
 	 <div class="row">         

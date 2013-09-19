@@ -1,4 +1,4 @@
-	<?php echo form_open('admin/profesor', array('class' => 'form-horizontal formajax', 'id' => '')) ?>
+	<?php echo form_open('admin/profesor', array('class' => '  formajax', 'id' => '')) ?>
 	
 		<div class="Matbar col-md-6" style="background-color: #52b9e9;">
 

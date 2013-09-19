@@ -315,6 +315,7 @@ $(function(){
 			var enlace_foro = $(this).attr('href');
 			
 			$('#cuerpoModalDelForo').load(enlace_foro);
+			$('.cuerpoModalDelForo').load(enlace_foro);
 
 
 	});
@@ -324,6 +325,7 @@ $(function(){
 			var enlace_foro = $(this).attr('href');
 			
 			$('#cuerpoModalDelForo').load(enlace_foro);
+			$('.cuerpoModalDelForo').load(enlace_foro);
 
 
 	});

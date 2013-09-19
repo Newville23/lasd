@@ -16,7 +16,7 @@
     			<a class="fontSize1 padding1" href="#"><i class="icon-twitter"></i> Tweet</a>
    		</div>
 				    							
-		<div class="col-md-5" style="border-bottom: solid 3px #dadada;">
+		<div class="col-md-5">
 			<div class="row">
 				<div class="col-md-6"><span class="text-muted">Cedula: </span>823455345</div>
 				<div class="col-md-6"><span class="text-muted">Profesión: </span>Lic. Artes del kung fu</div>
@@ -26,9 +26,9 @@
 		<div class="col-md-4" style="text-align: right;">
 			<div class="row">
 				<div class="btn-group">
-					<button class="btn btn-info"><i class="icon-edit"></i> </button>
-					<button class="btn btn-warning"><i class="icon-arrow-down"></i> </button>
-					<button class="btn btn-danger"><i class="icon-remove"></i> </button>
+					<button class="btn btn-info btn-lg"><i class="icon-edit"></i> </button>
+					<button class="btn btn-warning btn-lg"><i class="icon-arrow-down"></i> </button>
+					<button class="btn btn-danger btn-lg"><i class="icon-remove"></i> </button>
 				</div>
 			</div>
 		</div>

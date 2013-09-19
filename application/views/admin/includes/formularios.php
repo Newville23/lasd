@@ -1,5 +1,5 @@
 			<div id="curso" class="Matbar margen1" style="background-color: #f88529;">
-				<form action="#" method="POST" class="form-horizontal">
+				<form action="#" method="POST" class=" ">
 					<div class="form-group">
 						<input type="text" placeholder="hola" class="  ">
 					</div>

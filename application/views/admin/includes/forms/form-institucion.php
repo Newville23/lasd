@@ -1,4 +1,4 @@
-			<?php echo form_open('admin/institucion', array('class' => 'form-horizontal formajax', 'id' => '')) ?>
+			<?php echo form_open('admin/institucion', array('class' => '  formajax', 'id' => '')) ?>
 			
 				<div id="institucion" class="row">
 					<div class="Matbar margen1 col-md-10 col-md-offset-1" style="">

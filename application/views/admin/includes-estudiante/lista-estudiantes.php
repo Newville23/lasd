@@ -15,7 +15,7 @@
     			<br><a class="fontSize1" href="#"><i class="icon-envelope-alt"></i> Mensaje</a>
    		</div>
 				    							
-		<div class="col-md-4" style="border-bottom: solid 3px #dadada;">
+		<div class="col-md-4">
 			<div class="row">
 				<div class="col-md-6"><span class="text-muted">Curso: </span>8º A</div>
 				<div class="col-md-6"><span class="text-muted">TI: </span>11431243323</div>
@@ -25,9 +25,9 @@
 		<div class="col-md-4" style="text-align: right;">
 			<div class="row">
 				<div class="btn-group">
-					<button class="btn btn-info"><i class="icon-edit"></i> </button>
-					<button class="btn btn-warning"><i class="icon-arrow-down"></i> </button>
-					<button class="btn btn-danger"><i class="icon-remove"></i> </button>
+					<button class="btn btn-info btn-lg"><i class="icon-edit"></i> </button>
+					<button class="btn btn-warning btn-lg"><i class="icon-arrow-down"></i> </button>
+					<button class="btn btn-danger btn-lg"><i class="icon-remove"></i> </button>
 				</div>
 			</div>
 		</div>

@@ -4,7 +4,7 @@
 		<div class="lennin"></div>
 		<div class="barra-propiedades">
 			<button class="btn btn-lg btn-inverse btn-block hidden-lg" id="boton-barra">
-				<i class="icon-arrow-down icon-large"></i>
+				<i class="icon-arrow-down icon-large text-muted"></i>
 			</button>
 			<div class="bp-envoltura">
 				<?php $this->load->view('admin/includes/menu-admin'); ?>

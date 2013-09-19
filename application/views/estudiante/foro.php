@@ -7,46 +7,57 @@
 	$id_FormForo = rand();
 
 ?>
+<div class="modal-dialog">
+    <div class="modal-content">
 
-				<div class="media">
-					<a class="pull-left" href="#">
-						<img class="media-object img-rounded" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
-					</a>
-					<div class="media-body">
-						<h3 id="myModalLabel" class="media-heading"><?php echo $titulo; ?></h3>
-						<p class="well-white"><?php echo $cuerpo; ?></p>
-						<p>
-							<span class="voto"><?php echo $puntos; ?></span> 
-							<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
-							<span class="inforo"> <?php $this->tiempo->fechaHumana($fecha_creacion_foro); ?> <a href="#"><?php echo $nombre .' '. $apellido; ?></a></span>
-						</p>
-					</div>
-				</div>
-<!-- ================== Cometar en el foro ============================= -->
+	    <div class="modal-header">
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
+	        <h4 class="modal-title text-muted">Foro de discución de la materia</h4>
+	    </div>
+
+	    <div class="modal-body" id="">
+
+	<!-- ----------------------- Cuerpo del modal ------------------------- -->
 				
-				<div class="media bloque-top">
-					<a class="pull-left" href="#">
-						<img class="media-object img-rounded" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
-					</a>
-					<div class="media-body clase-comentario-foro">
-
-						<?php echo form_open('estudiante/foroAjax/' . $Materia_id . '/' . $Clase_numero . '/' . $id_time, 
-						array('class' => 'form-horizontal', 'id' => $id_FormForo)) ?>
-
-							<div class="form-group">
-								<textarea name="comentarForo" id="<?php echo $cometarForo; ?>" placeholder="Escribe un comentario." class="    comentarForo" wrap="hard" cols="30" rows="2"></textarea>
-							</div>
-							<div class="btn-group desaparecer" id="<?php echo $botonesComentario; ?>">
-								<button id="" class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
-								<button id="<?php echo $resetComentario; ?>" class="btn reset" type="reset"><i class="icon-remove"></i></button>
-							</div>
-						</form>
-					</div>
+			<div class="media">
+				<a class="pull-left" href="#">
+					<img class="media-object img-rounded" data-src="holder.js/64x64" alt="64x64" style="width: 64px; height: 64px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
+				</a>
+				<div class="media-body">
+					<h3 id="myModalLabel" class="media-heading"><?php echo $titulo; ?></h3>
+					<p class="well-white"><?php echo $cuerpo; ?></p>
+					<p>
+						<span class="voto"><?php echo $puntos; ?></span> 
+						<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
+						<span class="inforo"> <?php $this->tiempo->fechaHumana($fecha_creacion_foro); ?> <a href="#"><?php echo $nombre .' '. $apellido; ?></a></span>
+					</p>
 				</div>
+			</div>
+				<!-- ================== Cometar en el foro ============================= -->
+				
+			<div class="media bloque-top">
+				<a class="pull-left" href="#">
+					<img class="media-object img-rounded" data-src="holder.js/64x64" alt="64x64" style="width: 50px; height: 50px;" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAEAAAABACAYAAACqaXHeAAACZ0lEQVR4Xu2Y3YupURTGHyMSEimfUS4MIheSKDf+efksH0W4QKLIx43PZJxZq5xmOs2Z037PTBNr33gbe693r2c9e/3M1q3X6yseeOhEAHGAHAHpAQ/cAyFNUCggFBAKCAWEAg+sgGBQMCgYFAwKBh8YAvLPkGBQMCgYFAwKBgWDD6yAYFArBlerFfr9Pg6HA6xWKxKJBMxm8ztP1et1bDYbxONxeL3eT/32FTE/eqkmB5xOJxSLRTgcDvj9fvR6PX6mRG9jPB5jNBrhfD7/kwBfEfNvimsSYDqdotvtIpvNcvWv1yt0Ot3v9+12O1SrVYTDYZ53cwCJMhgMkEqlWLBarcYCZTIZzOdzpZif2uqDCZoEoCQomUAggMViAaPRiEgkArvdzmJQYpSgx+NBqVR654BGo4Htdgufz8cOSafTsNlsLIxqTBUR/osAoVAITqcTnU4HLy8vyOfzGA6HXE2q6n6//0MAqni5XMbxeMTz8zOCwSDv/yaASsxvF2AymfC5z+VysFgs/Ex/KxQKqFQqnPjtSJAw9EzJkmPoO5pzuVy4f0SjUd6/lpjfLgBVj5qg2+1mK5MDnp6eWBCiAiVNg5JtNpvcC2ieXq/n3kBzqfLtdhvJZBIul4sdoRLTYDCo5K/9PmC5XLJtaePUCGOxGH++HXTW3/YAcspsNuPjQc5ptVp4xTE3U5PJBJWYStm/LtLUA1Rf+pPWiQBafwn+pGqq7EUcIA6QKzG5EpMrMZXueS9rhAJCAaGAUEAocC8dXSUPoYBQQCggFBAKqHTPe1kjFBAKCAWEAkKBe+noKnk8PAV+AdqfV5+BvqppAAAAAElFTkSuQmCC">
+				</a>
+				<div class="media-body clase-comentario-foro">
+
+					<?php echo form_open('estudiante/foroAjax/' . $Materia_id . '/' . $Clase_numero . '/' . $id_time, 
+					array('class' => ' ', 'id' => $id_FormForo)) ?>
+
+						<div class="form-group">
+							<textarea name="comentarForo" id="<?php echo $cometarForo; ?>" placeholder="Escribe un comentario." class="form-control comentarForo" wrap="hard" cols="30" rows="2"></textarea>
+						</div>
+						<div class="btn-group desaparecer" id="<?php echo $botonesComentario; ?>">
+							<button id="" class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
+							<button id="<?php echo $resetComentario; ?>" class="btn btn-default reset" type="reset"><i class="icon-remove"></i></button>
+						</div>
+					</form>
+				</div>
+			</div>
 				
 <!-- ====================================================================== -->
 
-<!-- ---------------------------Comentarios---------------------------- -->
+<!-- ===================Comentarios ========================== -->
 			
 			<div id="conejillo"></div>
 
@@ -65,25 +76,25 @@
 						<h5 id="myModalLabel" class="media-heading"><a href="#"><?php echo $value['nombre'] .' '. $value['apellido'] ;?></a></h5>
 
 						<p class=""><?php echo $value['cuerpo']; ?> <br>
-						
+							
 							<span class="voto"><?php echo $value['puntos']; ?></span> 
 							<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
 							<span class="inforo"><a href="#" id="<?php echo $id_responder[$key]; ?>" class="text-muted"> Responder</a></span>
 							<span class="inforo"> <?php $this->tiempo->fechaHumana($value['fecha_creacion_comentario']); ?> </span>
-							
+								
 							<div class="clase-Subcomentario-foro">
 								<?php echo form_open('estudiante/comentarioAjax/' . $value['Materia_id'] . '/' . $value['Clase_numero'] . '/' . $value['Foro_id_time'] . '/' . $value['id_time'], 
-												array('class' => 'form-horizontal desaparecer', 'id' => $id_FormSubComentario[$key])) ?>
+												array('class' => '  desaparecer', 'id' => $id_FormSubComentario[$key])) ?>
 									<div class="form-group">
-										<textarea name="comentarComentario" id="comentar" placeholder="Escribe un comentario." class="   " wrap="hard" cols="30" rows="2"></textarea>
+										<textarea name="comentarComentario" id="comentar" placeholder="Escribe un comentario." class="form-control" wrap="hard" cols="30" rows="2"></textarea>
 									</div>
-									
+										
 									<div class="btn-group" id="">
 										<button id="Subcomentar" class="btn btn-primary btn-small" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
 									</div>
 								</form>
 							</div>
-							
+								
 							<?php foreach ($value['SubComentario'] as $key => $SubComentario): ?>
 							<div class="media bloque-top well-white">
 								<a class="pull-left" href="#">
@@ -105,8 +116,11 @@
 				</div>
 				<?php endforeach; ?>
 			</div>
-			
-			<!-- <div id="conejillo"></div> -->
+
+		</div><!-- /.modal-body -->
+    </div><!-- /.modal-content -->
+</div><!-- /.modal-dialog -->
+
 					
 	
 <script>

@@ -4,24 +4,24 @@
 		<div class="lennin"></div>
 		<div class="barra-propiedades">
 			<button class="btn btn-lg btn-inverse btn-block hidden-lg" id="boton-barra">
-				<i class="icon-arrow-down icon-large"></i>
+				<i class="icon-arrow-down icon-large text-muted"></i>
 			</button>
 			<div class="bp-envoltura">
 				<?php $this->load->view('admin/includes/menu-admin'); ?>
 			</div>
 		</div>
 
-		<div class="col-md-2 col-md-offset-1 hidden-sm affix">
-			<div class="row">
-				<div id="nav-ejemplo" class="col-md-12 col-md-offset-4">
+		<div class="col-md-2 col-md-offset-1 visible-lg visible-md affix">
+			
+				<div id="nav-ejemplo">
 					<ul class="nav nav-stacked">
 						<?php $this->load->view('admin/includes/menu-form'); ?>
 					</ul>
 				</div>
-			</div>
+			
 		</div>
 
-		<div class="col-md-2 visible-sm">
+		<div class="col-md-2 visible-xs visible-sm">
 			<div >
 				<ul class="nav nav-stacked">
 					<?php $this->load->view('admin/includes/menu-form'); ?>

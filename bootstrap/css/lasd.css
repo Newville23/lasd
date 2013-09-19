@@ -256,13 +256,13 @@ a.Matbar2:hover{
 
 }
 .modal-correccion{
-  position: absolute;
+/*  position: absolute;
   margin-bottom: 20px;
-  top: 10%;
-  width: 720px;
-  left: 45%;
+  top: 10%;*/
+  width: 100%;
+/*  left: 45%;*/
 }
-.modal-body{
+/*.modal-body{
   max-height: none;
 }
 .modal-backdrop{
@@ -270,8 +270,7 @@ a.Matbar2:hover{
 }
 .modal-form{
   top: 10%;
- /* width: 400px;*/
-}
+}*/
 /****************************************/
 
 .oculto{
@@ -438,6 +437,7 @@ input[type="range"]::slider-thumb {
     box-shadow: 0px 0px 15px #aaa;
     min-height: 20px;
     min-width: 40%;
+    z-index: 1024;
 }
 .navegacion i{
   display: block;

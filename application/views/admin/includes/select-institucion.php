@@ -1,4 +1,4 @@
-<?php echo form_open('admin/selectinstitucion', array('class' => 'form-horizontal', 'id' => 'selector-colegio')) ?>
+<?php echo form_open('admin/selectinstitucion', array('class' => ' ', 'id' => 'selector-colegio')) ?>
 	<div class="row" id="institucion">
 
 		<div id="" class="Matbar col-md-10 col-md-offset-1 margen1" style="min-height: 300px;">
