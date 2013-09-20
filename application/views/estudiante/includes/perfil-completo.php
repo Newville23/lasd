@@ -1,6 +1,6 @@
 <div class="tabbable">
 
-	<ul class="nav nav-tabs">
+	<ul class="nav nav-tabs nav-justified">
 	 	<li class="active"><a href="#info" data-toggle="tab">Infomacion Básica</a></li>
 		<li class=""><a href="#editar" data-toggle="tab">Editar</a></li>
 	</ul>
@@ -9,7 +9,7 @@
 
 		<div class="tab-pane active" id="info">
 
-			<div class="img-thumbnail well" id="miniatura">
+			<div class="thumbnail margen-top" id="miniatura">
 				<img class="img-rounded" data-src="holder.js/300x150" alt="300x150" style="width: 300px;" 
 				src="<?php echo base_url('bootstrap/img/images/avatar.png'); ?>">
 			</div>

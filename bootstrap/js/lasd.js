@@ -105,8 +105,8 @@ $(function(){
 
 	//***** Cambios generales realizados  por el menu ***********
 
-	cambioClasesClic('.menu', '#menu', "span5", "span3");
-	cambioClasesClic('.menu', '#perfil', "span3", "span2");
+	cambioClasesClic('.menu', '#menu', "col-md-5", "col-md-3");
+	cambioClasesClic('.menu', '#perfil', "col-md-3", "col-md-2");
 
 	aparecer('.menu', '#perfil-caption2');
 

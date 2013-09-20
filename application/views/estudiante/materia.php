@@ -2,16 +2,16 @@
 
 	<div class="row">
 		
-		<div class="col-md-4 well bloque" id="menu">
+		<div class="col-md-4 margen-top" id="menu">
 			<div class="row">
 
-				<div class="col-md-7 fontSize2">
+				<div class="col-md-6 fontSize2 margen">
 
 					<?php $this->load->view('estudiante/includes/menu-estudiantes'); ?>
 
 				</div>
 
-				<div class="col-md-5 padding1" id="materias2">
+				<div class="col-md-4 padding1 margen" id="materias2">
 
 					<div class="row text-center">
 						<?php foreach ($clase as $value): ?>
@@ -26,7 +26,7 @@
 			</div>
 		</div>
 
-		<div class="col-md-8 padding2 well-margin-botton">
+		<div class="col-md-8  padding2 well-margin-botton">
 			<div class="row bloquePegadoUp">
 				<div class="">
 					<div class="media">

@@ -50,11 +50,11 @@ a.Matbar2:hover{
 }
 
 .container2 {
-    max-width: 90%;
+    
     padding: 19px 29px 29px;
     padding-top: 4%;
-    margin: 0 auto 20px;
-    margin-top: 5%;
+    margin: 0 auto 40px;
+    margin-top: 60px;
     background-color: #fff;
     border: 1px solid #e5e5e5;
         -webkit-border-radius: 5px;
@@ -193,13 +193,13 @@ a.Matbar2:hover{
   margin-right: 2%;
 }
 .margen-top{
-  margin-top: 4%;
+  margin-top: 40px;
 }
 .margen-bottom{
   margin-bottom: 2%;
 }
-.margen1{
-  
+.margen{
+  margin: 2%;
 }
 /*************************************************************************/
 

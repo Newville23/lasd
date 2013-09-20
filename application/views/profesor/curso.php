@@ -2,16 +2,16 @@
 
 	<div class="row">
 		
-		<div class="col-md-4 well bloque" id="menu">
+		<div class="col-md-4 margen-top" id="menu">
 
 			<div class="row">
 
-				<div class="col-md-7 fontSize2">
+				<div class="col-md-6 fontSize2 margen">
 					<?php // Carga el menu principal para el profesor
 					$this->load->view('profesor/includes/menu'); ?>
 				</div>
 
-				<div class="col-md-5 padding1" id="materias2">
+				<div class="col-md-4 padding1 margen" id="materias2">
 					<?php // Carga la lista de cursos que da el profesor
 					$this->load->view('profesor/includes/menu-curso'); ?>
 				</div>

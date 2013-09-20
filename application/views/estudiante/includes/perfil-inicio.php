@@ -1,5 +1,5 @@
-<div class="img-thumbnail" id="miniatura">
-	<img data-src="holder.js/300x200" alt="300x200" style="width: 300px;" 
+<div class="thumbnail" id="miniatura">
+	<img data-src="holder.js/300x200" alt="300x200" style="width: 250px;" 
 	src="<?php echo base_url('bootstrap/img/images/avatar.png'); ?>">
 </div>
 
