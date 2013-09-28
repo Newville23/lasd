@@ -90,14 +90,14 @@ class Admin extends CI_Controller
 				}
 				elseif ($data['alerta'] == 1) {
 					$data['mensaje'] = "Institucion ya existe";
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 				}
 			}
 			else
 			{
 				$data['mensaje'] = validation_errors(); 
-				$data['clase'] = 'alert-error';
+				$data['clase'] = 'alert-danger';
 				$this->load->view('templates/alerta', $data);
 			}
 		}
@@ -150,7 +150,7 @@ class Admin extends CI_Controller
 				{
 					
 					$data['mensaje'] = "El nombre usuario " . $usuario . " ya está en uso";
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 					return;
 				}
@@ -158,7 +158,7 @@ class Admin extends CI_Controller
 				if ($this->admin_model->verificarKey('Usuario', array('email' => $email ))) {
 
 					$data['mensaje'] = "El email " . $email . " ya está en uso";
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 					return;
 				}
@@ -166,7 +166,7 @@ class Admin extends CI_Controller
 				if ($this->admin_model->verificarKey('Estudiante', array('identificacion' => $identificacion))) {
 
 					$data['mensaje'] = "Un estudiante ya se encuentra inscrito con el número de identificacion " . $identificacion;
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 					return;
 				}
@@ -179,7 +179,7 @@ class Admin extends CI_Controller
 
 			}else{
 				$data['mensaje'] = validation_errors(); 
-				$data['clase'] = 'alert-error';
+				$data['clase'] = 'alert-danger';
 				$this->load->view('templates/alerta', $data);
 			}
 		}
@@ -211,7 +211,7 @@ class Admin extends CI_Controller
 				if ($this->admin_model->verificarKey('Usuario', array('usuario' => $usuario ))){
 					
 					$data['mensaje'] = "El nombre usuario " . $usuario . " ya está en uso";
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 					return;
 				}
@@ -219,7 +219,7 @@ class Admin extends CI_Controller
 				if ($this->admin_model->verificarKey('Usuario', array('email' => $email ))) {
 
 					$data['mensaje'] = "El email " . $email . " ya está en uso";
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 					return;
 				}
@@ -227,7 +227,7 @@ class Admin extends CI_Controller
 				if ($this->admin_model->verificarKey('Profesor', array('identificacion' => $identificacion))) {
 
 					$data['mensaje'] = "Un docente ya se encuentra inscrito con el número de identificacion " . $identificacion;
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 					return;
 				}
@@ -241,7 +241,7 @@ class Admin extends CI_Controller
 			else
 			{
 				$data['mensaje'] = validation_errors(); 
-				$data['clase'] = 'alert-error';
+				$data['clase'] = 'alert-danger';
 				$this->load->view('templates/alerta', $data);
 			}
 		}
@@ -267,7 +267,7 @@ class Admin extends CI_Controller
 				if ($this->admin_model->verificarKey('Materia', array('nombre' => $nombre_materia))) {
 				
 					$data['mensaje'] = "El nombre de la Materia " . $nombre_materia . " ya está en uso";
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 					return;
 				}
@@ -281,7 +281,7 @@ class Admin extends CI_Controller
 			else
 			{
 				$data['mensaje'] = validation_errors(); 
-				$data['clase'] = 'alert-error';
+				$data['clase'] = 'alert-danger';
 				$this->load->view('templates/alerta', $data);
 			}
 		}
@@ -311,7 +311,7 @@ class Admin extends CI_Controller
 				if ($this->admin_model->verificarKey('Curso', $arreglo))
 				{
 					$data['mensaje'] = "El Curso (" . $nombre_curso . " " . $indice. ") ya está en uso";
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 					return;
 				}
@@ -324,7 +324,7 @@ class Admin extends CI_Controller
 			else
 			{
 				$data['mensaje'] = validation_errors(); 
-				$data['clase'] = 'alert-error';
+				$data['clase'] = 'alert-danger';
 				$this->load->view('templates/alerta', $data);
 			}
 		}
@@ -354,7 +354,7 @@ class Admin extends CI_Controller
 				if ($this->admin_model->verificarKey('Clase', $arreglo))
 				{
 					$data['mensaje'] = "¡La clase ya existe!";
-					$data['clase'] = 'alert-error';
+					$data['clase'] = 'alert-danger';
 					$this->load->view('templates/alerta', $data);
 					return;
 				}
@@ -369,7 +369,7 @@ class Admin extends CI_Controller
 			else
 			{
 				$data['mensaje'] = validation_errors(); 
-				$data['clase'] = 'alert-error';
+				$data['clase'] = 'alert-danger';
 				$this->load->view('templates/alerta', $data);
 			}
 		}

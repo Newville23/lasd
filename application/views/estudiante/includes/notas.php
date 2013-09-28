@@ -24,7 +24,7 @@
 			</table>
 
 			<?php if (!empty($notas)): ?>
-			<canvas id="myChart" width="600" height="400"></canvas>
+			<canvas id="myChart" width="600" height="400" class="img-responsive"></canvas>
 			<script>
 
 				$( document ).ready(function() {

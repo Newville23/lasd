@@ -71,7 +71,7 @@
                           
                         <li>
                             <div id="errorvalidation2" class="oculto">
-                                <div class="alert alert-error">
+                                <div class="alert alert-danger">
                                     <button type="button" class="close" data-dismiss="alert">&times;</button>   
                                 </div>
                             </div>

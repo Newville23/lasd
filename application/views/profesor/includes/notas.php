@@ -106,15 +106,9 @@
 </div>
 
 <?php //$this->load->view('profesor/includes/modalNotas'); ?>
-<div id="myModalasd" class="modal hide modal-form" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large"></i></button>
-        <h4 class="text-muted" id="myModalLabel">Notas</h4>
-    </div>
 
-    <div class="modal-body" id="modalNotas">
-    </div>
-    <div class="modal-footer">  
-    </div>
+
+<div class="modal modalNotas" id="myModalasd" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 </div>
+<!-- /.modal -->

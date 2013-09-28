@@ -1,0 +1,31 @@
+.bloqueMateriaRight{
+  border: 1px rgba(200, 200, 200, 1) solid;
+  border-radius: 0 4px 4px 0px;
+  padding: 4%;
+  margin-left: 0 !important;
+  color: #555;
+  height: 90px;
+}
+.bloqueMateriaLeft{
+  border-radius: 4px 0px 0px 4px;
+  padding: 10px;
+  margin-right: 0 !important;
+  color: #555;
+  height: 90px;  
+}
+
+.color-matematicas{
+  background-color: #84D5F0;
+}
+.color-espanol{
+  background-color: #FFCB77;
+}
+.color-sociales{
+  background-color: #b2e2f2;
+}
+.color-naturales{
+  background-color: #82CC9B;
+}
+.color-fisica{
+  background-color: #EE9494;
+}

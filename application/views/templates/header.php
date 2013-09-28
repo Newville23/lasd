@@ -8,6 +8,7 @@
 		<link rel="stylesheet" href="<?php  echo base_url("bootstrap/css/bootstrap.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/boxstyles.css"); ?>">
         <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
     	
         <style type="text/css">
@@ -49,7 +50,7 @@
             
             <ul class="nav navbar-nav">
                 <li class="active"><a href="#">Inicio</a></li>
-                <li><a href="#">ShareBox</a></li>
+                <li><a href="<?php echo site_url('box/box'); ?>">ShareBox</a></li>
                 <!-- <li><a href="#">Hola</a></li> -->
             </ul>
 

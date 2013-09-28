@@ -335,14 +335,14 @@ $(function(){
     $('#AgregarCalificacion, .ActualizarCalificacion').on('click', function() {
             
         var enlace = $(this).attr('href');
-        $('#modalNotas').html('<i class="icon-spinner muted icon-spin icon-4x offset5"></i>');
+        $('.modalNotas').html('<i class="icon-spinner icon-spin icon-5x spin-center"></i>');
 
-        $('#modalNotas').load(enlace);
+        $('.modalNotas').load(enlace);
 
     });
 
     $('#myModalasd').on('hide', function () {
-  		$('#modalNotas').html();
+  		$('.modalNotas').html();
 	})
 
 
@@ -428,4 +428,5 @@ $(function(){
 			
 
 		});
+
 });

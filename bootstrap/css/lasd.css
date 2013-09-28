@@ -52,7 +52,7 @@ a.Matbar2:hover{
 .container2 {
     
     padding: 19px 29px 29px;
-    padding-top: 4%;
+    /*padding-top: 4%;*/
     margin: 0 auto 40px;
     margin-top: 60px;
     background-color: #fff;
@@ -198,6 +198,9 @@ a.Matbar2:hover{
 .margen-bottom{
   margin-bottom: 2%;
 }
+.margen-bottom2{
+  margin-bottom: 4%;
+}
 .margen{
   margin: 2%;
 }
@@ -222,8 +225,15 @@ a.Matbar2:hover{
 .bloquePegadoRight{
   background-color: rgba(180, 180, 180, 0.7);
   border-radius: 0 4px 4px 0px;
-  padding: 6%;
+  padding: 4%;
   margin-left: 0 !important;
+  color: #555;
+}
+.bloquePegadoLeft{
+  background-color: rgba(250, 250, 250, 0.7);
+  border-radius: 4px 0px 0px 4px;
+  padding: 4%;
+  margin-right: 0 !important;
   color: #555;
 }
 
@@ -564,14 +574,36 @@ ul li.active a.navegacion{
   font-weight:bold;
 }
 
+/*********** Bordes ****************/
 .bordeAzul{
-  border-bottom: solid 3px #0088cc;
+  border-bottom: solid 3px #0088cc !important;
 }
 .bordeVerde{
-  border-bottom: solid 3px #00B147;
+  border-bottom: solid 3px #00B147 !important;
 }
+
+.bordeDanger{
+  border: solid 1px rgba(255, 0, 0, 0.44) !important;
+}
+
+.bordeSuccess{
+  border: solid 1px #5cb85c !important;
+}
+
 
 /*********** Botones ****************/
 .btn-inverse{
   background-color: #111;
+}
+
+.btn-transparente{
+  background-color: rgba(255, 255, 255, 0.23);
+}
+
+.spin-center{
+  position: absolute;
+  top: 40%;
+  left: 45%;
+  color: rgba(255, 255, 255, 0.8);
+
 }

@@ -67,7 +67,7 @@ class User extends CI_Controller
 			}
 			else{
 				$data['mensaje'] = validation_errors(); 
-				$data['clase'] = 'alert-error';
+				$data['clase'] = 'alert-danger';
 				$data['estado'] = 0;
 				$this->load->view('profesor/includes/alerta', $data); 
 			}
@@ -97,7 +97,7 @@ class User extends CI_Controller
 			}
 			else{
 				$data['mensaje'] = validation_errors(); 
-				$data['clase'] = 'alert-error';
+				$data['clase'] = 'alert-danger';
 				$data['estado'] = 0;
 				$this->load->view('profesor/includes/alerta', $data); 
 			}

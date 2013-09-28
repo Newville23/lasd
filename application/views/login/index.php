@@ -41,7 +41,7 @@
 			<div id="errorvalidation">
 
 		    <?php if (isset($error) && !empty($error)): ?>
-				<div class="alert alert-error">
+				<div class="alert alert-danger">
 					<button type="button" class="close" data-dismiss="alert">&times;</button>
 					<?php echo $error; ?>
 				</div>

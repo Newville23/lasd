@@ -1,13 +1,13 @@
 <div class="container container2">
 	<div class="row">
 
-		<div class="col-md-3 col-md-offset-2 well fontSize3" id="menu">
+		<div class="col-md-3 col-md-offset-1 fontSize3" id="menu">
 
 			<?php $this->load->view('profesor/includes/menu'); ?>
 
 		</div>
 
-		<div class="col-md-6 well" id="">
+		<div class="col-md-6 col-md-offset-1" id="">
 			<div class="row">
 				<?php foreach ($clase as $value): ?>
 				<a class="Matbar2" href="<?php echo site_url("profesor/clase/" . $value['numero']); ?>">
