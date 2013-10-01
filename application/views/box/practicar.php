@@ -1,7 +1,7 @@
 <div class="container container2">
 	<div class="row">
 		<div class="col-md-3">
-			<?php //$this->load->view('box/index/perfil-box'); ?>
+			<div class="row">
 				<a href="<?php echo site_url('box/box/praticar/matematicas'); ?>">
 					<div class="bloqueMateriaLeft color-matematicas col-xs-3" style="height: 60px;">
 						<img class="media-object img-responsive" src="http://octodex.github.com/images/goretocat.png" alt="40x40" style="width: 40px; height: 40px;">
@@ -16,8 +16,36 @@
 						</div>
 					</div>
 				</a>
+			</div>
+			
+
+			<div class="list-group row">
+
+			  <a class="list-group-item">
+			  	<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" id="optionsRadios1" value="option1" checked>
+				    Option one is this great
+				  </label>
+				</div>
+			  </a>
+
+			  <a class="list-group-item">
+			  	<div class="radio">
+				  <label>
+				    <input type="radio" name="optionsRadios" id="optionsRadios2" value="option2">
+				    Option two can be something
+				  </label>
+				</div>
+			  </a>
+
+			  <a href="#" class="list-group-item">Morbi leo risus</a>
+			  <a href="#" class="list-group-item">Porta ac consectetur ac</a>
+			  <a href="#" class="list-group-item">Vestibulum at eros</a>
+			</div>
+
 		</div>
-		<div class="col-md-5 container2">
+		<div class="col-md-5">
 			Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, pariatur, asperiores cum consequuntur ex est nisi ad illo. Libero dolore quidem laudantium alias dolorem consequatur distinctio quam quas ab hic!
 
 			<?php //$this->load->view('box/index/materia-box'); ?>

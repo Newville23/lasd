@@ -13,9 +13,9 @@
 *.ruby-version
 
 # Images
-*.png
-*.jpg
-*.gif
+#*.png
+#*.jpg
+#*.gif
 
 # OS or Editor folders
 .DS_Store
