@@ -7,7 +7,7 @@
 .Matbar{
   background-color: #0075c4;
   margin-bottom: 3%;
-  padding: 6%;
+  padding: 4%;
 }
 .Matbar-selected{
   background-color: rgb(0, 59, 99);
@@ -68,11 +68,12 @@ a.Matbar2:hover{
       .container .checkbox {
         margin-bottom: 10px;
       }
-      .container input[type="text"],
+      .container input[type=""],
       .container input[type="password"] {
         font-size: 16px;
         height: auto;
         margin-bottom: 15px;
+      }
 }
 
 .notificacion{
@@ -110,6 +111,7 @@ a.Matbar2:hover{
 }
 
 .marcador-borde-azul, .marcador-borde-verde{
+  border-left: solid 3px #fff;
     transition:All 0.2s;
   -webkit-transition:All 0.2s;
 }
@@ -158,8 +160,8 @@ a.Matbar2:hover{
 }
 .bloque-top
 {
-  border-top: 2px solid #F0F0F0;
-  padding-top: 12px;
+  border-top: 1px solid #F0F0F0;
+  padding-top: 6px;
 }
 .bloque-top-2
 {
@@ -208,7 +210,8 @@ a.Matbar2:hover{
 
 .bloquePegadoUp{
   background-color: rgba(230, 230, 230, 0.9);
-  padding: 9px;
+  padding-left: 2%;
+  padding-top: 1%;
   border-radius: 6px 6px 0 0;
   /*border: 1px solid #aaa;*/
   box-shadow: 0px -2px 10px #aaa;

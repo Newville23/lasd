@@ -30,7 +30,7 @@ class Estudiante extends CI_Controller
 
 		// leer tabla estudiantes con la id
 		$row = $this->estudiante_model->getEstudiante();
-
+		//echo "<pre>"; print_r($row); echo "</pre>";
 		$row['clase'] = $this->estudiante_model->getClases($row['clase']);
 		//echo "<pre>"; print_r($row); echo "</pre>";
 

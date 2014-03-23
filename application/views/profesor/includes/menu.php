@@ -1,6 +1,5 @@
 	<div class="row">
 		<div class="col-md-12 Matbar" id="">
-			<div class="notificacion">3</div>
 			<div><i class="icon-book icon-large"></i> Cursos</div>
 		</div>
 	</div>
@@ -11,7 +10,6 @@
 
 	<div class="row">
 		<div class="col-md-12 Matbar" id="">
-			<div class="notificacion">3</div>
 			<div><i class="icon-envelope-alt icon-large"></i> Mensajes</div>
 		</div>
 	</div>

@@ -9,7 +9,11 @@
         <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/boxstyles.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/summernote.css"); ?>">
+        <link rel="stylesheet" href="<?php echo base_url("bootstrap/css/datepicker/datepicker3.css"); ?>">
+
         <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
+        <script src="<?php  echo base_url("bootstrap/js/datepicker/bootstrap-datepicker.js"); ?>"></script>
     	
         <style type="text/css">
 

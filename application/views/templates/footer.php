@@ -8,6 +8,7 @@
 		
 		
 		<script src="<?php  echo base_url("bootstrap/js/bootstrap.min.js"); ?>"></script>
+		<script src="<?php  echo base_url("bootstrap/js/summernote.min.js"); ?>"></script>
 		<script src="<?php echo base_url("bootstrap/js/Chart.min.js"); ?>"></script>
 		<script src="<?php echo base_url("bootstrap/js/lasd.js"); ?>"></script>
 

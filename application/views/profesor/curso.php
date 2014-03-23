@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 5%;">
+<div class="container" style="max-width: 98%; margin-top: 5%;padding-right: 15px; padding-left: 1%; margin-right: auto; margin-left: 1%;">
 
 	<div class="row">
 		
@@ -6,7 +6,7 @@
 
 			<div class="row">
 
-				<div class="col-md-6 fontSize2 margen">
+				<div class="col-md-5 fontSize2 margen">
 					<?php // Carga el menu principal para el profesor
 					$this->load->view('profesor/includes/menu'); ?>
 				</div>

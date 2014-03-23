@@ -10,7 +10,6 @@
 
 					<div class="row">
 						<div class="col-md-12 Matbar menu" id="apuntadorMaterias">
-							<div class="notificacion">3</div>
 							<div><i class="icon-book icon-large"></i> Materias</div>
 						</div>
 					</div>
@@ -21,7 +20,6 @@
 
 					<div class="row">
 						<div class="col-md-12 Matbar menu" id="apuntadorMensaje">
-							<div class="notificacion">3</div>
 							<div><i class="icon-envelope-alt icon-large"></i> Mensajes</div>
 						</div>
 					</div>

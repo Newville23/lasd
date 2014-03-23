@@ -1,5 +1,5 @@
 <div class="container container2">
-	<div class="row">
+	<div class="row" style="margin-left: 2px;">
 
 		<div class="col-md-3 col-md-offset-1 fontSize3" id="menu">
 

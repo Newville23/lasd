@@ -27,11 +27,14 @@ class Estudiante_model extends CI_model
 
 		// Datos del la matriculado en el año actual
 		// Salida: Array Simple, 
+		// tener cuidado en el year
 		$data = array('Estudiante_identificacion' => $row['datos']['identificacion'],
 					  'year' => date('Y'));
+		
 		$query2 = $this->db->get_where('Matricula', $data);
 		$row['matricula'] = $query2->row_array();
-
+		//echo "<pre>"; print_r($row); echo "</pre>";
+		
 		// // Datos del curso matriculado
 		// Salida: Array Simple
 		$query3 = $this->db->get_where('Curso', array('codigo' => $row['matricula']['Curso_codigo']));

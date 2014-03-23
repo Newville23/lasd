@@ -49,8 +49,31 @@
 				</div>
 			</div>
 
-			<div class="tab-pane margen-top" id="estudiantes">
-				<?php $this->load->view('estudiante/listaEstudiantes'); ?>
+			<div class="tab-pane" id="estudiantes" style="margin-top: 20px;">
+				
+				<div class="tabbable">
+
+					<ul class="nav nav-pills">
+					 	<li class=""><a href="#asistencia" class="btn btn-default" data-toggle="tab">Lista de Asistencia</a></li>
+						<li class="active"><a href="#listaEstudiantes" class="btn btn-default" data-toggle="tab">Estudiantes</a></li>
+					</ul>
+
+					<div class="tab-content">
+						<div class="tab-pane" id="asistencia">
+							<div class="col-md-12" style="margin-top: 10px;">
+								<?php $this->load->view('estudiante/asistencia'); ?>
+							</div>
+						</div>
+						<div class="tab-pane active" id="listaEstudiantes">
+							<div class="col-md-12" style="margin-top: 10px;">
+								<?php $this->load->view('estudiante/listaEstudiantes'); ?>
+							</div>
+						</div>
+					</div>
+
+				</div>
+
+				
 			</div>
 
 			<div class="tab-pane margen-top" id="trabajos">
