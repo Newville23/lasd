@@ -72,6 +72,19 @@ class Admin extends CI_Controller
 
 	}
 
+	function Estadisticas()
+	{
+		$data['title'] = 'Administrar Docentes';
+		$data['lasd'] = 'Lasd';
+		$data['linkIndex'] = 'admin';
+		$data['active'] = 6;
+
+		$this->load->view('templates/header', $data);
+		$this->load->view('admin/estadisticas', $data);
+		$this->load->view('templates/footer', $data);
+
+	}
+
 	function institucion()
 	{
 		if ($this->input->is_ajax_request()) {

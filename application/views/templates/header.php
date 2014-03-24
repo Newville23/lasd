@@ -14,6 +14,7 @@
 
         <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
         <script src="<?php  echo base_url("bootstrap/js/datepicker/bootstrap-datepicker.js"); ?>"></script>
+        <script src="<?php  echo base_url("bootstrap/js/highcharts.js"); ?>"></script>
     	
         <style type="text/css">
 
@@ -53,7 +54,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Inicio</a></li>
+                <li class="active"><a href="<?php echo site_url($linkIndex); ?>">Inicio</a></li>
                 <li><a href="<?php echo site_url('box/box'); ?>">ShareBox</a></li>
                 <!-- <li><a href="#">Hola</a></li> -->
             </ul>

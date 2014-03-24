@@ -17,7 +17,7 @@
 <p class="ModalInfo">
 	<a 
 		id="#<?php //echo $value['id_time']; ?>" 
-		class="btn btn-info col-md-5"
+		class="btn btn-info col-md-5 col-xs-12"
 		href=#"<?php //echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
 		data-target="#myModal" data-toggle="modal">Ver</a>
 </p>
