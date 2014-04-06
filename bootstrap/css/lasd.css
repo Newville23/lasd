@@ -103,6 +103,10 @@ a.Matbar2:hover{
 .well-white:hover{
     background-color: #f5f5f5;
 }
+.trabajo-list .well-white:hover{
+    background-color: #f5f5f5;
+    box-shadow: 0px 0px 5px #999;
+}
 
 .well-margin-botton{
   margin-bottom: 40px;
@@ -163,6 +167,9 @@ a.Matbar2:hover{
   border-top: 1px solid #F0F0F0;
   padding-top: 6px;
 }
+.bloque-left{
+  border-left: 1px solid #F0F0F0;
+}
 .bloque-top-2
 {
  /* border-top: 1px solid #F0F0F0;*/
@@ -212,7 +219,7 @@ a.Matbar2:hover{
   background-color: rgba(230, 230, 230, 0.9);
   padding-left: 2%;
   padding-top: 1%;
-  border-radius: 6px 6px 0 0;
+  border-radius: 4px 4px 0 0;
   /*border: 1px solid #aaa;*/
   box-shadow: 0px -2px 10px #aaa;
 }
@@ -222,7 +229,7 @@ a.Matbar2:hover{
   padding: 9px;
   border-radius: 0 0 4px 4px;
   
-  box-shadow: 0px 2px 10px #aaa;
+  box-shadow: 0px 2px 5px #aaa;
   margin-bottom: 5%;
 }
 .bloquePegadoRight{
@@ -355,7 +362,6 @@ a.Matbar2:hover{
 .targeta-fecha{
 
   min-height: 30px;
-  padding: 8px;
   text-align: center;
   color: #777777;
 }
@@ -484,7 +490,10 @@ ul li.active a.navegacion{
     transform: scale(1.3, 1.3) translate(10%);
 }
 
-
+.barra-propiedades{
+  background-color: #222;
+  box-shadow:inset -3px 0px 10px #000;
+}
 .barra-propiedades li{
   padding: 12px;
   border-bottom: 1px solid #444;
@@ -510,30 +519,6 @@ ul li.active a.navegacion{
   width: 95%;
 }
 
-/****** PANTALLA MEDIANA *****
-@media (min-width: 768px) and (max-width: 979px) {
-    .barra-propiedades{
-      background-color: #222;
-      /*position: fixed;
-      bottom: 0;
-      left: 0;
-      top: 50px;
-      /*width: 200px;*/
-      /*float: left;
-  }
-/*
-  .lennin{
-  position: fixed;
-  background-color: #222;
-  width: 200px;
-  bottom: 0;
-  left: 0;
-  top: 0;
-  z-index: -100;
-  }
-
-}
-
 /******* Estilos sólo para PEQUEÑAS PANTALLAS  *************/
 @media (max-width: 979px) {
   .barra-propiedades{
@@ -550,7 +535,6 @@ ul li.active a.navegacion{
 /**** Estilos solo para PANTALLAS GRANDES ****/
 @media (min-width: 979px) {
   .barra-propiedades{
-  background-color: #222;
   position: fixed;
   bottom: 0;
   left: 0;

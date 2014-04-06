@@ -1,4 +1,4 @@
-<div class="container" style="max-width: 98%; margin-top: 5%;padding-right: 15px; padding-left: 1%; margin-right: auto; margin-left: 1%;">
+<div class="container" style="width: 95%; margin-top: 5%;padding-right: 15px; padding-left: 1%; margin-right: auto; margin-left: 1%;">
 
 	<div class="row">
 		
@@ -6,12 +6,11 @@
 
 			<div class="row">
 
-				<div class="col-md-5 fontSize2 margen">
-					<?php // Carga el menu principal para el profesor
-					$this->load->view('profesor/includes/menu'); ?>
+				<div class="fontSize2 margen">
+					<?php //$this->load->view('profesor/includes/menu'); ?>
 				</div>
 
-				<div class="col-md-4 padding1 margen" id="materias2">
+				<div class="col-md-6 padding1 margen" id="materias2">
 					<?php // Carga la lista de cursos que da el profesor
 					$this->load->view('profesor/includes/menu-curso'); ?>
 				</div>

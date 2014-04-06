@@ -1,14 +1,7 @@
 <div class="container" style="margin-top: 5%;">
 	<div class="row">
 		
-		<div class="barra-propiedades">
-			<button class="btn btn-lg btn-inverse btn-block hidden-lg" id="boton-barra">
-				<i class="icon-arrow-down icon-large text-muted"></i>
-			</button>
-			<div class="bp-envoltura">
-				<?php $this->load->view('admin/includes/menu-admin'); ?>
-			</div>
-		</div>
+	<?php $this->load->view('admin/includes/menu-admin'); ?>
 
 		<div class="col-md-10 col-md-offset-2">
 			<div class="bloquePegadoUp">

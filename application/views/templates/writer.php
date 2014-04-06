@@ -1,4 +1,4 @@
-<div class="container">
+<div class="">
 	<div class="row">
 
 		<div class="margen-top col-md-12">

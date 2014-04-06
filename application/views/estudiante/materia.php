@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 5%;">
+<div class="container" style="width: 95%; margin-top: 5%;padding-right: 15px; padding-left: 1%; margin-right: auto; margin-left: 1%;">
 
 	<div class="row">
 		
@@ -6,12 +6,10 @@
 			<div class="row">
 
 				<div class="col-md-6 fontSize2 margen">
-
-					<?php $this->load->view('estudiante/includes/menu-estudiantes'); ?>
-
+					<?php //$this->load->view('estudiante/includes/menu-estudiantes'); ?>
 				</div>
 
-				<div class="col-md-4 padding1 margen" id="materias2">
+				<div class="col-md-6 padding1 margen fontSize2" id="materias2">
 
 					<div class="row text-center">
 						<?php foreach ($clase as $value): ?>

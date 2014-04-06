@@ -23,7 +23,7 @@ class Foro extends CI_Controller
 
 	function foroModal($Materia_id = FALSE, $Clase_numero = FALSE, $id_time = FALSE){
 
-		if ($this->input->is_ajax_request()) {
+		if (true) {
 
 			$arrayForo = $this->estudiante_model->getForo($id_time);
 

@@ -429,4 +429,6 @@ $(function(){
 
 		});
 
+		//$('.popover-datepicker').popover('hide');
+
 });

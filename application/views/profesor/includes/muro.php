@@ -77,7 +77,10 @@
 			</div>
 
 			<div class="tab-pane margen-top" id="trabajos">
-				<?php $this->load->view('estudiante/includes/trabajos'); ?>
+				<div class="">
+					<?php $this->load->view('estudiante/includes/trabajos'); ?>
+				</div>
+				
 			</div>
 
 			<div class="tab-pane" id="notas">
