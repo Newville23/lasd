@@ -94,7 +94,7 @@ a.Matbar2:hover{
 }
 
 .well-white{
-    padding: 9px;
+    padding: 4px;
     -webkit-border-radius: 3px;
      -moz-border-radius: 3px;
           border-radius: 3px;
@@ -585,6 +585,18 @@ ul li.active a.navegacion{
 
 .btn-transparente{
   background-color: rgba(255, 255, 255, 0.23);
+}
+
+.btn-green.active{
+  color: #fff;;
+  background-color: #47a447;
+  border-color: #398439;
+}
+
+.btn-red.active{
+  color: #fff;;
+  background-color: #d9534f;
+  border-color: #d43f3a;
 }
 
 .spin-center{

@@ -1,9 +1,12 @@
- <div id="datepickerclass" class="col-md-5 col-md-offset-7 margen-bottom fontSize2">
-    <div class="input-group date">
-        <input type="text" type="text" placeholder="fecha de asistencia" readonly class="form-control input-lg">
-        <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-    </div>
+ <div class="row">
+    <div id="datepickerclass" class="col-md-5 margen-bottom fontSize2">
+        <div class="input-group date">
+            <input type="text" type="text" placeholder="fecha de asistencia" readonly class="form-control input-lg">
+            <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
+        </div>
+     </div>
  </div>
+
 
 <script>
     $('#datepickerclass .input-group.date').datepicker({
@@ -26,16 +29,20 @@
                 <h5 class="media-heading text-success"><?php echo $estudiante['nombre'] .' '. $estudiante['apellido']; ?></h5>
             </div>
         </div>
-        <div class="col-md-6 col-xs-5">   
+        <div class="col-md-3 col-xs-5" style="padding-left: 5px;">   
             <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-default active">
+                <label class="btn btn-default btn-green active">
                     <input type="radio" name="options" id="option1"> <span class="glyphicon glyphicon-ok"></span>
                 </label>
-                <label class="btn btn-default">
+                <label class="btn btn-default btn-red">
                     <input type="radio" name="options" id="option2"> <span class="glyphicon glyphicon-remove"></span>
                 </label>
             </div> 
         </div>
-
 	</div>
 <?php endforeach; ?>
+
+<diiv class="">
+   <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Enviar</button> 
+   <span class=""><a href="#"> Oservaciones</a></span>
+</diiv>

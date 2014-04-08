@@ -81,7 +81,7 @@ class Profesor extends CI_Controller
 		if ($this->form_validation->run() === FALSE) {
 			
 			$this->load->view('templates/header', $data);
-			$this->load->view('profesor/curso', $row);
+			$this->load->view('profesor/clase', $row);
 			$this->load->view('templates/footer', $data);
 		}
 		else
