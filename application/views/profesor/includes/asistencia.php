@@ -1,25 +1,6 @@
- <div class="row">
-    <div id="datepickerclass" class="col-md-5 margen-bottom fontSize2">
-        <div class="input-group date">
-            <input type="text" type="text" placeholder="fecha de asistencia" readonly class="form-control input-lg">
-            <span class="input-group-addon"><i class="glyphicon glyphicon-th"></i></span>
-        </div>
-     </div>
- </div>
+<?php echo form_open('profesor/estudiante', array('class' => '  formajax')) ?>
 
-
-<script>
-    $('#datepickerclass .input-group.date').datepicker({
-        format: "yyyy-mm-dd",
-        todayBtn: "linked",
-        language: "es",
-        daysOfWeekDisabled: "0,6",
-        autoclose: true,
-        todayHighlight: true
-    });
-</script>
-
-<?php foreach ($listaAlumnos['listaEstudiantes'] as $estudiante): ?>
+<?php foreach ($asistencia as $estudiante): ?>
 	<div class="media well-white bloque-top col-md-12" style="margin: 0px;">
         <div class="col-md-5 col-xs-7">
             <a class="pull-left hidden-xs" href="#" style="padding-right: 20px;">
@@ -31,10 +12,10 @@
         </div>
         <div class="col-md-3 col-xs-5" style="padding-left: 5px;">   
             <div class="btn-group" data-toggle="buttons">
-                <label class="btn btn-default btn-green active">
+                <label class="btn btn-default btn-green <?php if ($estudiante['Asistencia'] == 'si') {echo 'active';} ?>">
                     <input type="radio" name="options" id="option1"> <span class="glyphicon glyphicon-ok"></span>
                 </label>
-                <label class="btn btn-default btn-red">
+                <label class="btn btn-default btn-red <?php if ($estudiante['Asistencia'] == 'no') {echo 'active';}?>">
                     <input type="radio" name="options" id="option2"> <span class="glyphicon glyphicon-remove"></span>
                 </label>
             </div> 
@@ -42,7 +23,10 @@
 	</div>
 <?php endforeach; ?>
 
+
 <diiv class="">
    <button type="button" class="btn btn-primary"><span class="glyphicon glyphicon-ok"></span> Enviar</button> 
    <span class=""><a href="#"> Oservaciones</a></span>
 </diiv>
+
+</form>

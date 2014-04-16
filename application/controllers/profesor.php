@@ -57,6 +57,7 @@ class Profesor extends CI_Controller
 		$row['foros'] = $this->foro_model->getForoFromClase($numeroClase);
 		//echo "<pre>"; print_r($row); echo "</pre>";
 
+
 		// ----------------------------------------------------------------
 		// Se verifica que el numero de clase corresponda con el profesor.
 		$array = array('numero' => $numeroClase,
@@ -92,6 +93,22 @@ class Profesor extends CI_Controller
 		}
 
 		
+	}
+
+	function getAsistenciaController($numeroClase = null, $fecha = 0)
+	{
+		if ($fecha == 0) {
+			$fecha = date('Y-m-d');
+		}
+		if ($numeroClase == null) {
+			return;
+		}
+
+		$data['asistencia'] = $this->profesor_model->getAsistencia($numeroClase, $fecha);
+		//echo json_encode($data['asistencia']);
+		$this->load->view('profesor/includes/asistencia', $data);
+		//echo "<pre>"; print_r($data); echo "</pre>";
+		//$row['asistencia'] = $this->profesor_model->setAsistencia($numeroClase);
 	}
 }
 

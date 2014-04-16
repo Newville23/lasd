@@ -344,8 +344,30 @@ $(function(){
     $('#myModalasd').on('hide', function () {
   		$('.modalNotas').html();
 	})
+	$('#popoverDatapicker').popover();
+
+// Asistencia
+	$('#datepickerAsistencia .input-group.date').datepicker({
+        format: "yyyy-mm-dd",
+        todayBtn: "linked",
+        language: "es",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true
+
+    }).on('hide', function(e){
+
+    	if ($('#datepickerInput').val()) {
+    		var enlace = $('#datepickerAsistencia').attr('data-url') + '/' + $('#datepickerInput').val();
+        	$('#contenidoAsistencia').load(enlace);
+        };
+    });
 
 
+	    // $('#datepickerInput').on('blur', function(event) {
+	    // 	event.preventDefault();
+	    //   	console.log('cont');
+	    // });
 
 //======== L O G I N ====================================================================
 

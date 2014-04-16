@@ -61,7 +61,22 @@
 					<div class="tab-content">
 						<div class="tab-pane" id="asistencia">
 							<div class="col-md-12" style="margin-top: 10px;">
-								<?php $this->load->view('estudiante/asistencia'); ?>
+								 <div class="row">
+								    <div id="datepickerAsistencia" class="col-md-5 margen-bottom fontSize2" data-url= "<?php echo site_url('profesor/getAsistenciaController/' . $listaAlumnos['numero']); ?>">
+								        <div class="input-group date">
+								            <input type="text" type="text" id="datepickerInput" placeholder="fecha de asistencia" readonly class="form-control input-lg">
+								            <span class="input-group-btn">
+								            	<button class="btn btn-default btn-lg" type="button" id="popoverDatapicker" data-container="body" data-toggle="popover" 
+								            		data-placement="auto" data-trigger="hover" data-title="Tip" data-content="¡Selecciona la fecha de asistencia!.">
+								            		<span class="fa fa-calendar fa-lg"></span>
+								            	</button>
+								            </span>
+								        </div>
+								     </div>
+								 </div>
+
+								 <div id="contenidoAsistencia"></div>
+								<?php //$this->load->view('profesor/includes/asistencia'); ?>
 							</div>
 						</div>
 						<div class="tab-pane active" id="listaEstudiantes">
