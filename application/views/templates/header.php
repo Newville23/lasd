@@ -19,7 +19,7 @@
         <style type="text/css">
 
           body {
-            background: url("//d7mj4aqfscim2.cloudfront.net/images/landscapes/duo-land_mv_5b500a4f052f4985943c1cc44a06a7ff.jpg") 
+            background: url("//trello-attachments.s3.amazonaws.com/5325166619555a642af24408/53527d02ebb5ac2021abe505/3000x839/525f6a4a82dd30affe56b854f5155828/duo-land_mv_5b500a4f052f4985943c1cc44a06a7ff.jpg") 
           no-repeat bottom center fixed #bdddeb;
 
           }
@@ -41,9 +41,7 @@
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" >
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="fa fa-bars fa-inverse fa-lg"></span>
             </button>
 
             <a class="navbar-brand" href="<?php echo site_url($linkIndex); ?>">Athena Project</a>
@@ -62,19 +60,19 @@
             <ul class="nav navbar-nav navbar-right visible-lg">
 
               <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="icon-cog icon-large"> </i> <b class="caret"></b></a>
+                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog fa-lg"> </i> <b class="caret"></b></a>
                 <ul class="dropdown-menu">
-                    <li><a href="#"><i class="icon-wrench"></i> Ayuda</a></li>
+                    <li><a href="#"><i class="fa fa-wrench"></i> Ayuda</a></li>
                     <li class="divider"></li>
-                    <li><a href="<?php echo site_url('login/cerrar'); ?>"><i class="icon-off"></i> Cerrar Sesión</a></li>
+                    <li><a href="<?php echo site_url('login/cerrar'); ?>"><i class="fa fa-off"></i> Cerrar Sesión</a></li>
                 </ul>
               </li>
 
             </ul>
 
             <ul class="nav navbar-nav navbar-left hidden-lg">
-              <li><a href="#"><i class="icon-wrench"></i> Ayuda</a></li>
-              <li><a href="<?php echo site_url('login/cerrar'); ?>"><i class="icon-off"></i> Cerrar Sesión</a></li>
+              <li><a href="#"><i class="fa fa-wrench"></i> Ayuda</a></li>
+              <li><a href="<?php echo site_url('login/cerrar'); ?>"><i class="fa fa-off"></i> Cerrar Sesión</a></li>
             </ul>
 
         </div><!-- /.navbar-collapse -->

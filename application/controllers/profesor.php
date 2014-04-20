@@ -97,11 +97,20 @@ class Profesor extends CI_Controller
 
 	function getAsistenciaController($numeroClase = null, $fecha = 0)
 	{
-		if ($fecha == 0) {
-			$fecha = date('Y-m-d');
-		}
+
 		if ($numeroClase == null) {
 			return;
+		}
+
+		if ($fecha > date('Y-m-d')) {
+			$data['mensaje'] = "Escoge una fecha válida, has seleccionado una día futuro."; 
+			$data['clase'] = 'alert-warning';
+			$this->load->view('templates/alerta-no-time', $data); 
+			return;
+		}
+
+		if ($fecha == 0) {
+			$fecha = date('Y-m-d');
 		}
 
 		$data['asistencia'] = $this->profesor_model->getAsistencia($numeroClase, $fecha);
@@ -110,6 +119,77 @@ class Profesor extends CI_Controller
 		//echo "<pre>"; print_r($data); echo "</pre>";
 		//$row['asistencia'] = $this->profesor_model->setAsistencia($numeroClase);
 	}
+
+	//Reorganiza el array serialize, verifica si el registro existe para insertar o actualizar.
+	function setAsistenciaController($numeroClase = null, $fecha = null, $numeroEstudiantes=null)
+	{
+		if ($fecha > date('Y-m-d') || $fecha == null) {
+			$data['mensaje'] = "Escoge una fecha valida."; 
+			$data['clase'] = 'alert-danger';
+			$this->load->view('templates/alerta', $data); 
+			return;
+		}
+
+		if ($numeroClase == null || $numeroEstudiantes == null) {
+			return;
+		}
+
+		$data = $this->input->post();
+
+		if ($numeroEstudiantes*2 != count($data)) {
+			$data['mensaje'] = "No has termininado la lista de asistencia."; 
+			$data['clase'] = 'alert-danger';
+			$this->load->view('templates/alerta', $data);
+			return;
+		}
+
+		$i = 0;
+		$contadorDeQuerys = 0;
+
+		foreach ($data as $key => $value) {
+			$data2[$i] = $value;
+			$i = $i + 1;
+		}
+
+		for ($i=0; $i < count($data2); $i=$i+2) { 
+
+			$indiceYkey = array('Clase_numero' => $numeroClase,
+								'Estudiante_identificacion' => $data2[$i],
+			                     'fecha' => $fecha);
+
+				$filas = $this->profesor_model->verificarKey('Asistencia', $indiceYkey);
+			
+			if ($filas == 0) {
+
+				$indiceYkey['Asistencia'] = $data2[$i + 1];
+
+				$query = $this->profesor_model->setAsistenciaModel($indiceYkey);
+				//echo "insertado ";
+
+			}elseif ($filas == 1) {
+
+				$query = $this->profesor_model->upd8AsistenciaModel($indiceYkey, array('Asistencia' => $data2[$i + 1]));				
+			}
+
+			$contadorDeQuerys = $contadorDeQuerys + 1;
+		}
+		
+		if ($contadorDeQuerys == $numeroEstudiantes) {
+			$data['mensaje'] = "Lista de asistencia guardada correctamente"; 
+			$data['clase'] = 'alert-success';
+			$this->load->view('templates/alerta', $data);
+		}elseif ($contadorDeQuerys == 0) {
+
+			$data['mensaje'] = "La Lista de asistencia no se gruardó correctamente"; 
+			$data['clase'] = 'alert-danger';
+			$this->load->view('templates/alerta', $data);
+		
+		}elseif ($contadorDeQuerys < $numeroEstudiantes) {
+			$data['mensaje'] = "La Lista de asistencia no se gruardó correctamente"; 
+			$data['clase'] = 'alert-danger';
+			$this->load->view('templates/alerta', $data);
+		}
+	}
 }
 
- ?>
+?>

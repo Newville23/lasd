@@ -64,14 +64,14 @@
 								<?php echo form_open('', array('class' => 'well2')) ?>
 								
 									<div class="form-group">
-										<p Class="text-muted"><i class="icon-pencil icon-2x"></i><span> Crea un nuevo foro de discución</span></p>				
+										<p Class="text-muted"><i class="fa fa-pencil fa-2x"></i><span> Crea un nuevo foro de discución</span></p>				
 										<textarea name="tituloforo" id="tituloforo" required class="form-control textprincipal text-primary fontSize3" cols="30" rows="1" placeholder="Escribe un titulo o idea principal..."></textarea>
 										<textarea name="cuerpoforo" id="cuerpoforo" class="form-control fontSize3" cols="30" rows="5" placeholder="Desarrolla la pregunta.."></textarea>
 									</div>
 									
 									<div class="btn-group btn-foro" id="">
-										<button id="enviarforo" class="btn btn-primary btn-lg" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
-										<button id="" class="btn btn-default btn-lg cancelarforo" type="reset"><i class="icon-remove"></i></button>
+										<button id="enviarforo" class="btn btn-primary btn-lg" type="submit"><i class="fa fa-ok icon-white"></i> Enviar</button>
+										<button id="" class="btn btn-default btn-lg cancelarforo" type="reset"><i class="fa fa-times"></i></button>
 									</div>		
 									
 								</form>
@@ -94,7 +94,7 @@
 									    		</h5>
 									    		<p>
 									    			<span class="voto"><?php echo $value['puntos']; ?></span> 
-									    			<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
+									    			<span class=""><i class="fa fa-thumbs-up-alt fa-lg text-muted"></i></span>
 									    			<span class="inforo"><?php $this->tiempo->fechaHumana($value['fecha_creacion_foro']); ?> <a style="padding-left: 8px;" href="#"><?php echo $value['nombre'] .' '. $value['apellido']; ?></a></span>
 									    		</p>
 									  		</div>

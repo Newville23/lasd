@@ -17,7 +17,7 @@
 						
 						<div class="btn-group">
 							<button class="btn btn-default btn-lg" type="submmit"><span class="text-muted">Guardar</span></button>
-							<button class="btn btn-default btn-lg" type="reset"><i class="icon-remove icon-large text-muted"></i><span class="text-muted"> Limpiar</span></button>
+							<button class="btn btn-default btn-lg" type="reset"><i class="fa fa-times fa-lg text-muted"></i><span class="text-muted"> Limpiar</span></button>
 						</div>
 					</div>
 				</div>

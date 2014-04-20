@@ -1,6 +1,6 @@
 <div class="row bloquePegadoUp">
 	<div class="">
-		<h4 class="text-success"><i class="icon-puzzle-piece icon-large"></i>
+		<h4 class="text-success"><i class="fa fa-puzzle-piece fa-lg"></i>
 			<?php echo ' Nombre de Materia'//$ProfesorFromClase['nombre']; //nombre profesor ?></h4>
 	</div>
 </div>
@@ -8,7 +8,7 @@
 <div class="row bloquePegadoDown">
 	<div class="tabbable">
 
-		<ul class="nav nav-tabs nav-justified">
+		<ul class="nav nav-tabs nav-justified" style="">
 		 	<li class=""><a href="#contenido" data-toggle="tab">Contenido</a></li>
 			<li class="active"><a href="#foro" data-toggle="tab">Foro</a></li>
 			<li class=""><a href="#estudiantes" data-toggle="tab">Estudiantes</a></li>
@@ -28,7 +28,7 @@
 					<?php echo form_open('', array('class' => 'well2')) ?>
 								
 						<div class="form-group">
-							<p Class="text-muted"><i class="icon-pencil icon-2x"></i><span> Crea un nuevo foro de discución</span></p>				
+							<p Class="text-muted"><i class="fa fa-pencil fa-2x"></i><span> Crea un nuevo foro de discución</span></p>				
 							<textarea name="tituloforo" id="tituloforo" required class="form-control textprincipal text-primary fontSize3" cols="30" rows="2" placeholder="Escribe un titulo o idea principal..."></textarea>
 						</div>
 
@@ -37,8 +37,8 @@
 						</div>
 
 						<div class="btn-group btn-foro" id="">
-							<button id="enviarforo" class="btn btn-primary btn-lg" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
-							<button id="" class="btn btn-default btn-lg cancelarforo" type="reset"><i class="icon-remove"></i></button>
+							<button id="enviarforo" class="btn btn-primary btn-lg" type="submit"><i class="fa fa-ok icon-white"></i> Enviar</button>
+							<button id="" class="btn btn-default btn-lg cancelarforo" type="reset"><i class="fa fa-times"></i></button>
 						</div>		
 									
 					</form>
@@ -66,8 +66,11 @@
 								        <div class="input-group date">
 								            <input type="text" type="text" id="datepickerInput" placeholder="fecha de asistencia" readonly class="form-control input-lg">
 								            <span class="input-group-btn">
-								            	<button class="btn btn-default btn-lg" type="button" id="popoverDatapicker" data-container="body" data-toggle="popover" 
-								            		data-placement="auto" data-trigger="hover" data-title="Tip" data-content="¡Selecciona la fecha de asistencia!.">
+								            	<button class="btn btn-default btn-lg hidden-xs" style="border-radius: 0 4px 4px 0;" type="button" id="popoverDatapicker" data-container="body" data-toggle="popover" 
+								            		data-placement="right" data-trigger="hover" data-title="¡Selecciona la fecha de asistencia!.">
+								            		<span class="fa fa-calendar fa-lg"></span>
+								            	</button>
+								            	<button class="btn btn-default btn-lg visible-xs" type="button" id="">
 								            		<span class="fa fa-calendar fa-lg"></span>
 								            	</button>
 								            </span>

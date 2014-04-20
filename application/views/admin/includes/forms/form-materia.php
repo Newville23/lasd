@@ -12,7 +12,7 @@
 
 			<div class="btn-group" style="padding-top: 10%;">
 				<button class="btn btn-default btn-lg" type="submmit"><span class="text-muted">Guardar</span></button>
-				<button class="btn btn-default btn-lg" type="reset"><i class="icon-remove icon-large text-muted"></i></button>
+				<button class="btn btn-default btn-lg" type="reset"><i class="fa fa-times fa-lg text-muted"></i></button>
 			</div>
 		</div>
 

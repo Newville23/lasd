@@ -344,7 +344,7 @@ $(function(){
     $('#myModalasd').on('hide', function () {
   		$('.modalNotas').html();
 	})
-	$('#popoverDatapicker').popover();
+	$('#popoverDatapicker').tooltip();
 
 // Asistencia
 	$('#datepickerAsistencia .input-group.date').datepicker({
@@ -447,6 +447,19 @@ $(function(){
 				console.log(data);
 
 			});
+			
+
+		});
+
+		$('form.formajax2').on('submit', function(event) {
+
+			event.preventDefault();
+
+			var ran=Math.floor(Math.random()*1000000);
+
+			var enlace = $(this).attr('action');
+
+			//console.log(enlace);
 			
 
 		});

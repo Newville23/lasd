@@ -11,16 +11,16 @@
 			  <!-- Carousel items -->
 			  	<div class="carousel-inner" style="background-color: rgba(0, 0, 0, 0.5);">
 			    	<div class="active item">
-			    		<i style="font-size: 20em; color: #fff" class="icon-twitter"></i>
+			    		<i style="font-size: 20em; color: #fff" class="fa fa-twitter"></i>
 			    	</div>
 			    	<div class="item">
-			    		<i style="font-size: 20em; color: #fff" class="icon-cogs"></i>
+			    		<i style="font-size: 20em; color: #fff" class="fa fa-cogs"></i>
 			    	</div>
 			    	<div class="item">
-			    		<i style="font-size: 20em; color: #fff" class="icon-github-alt"></i>
+			    		<i style="font-size: 20em; color: #fff" class="fa fa-github-alt"></i>
 			    	</div>
 			    	<div class="item">
-			    		<i style="font-size: 20em; color: #fff" class="icon-spinner icon-spin"></i>
+			    		<i style="font-size: 20em; color: #fff" class="fa fa-spinner fa-spin"></i>
 			    	</div>
 			  	</div>
 			  <!-- Carousel nav -->

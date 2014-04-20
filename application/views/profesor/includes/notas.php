@@ -97,7 +97,7 @@
 				<div class="col-md-12">
 					<a id="AgregarCalificacion" href="<?php echo site_url('user/formLogro/' . $listaAlumnos['numero'] .'/' . $listaAlumnos['Materia_id']); ?>" 
 						class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#myModalasd">
-						<i class="icon-plus-sign icon-large"></i> Agregar calificación
+						<i class="fa fa-plus-sign fa-lg"></i> Agregar calificación
 					</a>
 				</div>
 			</div>

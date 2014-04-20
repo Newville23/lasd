@@ -7,7 +7,7 @@
 		<p class=""><?php echo $cuerpo; ?> <br>
 					
 			<span class="voto"><?php echo $puntos; ?></span> 
-			<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
+			<span class=""><i class="fa fa-thumbs-up-alt fa-lg text-muted"></i></span>
 			<span class="inforo subComentar"><a href="#" id="#" class="<?php echo $subComentar = rand(); ?>"> Responder</a></span>
 
 			<span class="inforo"><?php $this->tiempo->fechaHumana($fecha_creacion_comentario); ?></span>
@@ -20,7 +20,7 @@
 					</div>
 										
 					<div class="btn-group" id="">
-						<button id="Subcomentar" class="btn btn-primary btn-small" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
+						<button id="Subcomentar" class="btn btn-primary btn-small" type="submit"><i class="fa fa-ok icon-white"></i> Enviar</button>
 					</div>
 				</form>
 			</div>

@@ -36,7 +36,7 @@
 			<label for="placeholder" >placeholder: </label>
 			<input type="text" id="placeholder" name="placeholder" value="" />
 		</div>
-		<button class="btn btn-primary" type="submit"><i class=" icon-ok icon-white"></i> Crear formulario Dinámico</button>
+		<button class="btn btn-primary" type="submit"><i class=" fa fa-ok icon-white"></i> Crear formulario Dinámico</button>
 	</form>
 
 	<p><?php echo anchor('formularios/dform', 'dForm', 'class="btn btn-warning"'); ?></p>

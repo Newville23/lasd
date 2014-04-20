@@ -2,7 +2,7 @@
 	<div class="row well-white">
 		<div class="bloque-top">
 			<div class="col-md-3 col-md-offset-1 targeta-verde">
-				<span class="icono"><i class="icon-star icon-large"></i></span>
+				<span class="icono"><i class="fa fa-star fa-lg"></i></span>
 				<h5>Tie architectdfsfdo ipsaetdddd Lorem ipsum dolor sit amet..</h5>
 			</div>
 			<div class="col-md-6">
@@ -20,7 +20,7 @@
 	<div class="row well-white">
 		<div class="bloque-top">
 			<div class="col-md-3 col-md-offset-1 targeta-gris">
-				<div class="icono"><i class="icon-ok icon-large"></i></div>
+				<div class="icono"><i class="fa fa-ok fa-lg"></i></div>
 				<h5>lorem</h5>
 			</div>
 			<div class="col-md-6">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ipsum, error.</div>
@@ -50,7 +50,7 @@
 	<div class="row well-white">
 		<div class="bloque-top">
 			<div class="col-md-3 col-md-offset-1 targeta-roja">
-				<div class="icono"><i class="icon-exclamation icon-large"></i></div>
+				<div class="icono"><i class="fa fa-exclamation fa-lg"></i></div>
 				<h5>lorem</h5>
 			</div>
 			<div class="col-md-6"><p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ea, ipsa, iste esse perspiciatis suscipit in ad corporis impedit molestiae earum animi et mollitia a neque sunt delectus eaque quis modi!</p></div>

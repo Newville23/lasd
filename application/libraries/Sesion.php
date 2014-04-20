@@ -97,8 +97,8 @@ class Sesion
 
 			if (!Sesion::get('autenticado')) {
 
-				show_error('Acceso restringido!');
-				//header('location:' . BASE_URL . 'error/access/5050');
+				//show_error('Acceso restringido!');
+				header('location:' .  site_url("login"));
 				exit;
 			}
 			Sesion::tiempo();

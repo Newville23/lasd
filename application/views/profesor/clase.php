@@ -27,18 +27,6 @@
 
 <!-- --------------------------------------  Modal del foro  --------------------------------------------------- -->
 
-<!-- 	<div id="myModal" class="modal hide modal-correccion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		<div class="modal-header">
-			  <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
-			  <p id="myModalLabel" class="text-muted">Foro de discución de la materia</p>
-		</div>
-		<div class="modal-body" id="cuerpoModalDelForo">
-		</div>
-		<div class="modal-footer">
-			  
-		</div>
-	</div> -->
-
 <div class="modal cuerpoModalDelForo" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 
 </div><!-- /.modal -->

@@ -27,7 +27,7 @@
 
 	</div>
 	<div class="controls">
-		<button class="btn btn-primary" type="submit"><i class=" icon-ok icon-white"></i> Crear </button>
+		<button class="btn btn-primary" type="submit"><i class=" fa fa-ok icon-white"></i> Crear </button>
 	</div>
 	</form>
 

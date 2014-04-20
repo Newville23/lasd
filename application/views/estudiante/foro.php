@@ -11,7 +11,7 @@
     <div class="modal-content">
 
 	    <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg text-error"></i></button>
 	        <h4 class="modal-title text-muted">Foro de discución de la materia</h4>
 	    </div>
 
@@ -28,7 +28,7 @@
 					<p class="well-white"><?php echo $cuerpo; ?></p>
 					<p>
 						<span class="voto"><?php echo $puntos; ?></span> 
-						<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
+						<span class=""><i class="fa fa-thumbs-up-alt fa-lg text-muted"></i></span>
 						<span class="inforo"> <?php $this->tiempo->fechaHumana($fecha_creacion_foro); ?> <a href="#"><?php echo $nombre .' '. $apellido; ?></a></span>
 					</p>
 				</div>
@@ -48,8 +48,8 @@
 							<textarea name="comentarForo" id="<?php echo $cometarForo; ?>" placeholder="Escribe un comentario." class="form-control comentarForo" wrap="hard" cols="30" rows="2"></textarea>
 						</div>
 						<div class="btn-group desaparecer" id="<?php echo $botonesComentario; ?>">
-							<button id="" class="btn btn-primary" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
-							<button id="<?php echo $resetComentario; ?>" class="btn btn-default reset" type="reset"><i class="icon-remove"></i></button>
+							<button id="" class="btn btn-primary" type="submit"><i class="fa fa-ok icon-white"></i> Enviar</button>
+							<button id="<?php echo $resetComentario; ?>" class="btn btn-default reset" type="reset"><i class="fa fa-times"></i></button>
 						</div>
 					</form>
 				</div>
@@ -78,7 +78,7 @@
 						<p class=""><?php echo $value['cuerpo']; ?> <br>
 							
 							<span class="voto"><?php echo $value['puntos']; ?></span> 
-							<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
+							<span class=""><i class="fa fa-thumbs-up-alt fa-lg text-muted"></i></span>
 							<span class="inforo"><a href="#" id="<?php echo $id_responder[$key]; ?>" class="text-muted"> Responder</a></span>
 							<span class="inforo"> <?php $this->tiempo->fechaHumana($value['fecha_creacion_comentario']); ?> </span>
 								
@@ -90,7 +90,7 @@
 									</div>
 										
 									<div class="btn-group" id="">
-										<button id="Subcomentar" class="btn btn-primary btn-small" type="submit"><i class="icon-ok icon-white"></i> Enviar</button>
+										<button id="Subcomentar" class="btn btn-primary btn-small" type="submit"><i class="fa fa-ok icon-white"></i> Enviar</button>
 									</div>
 								</form>
 							</div>
@@ -105,7 +105,7 @@
 									<?php echo $SubComentario['cuerpo']; ?> <br>
 									<p>
 										<span class="voto"><?php echo $SubComentario['puntos']; ?></span> 
-										<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
+										<span class=""><i class="fa fa-thumbs-up-alt fa-lg text-muted"></i></span>
 										<span class="inforo"> <?php $this->tiempo->fechaHumana($SubComentario['fecha_creacion_sub']); ?> </span>
 									</p>
 								</div>

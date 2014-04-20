@@ -15,7 +15,7 @@
 		    		</h5>
 		    		<p>
 		    			<span class="voto"><?php echo $value['puntos']; ?></span> 
-			   			<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
+			   			<span class=""><i class="fa fa-thumbs-up-alt fa-lg text-muted"></i></span>
 			   			<span class="inforo"><?php $this->tiempo->fechaHumana($value['fecha_creacion_foro']); ?> <a href="#"><?php echo $value['nombre'] .' '.$value['apellido']; ?></a></span>
 			   		</p>
 				</div>

@@ -9,6 +9,18 @@ class Profesor_model extends CI_model
 		$this->load->database();
 	}
 
+
+	function verificarKey($tabla, $indiceYkey)
+	{	
+		$query = $this->db->get_where($tabla, $indiceYkey);
+
+		$row = $query->num_rows();
+		//$row = $query->result_array();
+		return $row;
+		// echo '<pre>'; echo $row; echo '</pre>';
+
+	}
+
 	function getClasesFromProfesor($Profesor_Identificacion)
 	{
 		$this->db->join('Materia', 'Materia.id = Clase.Materia_id');
@@ -43,7 +55,7 @@ class Profesor_model extends CI_model
 			left join Asistencia
 			on Asistencia.Clase_numero = Clase.numero 
 			and Matricula.Estudiante_identificacion = Asistencia.Estudiante_identificacion
-			and cast(datetime_log  as date) = '$fecha'
+			and cast(fecha as date) = '$fecha'
 			
 			join (SELECT identificacion, nombre, apellido FROM Estudiante
 					join Usuario
@@ -57,21 +69,19 @@ class Profesor_model extends CI_model
 		
 	}
 
-	function setUsuarioTest($rol, $id)
+	function setAsistenciaModel($data)
+	{
+		$this->db->insert('Asistencia', $data); 
+	}
+
+	function upd8AsistenciaModel($datafiltro, $data)
 	{
 
-		$data = array(	'id' => $id,
-						'usuario' => $this->input->post('usuario'),
-						'pass' => sha1($this->input->post('pass')),
-						'rol' => $rol,
-						'nombre' => $this->input->post('nombre'),
-						'apellido' => $this->input->post('apellido'),
-						'email' => $this->input->post('email'),
-						'facebook' => $this->input->post('facebook'),
-						'twiter' => $this->input->post('twiter')
-					 );
-		$this->db->insert('Usuario', $data);
+		$this->db->where($datafiltro);
+		$this->db->update('Asistencia', $data); 
 	}
+
+	
 
 
 }

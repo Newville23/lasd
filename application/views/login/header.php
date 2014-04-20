@@ -34,9 +34,7 @@
 
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" >
                 <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
+                <span class="fa fa-bars fa-inverse fa-lg"></span>
             </button>
 
             <a class="navbar-brand" href="#">Athena Project</a>
@@ -62,7 +60,7 @@
                 <li href="#" class="dropdown hidden-xs navbar-form">
                     
                     
-                    <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown"><i class="icon-user icon-white"></i> 
+                    <button class="dropdown-toggle btn btn-primary" data-toggle="dropdown"><i class="fa fa-user icon-white"></i> 
                         Entrar <b class="caret"></b></button>
                     
 

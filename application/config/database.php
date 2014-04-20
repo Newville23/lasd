@@ -64,21 +64,21 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
-// $db['lasd2']['hostname'] = 'localhost';
-// $db['lasd2']['username'] = 'root';
-// $db['lasd2']['password'] = '12345';
-// $db['lasd2']['database'] = 'lasd2';
-// $db['lasd2']['dbdriver'] = 'mysql';
-// $db['lasd2']['dbprefix'] = '';
-// $db['lasd2']['pconnect'] = TRUE;
-// $db['lasd2']['db_debug'] = TRUE;
-// $db['lasd2']['cache_on'] = FALSE;
-// $db['lasd2']['cachedir'] = '';
-// $db['lasd2']['char_set'] = 'utf8';
-// $db['lasd2']['dbcollat'] = 'utf8_general_ci';
-// $db['lasd2']['swap_pre'] = '';
-// $db['lasd2']['autoinit'] = TRUE;
-// $db['lasd2']['stricton'] = FALSE;
+$db['lasd2']['hostname'] = '23.229.155.134';
+$db['lasd2']['username'] = 'suFluge';
+$db['lasd2']['password'] = 'U#Dz~QRE6yow';
+$db['lasd2']['database'] = 'FlugelCentral';
+$db['lasd2']['dbdriver'] = 'mysql';
+$db['lasd2']['dbprefix'] = '';
+$db['lasd2']['pconnect'] = TRUE;
+$db['lasd2']['db_debug'] = TRUE;
+$db['lasd2']['cache_on'] = FALSE;
+$db['lasd2']['cachedir'] = '';
+$db['lasd2']['char_set'] = 'utf8';
+$db['lasd2']['dbcollat'] = 'utf8_general_ci';
+$db['lasd2']['swap_pre'] = '';
+$db['lasd2']['autoinit'] = TRUE;
+$db['lasd2']['stricton'] = FALSE;
 
 
 /* End of file database.php */

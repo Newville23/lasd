@@ -12,7 +12,7 @@
 				data-target="#modalPerfil" data-toggle="modal">
 				<strong class="media-heading text-success"><?php echo 'Lennin Alonso Suescun Devia'//$estudiante['nombre'] .' '. $estudiante['apellido']; ?></strong>
 			</a>
-    			<br><a class="fontSize1" href="#"><i class="icon-envelope-alt"></i> Mensaje</a>
+    			<br><a class="fontSize1" href="#"><i class="fa fa-envelope-alt"></i> Mensaje</a>
    		</div>
 				    							
 		<div class="col-md-4">
@@ -25,9 +25,9 @@
 		<div class="col-md-4" style="text-align: right;">
 			<div class="row">
 				<div class="btn-group">
-					<button class="btn btn-info btn-lg"><i class="icon-edit"></i> </button>
-					<button class="btn btn-warning btn-lg"><i class="icon-arrow-down"></i> </button>
-					<button class="btn btn-danger btn-lg"><i class="icon-remove"></i> </button>
+					<button class="btn btn-info btn-lg"><i class="fa fa-edit"></i> </button>
+					<button class="btn btn-warning btn-lg"><i class="fa fa-arrow-down"></i> </button>
+					<button class="btn btn-danger btn-lg"><i class="fa fa-times"></i> </button>
 				</div>
 			</div>
 		</div>

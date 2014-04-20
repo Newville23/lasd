@@ -34,7 +34,7 @@
 	
 	<p>
 		<a href="<?php echo site_url('formularios/edit_add_campo/' . $id_form); ?>" class="btn btn-primary" >
-			<i class=" icon-plus icon-white"></i> Agragar campo</a>
+			<i class=" fa fa-plus icon-white"></i> Agragar campo</a>
 	</p>
 	<?php echo anchor('formularios/', 'Atrás', 'class="btn btn-warning"'); ?>
 </div>

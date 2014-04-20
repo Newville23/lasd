@@ -12,7 +12,7 @@
 							<form class="">
                                 <div class="input-group input-group-lg">
                                     <input type="search" class="form-control" placeholder="Buscar colegios">
-                                    <span class="btn disabled input-group-addon"><i class="icon-search"></i></span>
+                                    <span class="btn disabled input-group-addon"><i class="fa fa-search"></i></span>
                                 </div>
                             </form>
 						</div>
@@ -185,7 +185,7 @@
       	<div class="modal-content modal-correccion">
 
 	        <div class="modal-header">
-	         	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
+	         	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg text-error"></i></button>
 	         	<h4 class="modal-title text-muted">Agregar docente</h4>
 	        </div>
 

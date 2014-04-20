@@ -38,14 +38,14 @@
 									id="#<?php //echo $value['id_time']; ?>" 
 									class=""
 									href=#"<?php //echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
-									data-target="#myModal" data-toggle="modal"><i class="icon-plus icon-large"></i> Añadir estudiante nuevo</a>
+									data-target="#myModal" data-toggle="modal"><i class="fa fa-plus fa-lg"></i> Añadir estudiante nuevo</a>
 						</div>
 						
 						<div class="col-md-6 margen-bottom">
 							<form class="">
 								<div class="input-group pull-right">
 									<input type="search" class="form-control" placeholder="Nombre del estudiante">
-									<span class="btn disabled input-group-addon"><i class="icon-search"></i> Buscar</span>
+									<span class="btn disabled input-group-addon"><i class="fa fa-search"></i> Buscar</span>
 								</div>
 							</form>
 						</div>
@@ -71,7 +71,7 @@
       	<div class="modal-content modal-correccion">
 
 	        <div class="modal-header">
-	         	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
+	         	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg text-error"></i></button>
 	         	<h4 class="modal-title text-muted">Agregar estudiante</h4>
 	        </div>
 
@@ -92,7 +92,7 @@
       	<div class="modal-content modal-correccion">
 
 	        <div class="modal-header">
-	         	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
+	         	<button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg text-error"></i></button>
 	         	<h4 class="modal-title text-muted">Perfil de estudiante</h4>
 	        </div>
 

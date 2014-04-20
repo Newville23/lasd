@@ -33,7 +33,7 @@
 			<input type="text" id="placeholder" name="placeholder" value="<?php if (isset($campo['placeholder'])) echo $campo['placeholder']; ?>" />
 		</div>
 		<button class="btn btn-primary" type="submit">
-			<i class=" icon-ok icon-white"></i>
+			<i class=" fa fa-ok icon-white"></i>
 			<?php if (isset($encabezado)) echo $encabezado; ?>
 		</button>
 	</form>

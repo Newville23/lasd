@@ -7,7 +7,7 @@
 		<?php echo $cuerpo; ?> <br>
 		
 			<span class="voto"><?php echo $puntos; ?></span> 
-			<span class=""><i class="icon-thumbs-up-alt icon-large text-muted"></i></span>
+			<span class=""><i class="fa fa-thumbs-up-alt fa-lg text-muted"></i></span>
 			<span class="inforo"><?php $this->tiempo->fechaHumana($fecha_creacion_sub); ?></span>
 		
 	</div>

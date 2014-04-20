@@ -2,7 +2,7 @@
     <div class="modal-content">
 
 	    <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="icon-remove icon-large text-error"></i></button>
+	        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="fa fa-times fa-lg text-error"></i></button>
 	        <h4 class="modal-title text-muted">Notas</h4>
 	    </div>
 

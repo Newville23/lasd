@@ -6,7 +6,7 @@
   		<div class="media-body">
     		<h5 class="media-heading text-success"><?php echo $estudiante['nombre'] .' '. $estudiante['apellido']; ?></h5>
     		<p>
-	   			<span class=""><i class="icon-envelope icon-large text-muted"></i><a href="#"> Mensaje</a></span>
+	   			<span class=""><i class="fa fa-envelope fa-lg text-muted"></i><a href="#"> Mensaje</a></span>
 	   		</p>
 
 		</div>

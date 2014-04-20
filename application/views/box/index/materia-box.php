@@ -1,7 +1,7 @@
 <form class="row">
 	<div class="input-group pull-right margen-bottom2">
 		<input type="search" class="form-control" placeholder="Busca cursos o temas">
-		<span class="btn disabled input-group-addon"><i class="icon-search"></i> Buscar</span>
+		<span class="btn disabled input-group-addon"><i class="fa fa-search"></i> Buscar</span>
 	</div>
 </form>
 			<div class="row margen-bottom2">
