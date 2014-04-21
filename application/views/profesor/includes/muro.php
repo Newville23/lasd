@@ -19,7 +19,7 @@
 		<div class="tab-content">
 
 			<div class="tab-pane" id="contenido">
-				<?php $this->load->view('templates/writer') ?>
+				<?php $this->load->view('profesor/includes/contenido') ?>
 			</div>
 
 			<div class="tab-pane active" id="foro">
@@ -79,7 +79,7 @@
 								 </div>
 
 								 <div id="contenidoAsistencia"></div>
-								<?php //$this->load->view('profesor/includes/asistencia'); ?>
+								
 							</div>
 						</div>
 						<div class="tab-pane active" id="listaEstudiantes">

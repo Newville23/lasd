@@ -346,6 +346,8 @@ $(function(){
 	})
 	$('#popoverDatapicker').tooltip();
 
+	$('.tooltipInfo').tooltip();
+
 // Asistencia
 	$('#datepickerAsistencia .input-group.date').datepicker({
         format: "yyyy-mm-dd",
@@ -363,6 +365,24 @@ $(function(){
         };
     });
 
+    $('#datepickerContenido .date').datepicker({
+        format: "yyyy-mm-dd",
+        todayBtn: "linked",
+        language: "es",
+        daysOfWeekDisabled: "0,6",
+        autoclose: true,
+        todayHighlight: true
+
+    }).on('hide', function(e){
+
+    	if ($('#datepickerInputContenido').val()) {
+    		console.log($('#datepickerInputContenido').val());
+
+    		$('#datepickerContenidoButton').css({color: '#47a447'});
+        }else{
+        	$('#datepickerContenidoButton').css({color: '#333'});
+        }
+    });
 
 	    // $('#datepickerInput').on('blur', function(event) {
 	    // 	event.preventDefault();
