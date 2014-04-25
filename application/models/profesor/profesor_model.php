@@ -32,22 +32,10 @@ class Profesor_model extends CI_model
 		return $row;
 	}
 
-	function getAsistencia2($numeroClase, $fecha)
-	{
-		$query = $this->db->query("SELECT * FROM Asistencia
-			where cast(datetime_log  as date) = '$fecha' 
-			and Clase_numero = '$numeroClase'");
-
-		if ($query) {
-			return $query->result_array();
-		}
-		
-	}
-
 	function getAsistencia($numeroClase, $fecha)
 	{
 		$query = $this->db->query("SELECT numero as claseID, Materia_id as materiaID, Profesor_identificacion, Clase.Curso_codigo, 
-		Matricula.Estudiante_identificacion, nombre, apellido, Asistencia.id as AsistenciaID, Asistencia, datetime_log, Observacion
+		Matricula.Estudiante_identificacion, nombre, apellido, Asistencia.id as AsistenciaID, Asistencia, datetime_creacion, Observacion
 		 FROM Clase
 			join Matricula
 			on Clase.Curso_codigo = Matricula.Curso_codigo

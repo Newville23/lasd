@@ -49,7 +49,7 @@
                     </div>
 
                     <div class="modal-body">
-                    	<strong>¿Deseas enviar?</strong> Se enviará un mensaje de texto a los Acudientes de los alumnos que no asistieron a esta clase.
+                    	<strong>¿Deseas continuar?</strong> Se enviará un mensaje de texto a los Acudientes de los alumnos que no asistieron a esta clase.
                     </div>
 
 					<div class="modal-footer">

@@ -172,6 +172,9 @@ $(function(){
 		//$( "#textprincipal" ).attr( "rows", "1" ).removeClass("fontSize3");
 	});
 
+    $('.exampler').popover();
+
+
 
 
 	// tablas de notas **************************************************

@@ -64,7 +64,7 @@
 								 <div class="row">
 								    <div id="datepickerAsistencia" class="col-md-5 margen-bottom fontSize2" data-url= "<?php echo site_url('profesor/getAsistenciaController/' . $listaAlumnos['numero']); ?>">
 								        <div class="input-group date">
-								            <input type="text" type="text" id="datepickerInput" placeholder="fecha de asistencia" readonly class="form-control input-lg">
+								            <input type="text" type="text" id="datepickerInput" placeholder="fecha de asistencia" readonly class="form-control input-lg" style="cursor:pointer">
 								            <span class="input-group-btn">
 								            	<button class="btn btn-default btn-lg hidden-xs" style="border-radius: 0 4px 4px 0;" type="button" id="popoverDatapicker" data-container="body" data-toggle="popover" 
 								            		data-placement="right" data-trigger="hover" data-title="¡Selecciona la fecha de asistencia!.">

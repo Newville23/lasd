@@ -64,7 +64,7 @@ $db['default']['swap_pre'] = '';
 $db['default']['autoinit'] = TRUE;
 $db['default']['stricton'] = FALSE;
 
-$db['lasd2']['hostname'] = '23.229.155.134';
+$db['lasd2']['hostname'] = 'localhost';
 $db['lasd2']['username'] = 'suFluge';
 $db['lasd2']['password'] = 'U#Dz~QRE6yow';
 $db['lasd2']['database'] = 'FlugelCentral';

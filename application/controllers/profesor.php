@@ -164,7 +164,7 @@ class Profesor extends CI_Controller
 				$indiceYkey['Asistencia'] = $data2[$i + 1];
 
 				$query = $this->profesor_model->setAsistenciaModel($indiceYkey);
-				//echo "insertado ";
+				echo "insertado ";
 
 			}elseif ($filas == 1) {
 

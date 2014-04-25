@@ -623,17 +623,14 @@ ul li.active a.navegacion{
 }
 
 /* truncate text */
-.branch-name {
-  display: inline-block;
-  max-width: 200px;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 .truncate {
   white-space: nowrap;
   overflow: hidden;
-  display: inline-block;
+  display: block;
   text-overflow: ellipsis !important; 
+}
+
+.col-md-clear{
+	padding-left: 1px;
+	padding-right: 1px;
 }
