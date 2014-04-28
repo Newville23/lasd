@@ -379,7 +379,7 @@ $(function(){
     }).on('hide', function(e){
 
     	if ($('#datepickerInputContenido').val()) {
-    		console.log($('#datepickerInputContenido').val());
+    		//console.log($('#datepickerInputContenido').val());
 
     		$('#datepickerContenidoButton').css({color: '#47a447'});
         }else{
@@ -470,11 +470,9 @@ $(function(){
 				console.log(data);
 
 			});
-			
-
 		});
 
-		$('form.formajax2').on('submit', function(event) {
+		$('form.formajaxReloaded').on('submit', function(event) {
 
 			event.preventDefault();
 
@@ -482,11 +480,20 @@ $(function(){
 
 			var enlace = $(this).attr('action');
 
-			//console.log(enlace);
-			
+			$(this).attr('id', ran);
 
+			$.post(enlace, $(this).serialize(), function(data) {
+
+				$('#'+ ran.toString() + ' div.alerta').html(data);
+
+				console.log(data);
+
+			    var enlace2 = $('.divloaded').attr('data-url');
+
+			    console.log(enlace2);
+
+				$('.divloaded').load(enlace2);
+
+			});
 		});
-
-		//$('.popover-datepicker').popover('hide');
-
 });

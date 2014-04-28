@@ -69,6 +69,34 @@ class Profesor_model extends CI_model
 		$this->db->update('Asistencia', $data); 
 	}
 
+	function getIndicadoresModel($numeroClase)
+	{
+		$data = array('Clase_numero' => $numeroClase);
+		$this->db->order_by('periodo, fecha_vencimiento, datetime_creacion'); 
+		$query = $this->db->get_where('Clase_indicador', $data);
+
+		if ($query) {
+			return $query->result_array();
+		}
+
+	}
+
+	function setIndicadoresModel($numeroClase)
+	{
+		$data = array('Clase_numero' => $numeroClase,
+						'contenido' => $this->input->post('contenido'),
+						'periodo' => $this->input->post('periodo'),
+						'fecha_vencimiento' => $this->input->post('fecha'));
+
+		$query = $this->db->insert('Clase_indicador', $data); 
+
+		if ($query) {
+			return $query;
+		}
+		//echo "<pre>"; print_r($data); echo "</pre>";
+
+	}
+
 	
 
 

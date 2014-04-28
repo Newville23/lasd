@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title><?php echo $title ?> - Athena Project</title>
+		<title><?php echo $title ?> - Flügel Project</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -35,46 +35,49 @@
 
 <body data-spy="scroll" data-target="#nav-ejemplo" data-offset="100">
   
-    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <nav class="navbar navbar-inverse navbar-static-top navbar-fixed-top" role="navigation">
 
-        <div class="navbar-header">
+        <div class="container-fluid">
 
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" >
-                <span class="sr-only">Toggle navigation</span>
-                <span class="fa fa-bars fa-inverse fa-lg"></span>
-            </button>
+            <div class="navbar-header">
 
-            <a class="navbar-brand" href="<?php echo site_url($linkIndex); ?>">Athena Project</a>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse" >
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="fa fa-bars fa-inverse fa-lg"></span>
+                </button>
 
-        </div>    
+                <a class="navbar-brand" href="<?php echo site_url($linkIndex); ?>">Flügel Project</a>
+
+            </div>    
         
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="<?php echo site_url($linkIndex); ?>">Inicio</a></li>
-                <li><a href="<?php echo site_url('box/box'); ?>">ShareBox</a></li>
-                <!-- <li><a href="#">Hola</a></li> -->
-            </ul>
-
-            <ul class="nav navbar-nav navbar-right visible-lg">
-
-              <li class="dropdown">
-                <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog fa-lg"> </i> <b class="caret"></b></a>
-                <ul class="dropdown-menu">
-                    <li><a href="#"><i class="fa fa-wrench"></i> Ayuda</a></li>
-                    <li class="divider"></li>
-                    <li><a href="<?php echo site_url('login/cerrar'); ?>"><i class="fa fa-off"></i> Cerrar Sesión</a></li>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="<?php echo site_url($linkIndex); ?>">Inicio</a></li>
+                    <li><a href="<?php echo site_url('box/box'); ?>">ShareBox</a></li>
+                    <!-- <li><a href="#">Hola</a></li> -->
                 </ul>
-              </li>
 
-            </ul>
+                <ul class="nav navbar-nav navbar-right visible-lg">
 
-            <ul class="nav navbar-nav navbar-left hidden-lg">
-              <li><a href="#"><i class="fa fa-wrench"></i> Ayuda</a></li>
-              <li><a href="<?php echo site_url('login/cerrar'); ?>"><i class="fa fa-off"></i> Cerrar Sesión</a></li>
-            </ul>
+                  <li class="dropdown">
+                    <a class="dropdown-toggle" data-toggle="dropdown" href="#"><i class="fa fa-cog fa-lg"> </i> <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#"><i class="fa fa-wrench"></i> Ayuda</a></li>
+                        <li class="divider"></li>
+                        <li><a href="<?php echo site_url('login/cerrar'); ?>"><i class="fa fa-off"></i> Cerrar Sesión</a></li>
+                    </ul>
+                  </li>
 
-        </div><!-- /.navbar-collapse -->
-            
+                </ul>
+
+                <ul class="nav navbar-nav navbar-left hidden-lg">
+                  <li><a href="#"><i class="fa fa-wrench"></i> Ayuda</a></li>
+                  <li><a href="<?php echo site_url('login/cerrar'); ?>"><i class="fa fa-off"></i> Cerrar Sesión</a></li>
+                </ul>
+
+            </div><!-- /.navbar-collapse -->
+        </div><!-- /.container-fluid -->
+        
     </nav>

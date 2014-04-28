@@ -23,6 +23,8 @@ class Profesor extends CI_Controller
 		$this->load->helper('form');
 
 		$this->load->library('tiempo');
+
+		date_default_timezone_set('America/Bogota');
 	}
 
 	function index()
@@ -57,6 +59,8 @@ class Profesor extends CI_Controller
 		$row['foros'] = $this->foro_model->getForoFromClase($numeroClase);
 		//echo "<pre>"; print_r($row); echo "</pre>";
 
+		$row['contenido_indicadores'] = $this->profesor_model->getIndicadoresModel($numeroClase);
+		//echo "<pre>"; print_r($row); echo "</pre>";
 
 		// ----------------------------------------------------------------
 		// Se verifica que el numero de clase corresponda con el profesor.
@@ -120,6 +124,46 @@ class Profesor extends CI_Controller
 		//$row['asistencia'] = $this->profesor_model->setAsistencia($numeroClase);
 	}
 
+	function setIndicador($numeroClase)
+	{
+		if ($this->input->is_ajax_request()) {
+
+			$this->form_validation->set_rules('contenido', 'Descripción del indicador', 'trim|required|xss_clean|htmlspecialchars');
+			$this->form_validation->set_message('required', 'El campo %s es obligatorio');
+
+			if ($this->form_validation->run()) {
+				$query = $this->profesor_model->setIndicadoresModel($numeroClase);
+				if ($query) {
+					$data['mensaje'] = 'Ingreso Exitoso'; 
+					$data['clase'] = 'alert-success';
+					$this->load->view('templates/alerta', $data);
+				}else{
+					$data['mensaje'] = 'Ups! hubo un problema intenta de nuevo'; 
+					$data['clase'] = 'alert-warning';
+					$this->load->view('templates/alerta', $data);
+				}
+
+			}else{
+				$data['mensaje'] = validation_errors(); 
+				$data['clase'] = 'alert-danger';
+				$this->load->view('templates/alerta', $data);
+			}
+		}
+	}
+
+	function getIndicador($numeroClase)
+	{
+		if ($this->input->is_ajax_request()) {
+			
+			$data['contenido_indicadores'] = $this->profesor_model->getIndicadoresModel($numeroClase);
+			$data['numeroClase'] = $numeroClase;
+
+			$this->load->view('profesor/includes/contenido-programatico/indicadores-lista', $data);
+
+			//echo "<pre>"; print_r($data); echo "</pre>";
+		}
+	}
+
 	//Reorganiza el array serialize, verifica si el registro existe para insertar o actualizar.
 	function setAsistenciaController($numeroClase = null, $fecha = null, $numeroEstudiantes=null)
 	{
@@ -164,7 +208,7 @@ class Profesor extends CI_Controller
 				$indiceYkey['Asistencia'] = $data2[$i + 1];
 
 				$query = $this->profesor_model->setAsistenciaModel($indiceYkey);
-				echo "insertado ";
+				//echo "insertado ";
 
 			}elseif ($filas == 1) {
 

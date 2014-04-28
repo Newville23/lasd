@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="es">
 	<head>
-		<title><?php echo $title ?> - Tutorial de CodeIgniter 2</title>
+		<title><?php echo $title ?> - Flügel</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 			
@@ -37,7 +37,7 @@
                 <span class="fa fa-bars fa-inverse fa-lg"></span>
             </button>
 
-            <a class="navbar-brand" href="#">Athena Project</a>
+            <a class="navbar-brand" href="#">Flügel Project</a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->

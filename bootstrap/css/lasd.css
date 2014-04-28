@@ -601,9 +601,11 @@ ul li.active a.navegacion{
 .btn-transparente{
   background-color: rgba(255, 255, 255, 0.23);
 }
-
+.btn-green{
+    color: #aaa;
+}
 .btn-green.active{
-  color: #fff;;
+  color: #fff;
   background-color: #47a447;
   border-color: #398439;
 }
@@ -628,6 +630,20 @@ ul li.active a.navegacion{
   overflow: hidden;
   display: block;
   text-overflow: ellipsis !important; 
+}
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis !important; 
+}
+
+.truncate-min {
+  white-space: nowrap;
+  overflow: hidden;
+  display: block;
+  text-overflow: ellipsis !important; 
+  min-width: 50%;
 }
 
 .col-md-clear{
