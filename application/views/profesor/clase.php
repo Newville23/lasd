@@ -1,8 +1,8 @@
-<div class="container" style="width: 95%; margin-top: 5%;padding-right: 15px; padding-left: 1%; margin-right: auto; margin-left: 1%;">
+<div class="container" style="">
 
 	<div class="row">
 		
-		<div class="col-md-4 margen-top" id="menu">
+		<div class="col-md-4" id="menu">
 
 			<div class="row">
 

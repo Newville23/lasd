@@ -13,22 +13,26 @@
 			 	<div class="alerta"></div>
 
 				 <div class="row">         
-				    <input class="form-control" name="tipoeval" placeholder="Tipo de evaluación" type="text" value="<?php if (isset($logro)) { echo $logro['tipo_evaluacion'];} ?>">
+				    <input class="form-control margen-top-bottom2 input-lg" name="tipoeval" placeholder="Tipo de evaluación" type="text" value="<?php if (isset($logro)) { echo $logro['tipo_evaluacion'];} ?>">
 
-				    <textarea class="form-control" placeholder="Detalle" name="detalleNota" id="" rows="4"><?php if (isset($logro)) { echo $logro['concepto'];} ?></textarea>
+				    <textarea class="form-control margen-top-bottom2 input-lg" placeholder="Detalle" name="detalleNota" id="" rows="4"><?php if (isset($logro)) { echo $logro['concepto'];} ?></textarea>
 
-				    <input class="form-control rangeText margen-top" min="1" max="100" name="peso" placeholder="Peso %" value="<?php if (isset($logro)) { echo $logro['ponderacion'];} ?>"
+				    <input class="form-control rangeText margen-top-bottom2 input-lg clear-input" min="1" max="100" name="peso" placeholder="Peso %" value="<?php if (isset($logro)) { echo $logro['ponderacion'];} ?>"
 				    	type="number" id="text<?php echo $rand = rand(); ?>">
-
+<!-- 
 				    <div class="col-md-11">
 				    	<input class="range" style="width: 100%;" name="" min="1" value="<?php if (isset($logro)) { echo $logro['ponderacion'];} ?>"
 				    		step="1" max="100" type="range" id="range<?php echo $rand; ?>">  
-				    </div>
+				    </div> -->
 				 </div>
-
-				<div class="btn-group margen-top">
-					<button class="btn btn-default" type="reset">Limpiar</button>
-			     	<button class="btn btn-primary" type="submit">Guardar</button>
+				
+				<div class="btn-group margen-top-bottom2 btn-group-justified">
+					<div class="btn-group">
+						<button class="btn btn-default btn-lg" type="reset">Limpiar</button>
+					</div>
+			     	<div class="btn-group">
+			     		<button class="btn btn-primary btn-lg" type="submit">Guardar</button>
+			     	</div>
 			 	</div>
 			 </form> 
 

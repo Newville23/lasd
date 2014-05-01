@@ -13,9 +13,11 @@
 			$('#myModalasd').modal('hide');
 		});
 
+		$('.alert').delay(800).fadeOut("slow");	
+
 		<?php if (isset($logro)): ?>
 			var idnueva = <?php echo $logro['id']; ?>;
-			idnueva = "<tr id='" + idnueva + "'>";
+			idnueva = "<div id='" + idnueva + "' class='col-md-12 col-sm-12 well-white margen-top-bottom'>";
 		
 			$('#logros').append($(idnueva).load("<?php echo site_url('user/mostrarNota/' . $logro['id']) ?>"));
 		<?php endif; ?>
@@ -25,6 +27,8 @@
 		$('#myModalasd').delay(800).fadeOut("slow", function(){
 			$('#myModalasd').modal('hide');
 		});
+
+		$('.alert').delay(800).fadeOut("slow");	
 
 		<?php if (isset($logro)): ?>
 			$("#<?php echo $logro['id']; ?>").load("<?php echo site_url('user/mostrarNota/' . $logro['id']) ?>");

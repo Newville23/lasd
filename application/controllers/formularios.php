@@ -37,6 +37,9 @@ class Formularios extends CI_Controller
 		$this->form_validation->set_rules('id_', 'id_', 'htmlspecialchars|xss_clean');
 		$this->form_validation->set_rules('value', 'value', 'htmlspecialchars|xss_clean');
 		$this->form_validation->set_rules('placeholder', 'placeholder', 'htmlspecialchars|xss_clean');
+
+		$this->form_validation->set_message('required', 'El campo %s es obligatorio');
+		$this->form_validation->set_message('valid_email', 'El campo %s no es un Email valido');
 	}
 	private function validacion_formulario()
 	{

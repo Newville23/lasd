@@ -18,17 +18,17 @@
     	
         <style type="text/css">
 
-          body {
-            background: url("//trello-attachments.s3.amazonaws.com/5325166619555a642af24408/53527d02ebb5ac2021abe505/3000x839/525f6a4a82dd30affe56b854f5155828/duo-land_mv_5b500a4f052f4985943c1cc44a06a7ff.jpg") 
-          no-repeat bottom center fixed #bdddeb;
+            body {
+                background: url("//trello-attachments.s3.amazonaws.com/5325166619555a642af24408/53527d02ebb5ac2021abe505/3000x839/525f6a4a82dd30affe56b854f5155828/duo-land_mv_5b500a4f052f4985943c1cc44a06a7ff.jpg") 
+                no-repeat bottom center fixed #bdddeb;
+                padding-top: 70px;
+            }
 
-          }
-
-          footer{
-            position: fixed;
-            bottom: 0;
-            text-align: center;
-          }
+            footer{
+                position: fixed;
+                bottom: 0;
+                text-align: center;
+            }
 
         </style>
 	</head>

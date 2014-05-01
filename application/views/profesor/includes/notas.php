@@ -47,7 +47,7 @@
 								<td>
 									<?php echo form_open('user/actualizarNota/' . $notas['Calificacion_id'] .'/'. $value['Estudiante_identificacion'] , array('class' => 'rangeAjax')); ?>
 										<span class="desaparecer <?php  echo $key;?>">
-											<input id="range<?php echo $rand; ?>" type="range" class="range" name="nota" value="<?php echo $notas['nota']; ?>" step="0.1" min="0" max="5">
+											<input id="range<?php echo $rand; ?>" type="text" class="range" name="nota" value="<?php echo $notas['nota']; ?>" step="0.1" min="0" max="5">
 										</span>
 									</form>
 								</td>
@@ -62,39 +62,51 @@
 			</div>
 		</div>
 
-		<div class="tab-pane" id="configurar">
-			<div class="table-responsive">
-				<table class="table table-hover table-striped table-bordered">
+		<div class="tab-pane" id="configurar" style="background-color: rgba(0, 170, 255, 0.1);">
+			<div class="">
+				<div class="">
 					
-					<thead>
-						<tr>
-							<th></th>
-							<th>Tipo de evaluación</th>
-							<th>Detalle</th>
-							<th colspan="2">Peso %</th>
-						</tr>
-					</thead>
-					<tbody id="logros">
+					<div class="col-md-12 col-sm-12 hidden-xs padding4" style=" background-color: #FFFFFF;margin-bottom: 4px;">
+				
+						<div class="col-md-3 col-sm-3"><strong>Tipo de evaluación</strong></div>
+						<div class="col-md-6 col-sm-6"><strong>Detalle</strong></div>
+						<div class="col-md-2 col-sm-2"><strong>Peso (%)</strong></div>
+			
+					</div>
+					<div id="logros" class="col-md-12 col-sm-12">
 						<?php foreach ($listaCalificaciones as $key => $value): ?>
-						<tr id="<?php echo $value['id'] ?>">
-							<td><a href="<?php echo site_url('user/formLogroActualizar/' . $value['id']); ?>" class="btn btn-info ActualizarCalificacion" type="button" data-toggle="modal" data-target="#myModalasd">Editar</a></td>
+						<div style="" id="<?php echo $value['id'] ?>" class="col-md-12 col-sm-12 well-white margen-top-bottom">
+														
+							<div class="col-md-3 col-sm-3 col-md-clear">
+								<strong class=""><?php echo $value['tipo_evaluacion']; ?></strong>
+							</div>
+							<div class="col-md-6 col-sm-6"><?php echo $value['concepto']; ?></div>
 							
-							<td><?php echo $value['tipo_evaluacion']; ?></td>
-							<td><?php echo $value['concepto']; ?></td>
-							<td class="negrita" id="textNoForm<?php echo $rand = rand(); ?>"><?php echo $value['ponderacion']; ?></td>
-							<td>
-								<?php echo form_open('user/actPonderacionNota/' . $value['id'], array('class' => 'rangeAjax')); ?>
-									<input id="range<?php echo $rand; ?>" type="range" class="range" name="ponderacion" min="1" max="100" step="1" value="<?php echo $value['ponderacion']; ?>">
+							<div class="col-md-2 col-sm-2 col-md-clear">
+								<?php //echo form_open('user/actPonderacionNota/' . $value['id'], array('class' => 'rangeAjax')); ?>
+								<form action="<?php echo site_url('user/actPonderacionNota/' . $value['id']); ?>"  class="rangeAjax">
+
+									<div class="form-group">
+										<input id="range<?php echo $rand = rand(); ?>" type="number" class="text-center form-control input-lg clear-input" name="ponderacion" min="1" max="100" step="1" 
+										value="<?php echo $value['ponderacion']; ?>" style="padding: 6px 6px; *">
+									</div>
 								</form>
-							</td>
-						</tr>
+
+							</div>
+							<div class="col-md-1 col-sm-1">
+								<a class="btn btn-info ActualizarCalificacion btn-block tooltipInfo" href="<?php echo site_url('user/formLogroActualizar/' . $value['id']); ?>" 
+									data-placement="top" title="Editar"
+									type="button" data-toggle="modal" data-target="#myModalasd">
+									<i class="fa fa-pencil-square-o fa-lg"></i> <span class="visible-xs">Editar</span></a>
+							</div>
+						</div>
 						<?php endforeach; ?>
 
-					</tbody>
-				</table>
+					</div>
+				</div>
 			</div>
 			<div class="row">
-				<div class="col-md-12">
+				<div class="col-md-12 col-sm-12">
 					<a id="AgregarCalificacion" href="<?php echo site_url('user/formLogro/' . $listaAlumnos['numero'] .'/' . $listaAlumnos['Materia_id']); ?>" 
 						class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#myModalasd">
 						<i class="fa fa-plus-sign fa-lg"></i> Agregar calificación

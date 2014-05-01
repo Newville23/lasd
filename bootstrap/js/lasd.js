@@ -227,7 +227,9 @@ $(function(){
 		var rangeValue = $(this).val();
 		var id = $(this).attr('id');
 		id = id.replace('range','');
+
 		//console.log(rangeValue);
+
 		$('#text' + id).val(rangeValue);
 		$('#textNoForm' + id).text(rangeValue);
 
@@ -290,10 +292,11 @@ $(function(){
 			});
 	})
 
-	$('.rangeAjax').on('change', function(event){
+	$('.rangeAjax').on('change', function(){
+
 
 		var enlace = $(this).attr('action');
-
+		console.log(enlace);
 		$.post(enlace, $(this).serialize()).success(function(data){
 
 		});
@@ -335,7 +338,9 @@ $(function(){
 
 	    
     
-    $('#AgregarCalificacion, .ActualizarCalificacion').on('click', function() {
+    $('#AgregarCalificacion, .ActualizarCalificacion').on('click', function(event) {
+
+    	event.preventDefault();
             
         var enlace = $(this).attr('href');
         $('.modalNotas').html('<i class="icon-spinner icon-spin icon-5x spin-center"></i>');

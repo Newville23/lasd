@@ -48,9 +48,11 @@ class User extends CI_Controller
 	{
 		//if ($this->input->is_ajax_request()) {
 			
-			$this->form_validation->set_rules('tipoeval', 'tipoeval', 'trim|required|xss_clean|htmlspecialchars');
-			$this->form_validation->set_rules('detalleNota', 'Concepto de la nota', 'trim|required|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('tipoeval', '"Tipo de evaluación"', 'trim|required|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('detalleNota', '"Detalle de la nota"', 'trim|required|xss_clean|htmlspecialchars');
 			$this->form_validation->set_rules('peso', 'tipoeval', 'trim|xss_clean|htmlspecialchars');
+
+			$this->form_validation->set_message('required', 'El campo %s es obligatorio');
 			
 			if ($this->form_validation->run()) {
 
