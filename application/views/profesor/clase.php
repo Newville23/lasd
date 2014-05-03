@@ -17,9 +17,11 @@
 			</div>
 		</div>
 		
-		<div class="col-md-8 padding2 well-margin-botton">
-			<?php // Carga el muro, cuadro principal donde se despliegan varias tareas (foro, trabajos...)
-			$this->load->view('profesor/includes/muro'); ?>
+		<div class="col-md-8 well-margin-botton">
+			<div class="row">
+				<?php // Carga el muro, cuadro principal donde se despliegan varias tareas (foro, trabajos...)
+				$this->load->view('profesor/includes/muro'); ?>
+			</div>
 		</div>
 		
 	</div>

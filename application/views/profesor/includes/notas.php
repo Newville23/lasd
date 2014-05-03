@@ -6,24 +6,24 @@
 
 	<div class="tab-content">
 
-		<div class="tab-pane active" id="agregar" style="background-color: rgba(0, 200, 255, 0.05);">
+		<div class="tab-pane active" id="agregar" style="background-color: rgba(139, 213, 224, 0.10);">
 			
 
-				<ul class="nav nav-pills nav-justified" style="padding: 2%;">									
+				<ul class="nav nav-tabs">									
 					<?php for ($i=0; $i < count($listaAlumnos['listaEstudiantes'][0]['notas']) ; $i++): ?>
-						<li class=""><a href="#<?php echo $i; ?>" data-toggle="pill">Evaluación <?php echo $i+1; ?></a></li>
+						<li class="<?php if ($i == 0) {echo "active";} ?>"><a href="#<?php echo $i; ?>" data-toggle="tab">Evaluación <?php echo $i+1; ?></a></li>
 					<?php endfor; ?>
 				</ul>
 				
 				<div class="tab-content">
 					<div class="col-md-12 col-sm-12 hidden-xs padding4" style=" background-color: #FFFFFF;margin-top: 20px;">
-						<div class="col-md-4"><strong>Tipo de evaluación</strong></div>
+						<div class="col-md-4"><strong>Estudiantes</strong></div>
 						<div class="col-md-4"><strong>Concepto</strong></div>
-						<div class="col-md-4"><strong>Peso (%)</strong></div>
+						<div class="col-md-4 text-center"><strong>Nota</strong></div>
 					</div>
 
 				<?php for ($key=0; $key < count($listaAlumnos['listaEstudiantes'][0]['notas']) ; $key++): ?>
-					<div class="tab-pane" id="<?php echo $key; ?>">
+					<div class="tab-pane <?php if ($key == 0) {echo "active";} ?>" id="<?php echo $key; ?>">
 
 						<?php foreach ($listaAlumnos['listaEstudiantes'] as $keyEstudiantes => $value): ?>
 
@@ -36,7 +36,7 @@
 								<div class="col-md-4">
 									<?php echo form_open('user/actualizarNota/' . $notas['Calificacion_id'] .'/'. $value['Estudiante_identificacion'] , array('class' => 'rangeAjax')); ?>
 										<span class=" <?php  echo $key;?>">
-											<input id="range<?php echo $rand = rand(); ?>" type="text" class="text-center form-control input-lg clear-input" name="nota" value="<?php echo $notas['nota']; ?>" step="0.1" min="0" max="5">
+											<input id="range<?php echo $rand = rand(); ?>" type="number" class="text-center form-control input-lg clear-input" name="nota" value="<?php echo $notas['nota']; ?>" min="0" max="5">
 										</span>
 									</form>
 								</div>

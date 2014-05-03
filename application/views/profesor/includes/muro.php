@@ -1,11 +1,11 @@
-<div class="row bloquePegadoUp">
-	<div class="">
-		<h4 class="text-success"><i class="fa fa-puzzle-piece fa-lg"></i>
-			<?php echo ' Nombre de Materia'//$ProfesorFromClase['nombre']; //nombre profesor ?></h4>
+<div class="bloquePegadoUp row" style="margin-left: 0px;margin-right: 0px;">
+	<div class="padding4">
+		<span class="text-success"><i class="fa fa-puzzle-piece fa-lg"></i>
+			<?php echo ' Nombre de Materia'//$ProfesorFromClase['nombre']; //nombre profesor ?></span>
 	</div>
 </div>
 
-<div class="row bloquePegadoDown">
+<div class="bloquePegadoDown row" style="margin-left: 0px;margin-right: 0px;">
 	<div class="tabbable">
 
 		<ul class="nav nav-tabs nav-justified" style="">
