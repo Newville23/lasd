@@ -13,7 +13,7 @@
 			<li class="active"><a href="#foro" data-toggle="tab">Foro</a></li>
 			<li class=""><a href="#estudiantes" data-toggle="tab">Estudiantes</a></li>
 			<li class=""><a href="#trabajos" data-toggle="tab">Trabajos</a></li>
-			<li class=""><a href="#notas" data-toggle="tab">Notas</a></li>
+			<li class=""><a href="#notas" data-toggle="tab">Evaluaciones</a></li>
 		</ul>
 
 		<div class="tab-content">

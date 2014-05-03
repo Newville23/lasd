@@ -1,65 +1,52 @@
 <div class="tabbable">
 	<ul class="nav nav-pills nav-justified" style="padding: 2%;">
-		<li class="active"><a href="#agregar" data-toggle="pill">Agregar Notas</a></li>
-		<li><a href="#configurar" data-toggle="pill">Configurar Notas</a></li>
+		<li class="active"><a href="#agregar" data-toggle="pill">Agregar Evaluaciones</a></li>
+		<li><a href="#configurar" data-toggle="pill">Configurar Evaluaciones</a></li>
 	</ul>
 
 	<div class="tab-content">
 
-		<div class="tab-pane active" id="agregar">
-			<div class="table-responsive">
-				<table class="table table-hover table-striped table-bordered tabla-notas">
-					
-					<thead>
-						<tr>
-							<th></th>
-							<?php for ($i=0; $i < count($listaAlumnos['listaEstudiantes'][0]['notas']) ; $i++): ?>
+		<div class="tab-pane active" id="agregar" style="background-color: rgba(0, 200, 255, 0.05);">
+			
 
-								<th class="tabla-cabecera" id="<?php echo $i; ?>" colspan="3"><?php echo $i+1; ?></th>
+				<ul class="nav nav-pills nav-justified" style="padding: 2%;">									
+					<?php for ($i=0; $i < count($listaAlumnos['listaEstudiantes'][0]['notas']) ; $i++): ?>
+						<li class=""><a href="#<?php echo $i; ?>" data-toggle="pill">Evaluación <?php echo $i+1; ?></a></li>
+					<?php endfor; ?>
+				</ul>
+				
+				<div class="tab-content">
+					<div class="col-md-12 col-sm-12 hidden-xs padding4" style=" background-color: #FFFFFF;margin-top: 20px;">
+						<div class="col-md-4"><strong>Tipo de evaluación</strong></div>
+						<div class="col-md-4"><strong>Concepto</strong></div>
+						<div class="col-md-4"><strong>Peso (%)</strong></div>
+					</div>
 
-							<?php endfor; ?>
-							
-							
-						</tr>
-						<tr>
-							<th>Nombre</th>
+				<?php for ($key=0; $key < count($listaAlumnos['listaEstudiantes'][0]['notas']) ; $key++): ?>
+					<div class="tab-pane" id="<?php echo $key; ?>">
 
-							<?php for ($i=0; $i < count($listaAlumnos['listaEstudiantes'][0]['notas']) ; $i++): ?>
-								<th><span class="desaparecer <?php echo $i; ?>">Concepto</span></th>
-								<th></th>
-								<th></th>
-							<?php endfor; ?>
-						</tr>
-					</thead>
+						<?php foreach ($listaAlumnos['listaEstudiantes'] as $keyEstudiantes => $value): ?>
 
-					<tbody>
+							<?php $notas = $value['notas'][$key]; ?>
+							<div class="col-md-12 well-white margen-top-bottom">
+								<div class="col-md-4"><strong><?php echo $value['nombre'] .' '. $value['apellido']; ?></strong></div>
 
-						<?php foreach ($listaAlumnos['listaEstudiantes'] as $key => $value): ?>
-						<tr>
-							<td><?php echo $value['nombre'] .' '. $value['apellido']; ?></td>
-
-							<?php foreach ($value['notas'] as $key => $notas): ?>
-								
-								<td><span class="desaparecer <?php  echo $key;?>"><?php echo $notas['concepto']; ?></span></td>
-								
-								<td id="textNoForm<?php echo $rand = rand(); ?>" class="<?php  echo $key;?>"><?php echo $notas['nota']; ?></td>
-								
-								<td>
+								<div class="col-md-4"><span class=" <?php  echo $key;?>"><?php echo $notas['concepto']; ?></span></div>
+											
+								<div class="col-md-4">
 									<?php echo form_open('user/actualizarNota/' . $notas['Calificacion_id'] .'/'. $value['Estudiante_identificacion'] , array('class' => 'rangeAjax')); ?>
-										<span class="desaparecer <?php  echo $key;?>">
-											<input id="range<?php echo $rand; ?>" type="text" class="range" name="nota" value="<?php echo $notas['nota']; ?>" step="0.1" min="0" max="5">
+										<span class=" <?php  echo $key;?>">
+											<input id="range<?php echo $rand = rand(); ?>" type="text" class="text-center form-control input-lg clear-input" name="nota" value="<?php echo $notas['nota']; ?>" step="0.1" min="0" max="5">
 										</span>
 									</form>
-								</td>
-							<?php endforeach; ?>
-						
-						</tr>
+								</div>
+							</div>
+
 						<?php endforeach ?>
-
-					</tbody>
-
-				</table>
-			</div>
+					</div>
+				<?php endfor; ?>
+					
+				</div>
 		</div>
 
 		<div class="tab-pane" id="configurar" style="background-color: rgba(0, 170, 255, 0.1);">
@@ -69,7 +56,7 @@
 					<div class="col-md-12 col-sm-12 hidden-xs padding4" style=" background-color: #FFFFFF;margin-bottom: 4px;">
 				
 						<div class="col-md-3 col-sm-3"><strong>Tipo de evaluación</strong></div>
-						<div class="col-md-6 col-sm-6"><strong>Detalle</strong></div>
+						<div class="col-md-6 col-sm-6"><strong>Concepto</strong></div>
 						<div class="col-md-2 col-sm-2"><strong>Peso (%)</strong></div>
 			
 					</div>
