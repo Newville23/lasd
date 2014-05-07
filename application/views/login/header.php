@@ -8,6 +8,11 @@
 		<link rel="stylesheet" type="text/css" href="<?php  echo base_url("bootstrap/css/bootstrap.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
 		<link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
+        
+        <!-- Favicons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php  echo base_url("bootstrap/img/images/apple-touch-icon-144-precomposed.png"); ?>">
+        <link rel="shortcut icon" href="<?php  echo base_url("bootstrap/img/images/favicon.ico"); ?>">
+
         <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
         <script src="<?php  echo base_url("bootstrap/js/datepicker/bootstrap-datepicker.js"); ?>"></script>
     

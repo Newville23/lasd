@@ -60,8 +60,8 @@ class Profesor extends CI_Controller
 		//echo "<pre>"; print_r($row); echo "</pre>";
 
 		$row['contenido_indicadores'] = $this->profesor_model->getIndicadoresModel($numeroClase);
+		//echo "<pre>"; print_r($row['listaCalificaciones']); echo "</pre>";
 		//echo "<pre>"; print_r($row); echo "</pre>";
-
 		// ----------------------------------------------------------------
 		// Se verifica que el numero de clase corresponda con el profesor.
 		$array = array('numero' => $numeroClase,

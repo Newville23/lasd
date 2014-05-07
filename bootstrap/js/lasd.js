@@ -501,4 +501,19 @@ $(function(){
 
 			});
 		});
+
+	$('.container-filt').addClass('hidden');
+	$('.checkbox-filtro').on('change', function(event) {
+			
+		event.preventDefault();
+		var id_sel = '.hoho' + $(this).val();
+
+		$('.container-filt').addClass('hidden');
+
+		$(id_sel).removeClass('hidden');
+		$('.cont-aparecer').removeClass('hidden');
+		console.log($(this).val());
+			/* Act on the event */
+	});
+
 });

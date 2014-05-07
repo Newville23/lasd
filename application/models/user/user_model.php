@@ -121,24 +121,48 @@ class User_model extends CI_model
 
 	function getNotasUnEstudianteFromClase($numero_clase, $Estudiante_identificacion)
 	{
-			$this->db->select('Calificacion_id, nota, tipo_evaluacion, concepto, ponderacion');
-			$this->db->where('Estudiante.identificacion = Agregar_notas.Estudiante_identificacion'); 
-			$this->db->where('Agregar_notas.Calificacion_id = Calificacion.id');
-			$this->db->where('Estudiante.identificacion = ' . $Estudiante_identificacion);
-			$this->db->where('Calificacion.Clase_numero = ' . $numero_clase);
-			$query = $this->db->get('Agregar_notas, Calificacion, Estudiante');
+			// $this->db->select('Calificacion_id, nota, tipo_evaluacion, concepto, ponderacion');
+			// $this->db->where('Estudiante.identificacion = Agregar_notas.Estudiante_identificacion'); 
+			// $this->db->where('Agregar_notas.Calificacion_id = Calificacion.id');
+			// $this->db->where('Estudiante.identificacion = ' . $Estudiante_identificacion);
+			// $this->db->where('Calificacion.Clase_numero = ' . $numero_clase);
+			// $query = $this->db->get('Agregar_notas, Calificacion, Estudiante');
 
-			$row = $query->result_array();
+			$query = $this->db->query("SELECT Calificacion_id, Clase_indicador.id as id_indicador, periodo, nota, tipo_evaluacion, concepto, ponderacion FROM Calificacion
+				join Agregar_notas
+				on Agregar_notas.Calificacion_id = Calificacion.id
+				join Estudiante
+				on Estudiante.identificacion = Agregar_notas.Estudiante_identificacion
+				join Clase_indicador
+				on Calificacion.id_indicador = Clase_indicador.id
+			where Estudiante.identificacion = '$Estudiante_identificacion'
+			and Calificacion.Clase_numero = '$numero_clase'");
 
-			return $row;
+			if ($query) {
+				return $query->result_array();
+			}
 	}
 
-	function getCalificacionesFromClase($numero_clase)
+	function getCalificacionesFromClase2($numero_clase)
 	{
 		$query = $this->db->get_where('Calificacion', array('Clase_numero' => $numero_clase));
 		$row = $query->result_array();
 		return $row;
 	}
+
+	function getCalificacionesFromClase($numero_clase)
+	{
+		$query = $this->db->query("SELECT eval.id, tipo_evaluacion, concepto, ponderacion, eval.Clase_numero, contenido, periodo, estado, fecha_vencimiento 
+			FROM lasd3.Calificacion as eval
+			join lasd3.Clase_indicador as indicador
+			on eval.id_indicador = indicador.id
+		where eval.Clase_numero = '$numero_clase'");
+
+		if ($query) {
+			return $query->result_array();
+		}
+	}
+
 
 	function getLogroFromId($Calificacion_id)
 	{
