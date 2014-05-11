@@ -363,7 +363,7 @@ $(function(){
     $('#myModalasd').on('hide', function () {
   		$('.modalNotas').html();
 	})
-	$('#popoverDatapicker').tooltip();
+	//$('#popoverDatapicker').popover();
 
 	$('.tooltipInfo').tooltip();
 
@@ -372,7 +372,7 @@ $(function(){
         format: "yyyy-mm-dd",
         todayBtn: "linked",
         language: "es",
-        daysOfWeekDisabled: "0,6",
+        daysOfWeekDisabled: "0",
         autoclose: true,
         todayHighlight: true
 
@@ -382,6 +382,8 @@ $(function(){
     		var enlace = $('#datepickerAsistencia').attr('data-url') + '/' + $('#datepickerInput').val();
         	$('#contenidoAsistencia').load(enlace);
         };
+
+        $('#popoverDatapicker').fadeOut(1000);
     });
 
     $('#datepickerContenido .date').datepicker({

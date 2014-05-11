@@ -66,7 +66,7 @@ $db['default']['stricton'] = FALSE;
 
 $db['lasd2']['hostname'] = 'localhost';
 $db['lasd2']['username'] = 'suFluge';
-$db['lasd2']['password'] = 'U#Dz~QRE6yow';
+$db['lasd2']['password'] = 'VL6kP&E_QtRJ';
 $db['lasd2']['database'] = 'FlugelCentral';
 $db['lasd2']['dbdriver'] = 'mysql';
 $db['lasd2']['dbprefix'] = '';

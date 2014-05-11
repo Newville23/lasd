@@ -628,7 +628,7 @@ ul li.active a.navegacion{
   background-color: rgba(255, 255, 255, 0.23);
 }
 .btn-green{
-    color: #aaa;
+    color: #333;
 }
 .btn-green.active{
   color: #fff;

@@ -9,11 +9,11 @@
 	<div class="tabbable">
 
 		<ul class="nav nav-tabs nav-justified" style="">
-		 	<li class=""><a href="#contenido" data-toggle="tab">Contenido</a></li>
-		 	<li class=""><a href="#notas" data-toggle="tab">Evaluaciones</a></li>
-			<li class="active"><a href="#foro" data-toggle="tab">Foro</a></li>
-			<li class=""><a href="#estudiantes" data-toggle="tab">Estudiantes</a></li>
-			<li class=""><a href="#trabajos" data-toggle="tab">Trabajos</a></li>
+		 	<li class=""><a href="#contenido" data-toggle="tab"><i class="fa fa-list-alt fa-lg fa-fw"></i> Contenido</a></li>
+		 	<li class=""><a href="#notas" data-toggle="tab"><i class="fa fa-flask fa-lg fa-fw"></i> Evaluaciones</a></li>
+			<li class="active"><a href="#foro" data-toggle="tab"><i class="fa fa-comments-o fa-lg fa-fw"></i> Foro</a></li>
+			<li class=""><a href="#estudiantes" data-toggle="tab"><i class="fa fa-users fa-lg fa-fw"></i> Estudiantes</a></li>
+			<li class=""><a href="#trabajos" data-toggle="tab"><i class="fa fa-tasks fa-lg fa-fw"></i> Trabajos</a></li>
 			
 		</ul>
 
@@ -67,13 +67,15 @@
 								        <div class="input-group date">
 								            <input type="text" type="text" id="datepickerInput" placeholder="fecha de asistencia" readonly class="form-control input-lg" style="cursor:pointer">
 								            <span class="input-group-btn">
-								            	<button class="btn btn-default btn-lg hidden-xs" style="border-radius: 0 4px 4px 0;" type="button" id="popoverDatapicker" data-container="body" data-toggle="popover" 
-								            		data-placement="right" data-trigger="hover" data-title="¡Selecciona la fecha de asistencia!.">
+								            	<button class="btn btn-default btn-lg" style="border-radius: 0 4px 4px 0;" type="button" id="" data-container="body" data-toggle="popover" 
+								            		data-placement="right"  data-title="¡Selecciona la fecha de asistencia!.">
 								            		<span class="fa fa-calendar fa-lg"></span>
 								            	</button>
-								            	<button class="btn btn-default btn-lg visible-xs" type="button" id="">
-								            		<span class="fa fa-calendar fa-lg"></span>
-								            	</button>
+								  
+								            	<div id="popoverDatapicker" class="hidden-xs popover fade right in" style="top: -20px; left: 60px; display: block;">
+													<div class="arrow"></div>
+													<h3 class="popover-title">¡Selecciona la fecha de asistencia!.</h3>
+												</div>
 								            </span>
 								        </div>
 								     </div>
@@ -109,3 +111,4 @@
 		</div>
 	</div>
 </div>
+

@@ -124,6 +124,19 @@ class Profesor extends CI_Controller
 		//$row['asistencia'] = $this->profesor_model->setAsistencia($numeroClase);
 	}
 
+	function getIndicador($numeroClase)
+	{
+		if ($this->input->is_ajax_request()) {
+			
+			$data['contenido_indicadores'] = $this->profesor_model->getIndicadoresModel($numeroClase);
+			$data['numeroClase'] = $numeroClase;
+
+			$this->load->view('profesor/includes/contenido-programatico/indicadores-lista', $data);
+
+			//echo "<pre>"; print_r($data); echo "</pre>";
+		}
+	}
+
 	function setIndicador($numeroClase)
 	{
 		if ($this->input->is_ajax_request()) {
@@ -153,18 +166,7 @@ class Profesor extends CI_Controller
 		}
 	}
 
-	function getIndicador($numeroClase)
-	{
-		if ($this->input->is_ajax_request()) {
-			
-			$data['contenido_indicadores'] = $this->profesor_model->getIndicadoresModel($numeroClase);
-			$data['numeroClase'] = $numeroClase;
 
-			$this->load->view('profesor/includes/contenido-programatico/indicadores-lista', $data);
-
-			//echo "<pre>"; print_r($data); echo "</pre>";
-		}
-	}
 
 	//Reorganiza el array serialize, verifica si el registro existe para insertar o actualizar.
 	function setAsistenciaController($numeroClase = null, $fecha = null, $numeroEstudiantes=null)
@@ -172,7 +174,7 @@ class Profesor extends CI_Controller
 		if ($fecha > date('Y-m-d') || $fecha == null) {
 			$data['mensaje'] = "Escoge una fecha valida."; 
 			$data['clase'] = 'alert-danger';
-			$this->load->view('templates/alerta', $data); 
+			$this->load->view('templates/alerta-no-time', $data); 
 			return;
 		}
 
@@ -180,45 +182,62 @@ class Profesor extends CI_Controller
 			return;
 		}
 
+		// validacion de que la lista este completa
 		$data = $this->input->post();
 
 		if ($numeroEstudiantes*2 != count($data)) {
 			$data['mensaje'] = "No has termininado la lista de asistencia."; 
 			$data['clase'] = 'alert-danger';
-			$this->load->view('templates/alerta', $data);
+			$this->load->view('templates/alerta-no-time', $data);
 			return;
 		}
-
-		$i = 0;
-		$contadorDeQuerys = 0;
-
-		foreach ($data as $key => $value) {
-			$data2[$i] = $value;
-			$i = $i + 1;
-		}
-
-		for ($i=0; $i < count($data2); $i=$i+2) { 
-
-			$indiceYkey = array('Clase_numero' => $numeroClase,
-								'Estudiante_identificacion' => $data2[$i],
+		// === Validacion de no editar la lista de asistencia========
+		$dataValidacionAsistencia = array('Clase_numero' => $numeroClase,
 			                     'fecha' => $fecha);
 
-				$filas = $this->profesor_model->verificarKey('Asistencia', $indiceYkey);
-			
-			if ($filas == 0) {
+		$filaEstudiantesAsistencia = $this->profesor_model->verificarKey('Asistencia', $dataValidacionAsistencia);
+		
+		if ($numeroEstudiantes == $filaEstudiantesAsistencia) {
+			$data['mensaje'] = "¡Ya realizaste esta lista de asistencia!"; 
+			$data['clase'] = 'alert-danger';
+			$this->load->view('templates/alerta-no-time', $data);
+			return;
 
-				$indiceYkey['Asistencia'] = $data2[$i + 1];
+		}elseif ($filaEstudiantesAsistencia == 0) {
 
-				$query = $this->profesor_model->setAsistenciaModel($indiceYkey);
-				//echo "insertado ";
+			$i = 0;
+			$contadorDeQuerys = 0;
 
-			}elseif ($filas == 1) {
-
-				$query = $this->profesor_model->upd8AsistenciaModel($indiceYkey, array('Asistencia' => $data2[$i + 1]));				
+			foreach ($data as $key => $value) {
+				$data2[$i] = $value;
+				$i = $i + 1;
 			}
 
-			$contadorDeQuerys = $contadorDeQuerys + 1;
+			for ($i=0; $i < count($data2); $i=$i+2) { 
+
+				$indiceYkey = array('Clase_numero' => $numeroClase,
+									'Estudiante_identificacion' => $data2[$i],
+				                     'fecha' => $fecha);
+
+					$filas = $this->profesor_model->verificarKey('Asistencia', $indiceYkey);
+				
+				if ($filas == 0) {
+
+					$indiceYkey['Asistencia'] = $data2[$i + 1];
+
+					$query = $this->profesor_model->setAsistenciaModel($indiceYkey);
+					//echo "insertado ";
+
+				}
+				//elseif ($filas == 1) {
+				//	//echo "actualizar ";
+				//	$query = $this->profesor_model->upd8AsistenciaModel($indiceYkey, array('Asistencia' => $data2[$i + 1]));				
+				//}
+
+				$contadorDeQuerys = $contadorDeQuerys + 1;
+			}
 		}
+		// ==========================================================
 		
 		if ($contadorDeQuerys == $numeroEstudiantes) {
 			$data['mensaje'] = "Lista de asistencia guardada correctamente"; 

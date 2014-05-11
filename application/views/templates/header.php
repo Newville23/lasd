@@ -59,8 +59,8 @@
                 
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="<?php echo site_url($linkIndex); ?>">Inicio</a></li>
-                    <li><a href="<?php echo site_url('box/box'); ?>">ShareBox</a></li>
-                    <!-- <li><a href="#">Hola</a></li> -->
+                    <li class="hidden"><a href="<?php echo site_url('box/box'); ?>">ShareBox</a></li>
+
                 </ul>
 
                 <ul class="nav navbar-nav navbar-right visible-lg">

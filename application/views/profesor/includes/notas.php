@@ -119,7 +119,7 @@
 									<form action="<?php echo site_url('user/actPonderacionNota/' . $value['id']); ?>"  class="rangeAjax">
 
 										<div class="form-group">
-											<input id="range<?php echo $rand = rand(); ?>" type="number" placeholder="%" class="text-center form-control input-lg clear-input" name="ponderacion" min="1" max="100" step="1" 
+											<input id="range<?php echo $rand = rand(); ?>" type="number" placeholder="%" class="text-center form-control input-lg clear-input" name="ponderacion" min="1" max="100" step="0.1" 
 											value="<?php echo $value['ponderacion']; ?>" style="padding: 6px 6px; *">
 										</div>
 									</form>
