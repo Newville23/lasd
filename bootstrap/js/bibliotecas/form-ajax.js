@@ -50,6 +50,20 @@
 
 	$('.rangeAjax').on('change', function(event){
 
+		event.preventDefault();
+
+		var enlace = $(this).attr('action');
+
+		$.post(enlace, $(this).serialize()).success(function(data){
+
+		});
+
+	});
+
+	$('.rangeAjax').on('submit', function(event){
+
+		event.preventDefault();
+
 		var enlace = $(this).attr('action');
 
 		$.post(enlace, $(this).serialize()).success(function(data){

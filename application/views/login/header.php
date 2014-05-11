@@ -21,7 +21,7 @@
           body {
             padding-bottom: 40px;
             background-color: rgb(224, 224, 224);
-            background: url("//4.bp.blogspot.com/_MHnA5hJubcU/THAhOpwz67I/AAAAAAAADSI/LS_mN4sd-p0/s1600/finlandia.jpg")
+            background: url("//www.todayonline.com/sites/default/files/styles/photo_gallery_image_lightbox/public/16254437.JPG?itok=ie_fot1Q")
              no-repeat center fixed;
           }
 

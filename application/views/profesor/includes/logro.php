@@ -7,7 +7,7 @@
 	<div class="col-md-2 col-sm-2">
 		<?php echo form_open('user/actPonderacionNota/' . $id, array('class' => 'rangeAjax')); ?>
 			<div class="form-group">
-				<input id="range<?php echo $rand = rand(); ?>" type="number" class="text-center form-control input-lg clear-input" name="ponderacion" min="1" max="100" step="1" value="<?php echo $ponderacion; ?>">
+				<input id="range<?php echo $rand = rand(); ?>" type="number" class="text-center form-control input-lg clear-input" name="ponderacion" min="1" max="100" step="0.1" value="<?php echo $ponderacion; ?>">
 			</div>
 		</form>
 	</div>

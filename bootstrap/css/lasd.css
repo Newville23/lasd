@@ -702,3 +702,20 @@ ul li.active a.navegacion{
 .label-4 {
   background-color: #9E42CA;
 }
+
+.popover{
+  z-index: 10000 !important;
+}
+
+.roundedOne {
+  width: 20px;
+  height: 20px;
+  background: #fcfff4;
+
+  filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+  margin: 20px auto;
+
+  border-radius: 50px;
+
+  border-radius: 50px;
+}

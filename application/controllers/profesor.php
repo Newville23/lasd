@@ -136,17 +136,19 @@ class Profesor extends CI_Controller
 				if ($query) {
 					$data['mensaje'] = 'Ingreso Exitoso'; 
 					$data['clase'] = 'alert-success';
+					$data['id'] = 'setIndicador';
+
 					$this->load->view('templates/alerta', $data);
 				}else{
 					$data['mensaje'] = 'Ups! hubo un problema intenta de nuevo'; 
 					$data['clase'] = 'alert-warning';
-					$this->load->view('templates/alerta', $data);
+					$this->load->view('templates/alerta-no-time', $data);
 				}
 
 			}else{
 				$data['mensaje'] = validation_errors(); 
 				$data['clase'] = 'alert-danger';
-				$this->load->view('templates/alerta', $data);
+				$this->load->view('templates/alerta-no-time', $data);
 			}
 		}
 	}

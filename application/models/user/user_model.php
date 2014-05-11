@@ -152,9 +152,9 @@ class User_model extends CI_model
 
 	function getCalificacionesFromClase($numero_clase)
 	{
-		$query = $this->db->query("SELECT eval.id, tipo_evaluacion, concepto, ponderacion, eval.Clase_numero, contenido, periodo, estado, fecha_vencimiento 
-			FROM lasd3.Calificacion as eval
-			join lasd3.Clase_indicador as indicador
+		$query = $this->db->query("SELECT eval.id, indicador.id as id_indicador, tipo_evaluacion, concepto, ponderacion, eval.Clase_numero, contenido, periodo, estado, fecha_vencimiento 
+			FROM Calificacion as eval
+			join Clase_indicador as indicador
 			on eval.id_indicador = indicador.id
 		where eval.Clase_numero = '$numero_clase'");
 
@@ -180,6 +180,7 @@ class User_model extends CI_model
 		$id = time().rand(1345, 9999999);
 
 		$data = array(	'id' => $id,
+						'id_indicador' => $this->input->post('indicadorLogro'),
 		 				'tipo_evaluacion' => $this->input->post('tipoeval'),
 		 				'concepto' => $this->input->post('detalleNota'),
 		 				'ponderacion' => $this->input->post('peso'),

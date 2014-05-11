@@ -13,6 +13,7 @@ class User extends CI_Controller
 
 
 		$this->load->model('user/user_model');
+		$this->load->model('profesor/profesor_model');
 		$this->load->helper('form');
 		$this->load->library('form_validation');
 		
@@ -51,6 +52,7 @@ class User extends CI_Controller
 			$this->form_validation->set_rules('tipoeval', '"Tipo de evaluación"', 'trim|required|xss_clean|htmlspecialchars');
 			$this->form_validation->set_rules('detalleNota', '"Detalle de la nota"', 'trim|required|xss_clean|htmlspecialchars');
 			$this->form_validation->set_rules('peso', 'tipoeval', 'trim|xss_clean|htmlspecialchars');
+			$this->form_validation->set_rules('indicadorLogro', 'Indicador', 'trim|required|xss_clean|htmlspecialchars');
 
 			$this->form_validation->set_message('required', 'El campo %s es obligatorio');
 			
@@ -116,6 +118,8 @@ class User extends CI_Controller
 				$data['materia_id'] = $materia_id;
 				$data['controller'] = 'setLogro/' . $Clase_numero .'/'. $materia_id;
 
+				$data['indicadores'] = $this->profesor_model->getIndicadoresModel($Clase_numero);
+				//echo "<pre>"; print_r($data); echo "</pre>";
 				$this->load->view('profesor/includes/form-logros', $data);
 		}
 	}

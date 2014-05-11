@@ -292,8 +292,9 @@ $(function(){
 			});
 	})
 
-	$('.rangeAjax').on('change', function(){
+	$('.rangeAjax').on('change', function(event){
 
+		event.preventDefault();
 
 		var enlace = $(this).attr('action');
 		console.log(enlace);
@@ -302,7 +303,17 @@ $(function(){
 		});
 
 	});
+	$('.rangeAjax').on('submit', function(event){
 
+		event.preventDefault();
+		
+		var enlace = $(this).attr('action');
+		console.log(enlace);
+		$.post(enlace, $(this).serialize()).success(function(data){
+
+		});
+
+	});
 
 
 
@@ -512,7 +523,7 @@ $(function(){
 
 		$(id_sel).removeClass('hidden');
 		$('.cont-aparecer').removeClass('hidden');
-		console.log($(this).val());
+		//console.log($(this).val());
 			/* Act on the event */
 	});
 

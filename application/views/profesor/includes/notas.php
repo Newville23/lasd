@@ -42,7 +42,7 @@
 				<ul class="nav nav-tabs">									
 					<?php for ($i=0; $i < count($listaAlumnos['listaEstudiantes'][0]['notas']) ; $i++): ?>
 						<li class="container-filt <?php if ($i == 0) {echo "active";} echo " hoho" . $listaAlumnos['listaEstudiantes'][0]['notas'][$i]['periodo'];?>">
-							<a href="#<?php echo $i; ?>" data-toggle="tab">Evaluación: <?php echo $listaAlumnos['listaEstudiantes'][0]['notas'][$i]['tipo_evaluacion']; ?></a></li>
+							<a href="#<?php echo $i; ?>" data-toggle="tab"><?php echo 'Evaluación ' . ($i + 1) .': '. $listaAlumnos['listaEstudiantes'][0]['notas'][$i]['tipo_evaluacion']; ?></a></li>
 					<?php endfor; ?>
 				</ul>
 				
@@ -68,7 +68,7 @@
 										<?php echo form_open('user/actualizarNota/' . $notas['Calificacion_id'] .'/'. $value['Estudiante_identificacion'] , array('class' => 'rangeAjax')); ?>
 											<span class=" <?php  echo $key;?>">
 												<input id="range<?php echo $rand = rand(); ?>" type="number" placeholder="" class="text-center form-control input-lg clear-input" 
-												name="nota" value="<?php echo $notas['nota']; ?>" min="0" max="5">
+												name="nota" value="<?php echo $notas['nota']; ?>" min="0" max="5" step="0.1">
 											</span>
 										</form>
 									</div>
@@ -85,17 +85,16 @@
 
 				<?php $periodoTempo = 0; ?>
 				<div id="logros" class="col-md-12 col-sm-12">
-						
-						
+						<?php  //echo "<pre>"; print_r($listaCalificaciones); echo "</pre>";?>
 						<?php foreach ($listaCalificaciones as $key => $value): ?>
-						
-						<?php if ($periodoTempo != $value['periodo']): ?>
-							<?php $periodoTempo = $value['periodo']; ?>
+						<?php //echo $periodoTempo; ?>
+						<?php if ($periodoTempo != $value['id_indicador']): ?>
+							<?php $periodoTempo = $value['id_indicador']; ?>
 
 						<div id="" style="margin-top: 20px;" class="well-info row container-filt hoho<?php echo $value['periodo']; ?>">
 				            
 				            <div class="col-md-12 col-sm-12 well-lista margen-top-bottom">
-				               	<div style="padding: 8px 5px;font-size: 13px;"><?php echo $value['contenido']; ?></div>
+				               	<div style="padding: 8px 5px;font-size: 13px;"><strong>Indicador: </strong><?php echo $value['contenido']; ?></div>
 				            </div>
 
 					        <div class="col-md-12 col-sm-12 hidden-xs padding5" style="">
@@ -143,7 +142,7 @@
 				<div class="col-md-12 col-sm-12">
 					<a id="AgregarCalificacion" href="<?php echo site_url('user/formLogro/' . $listaAlumnos['numero'] .'/' . $listaAlumnos['Materia_id']); ?>" 
 						class="btn btn-default btn-lg btn-block" data-toggle="modal" data-target="#myModalasd">
-						<i class="fa fa-plus-sign fa-lg"></i> Agregar calificación
+						<i class="fa fa-plus-sign fa-lg"></i> Agregar evaluacíon
 					</a>
 				</div>
 			</div>

@@ -81,6 +81,10 @@ class Profesor_model extends CI_model
 
 	}
 
+	/**
+	S E T T E R S
+	*/
+
 	function setIndicadoresModel($numeroClase)
 	{
 		$data = array('Clase_numero' => $numeroClase,
