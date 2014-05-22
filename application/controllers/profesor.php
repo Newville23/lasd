@@ -15,6 +15,8 @@ class Profesor extends CI_Controller
 
 		$this->sesion->acceso('profesor');
 
+		//error_reporting(0);
+
 		$this->load->model('user/user_model');
 		$this->load->model('profesor/profesor_model');
 		$this->load->model('user/foro_model');

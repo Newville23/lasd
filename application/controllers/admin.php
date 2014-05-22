@@ -14,7 +14,10 @@ class Admin extends CI_Controller
 		$this->load->library('sesion');
 		$this->sesion->acceso('admin');
 
+		//error_reporting(0);
+
 		$this->load->model('admin/admin_model');
+		$this->load->model('user/user_model');
 		$this->load->library('form_validation');
 		$this->load->helper('form');
 	}
@@ -24,10 +27,14 @@ class Admin extends CI_Controller
 		$data['title'] = 'Inicio administradores';
 		$data['lasd'] = 'Lasd';
 		$data['linkIndex'] = 'admin';
-		$data['active'] = 2;
+		$data['active'] = 3;
+
+		$data['datos'] = $this->user_model->getDatosUsuario('Profesor');
+		//echo "<pre>"; print_r($data); echo "</pre>";
 		
 		$this->load->view('templates/header', $data);
-		$this->load->view('admin/index', $data);
+		//$this->load->view('admin/index', $data);
+		$this->load->view('admin/adminEstudiantes', $data);
 		$this->load->view('templates/footer', $data);
 
 		
@@ -441,6 +448,17 @@ class Admin extends CI_Controller
 		{
 			redirect('admin');
 		}
+	}
+
+	function estudianteLista($rut)
+	{
+		$this->load->library('tiempo');
+		//$descripcion = str_replace("-", " ", $descripcion);
+
+		//$data['listaEstudiante'] = $this->user_model->getEstudianteBy($rut, $id, $descripcion);
+		$data['listaEstudiante'] = $this->user_model->getEstudianteByPost($rut);
+		$this->load->view('admin/includes-estudiante/lista-estudiantes', $data);
+		//echo "<pre>"; print_r($data); echo "</pre>";
 	}
 }
 

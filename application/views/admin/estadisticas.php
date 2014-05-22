@@ -1,4 +1,4 @@
-<div class="container" style="margin-top: 5%;">
+<div class="container" style="">
 	<div class="row">
 		
 		<?php $this->load->view('admin/includes/menu-admin'); ?>

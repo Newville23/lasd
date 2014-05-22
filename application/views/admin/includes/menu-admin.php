@@ -4,10 +4,10 @@
 	</button>
 	<div class="bp-envoltura">
 		<ul class="list-unstyled">
-			<a href="<?php echo site_url('admin/agregarInstitucion'); ?>">
+			<a class="hidden" href="<?php echo site_url('admin/agregarInstitucion'); ?>">
 				<li  class="<?php if ($active == 1) {echo 'active';} ?>"><i style="padding-right: 8px" class="fa fa-building fa-lg"></i> Agregar Institución</li>
 			</a>
-			<a href="<?php echo site_url('admin'); ?>">
+			<a class="hidden" href="<?php echo site_url('admin'); ?>">
 				<li class="<?php if ($active == 2) {echo 'active';} ?>"><i style="padding-right: 8px" class="fa fa-list-alt fa-lg"></i> Formularios</li>
 			</a>
 			<a href="<?php echo site_url('admin/adminEstudiantes'); ?>">
@@ -17,14 +17,14 @@
 				<li class="<?php if ($active == 4) {echo 'active';} ?>"><i style="padding-right: 8px" class="fa fa-group fa-lg"></i> Docentes</li>
 			</a>
 			<a href="<?php echo site_url('admin/estadisticas'); ?>">
-				<li  class="<?php if ($active == 6) {echo 'active';} ?>"><i style="padding-right: 8px" class="fa fa-bars-chart fa-lg"></i> Estadisticas</li>
+				<li  class="<?php if ($active == 6) {echo 'active';} ?>"><i style="padding-right: 8px" class="fa fa-bar-chart-o fa-lg"></i> Estadisticas</li>
 			</a>
-			<a href="#">
+			<a class="hidden" href="#">
 				<li class="<?php if ($active == 5) {echo 'active';} ?>"><i style="padding-right: 8px" class="fa fa-folder-open fa-lg"></i> Propiedad</li>
 			</a>
-			<a href="#">
+<!-- 			<a class="hidden" href="#">
 				<li class="<?php if ($active == 7) {echo 'active';} ?>"><i style="padding-right: 8px" class="fa fa-wrench fa-lg"></i> Configuraciones</a>
-			</a>
+			</a> -->
 		</ul>
 	</div>
 </div>

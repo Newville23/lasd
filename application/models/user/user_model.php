@@ -75,6 +75,106 @@ class User_model extends CI_model
 		return $query->row_array();
 	}
 
+	function getEstudianteBy($rut = null, $id = null, $descripcion = null, $estado = 1)
+	{
+		$identificacion = null;
+		$nombre = null;
+		$Curso_codigo = null;
+
+		if ($id == 'identificacion') {
+			$identificacion = $descripcion;
+
+		}elseif ($id == 'nombre') {
+			$nombre = $descripcion;
+
+		}elseif ($id == 'cursocodigo') {
+			$Curso_codigo = $descripcion;
+		}
+
+		$string = "SELECT usuario, rol, estado, email, facebook, twiter, fecha_creacion, nombre, apellido, identificacion, tipo_identificacion, 
+			fecha_nacimiento, tipo_sangre, estudiante.institucion_rut, Curso_codigo, year, nombre_curso, indice   
+			FROM Usuario as user
+				join Estudiante as estudiante
+				on user.id = estudiante.Usuario_id
+				join Matricula as matricula
+				on matricula.estudiante_identificacion = estudiante.identificacion
+				join Curso as curso
+			on matricula.Curso_codigo = curso.codigo
+			where estudiante.institucion_rut = '$rut' and estado = 1 ";
+
+			if ($identificacion != null) {
+				$string = $string . "and identificacion = '$identificacion' ";
+			}
+			if ($nombre != null) {
+				$string = $string . "and (CONCAT(nombre, ' ', apellido) like '%" . $nombre ."%' or identificacion like '%" . $nombre ."%') ";
+			}
+			if ($Curso_codigo != null) {
+				$string = $string . "and Curso_codigo = '$Curso_codigo' ";
+			}
+
+			$query = $this->db->query($string);
+			if ($query) {
+				return $query->result_array();
+			}
+
+			//return $string;
+	}
+
+	function getEstudianteByPost($rut = null, $estado = 1)
+	{
+
+		$data = $this->input->post();
+		$stringCursos = null;
+
+		// $identificacion = null;
+		// $nombre = null;
+		// $Curso_codigo = null;
+
+		// if ($id == 'identificacion') {
+		// 	$identificacion = $descripcion;
+
+		// }elseif ($id == 'nombre') {
+		// 	$nombre = $descripcion;
+
+		// }elseif ($id == 'cursocodigo') {
+		// 	$Curso_codigo = $descripcion;
+		// }
+
+		$string = "SELECT usuario, rol, estado, email, facebook, twiter, fecha_creacion, nombre, apellido, identificacion, tipo_identificacion, 
+			fecha_nacimiento, tipo_sangre, estudiante.institucion_rut, Curso_codigo, year, nombre_curso, indice   
+			FROM Usuario as user
+				join Estudiante as estudiante
+				on user.id = estudiante.Usuario_id
+				join Matricula as matricula
+				on matricula.estudiante_identificacion = estudiante.identificacion
+				join Curso as curso
+			on matricula.Curso_codigo = curso.codigo
+			where estudiante.institucion_rut = '$rut' and estado = 1 ";
+
+		 	if (!empty($data['busquedaUser'])) {
+		 		$string = $string . "and (CONCAT(nombre, ' ', apellido) like '%" . $data['busquedaUser'] ."%' or identificacion like '%" . $data['busquedaUser'] ."%') ";
+		 	}
+
+		 	foreach ($data as $key => $value) {
+		 		if ($key != 'busquedaUser') {
+		 			$stringCursos = $stringCursos . "," . $value;
+		 		}
+		 	}
+		 	if ($stringCursos != null) {
+		 		$string = $string . "and Curso_codigo IN (000" . $stringCursos . ")";
+		 	}
+		 	
+		 	if ($data['busquedaUser'] != '' || $stringCursos != null) {
+		 		$query = $this->db->query($string);
+				if ($query) {
+					return $query->result_array();
+				}
+		 	}
+
+
+			//return $string;
+	}
+
 	// Obtiene una lista de estudiantes de una clase especifica.
 	function getEstudiantesFromClase($numero_clase)
 	{
@@ -87,7 +187,7 @@ class User_model extends CI_model
 		$this->db->select('Estudiante_identificacion, tipo_identificacion, nombre, apellido');
 		$this->db->join('Estudiante', 'Estudiante.identificacion = Matricula.Estudiante_identificacion');
 		$this->db->join('Usuario', 'Usuario.id = Estudiante.Usuario_id');
-		$this->db->order_by("apellido", "asc"); 
+		$this->db->order_by("nombre, apellido"); 
 		$query2 = $this->db->get_where('Matricula', array('Curso_codigo' => $arrayCurso['codigo']));
 		$arrayCurso['listaEstudiantes'] = $query2->result_array();
 		return $arrayCurso;

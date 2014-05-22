@@ -4,12 +4,14 @@
 		<title><?php echo $title ?> - Flügel</title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta name="apple-mobile-web-app-capable" content="yes" />
 			
 		<link rel="stylesheet" type="text/css" href="<?php  echo base_url("bootstrap/css/bootstrap.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
 		<link rel="stylesheet" href="<?php echo base_url("bootstrap/css/lasd.css"); ?>">
         
         <!-- Favicons -->
+        <link rel="icon" href="<?php  echo base_url("bootstrap/img/images/favicon64.ico"); ?>" sizes="64x64 32x32 24x24 16x16" />
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php  echo base_url("bootstrap/img/images/apple-touch-icon-144-precomposed.png"); ?>">
         <link rel="shortcut icon" href="<?php  echo base_url("bootstrap/img/images/favicon.ico"); ?>">
 

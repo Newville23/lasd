@@ -1,5 +1,5 @@
 	<div class="row hidden-xs" style="margin-top: 100px">
-		<div class="col-md-12">
+		<div class="hidden col-md-12">
 
 			<div id="myCarousel" class="carousel slide">
 				<ol class="carousel-indicators">

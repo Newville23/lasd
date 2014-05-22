@@ -490,6 +490,34 @@ $(function(){
 			});
 		});
 
+		$('form.formajax').on('change', '.checkboxCurso', function(event) {
+
+			event.preventDefault();
+			
+			var ran=Math.floor(Math.random()*1000000);
+			var form = $(this).closest('form');
+			var enlace = form.attr('action');
+
+			console.log(enlace);
+
+			console.log(form.serialize());
+
+			$(this).attr('id', ran);
+
+			$.post(enlace, $(form).serialize(), function(data) {
+
+
+
+				//$('#'+ ran.toString() + ' div.alerta').html(data);
+				form.find('.busquedaUserResul').html(data);
+
+
+				//console.log(data);
+
+			});
+		});
+
+
 		$('form.formajaxReloaded').on('submit', function(event) {
 
 			event.preventDefault();
@@ -527,6 +555,34 @@ $(function(){
 		$('.cont-aparecer').removeClass('hidden');
 		//console.log($(this).val());
 			/* Act on the event */
+	});
+
+	$('.busquedaUser').on('keyup' ,function(event){
+		
+		event.preventDefault();
+
+		var valor = $(this).val().replace(/ /g , "-");
+
+		if (valor.length > 0) {
+			
+
+			var form = $('.busquedaUser').closest('form');
+			var enlace = form.attr('action');
+			console.log(enlace);
+
+			$.post(enlace, $(form).serialize(), function(data) {
+
+				form.find('.busquedaUserResul').html(data);
+
+			});
+		};
+					
+	});
+
+	$('.busquedaUser').closest('form').on('submit' ,function(event){
+		
+		event.preventDefault();
+					
 	});
 
 });

@@ -13,7 +13,7 @@
 				<strong class="media-heading text-success"><?php echo 'Alba Bonet Pavon'//$estudiante['nombre'] .' '. $estudiante['apellido']; ?></strong>
 			</a>
     			<br><a class="fontSize1" href="#"><i class="fa fa-envelope-alt"></i> Mensaje</a>
-    			<a class="fontSize1 padding1" href="#"><i class="fa fa-twitter"></i> Tweet</a>
+    			<!-- <a class="fontSize1 padding1" href="#"><i class="fa fa-twitter"></i> Tweet</a> -->
    		</div>
 				    							
 		<div class="col-md-5">
