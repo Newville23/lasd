@@ -60,6 +60,8 @@ class Admin extends CI_Controller
 		$data['linkIndex'] = 'admin';
 		$data['active'] = 3;
 
+		$data['datos'] = $this->user_model->getDatosUsuario('Profesor');
+
 		$this->load->view('templates/header', $data);
 		$this->load->view('admin/adminEstudiantes', $data);
 		$this->load->view('templates/footer', $data);

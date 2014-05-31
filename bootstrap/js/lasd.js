@@ -445,7 +445,7 @@ $(function(){
 					// $('#errorvalidation').removeClass('oculto');
 
 					$('#errorvalidation2 .alert').html(obj["msj"]);
-					$('#errorvalidation2').removeClass('oculto');
+					$('#errorvalidation2').removeClass('hidden');
 				}
 			},
 

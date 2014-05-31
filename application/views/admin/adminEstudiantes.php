@@ -21,35 +21,36 @@
 								<?php echo form_open('admin/estudianteLista/' . $datos['Institucion_rut'], array('class' => 'formajax')) ?>
 						        	<div class="btn-group btn-group-justified" data-toggle="buttons">
 
+
 									  <label class="btn btn-primary">
-									    <input name="check10001" class="checkboxCurso" type="checkbox" value="10001">  1
+									    <input name="check10002" class="checkboxCurso" type="checkbox" value="10002">  1
 									  </label>
 									  <label class="btn btn-primary">
-									    <input name="check10002" class="checkboxCurso" type="checkbox" value="10002">  2
+									    <input name="check10003" class="checkboxCurso" type="checkbox" value="10003">  2
 									  </label>
 									  <label class="btn btn-primary">
-									    <input name="check10003" class="checkboxCurso" type="checkbox" value="10003">  3
+									    <input name="check10004" class="checkboxCurso" type="checkbox" value="10004">  3
 									  </label>
 									  <label class="btn btn-primary">
-									    <input name="check10004" class="checkboxCurso" type="checkbox" value="10004">  4
+									    <input name="check10005" class="checkboxCurso" type="checkbox" value="10005">  4
 									  </label>
 									  <label class="btn btn-primary">
-									    <input name="check10005" class="checkboxCurso" type="checkbox" value="10005">  5
+									    <input name="check10006" class="checkboxCurso" type="checkbox" value="10006">  5
 									  </label>
 									  <label class="btn btn-primary">
-									    <input name="check10006" class="checkboxCurso" type="checkbox" value="10006">  6.1
+									    <input name="check10007" class="checkboxCurso" type="checkbox" value="10007">  6.1
 									  </label>
 									  <label class="btn btn-primary">
-									    <input name="check10007" class="checkboxCurso" type="checkbox" value="10007">  6.2
+									    <input name="check10008" class="checkboxCurso" type="checkbox" value="10008">  6.2
 									  </label>
 									  <label class="btn btn-primary">
-									    <input name="check10008" class="checkboxCurso" type="checkbox" value="10008">  7
+									    <input name="check10009" class="checkboxCurso" type="checkbox" value="10009">  7
 									  </label>
 									  <label class="btn btn-primary">
-									    <input name="check10009" class="checkboxCurso" type="checkbox" value="10009">  8
+									    <input name="check10010" class="checkboxCurso" type="checkbox" value="10010">  8
 									  </label>
 									  <label class="btn btn-primary">
-									    <input name="check10010" class="checkboxCurso" type="checkbox" value="10010">  9
+									    <input name="check10001" class="checkboxCurso" type="checkbox" value="10001">  9
 									  </label>
 									  <label class="btn btn-primary">
 									    <input name="check10011" class="checkboxCurso" type="checkbox" value="10011">  10

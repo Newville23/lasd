@@ -1,0 +1,198 @@
+body{
+	background-color: #E5E5E6;
+
+}
+
+
+header{
+	height: 70px;
+
+}
+
+header h1{
+	margin-top: 0;
+	margin-bottom: 0;
+} 
+
+header h1 a{
+	background: url(../img/LandingFlugel/flugel_logo.png) no-repeat;
+	background-size:contain;
+	display:block;
+	height:34px;
+	outline:none;
+	text-indent:-9999px;
+	width:164px;
+}
+
+.navbar-default{
+	background-color: #FFF;
+}
+
+/**  SECTION START **/
+
+#start{
+	background: url(../img/LandingFlugel/a1.png) no-repeat;
+	padding: 48px;
+	color: white;
+	height: 635px;
+	-webkit-background-size: cover; 
+	-moz-background-size: cover; 
+	-o-background-size: cover; 
+	background-size: cover; 
+	margin: 0 auto;
+	width: 100%; 
+}
+
+#start h2{
+	font: 5em "Open Sans", Helvetica, Arial, sans-serif;
+	font-weight: bold;
+	line-height: 1.1;
+	margin-top: 60px;
+}
+#start-p{
+	font: 2em "Open Sans", Helvetica, Arial, sans-serif;
+	color: #444;/**#ACB3B5**/
+	font-weight: 300; 
+	margin-top: 40px;
+}
+
+#start-p{
+	padding: none;
+}
+
+.post-it{
+	background: #fefabc;
+	padding: 15px;
+	font-family: 'Gloria Hallelujah', cursive;
+	font-size: 1.8em;
+	color: #3F3F3F;
+	width: 200px;
+
+	/*-moz-transform: rotate(7deg);
+	-webkit-transform: rotate(7deg);
+	-o-transform: rotate(7deg);
+	-ms-transform: rotate(7deg);
+	transform: rotate(7deg);*/
+
+	box-shadow: 0px 4px 6px #333;
+	-moz-box-shadow: 0px 4px 6px #333;
+	-webkit-box-shadow: 0px 4px 6px #333; 
+}
+
+#mid-1 h2{
+	background: url(../img/LandingFlugel/lapiz.png) center no-repeat;
+	
+	display:block;
+	height:45px;
+	outline:none;
+	text-indent:-9999px;
+	width:469px;
+}
+/** EXP **/
+
+	.exp{
+		
+		padding: 40px 0;
+	}
+
+	.exp h2{
+		
+		font-size: 3.5em;
+		font-weight: 300;
+		margin-top: 60px;
+	}
+
+	.exp p{
+		
+		font-size: 1.5em;
+		font-weight: 300;
+		margin-top: 30px;
+		margin-bottom: 60px;
+	}
+
+
+/** DEVICES **/
+
+#devices{
+	background: #204C86;
+	color: #ACB3B5;
+}
+
+#devices-1{
+	width: 624px;
+	margin-top: 115px;
+	margin-bottom: 80px;
+}
+
+#devices-2 {
+	margin-top: 115px;
+}
+
+#devices-2 h2{
+	font-size: 3em;
+	font-weight: 300;
+}
+
+#devices-2 p{
+	font-size: 1.6em;
+	font-weight: 200;
+	margin-top: 40px;
+}
+
+/** NODE **/
+
+#node{
+	background: #204C86;
+	color: #ACB3B5;
+}
+
+#node-1{
+	width: 624px;
+	margin-top: 115px;
+	margin-bottom: 80px;
+}
+
+#node-2 {
+	margin-top: 115px;
+}
+
+#node-2 h2{
+	font-size: 3em;
+	font-weight: 300;
+}
+
+#node-2 p{
+	font-size: 1.6em;
+	font-weight: 200;
+	margin-top: 40px;
+}
+/** FOOTER **/
+
+#footer{
+	background: #3F4944 url(../img/LandingFlugel/logo-gris.png) center 30px no-repeat;
+	color:  #ACB3B5;
+}
+
+#footer h2{
+	display: none;
+}
+
+/** MODAL **/
+
+#modal-sign{
+	background: #204C86;
+	color: white;
+	text-align: center;
+	
+}
+
+#modal-sign a{
+	
+	color: white;
+	font-size: 1.8em;
+    padding-top: 21px;
+    padding-bottom: 22px;
+    padding-left: 90px;
+    padding-right: 100px;
+	text-decoration:none;
+}

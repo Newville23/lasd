@@ -163,6 +163,8 @@ class User_model extends CI_model
 		 	if ($stringCursos != null) {
 		 		$string = $string . "and Curso_codigo IN (000" . $stringCursos . ")";
 		 	}
+
+		 	$string = $string . " order by nombre, apellido";
 		 	
 		 	if ($data['busquedaUser'] != '' || $stringCursos != null) {
 		 		$query = $this->db->query($string);

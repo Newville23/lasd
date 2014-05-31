@@ -1,37 +1,3 @@
-	<div class="row hidden-xs" style="margin-top: 100px">
-		<div class="hidden col-md-12">
-
-			<div id="myCarousel" class="carousel slide">
-				<ol class="carousel-indicators">
-			    	<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-			    	<li data-target="#myCarousel" data-slide-to="1"></li>
-			    	<li data-target="#myCarousel" data-slide-to="2"></li>
-			    	<li data-target="#myCarousel" data-slide-to="3"></li>
-			 	</ol>
-			  <!-- Carousel items -->
-			  	<div class="carousel-inner" style="background-color: rgba(0, 0, 0, 0.5);">
-			    	<div class="active item">
-			    		<i style="font-size: 20em; color: #fff" class="fa fa-twitter"></i>
-			    	</div>
-			    	<div class="item">
-			    		<i style="font-size: 20em; color: #fff" class="fa fa-cogs"></i>
-			    	</div>
-			    	<div class="item">
-			    		<i style="font-size: 20em; color: #fff" class="fa fa-github-alt"></i>
-			    	</div>
-			    	<div class="item">
-			    		<i style="font-size: 20em; color: #fff" class="fa fa-spinner fa-spin"></i>
-			    	</div>
-			  	</div>
-			  <!-- Carousel nav -->
-			  	<a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-			  	<a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-			</div>
-
-		</div>
-	</div>
-
-
 	<div class="content visible-xs">
 
 		<div class="row" style="margin-top: 15%;">

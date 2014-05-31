@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="es">
 	<head>
-		<title><?php echo $title ?> - Flügel Project</title>
+		<title>Flügel -  <?php echo $title ?></title>
 		<meta charset="UTF-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes" />
+        <meta name="description" property="og:description" content="Sistema de gestión basado en la excelencia, permite caracterizar totalmente a las Instituciones, de acuerdo a los indicadores académicos de interés, la verificación en tiempo real de estos y apoya el proceso de formación de los estudiantes." />
+        <meta name="keywords" content="flügel, flugel, iflugel, iflügel, iflugel, educación, volemos juntos, gestión, Cluster, music videos" />
 
 		<link rel="stylesheet" href="<?php  echo base_url("bootstrap/css/bootstrap.min.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
@@ -21,6 +23,17 @@
         <script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
         <script src="<?php  echo base_url("bootstrap/js/datepicker/bootstrap-datepicker.js"); ?>"></script>
         <script src="<?php  echo base_url("bootstrap/js/highcharts.js"); ?>"></script>
+
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+          ga('create', 'UA-51348382-1', 'iflugel.co');
+          ga('send', 'pageview');
+
+        </script>
     	
         <style type="text/css">
 

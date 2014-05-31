@@ -22,7 +22,7 @@ class Login extends CI_Controller
 			redirect($this->sesion->get('level'));
         }
 
-        $data['title'] = 'Menú';
+        $data['title'] = 'Volemos Juntos';
 		$data['lasd'] = 'Lasd';	
 
 		$this->validacion_atributos();
@@ -35,8 +35,8 @@ class Login extends CI_Controller
 			{
                 $data['error'] = 'Datos incorrectos';
                 
-                $this->load->view('login/header', $data);
-				$this->load->view('login/index', $data);
+                //$this->load->view('login/header', $data);
+				$this->load->view('login/index2', $data);
 				$this->load->view('templates/footer', $data);
 				
             }
@@ -44,8 +44,8 @@ class Login extends CI_Controller
             {
                 $data['error'] = 'Usuario deshabilitado';
 
-                $this->load->view('login/header', $data);
-				$this->load->view('login/index', $data);
+                //$this->load->view('login/header', $data);
+				$this->load->view('login/index2', $data);
 				$this->load->view('templates/footer', $data);
 				
             }
@@ -69,8 +69,8 @@ class Login extends CI_Controller
 
 			$data['error'] = validation_errors();
 
-			$this->load->view('login/header', $data);
-			$this->load->view('login/index', $data);
+			//$this->load->view('login/header', $data);
+			$this->load->view('login/index2', $data);
 			$this->load->view('templates/footer', $data);//
 		}
         
