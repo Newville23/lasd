@@ -31,8 +31,8 @@ header h1 a{
 /**  SECTION START **/
 
 #start{
-	background: url(../img/LandingFlugel/a1.png) no-repeat;
-	padding: 48px;
+	background: url(../img/LandingFlugel/a2.png) no-repeat;
+	padding: 48px 10px 48px 10px;
 	color: white;
 	height: 635px;
 	-webkit-background-size: cover; 
@@ -40,20 +40,22 @@ header h1 a{
 	-o-background-size: cover; 
 	background-size: cover; 
 	margin: 0 auto;
-	width: 100%; 
+	width: 100%;
 }
 
 #start h2{
-	font: 5em "Open Sans", Helvetica, Arial, sans-serif;
+	font: 4em "Open Sans", Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	line-height: 1.1;
 	margin-top: 60px;
+	text-shadow: 0 2px 2px rgba(0,0,0,0.5);
 }
 #start-p{
-	font: 2em "Open Sans", Helvetica, Arial, sans-serif;
-	color: #444;/**#ACB3B5**/
-	font-weight: 300; 
+	font: 1.8em "Open Sans", Helvetica, Arial, sans-serif;
+	/*font-weight: 00; */
 	margin-top: 40px;
+	color: #fff;
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
 }
 
 #start-p{

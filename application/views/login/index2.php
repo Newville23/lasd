@@ -175,7 +175,7 @@
 
 		<div class="container">
 			<div class=" col-md-6">
-				<img id="devices-1" src="<?php  echo base_url("bootstrap/img/LandingFlugel/devices.png"); ?>">
+				<img id="devices-1" style="width: 100%;" src="<?php  echo base_url("bootstrap/img/LandingFlugel/devices.png"); ?>">
 			</div>
 
 			<div id="devices-2"  class="col-md-5 col-md-offset-1">
@@ -201,7 +201,7 @@
 
 		<div class="container">
 			<div class=" col-md-6">
-				<img id="node-1" style="height: 390px;width: 360px;" src="<?php  echo base_url("bootstrap/img/LandingFlugel/node.png"); ?>">
+				<img id="node-1" style="height: 66%;width: 80%;" src="<?php  echo base_url("bootstrap/img/LandingFlugel/node.png"); ?>">
 			</div>
 
 			<div id="node-2"  class="col-md-5 col-md-offset-1">

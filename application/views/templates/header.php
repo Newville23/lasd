@@ -38,7 +38,7 @@
         <style type="text/css">
 
             body {
-                background: url("//trello-attachments.s3.amazonaws.com/5325166619555a642af24408/536ac179282d995e6799ac8b/1440x700/9c46ded5a54d5180946c46509224b256/fondo1.1.png") 
+                background: url("<?php  echo base_url("bootstrap/img/images/fondoflugecenter.png"); ?>") 
                 no-repeat bottom center fixed #bdddeb;
                 padding-top: 70px;
             }

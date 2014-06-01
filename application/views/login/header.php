@@ -6,7 +6,7 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="description" property="og:description" content="Sistema de gestión basado en la excelencia, permite caracterizar totalmente a las Instituciones, de acuerdo a los indicadores académicos de interés, la verificación en tiempo real de estos y apoya el proceso de formación de los estudiantes." />
-		<meta name="keywords" content="flügel, flugel, iflugel, iflügel, iflugel, educación, volemos juntos, gestión, Cluster, music videos" />
+		<meta name="keywords" content="flügel, flugel, iflugel, iflügel, iflugel, educación, volemos juntos, gestión, Cluster" />
 
 		<link rel="stylesheet" type="text/css" href="<?php  echo base_url("bootstrap/css/bootstrap.min.css"); ?>">
         <link rel="stylesheet" href="<?php echo base_url("font-awesome/css/font-awesome.min.css"); ?>">
