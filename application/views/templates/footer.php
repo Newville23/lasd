@@ -4,9 +4,15 @@
 					<div class="text-muted" ><small>Copyright &copy; 2013 <?php echo $lasd;?></small></div>
 				</div>
 			</div>
+<<<<<<< HEAD
 		</footer> -->
 		
 		
+=======
+		</footer>
+		 -->
+
+>>>>>>> origin/Newville
 		<script src="<?php  echo base_url("bootstrap/js/bootstrap.min.js"); ?>"></script>
 		<script src="<?php  echo base_url("bootstrap/js/summernote.min.js"); ?>"></script>
 		<script src="<?php echo base_url("bootstrap/js/Chart.min.js"); ?>"></script>
