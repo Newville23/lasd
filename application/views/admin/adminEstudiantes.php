@@ -3,7 +3,7 @@
 		
 		<?php $this->load->view('admin/includes/menu-admin'); ?>
 
-		<div class="col-md-10 col-md-offset-2">
+		<div class="col-md-10 col-md-offset-2 col-md-clear">
 			<div class="">
 
 				<div class="panel-group" id="accordion">
@@ -11,7 +11,7 @@
 					<div class="panel panel-default">
 					    <div class="panel-heading">
 					    	<h4 class="panel-title">
-					        	<a class="accordion-toggle Matbar-clear" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+					        	<a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
 					          		Cursos
 					        	</a>
 					    	</h4>
@@ -19,48 +19,46 @@
 					    <div id="collapseOne" class="panel-collapse collapse in">
 					    	<div class="panel-body">
 								<?php echo form_open('admin/estudianteLista/' . $datos['Institucion_rut'], array('class' => 'formajax')) ?>
-						        	<div class="btn-group btn-group-justified" data-toggle="buttons">
-
-
-									  <label class="btn btn-primary">
+						        	<div class="" data-toggle="buttons" style="">
+									  <label class="btn Filtbar">
 									    <input name="check10002" class="checkboxCurso" type="checkbox" value="10002">  1
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10003" class="checkboxCurso" type="checkbox" value="10003">  2
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10004" class="checkboxCurso" type="checkbox" value="10004">  3
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10005" class="checkboxCurso" type="checkbox" value="10005">  4
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10006" class="checkboxCurso" type="checkbox" value="10006">  5
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10007" class="checkboxCurso" type="checkbox" value="10007">  6.1
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10008" class="checkboxCurso" type="checkbox" value="10008">  6.2
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10009" class="checkboxCurso" type="checkbox" value="10009">  7
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10010" class="checkboxCurso" type="checkbox" value="10010">  8
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10001" class="checkboxCurso" type="checkbox" value="10001">  9
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10011" class="checkboxCurso" type="checkbox" value="10011">  10
 									  </label>
-									  <label class="btn btn-primary">
+									  <label class="btn Filtbar">
 									    <input name="check10012" class="checkboxCurso" type="checkbox" value="10012">  11
 									  </label>
 									</div>
 								
-									<div class="col-md-8 col-md-offset-4">
+									<div class="col-md-8 col-md-clear col-md-offset-4">
 										
 											<div class="input-group pull-right" style="margin: 20px;">
 												<input name="busquedaUser" data-uri="<?php echo site_url('admin/estudianteLista/' . $datos['Institucion_rut']) ?>" 
@@ -69,7 +67,7 @@
 											</div>
 										
 									</div>
-									<div class="busquedaUserResul col-md-12">
+									<div class="busquedaUserResul col-md-12 col-sm-12 col-xs-12 col-md-clear">
 										
 									</div>
 									

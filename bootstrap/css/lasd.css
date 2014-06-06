@@ -49,6 +49,21 @@ a.Matbar2:hover{
   box-shadow: 0px 0px 20px rgb(121, 191, 255);
 }
 
+.Filtbar{
+  color: #fff;
+  border-radius: 4px;
+  background-color: #0075c4;
+  margin: 4px;
+  padding: 10px 20px 10px 20px;
+}
+.Filtbar:hover{
+  background-color: rgb(0, 105, 175);
+  box-shadow: 0px 0px 20px rgb(121, 191, 255);
+  color: #fff;
+}
+.Filtbar.active{
+  background-color: rgb(0, 59, 99);
+}
 .container2 {
     
     padding: 19px 29px 29px;
