@@ -2,17 +2,14 @@ body{
 	background-color: #E5E5E6;
 
 }
-
-
 header{
 	height: 70px;
-
 }
 
 header h1{
 	margin-top: 0;
 	margin-bottom: 0;
-} 
+}
 
 header h1 a{
 	background: url(../img/LandingFlugel/flugel_logo.png) no-repeat;
@@ -32,13 +29,14 @@ header h1 a{
 
 #start{
 	background: url(../img/LandingFlugel/a2.png) no-repeat;
+
 	padding: 48px 10px 48px 10px;
 	color: white;
 	height: 635px;
-	-webkit-background-size: cover; 
-	-moz-background-size: cover; 
-	-o-background-size: cover; 
-	background-size: cover; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 	margin: 0 auto;
 	width: 100%;
 }
@@ -47,7 +45,6 @@ header h1 a{
 	font: 4em "Open Sans", Helvetica, Arial, sans-serif;
 	font-weight: bold;
 	line-height: 1.1;
-	margin-top: 60px;
 	text-shadow: 0 2px 2px rgba(0,0,0,0.5);
 }
 #start-p{
@@ -60,6 +57,12 @@ header h1 a{
 
 #start-p{
 	padding: none;
+}
+
+#empezar{
+	-webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
+box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
 }
 
 .post-it{
@@ -78,12 +81,12 @@ header h1 a{
 
 	box-shadow: 0px 4px 6px #333;
 	-moz-box-shadow: 0px 4px 6px #333;
-	-webkit-box-shadow: 0px 4px 6px #333; 
+	-webkit-box-shadow: 0px 4px 6px #333;
 }
 
 #mid-1 h2{
 	background: url(../img/LandingFlugel/lapiz.png) center no-repeat;
-	
+
 	display:block;
 	height:45px;
 	outline:none;
@@ -93,19 +96,19 @@ header h1 a{
 /** EXP **/
 
 	.exp{
-		
+
 		padding: 40px 0;
 	}
 
 	.exp h2{
-		
+
 		font-size: 3.5em;
 		font-weight: 300;
 		margin-top: 60px;
 	}
 
 	.exp p{
-		
+
 		font-size: 1.5em;
 		font-weight: 300;
 		margin-top: 30px;
@@ -122,13 +125,9 @@ header h1 a{
 
 #devices-1{
 	width: 624px;
-	margin-top: 115px;
-	margin-bottom: 80px;
-}
+	}
 
-#devices-2 {
-	margin-top: 115px;
-}
+
 
 #devices-2 h2{
 	font-size: 3em;
@@ -148,16 +147,6 @@ header h1 a{
 	color: #ACB3B5;
 }
 
-#node-1{
-	width: 624px;
-	margin-top: 115px;
-	margin-bottom: 80px;
-}
-
-#node-2 {
-	margin-top: 115px;
-}
-
 #node-2 h2{
 	font-size: 3em;
 	font-weight: 300;
@@ -173,6 +162,7 @@ header h1 a{
 #footer{
 	background: #3F4944 url(../img/LandingFlugel/logo-gris.png) center 30px no-repeat;
 	color:  #ACB3B5;
+
 }
 
 #footer h2{
@@ -185,11 +175,11 @@ header h1 a{
 	background: #204C86;
 	color: white;
 	text-align: center;
-	
+
 }
 
 #modal-sign a{
-	
+
 	color: white;
 	font-size: 1.8em;
     padding-top: 21px;

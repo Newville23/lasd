@@ -14,7 +14,7 @@
 		<link rel="stylesheet" href="<?php //echo base_url("bootstrap/css/lasd.css"); ?>">
 		<link rel="stylesheet" type="text/css" href="<?php  echo base_url("bootstrap/css/custom.css"); ?>">
 	<title>Flügel</title>
-	
+
 	<!-- Favicons -->
         <link rel="icon" href="<?php  echo base_url("bootstrap/img/images/favicon64.ico"); ?>" sizes="64x64 32x32 24x24 16x16" />
         <link rel="apple-touch-icon-precomposed" sizes="144x144" href="<?php  echo base_url("bootstrap/img/images/apple-touch-icon-144-precomposed.png"); ?>">
@@ -34,7 +34,7 @@
 		body{
 			background-color: #FFF;
 			font-family: "Open Sans",Helvetica,Arial,sans-serif;
-			perspective: 1px;
+			
 		}
 		.navbar-default{
 			background-color: #FFF;
@@ -102,7 +102,7 @@
 			font-weight:bold;
 			width: 100px;
 
-			
+
 		}
 
 		.navbar-nav>li>a:hover{
@@ -112,20 +112,20 @@
 			-moz-transition: background-color 0.5s ease,color 0.5s ease;
 			-o-transition: background-color 0.5s ease,color 0.5s ease;
 			transition: background-color 0.5s ease,color 0.5s ease;
-		}   
+		}
 
-	
+
 
 
 	</style>
   </head>
-  <body>
-	<header>
-	
+  <body data-target="#empezar" data-spy="scroll" >
+	<header >
+
 		<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
 			<div class="container">
 				<div class="navbar-header">
-					
+
 						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" style="margin-top: 18px; margin-bottom: 18px;">
 							<span class="sr-only">Toggle navigation</span>
 							<span class="icon-bar"></span>
@@ -134,57 +134,58 @@
 						</button>
 						<h1><a id="min" class="navbar-brand" href="#" style="margin-top: 10px; margin-bottom: 10px;">Flügel Project</a></h1>
 				</div>
-				
+
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
 						<li ><a class="text-center" data-toggle="modal" data-target=".bs-example-modal-sm" href="#">Ingresar</a></li>
-						
-					</ul>   
+
+					</ul>
 
 
 				</div>
 			</div>
-					
+
 		</nav>
 
 	</header>
 
-	<div id="start" class="container-fluid">
-		<div class="container" style=" margin-bottom: 30px;">
+	<section id="start" class="container-fluid">
+
+		<div class="container" style=" margin-bottom: 30px; margin-top: 60px;">
+		<div class="col-lg-6 col-sm-12">
 			<h2>Volemos Juntos</h2>
-			<p id="start-p" class=" col-md-6 col-sm-12" style="padding-left: 0px;">Obtén reportes precisos y confiables de tu plantel educativo en tiempo real, y has que tu progreso en la educación sea productivo. </p>
-			
-			<p><a class="btn" href="#">Empieza ahora</a></p>
-			
-		</div>
-			
-	</div>
-
-	<section  class="exp container-fluid">
-		<div class="container">
-			<div class="col-md-9 col-md-offset-2">
-				<h2 class="text-center">No pierdas ningún progreso de tu institución</h2>
-				<p class="text-center">Infórmate, evalúa y comunica desde cualquier lugar los logros obtenidos por tu plantel educativo</p>
-			</div>	
-		</div>	
-
-	</section>  
-
-	
-	<section id="devices" class="container-fluid">
-
-		<div class="container">
-			<div class=" col-md-6">
-				<img id="devices-1" style="width: 100%;" src="<?php  echo base_url("bootstrap/img/LandingFlugel/devices.png"); ?>">
-			</div>
-
-			<div id="devices-2"  class="col-md-5 col-md-offset-1">
-				<h2>Integra tu plataforma a cualquier dispositivo</h2>
-
-				<p>Con Flügel sigue minuto a minuto el progreso de las clases y cursos que conforman tu institución. Úsala desde cualquier dispositivo móvil o tablet.</p>               
+			<p id="start-p" >Obtén reportes precisos y confiables de tu plantel educativo en tiempo real, y has que tu progreso en la educación sea productivo.</p>
+			<a id="empezar" class="btn" href="#empezar" style="margin-right: 0px;">Empieza ahora</a>
 			</div>
 		</div>
 		
+	</section>
+
+	<section  id="empieza" class="exp container-fluid">
+		<div class="container">
+			<div class="col-md-8 col-md-offset-2 col-sm-12 col-sx-12" >
+				<h2 class=" text-center">No pierdas ningún progreso de tu institución</h2>
+				<p class=" text-center">Infórmate, evalúa y comunica desde cualquier lugar los logros obtenidos por tu plantel educativo</p>
+			</div>
+		</div>
+
+	</section>
+ 
+
+	<section id="devices" class="container-fluid" style="padding-top: 115px; padding-bottom: 80px;">
+
+		<div class="container">
+			<div class="col-md-6 col-sm-12">
+				<img id="devices-1" style="width: 100%;" src="<?php  echo base_url("bootstrap/img/LandingFlugel/devices.png"); ?>">
+			</div>
+
+			<div id="devices-2"  class="col-md-5 col-md-offset-1 col-sm-12">
+				<h2>Integra tu plataforma a cualquier dispositivo</h2>
+
+				<p>Con Flügel sigue minuto a minuto el progreso de las clases y cursos que conforman tu institución. Úsala desde cualquier dispositivo móvil o tablet.</p>
+			</div>
+		</div>
+
 	</section>
 
 	<section  class=" exp container-fluid">
@@ -192,46 +193,45 @@
 			<div class="col-md-8 col-md-offset-2">
 				<h2 class="text-center">Flügel se preocupa por el camino que ellos quieren formar</h2>
 				<p class="text-center">Fomenta el trabajo en equipo en tu plantel educativo. Desarrolla, crea e innova de la mano de un grupo de trabajo sólido y amigable; entre padres, estudiantes y maestros </p>
-			</div>	
-		</div>	
-
-	</section>  
-
-	<section id="node" class="container-fluid">
-
-		<div class="container">
-			<div class=" col-md-6">
-				<img id="node-1" style="height: 66%;width: 80%;" src="<?php  echo base_url("bootstrap/img/LandingFlugel/node.png"); ?>">
-			</div>
-
-			<div id="node-2"  class="col-md-5 col-md-offset-1">
-				<h2>Relaciónate fácil y de inmediato</h2>
-
-				<p>Mantén informado a tu grupo de trabajo acerca del progreso del contenido por asignaturas y el registro de indicadores que representen el desarrollo en la formación académica. Vincula y desvincula docentes, estudiantes y acudientes en espacios de cooperación que incentiven la excelencia académica.</p>               
 			</div>
 		</div>
-		
+
+	</section>
+
+	<section id="node" class="container-fluid" style="padding-top: 115px; padding-bottom: 80px;">
+
+		<div class="container">
+			<div class="col-md-6 col-sm-12">
+				<img id="node-1" style="height: 66%;width: 80%;" src="<?php  echo base_url("bootstrap/img/LandingFlugel/node.png"); ?>">
+
+			</div>
+
+			<div id="node-2"  class="col-md-5 col-md-offset-1 col-sm-12">
+				<h2>Relaciónate fácil y de inmediato</h2>
+
+				<p>Mantén informado a tu grupo de trabajo acerca del progreso del contenido por asignaturas y el registro de indicadores que representen el desarrollo en la formación académica. Vincula y desvincula docentes, estudiantes y acudientes en espacios de cooperación que incentiven la excelencia académica.</p>
+		</div>
+
 	</section>
 
 
-	
 	<footer>
 		<div id="footer" class="container-fluid ">
 			<div class="container">
 				<div class="col-md-4">
 
 				<h2>Footer</h2>
-				<p style="margin-bottom: 100px; margin-top: 40px;">Nuestro principal interés es brindar una red de cooperación académica, con el fin de alcanzar la excelencia.</p>
-				<p >&copy; 2014 Flügel Project, Inc.</p>
+				<p  class="visible-lg" style="margin-bottom: 80px; margin-top: 40px;">Nuestro principal interés es brindar una red de cooperación académica, con el fin de alcanzar la excelencia.</p>
+				<p class="text-muted" >&copy; 2014 Flügel Project, Inc.</p>
 				</div>
 			</div>
-		
+
 
 		</div>
 
-	</footer>
-	
-	<!-- Modal de Login --> 
+	</footer> 
+
+	<!-- Modal de Login -->
 	<div class="modal fade in bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
 
 		<div class="modal-dialog modal-sm">
@@ -244,10 +244,10 @@
 
 					<div id="errorvalidation2" class="hidden">
                         <div class="alert alert-danger">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>   
+                            <button type="button" class="close" data-dismiss="alert">&times;</button>
                         </div>
                     </div>
-					
+
 					<div class="main">
 						<?php echo form_open('login/loginajax', array('class' => '' )) ?>
 							<div class="form-group">
@@ -267,7 +267,7 @@
 					</div>
 
 				</div>
-				
+
 			</div><!-- /.modal-content -->
 		</div><!-- /.modal-dialog -->
 	</div><!-- /.modal -->
