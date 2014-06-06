@@ -57,8 +57,7 @@
 			font: 1.5em "Open Sans", Helvetica, Arial, sans-serif;
 			height: 70px;
 			padding: 18px 18px 18px 18px;
-			margin-top: 40px;
-			margin-right: 1000px;
+			margin-top: 20px;
 			font-weight: bold;
 			text-decoration: none;
 			width: 250px;
@@ -151,7 +150,7 @@
 
 	<section id="start" class="container-fluid">
 
-		<div class="container" style=" margin-bottom: 30px; margin-top: 60px;">
+		<div class="container" style=" margin-bottom: 30px; margin-top: 3.75em;">
 		<div class="col-lg-6 col-sm-12">
 			<h2>Volemos Juntos</h2>
 			<p id="start-p" >Obtén reportes precisos y confiables de tu plantel educativo en tiempo real, y has que tu progreso en la educación sea productivo.</p>

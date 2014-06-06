@@ -52,7 +52,7 @@ header h1 a{
 	/*font-weight: 00; */
 	margin-top: 40px;
 	color: #fff;
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
 }
 
 #start-p{
@@ -60,9 +60,9 @@ header h1 a{
 }
 
 #empezar{
-	-webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.5);
-	text-shadow: 1px 1px 1px rgba(0,0,0,0.8);
+	-webkit-box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
+	box-shadow: 1px 1px 1px 1px rgba(0,0,0,0.4);
+	text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
 }
 
 .post-it{
