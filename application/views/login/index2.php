@@ -22,7 +22,7 @@
 
 	<!-- Fonts -->
 	<link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-	<script src="<?php  echo base_url("bootstrap/js/jquery.js"); ?>"></script>
+	<script src="<?php  echo base_url("bootstrap/js/jquery.min.js"); ?>"></script>
 	<script src="<?php  echo base_url("bootstrap/js/datepicker/bootstrap-datepicker.js"); ?>"></script>
 	<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 	<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
