@@ -61,7 +61,7 @@ class Admin extends CI_Controller
 		$data['active'] = 3;
 
 		$data['datos'] = $this->user_model->getDatosUsuario('Profesor');
-
+		//echo "<pre>"; print_r($data); echo "</pre>";
 		$this->load->view('templates/header', $data);
 		$this->load->view('admin/adminEstudiantes', $data);
 		$this->load->view('templates/footer', $data);
@@ -74,6 +74,9 @@ class Admin extends CI_Controller
 		$data['lasd'] = 'Lasd';
 		$data['linkIndex'] = 'admin';
 		$data['active'] = 4;
+
+		$data['datos'] = $this->user_model->getDatosUsuario('Profesor');
+		//echo "<pre>"; print_r($data); echo "</pre>";
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('admin/adminDocentes', $data);
@@ -454,13 +457,21 @@ class Admin extends CI_Controller
 
 	function estudianteLista($rut)
 	{
+		// necesaria para calcular edad
 		$this->load->library('tiempo');
-		//$descripcion = str_replace("-", " ", $descripcion);
 
-		//$data['listaEstudiante'] = $this->user_model->getEstudianteBy($rut, $id, $descripcion);
 		$data['listaEstudiante'] = $this->user_model->getEstudianteByPost($rut);
 		$this->load->view('admin/includes-estudiante/lista-estudiantes', $data);
 		//echo "<pre>"; print_r($data); echo "</pre>";
+	}
+
+	function docentesLista($rut)
+	{
+		$this->load->library('tiempo');
+
+		$data['listaDocentes'] = utf8_encode($this->user_model->getDocentesByPostJSON($rut));
+		$this->load->view('admin/includes-docente/lista-docentes', $data);
+		echo "<pre>"; echo $data['listaDocentes']; echo "</pre>";
 	}
 }
 

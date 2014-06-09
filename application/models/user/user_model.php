@@ -120,25 +120,41 @@ class User_model extends CI_model
 			//return $string;
 	}
 
+	function getDocentesByPostJSON($rut = null, $estado = 1)
+	{
+		$data = $this->input->post();
+
+		$string = "SELECT usuario, rol, estado, email, facebook, twiter, fecha_creacion, nombre, apellido, identificacion, tipo_identificacion, profesion,
+					fecha_nacimiento, Profesor.institucion_rut
+		FROM Usuario as user
+			join Profesor
+				on user.id = Profesor.Usuario_id
+		where user.rol = 'profesor'
+		and Profesor.institucion_rut = '$rut'
+		and estado = 1 ";
+
+		if (!empty($data['busquedaUser'])) {
+		 		$string = $string . "and (CONCAT(nombre, ' ', apellido) like '%" . $data['busquedaUser'] . "%' or identificacion like '%" . $data['busquedaUser'] . "%')";
+		}
+
+		$string = $string . " order by nombre, apellido";
+
+		if (!empty($data['busquedaUser'])) {
+
+		 	$query = $this->db->query($string);
+			if ($query) {
+				$resultado =  $query->result_array();
+				return utf8_decode(json_encode($resultado, JSON_UNESCAPED_UNICODE|JSON_NUMERIC_CHECK));
+			}
+		}else{echo "string";}
+
+	}
+
 	function getEstudianteByPost($rut = null, $estado = 1)
 	{
 
 		$data = $this->input->post();
 		$stringCursos = null;
-
-		// $identificacion = null;
-		// $nombre = null;
-		// $Curso_codigo = null;
-
-		// if ($id == 'identificacion') {
-		// 	$identificacion = $descripcion;
-
-		// }elseif ($id == 'nombre') {
-		// 	$nombre = $descripcion;
-
-		// }elseif ($id == 'cursocodigo') {
-		// 	$Curso_codigo = $descripcion;
-		// }
 
 		$string = "SELECT usuario, rol, estado, email, facebook, twiter, fecha_creacion, nombre, apellido, identificacion, tipo_identificacion, 
 			fecha_nacimiento, tipo_sangre, estudiante.institucion_rut, Curso_codigo, year, nombre_curso, indice   
@@ -170,6 +186,50 @@ class User_model extends CI_model
 		 		$query = $this->db->query($string);
 				if ($query) {
 					return $query->result_array();
+				}
+		 	}
+
+
+			//return $string;
+	}
+
+	function getEstudianteByPostJSON($rut = null, $estado = 1)
+	{
+
+		$data = $this->input->post();
+		$stringCursos = null;
+
+		$string = "SELECT usuario, rol, estado, email, facebook, twiter, fecha_creacion, nombre, apellido, identificacion, tipo_identificacion, 
+			fecha_nacimiento, tipo_sangre, estudiante.institucion_rut, Curso_codigo, year, nombre_curso, indice   
+			FROM Usuario as user
+				join Estudiante as estudiante
+				on user.id = estudiante.Usuario_id
+				join Matricula as matricula
+				on matricula.estudiante_identificacion = estudiante.identificacion
+				join Curso as curso
+			on matricula.Curso_codigo = curso.codigo
+			where estudiante.institucion_rut = '$rut' and estado = 1 ";
+
+		 	if (!empty($data['busquedaUser'])) {
+		 		$string = $string . "and (CONCAT(nombre, ' ', apellido) like '%" . $data['busquedaUser'] ."%' or identificacion like '%" . $data['busquedaUser'] ."%') ";
+		 	}
+
+		 	foreach ($data as $key => $value) {
+		 		if ($key != 'busquedaUser') {
+		 			$stringCursos = $stringCursos . "," . $value;
+		 		}
+		 	}
+		 	if ($stringCursos != null) {
+		 		$string = $string . "and Curso_codigo IN (000" . $stringCursos . ")";
+		 	}
+
+		 	$string = $string . " order by nombre, apellido";
+		 	
+		 	if ($data['busquedaUser'] != '' || $stringCursos != null) {
+		 		$query = $this->db->query($string);
+				if ($query) {
+					$resultado = $query->result_array();
+					return utf8_decode(json_encode($resultado, JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT|JSON_NUMERIC_CHECK));
 				}
 		 	}
 

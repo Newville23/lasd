@@ -101,7 +101,8 @@ class Sesion
 				header('location:' .  site_url("login"));
 				exit;
 			}
-			Sesion::tiempo();
+			// se comenta temporalmente 
+			//Sesion::tiempo();
 
 			//$_SESSION['level'] : variable 'string' que se crea al usuario iniciar sesión
 			if (Sesion::getLevel($level) > Sesion::getLevel(Sesion::get('level'))) {

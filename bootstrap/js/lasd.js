@@ -467,7 +467,7 @@ $(function(){
 
 
 	//========== F O R M U L A R I O S  ==================================================================
-		$('form.formajax').on('submit', function(event) {
+		$('form').filter('.formajax').on('submit', function(event) {
 
 			event.preventDefault();
 
@@ -486,11 +486,11 @@ $(function(){
 				//$('form.formajax')[0].reset();
 
 				console.log(data);
-
+				console.log('ranger');
 			});
 		});
 
-		$('form.formajax').on('change', '.checkboxCurso', function(event) {
+		$('.busquedaUser').closest('form').on('change', '.checkboxCurso', function(event) {
 
 			event.preventDefault();
 			
@@ -506,14 +506,8 @@ $(function(){
 
 			$.post(enlace, $(form).serialize(), function(data) {
 
-
-
 				//$('#'+ ran.toString() + ' div.alerta').html(data);
 				form.find('.busquedaUserResul').html(data);
-
-
-				//console.log(data);
-
 			});
 		});
 
@@ -561,7 +555,7 @@ $(function(){
 		
 		event.preventDefault();
 
-		var valor = $(this).val().replace(/ /g , "-");
+		var valor = $(this).val();
 
 		if (valor.length > 0) {
 			
@@ -582,7 +576,8 @@ $(function(){
 	$('.busquedaUser').closest('form').on('submit' ,function(event){
 		
 		event.preventDefault();
-					
+		$('.form').filter('formajax').off('submit');
+		console.log('alerta')
 	});
 
 });

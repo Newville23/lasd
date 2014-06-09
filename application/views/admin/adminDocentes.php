@@ -3,58 +3,44 @@
 		
 	<?php $this->load->view('admin/includes/menu-admin'); ?>
 
-		<div class="col-md-10 col-md-offset-2">
-			<div class="bloquePegadoUp">
+		<div class="col-md-10 col-md-offset-2 col-md-clear">
 
-				<div class="panel-group" id="accordion">
-				  
-					<div class="panel panel-primary">
-					    <div class="panel-heading">
-					    	<h4 class="panel-title">
-					        	<a class="accordion-toggle Matbar-clear" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-					          		Filtros
-					        	</a>
-					    	</h4>
-					    </div>
-					    <div id="collapseOne" class="panel-collapse collapse">
-					    	<div class="panel-body">
-					        	<?php $this->load->view('admin/includes/filtros-docentes'); ?>
-					    	</div>
-					    </div>
-					</div>
-
+			<div class="panel panel-default">
+				<div class="panel-heading">
+					<h4 class="panel-title">
+						 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+						 	Docentes
+						 </a>
+					</h4>
 				</div>
-
-			</div>
-
-				<div class="bloquePegadoDown">
-
-					<div class="row">
-						<div class="col-md-6 pull-left margen-bottom">
-								<a 
-									id="#<?php //echo $value['id_time']; ?>" 
-									class=""
-									href=#"<?php //echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
-									data-target="#myModal" data-toggle="modal"><i class="fa fa-plus fa-lg"></i> Añadir docente nuevo</a>
-						</div>
-						<div class="col-md-6 margen-bottom">
-							<form class="">
-								<div class="input-group pull-right">
-									<input type="search" class="form-control" placeholder="Nombre del docente">
-									<span class="btn disabled input-group-addon"><i class="fa fa-search"></i> Buscar</span>
+				<div id="collapseOne" class="panel-collapse collapse in">
+					<div class="panel-body">
+						<?php echo form_open('admin/docentesLista/' . $datos['Institucion_rut']) ?>
+							<div class="row">
+								<div class="hidden col-md-4" style="margin-top: 25px;">
+										<a 
+											id="#<?php //echo $value['id_time']; ?>" 
+											class=""
+											href=#"<?php //echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
+											data-target="#myModal" data-toggle="modal"><i class="fa fa-plus fa-lg"></i> Añadir docente nuevo</a>
 								</div>
-							</form>
-						</div>
-					</div>
 
-					<?php 
-						for ($i=0; $i <10 ; $i++){
-							$this->load->view('admin/includes-docente/lista-docentes');
-						}
-					 ?>
-				</div>
-					
-		</div>
+								<div class="col-md-8 col-md-clear col-md-offset-4">
+									<div class="input-group pull-right" style="margin: 20px;">
+										<input type="search" name="busquedaUser" class="form-control input-lg busquedaUser" placeholder="Escribe el nombre o la identificación del docente">
+										<span class="btn disabled input-group-addon"><i class="fa fa-lg fa-search"></i> </span>
+									</div>
+								</div>
+							</div>
+
+							<div class="busquedaUserResul col-md-12 col-sm-12 col-xs-12 col-md-clear">
+										
+							</div>
+
+						</form>
+					</div>
+				</div>	
+			</div>	
 
 		</div>
 	</div>

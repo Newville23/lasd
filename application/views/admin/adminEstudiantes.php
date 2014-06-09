@@ -4,7 +4,6 @@
 		<?php $this->load->view('admin/includes/menu-admin'); ?>
 
 		<div class="col-md-10 col-md-offset-2 col-md-clear">
-			<div class="">
 
 				<div class="panel-group" id="accordion">
 				  
@@ -18,7 +17,7 @@
 					    </div>
 					    <div id="collapseOne" class="panel-collapse collapse in">
 					    	<div class="panel-body">
-								<?php echo form_open('admin/estudianteLista/' . $datos['Institucion_rut'], array('class' => 'formajax')) ?>
+								<?php echo form_open('admin/estudianteLista/' . $datos['Institucion_rut']) ?>
 						        	<div class="" data-toggle="buttons" style="">
 									  <label class="btn Filtbar">
 									    <input name="check10002" class="checkboxCurso" type="checkbox" value="10002">  1
@@ -57,6 +56,14 @@
 									    <input name="check10012" class="checkboxCurso" type="checkbox" value="10012">  11
 									  </label>
 									</div>
+
+									<div class="hidden col-md-4" style="margin-top: 25px;">
+										<a 
+											id="#<?php //echo $value['id_time']; ?>" 	class=""
+											href=#"<?php //echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
+											data-target="#myModal" data-toggle="modal"><i class="fa fa-plus fa-lg"></i> Añadir estudiante nuevo
+										</a>
+									</div>
 								
 									<div class="col-md-8 col-md-clear col-md-offset-4">
 										
@@ -77,26 +84,7 @@
 					</div>
 
 				</div>
-
-			</div>
-
-				<div class="">
-
-					<div class="row">
-						<div class="hidden col-md-6 pull-left margen-bottom">
-								<a 
-									id="#<?php //echo $value['id_time']; ?>" 	class=""
-									href=#"<?php //echo site_url('foro/foroModal/' . $value['Materia_id'] . '/' . $numeroClase . '/' . $value['id_time']); ?>" title="" 
-									data-target="#myModal" data-toggle="modal"><i class="fa fa-plus fa-lg"></i> Añadir estudiante nuevo</a>
-						</div>
-
-
-					</div>
-
-				</div>
 					
-		</div>
-
 		</div>
 	</div>
 </div>
