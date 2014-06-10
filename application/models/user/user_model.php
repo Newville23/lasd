@@ -139,14 +139,14 @@ class User_model extends CI_model
 
 		$string = $string . " order by nombre, apellido";
 
-		if (!empty($data['busquedaUser'])) {
+		//if (!empty($data['busquedaUser'])) {
 
 		 	$query = $this->db->query($string);
 			if ($query) {
-				$resultado =  $query->result_array();
-				return utf8_decode(json_encode($resultado, JSON_UNESCAPED_UNICODE|JSON_NUMERIC_CHECK));
+				return $resultado =  $query->result_array();
+				//return json_encode($resultado, JSON_UNESCAPED_UNICODE|JSON_NUMERIC_CHECK|JSON_PRETTY_PRINT);
 			}
-		}else{echo "string";}
+		//}
 
 	}
 
@@ -180,7 +180,7 @@ class User_model extends CI_model
 		 		$string = $string . "and Curso_codigo IN (000" . $stringCursos . ")";
 		 	}
 
-		 	$string = $string . " order by nombre, apellido";
+		 	$string = $string . " order by nombre_curso, indice, nombre, apellido";
 		 	
 		 	if ($data['busquedaUser'] != '' || $stringCursos != null) {
 		 		$query = $this->db->query($string);

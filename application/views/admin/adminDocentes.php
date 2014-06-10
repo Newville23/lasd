@@ -28,7 +28,7 @@
 								<div class="col-md-8 col-md-clear col-md-offset-4">
 									<div class="input-group pull-right" style="margin: 20px;">
 										<input type="search" name="busquedaUser" class="form-control input-lg busquedaUser" placeholder="Escribe el nombre o la identificación del docente">
-										<span class="btn disabled input-group-addon"><i class="fa fa-lg fa-search"></i> </span>
+										<span class="btn input-group-addon checkboxCurso"><i class="fa fa-lg fa-search"></i> Buscar</span>
 									</div>
 								</div>
 							</div>
@@ -46,7 +46,7 @@
 	</div>
 </div>
 
-<!-- Modal Agregar Estudiante -->
+<!-- Modal Agregar docente -->
 <div class="modal" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
       	<div class="modal-content modal-correccion">

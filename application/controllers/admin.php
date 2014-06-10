@@ -469,9 +469,11 @@ class Admin extends CI_Controller
 	{
 		$this->load->library('tiempo');
 
-		$data['listaDocentes'] = utf8_encode($this->user_model->getDocentesByPostJSON($rut));
+		$data['listaDocentes'] = $this->user_model->getDocentesByPostJSON($rut);
 		$this->load->view('admin/includes-docente/lista-docentes', $data);
-		echo "<pre>"; echo $data['listaDocentes']; echo "</pre>";
+		//echo "<pre>"; 
+		//print_r($data['listaDocentes']); 
+		//echo "</pre>";
 	}
 }
 
