@@ -124,6 +124,17 @@ private function data_dform()
 
 		return $this->db->insert('formulariosDinamicos', $data);
 	}
+
+	function _CS_setForm()
+	{
+		$data = array(
+			'name' => $this->input->post('FormName')
+		);
+
+		return $this->db->insert('CS_form', $data);
+	}
+
+
 /**
 	E L I M I N A R
 */

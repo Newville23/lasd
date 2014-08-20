@@ -40,6 +40,24 @@ class Admin extends CI_Controller
 		
 	}
 
+	function index2()
+	{
+		$data['title'] = 'Administrar Estudiantes';
+		$data['lasd'] = 'Lasd';
+		$data['linkIndex'] = 'admin';
+		$data['active'] = 3;
+
+		$data['datos'] = $this->user_model->getDatosUsuario('Profesor');
+		
+
+		$dataJSON = json_encode($data, JSON_NUMERIC_CHECK|JSON_UNESCAPED_UNICODE|JSON_PRETTY_PRINT);
+		echo "<pre>"; echo $dataJSON; echo "</pre>";
+
+		$this->load->view('templates/header', $data);
+		//$this->load->view('admin/adminEstudiantes', $data);
+		$this->load->view('templates/footer', $data);
+	}
+
 	function agregarInstitucion()
 	{
 		$data['title'] = 'Agregar Institucion';
@@ -55,14 +73,16 @@ class Admin extends CI_Controller
 
 	function adminEstudiantes()
 	{
-		$data['title'] = 'Administrar Estudiantes';
+		$data['title'] = 'Inicio administradores';
 		$data['lasd'] = 'Lasd';
 		$data['linkIndex'] = 'admin';
 		$data['active'] = 3;
 
 		$data['datos'] = $this->user_model->getDatosUsuario('Profesor');
 		//echo "<pre>"; print_r($data); echo "</pre>";
+		
 		$this->load->view('templates/header', $data);
+		//$this->load->view('admin/index', $data);
 		$this->load->view('admin/adminEstudiantes', $data);
 		$this->load->view('templates/footer', $data);
 
@@ -474,6 +494,13 @@ class Admin extends CI_Controller
 		//echo "<pre>"; 
 		//print_r($data['listaDocentes']); 
 		//echo "</pre>";
+	}
+
+	function testFunciones($usuario)
+	{
+		// $TablaUsuario = si es 'Estudiante' o 'profesor'
+		$data = $this->user_model->getDatosUsuario($usuario);
+		echo "<pre>"; print_r($data); echo "</pre>";
 	}
 }
 
