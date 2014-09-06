@@ -1,0 +1,49 @@
+<div class="" style="padding: 45px 15px 15px;">
+			<!--  Formulario de creacion y actualización  -->
+			<form name="datosCU" ng-submit="datosCU.$valid && cu.agregarUsuario(usuarios)" > 
+
+				<div class="form-group col-md-12">
+					<input type="text" required ng-model="cu.datosForm.CELULAR" min="3000000000" max="3999999999" ng-maxlength="10" ng-minlength="10" class="form-control" id="" placeholder="Ingresa el Celular">
+				</div>
+
+				<div class="form-group col-md-12">
+					<input type="text" required ng-model="cu.datosForm.NOMBRE" class="form-control" id="" placeholder="Ingresa el nombre">
+				</div>
+
+				<div class="form-group col-md-12">
+					<input type="text" ng-model="cu.datosForm.CARGO" class="form-control" id="" placeholder="Ingresa el cargo">
+				</div>
+
+				<div class="form-group col-md-12">
+					<select required ng-model="cu.datosForm.TIPO_CLIENTE" class="form-control" id="">
+						<option value="">Ingresa el tipo de cliente</option>
+						<option value="ADM">ADM</option>
+						<option value="COC">COC</option>
+						<option value="DIR">DIR</option>
+						<option value="GER">GER</option>
+						<option value="PRE">PRE</option>
+						<option value="REG">REG</option>
+						<option value="VIP">VIP</option>
+					</select>
+				</div>
+
+				<div class="form-group col-md-12">
+					<input type="text" ng-model="cu.datosForm.COD_CDE" class="form-control" id="" placeholder="Ingresa el COD_POS">
+				</div>
+
+				<div class="form-group col-md-12">	
+					<select ng-model="cu.datosForm.REGIONAL" class="form-control" id="" placeholder="Ingresa la regional">
+						<option value="">Ingresa la regional</option>
+						<option value="Centro">Centro</option>
+						<option value="Costa">Costa</option>
+						<option value="Norocidente">Norocidente</option>
+						<option value="Oriente">Oriente</option>
+						<option value="Suroccidente">Suroccidente</option>
+					</select>
+				</div>
+				<div class="form-group col-md-12">
+					<button type="submit" class="btn btn-success">Submit</button>
+					<input type="reset" class="btn btn-default pull-right" value="reset">
+				</div>
+			</form>
+		</div>

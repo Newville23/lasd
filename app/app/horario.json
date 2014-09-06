@@ -1,0 +1,1928 @@
+[
+	{
+		"ID" : 1,
+		"CELULAR" : "3002354374",
+		"NOMBRE" : "ANAMARIA PEREIRA",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 2,
+		"CELULAR" : "3006139335",
+		"NOMBRE" : "RONALD MAURICIO CORREA",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 5,
+		"CELULAR" : "3002043910",
+		"NOMBRE" : "JORGE ROJAS",
+		"CARGO" : "GERENTE DE TIENDAS",
+		"TIPO_CLIENTE" : "DIR",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 6,
+		"CELULAR" : "3008030225",
+		"NOMBRE" : "JESUS MENDOZA",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 7,
+		"CELULAR" : "3006875797",
+		"NOMBRE" : "SANDRA TORRENEGRA",
+		"CARGO" : "DIRECTORA DE TIENDAS",
+		"TIPO_CLIENTE" : "DIR",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 23,
+		"CELULAR" : "3005709847",
+		"NOMBRE" : "SHARIF DAVID ARANA",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 24,
+		"CELULAR" : "3004873880",
+		"NOMBRE" : "MAURICIO QUIJANO",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 25,
+		"CELULAR" : "3005622426",
+		"NOMBRE" : "KENNY GIACOMETTO",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 26,
+		"CELULAR" : "3005642614",
+		"NOMBRE" : "Emilce Herrera Uchuvo",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000510,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 27,
+		"CELULAR" : "3012426333",
+		"NOMBRE" : "Yamile Cuellar",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000510,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 28,
+		"CELULAR" : "3003802464",
+		"NOMBRE" : "Rocio Valenzuela",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000510,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 29,
+		"CELULAR" : "3017866869",
+		"NOMBRE" : "Sandra Milena Morales",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000479,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 30,
+		"CELULAR" : "3016309197",
+		"NOMBRE" : "Carlos Bustos",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000479,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 31,
+		"CELULAR" : "3004564348",
+		"NOMBRE" : "Javier Forero",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000511,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 32,
+		"CELULAR" : "3012584449",
+		"NOMBRE" : "German Leal",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000511,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 33,
+		"CELULAR" : "3016216782",
+		"NOMBRE" : "Carlos Florez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000511,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 34,
+		"CELULAR" : "3004857593",
+		"NOMBRE" : "Clara ines Villamil",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000001,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 35,
+		"CELULAR" : "3002185313",
+		"NOMBRE" : "Cristian Garcia",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000500,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 36,
+		"CELULAR" : "3006885201",
+		"NOMBRE" : "Melissa Cuellar",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000470,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 37,
+		"CELULAR" : "3006080059",
+		"NOMBRE" : "Carlos Arias",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000415,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 38,
+		"CELULAR" : "3014479667",
+		"NOMBRE" : "Laura Sandoval",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000415,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 40,
+		"CELULAR" : "3012424342",
+		"NOMBRE" : "Isabel Reyes",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000011,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 41,
+		"CELULAR" : "3008379732",
+		"NOMBRE" : "Silvia Juliana Sarmiento",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002031,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 44,
+		"CELULAR" : "3013764686",
+		"NOMBRE" : "Milton Norbey Zapata",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000032,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 45,
+		"CELULAR" : "3012625292",
+		"NOMBRE" : "Michael Estanislao",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000406,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 46,
+		"CELULAR" : "3004438000",
+		"NOMBRE" : "Ximena Torres",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000011,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 47,
+		"CELULAR" : "3013685321",
+		"NOMBRE" : "Claudia Perdomo",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000033,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 48,
+		"CELULAR" : "3012429149",
+		"NOMBRE" : "Pablo Fernando Suarez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000002,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 49,
+		"CELULAR" : "3212075804",
+		"NOMBRE" : "Camilo Ortiz",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000002,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 50,
+		"CELULAR" : "3014914627",
+		"NOMBRE" : "Paola Ruiz",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000013,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 51,
+		"CELULAR" : "3008262009",
+		"NOMBRE" : "Jhon Uribe",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000013,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 52,
+		"CELULAR" : "3005672521",
+		"NOMBRE" : "Andres Venegas",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000009,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 54,
+		"CELULAR" : "3013688853",
+		"NOMBRE" : "Carolina Pérez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000001,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 55,
+		"CELULAR" : "3007401811",
+		"NOMBRE" : "Juan David Molano",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000500,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 56,
+		"CELULAR" : "3013689773",
+		"NOMBRE" : "Claudia  Marcela  Garcia",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000478,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 60,
+		"CELULAR" : "3016567406",
+		"NOMBRE" : "Felipe Andres Garcia",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000041,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 61,
+		"CELULAR" : "3003337543",
+		"NOMBRE" : "Claudia Johanna Perez Alvarez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000041,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 62,
+		"CELULAR" : "3013668368",
+		"NOMBRE" : "Olga Galvan ",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000434,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 63,
+		"CELULAR" : "3012427016",
+		"NOMBRE" : "Perfi Gonzalez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000434,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 64,
+		"CELULAR" : "3006300010",
+		"NOMBRE" : "DIRECTOR DE ALAMEDAS",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000434,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 65,
+		"CELULAR" : "3015205808",
+		"NOMBRE" : "Andres Granados",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000519,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 66,
+		"CELULAR" : "3017543255",
+		"NOMBRE" : "Andres Orozco",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000532,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 67,
+		"CELULAR" : "3007193432",
+		"NOMBRE" : "DIRECTOR DE ARRECIFE",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000519,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 68,
+		"CELULAR" : "3003320638",
+		"NOMBRE" : "Nina Paola Vargas",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000037,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 69,
+		"CELULAR" : "3003150239",
+		"NOMBRE" : "Leidy Aguilar",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000037,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 70,
+		"CELULAR" : "3015591010",
+		"NOMBRE" : "DIRECTOR DE BOCAGRANDE",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000037,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 71,
+		"CELULAR" : "3016562901",
+		"NOMBRE" : "Milady Acosta",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000517,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 72,
+		"CELULAR" : "3004962141",
+		"NOMBRE" : "Anibal Royero",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000517,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 73,
+		"CELULAR" : "3012408282",
+		"NOMBRE" : "DIRECTOR DE BUENAVISTA",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000517,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 74,
+		"CELULAR" : "3016067599",
+		"NOMBRE" : "Juan Carlos Muñoz",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000521,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 75,
+		"CELULAR" : "3003955018",
+		"NOMBRE" : "Tatiana Arrazola",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000521,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 76,
+		"CELULAR" : "3008050720",
+		"NOMBRE" : "Alexandra Morales",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000503,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 77,
+		"CELULAR" : "3007042092",
+		"NOMBRE" : "Bernardo Maduro",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000503,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 78,
+		"CELULAR" : "3012408282",
+		"NOMBRE" : "DIRECTOR DE CALLE 82",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000503,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 79,
+		"CELULAR" : "3043540825",
+		"NOMBRE" : "Karen Vasquez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000504,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 80,
+		"CELULAR" : "3014302540",
+		"NOMBRE" : "Oliver Escudero Pinillos",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000504,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 81,
+		"CELULAR" : "3015591010",
+		"NOMBRE" : "DIRECTOR DE CARIBE PLAZA",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000504,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 82,
+		"CELULAR" : "3015060120",
+		"NOMBRE" : "Diana Ruiz",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000435,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 83,
+		"CELULAR" : "3013687825",
+		"NOMBRE" : "Vanessa Cardona",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000435,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 84,
+		"CELULAR" : "3015591010",
+		"NOMBRE" : "DIRECTOR DE CASTELLANA",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000435,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 85,
+		"CELULAR" : "3012596729",
+		"NOMBRE" : "Rocío De La Hoz Viloria",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000449,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 86,
+		"CELULAR" : "3004653679",
+		"NOMBRE" : "Juan Carlos Medina",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000449,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 87,
+		"CELULAR" : "3002043723",
+		"NOMBRE" : "DIRECTOR DE CIENAGA",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000449,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 88,
+		"CELULAR" : "3042072057",
+		"NOMBRE" : "Brenda Meyer",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000525,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 89,
+		"CELULAR" : "3005988538",
+		"NOMBRE" : "Jorge Borda",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000525,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 91,
+		"CELULAR" : "3013772319",
+		"NOMBRE" : "Ericka",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000522,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 92,
+		"CELULAR" : "3008307833",
+		"NOMBRE" : "Amgull Duran Quintero",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000035,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 93,
+		"CELULAR" : "3002374793",
+		"NOMBRE" : "Wendy Varela",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000035,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 94,
+		"CELULAR" : "3014723000",
+		"NOMBRE" : "Beatriz Medrano",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000035,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 95,
+		"CELULAR" : "3012408282",
+		"NOMBRE" : "DIRECTOR DE CRA 54",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000035,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 96,
+		"CELULAR" : "3002444424",
+		"NOMBRE" : "Johan Lozano",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000471,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 97,
+		"CELULAR" : "3005162023",
+		"NOMBRE" : "Ana Milena Garcia",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000471,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 98,
+		"CELULAR" : "3006300010",
+		"NOMBRE" : "DIRECTOR DE FORD",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000471,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 99,
+		"CELULAR" : "3012444424",
+		"NOMBRE" : "Jhoan Lozano Orozco",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000448,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 100,
+		"CELULAR" : "3016520473",
+		"NOMBRE" : "JHASON MEDINA",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000448,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 101,
+		"CELULAR" : "3015591010",
+		"NOMBRE" : "DIRECTOR DE MAGANGUE",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000448,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 102,
+		"CELULAR" : "3002037106",
+		"NOMBRE" : "Juanita Causil",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000039,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 103,
+		"CELULAR" : "3002529633",
+		"NOMBRE" : "Luis Ortiz",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000039,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 104,
+		"CELULAR" : "3006300010",
+		"NOMBRE" : "DIRECTOR DE MONTERIA",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000039,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 106,
+		"CELULAR" : "3006931428",
+		"NOMBRE" : "Paula Barguil",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000518,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 107,
+		"CELULAR" : "3006300010",
+		"NOMBRE" : "DIRECTOR DE MONTERIA NORTE",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000518,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 108,
+		"CELULAR" : "3016067599",
+		"NOMBRE" : "Juan Carlos Muños",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000036,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 109,
+		"CELULAR" : "3012424168",
+		"NOMBRE" : "Lorena Solano",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000036,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 110,
+		"CELULAR" : "3012408282",
+		"NOMBRE" : "DIRECTOR DE MURILLO",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000036,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 111,
+		"CELULAR" : "3017550002",
+		"NOMBRE" : "Tatiana Linero",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000436,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 112,
+		"CELULAR" : "3002760438",
+		"NOMBRE" : "Luis Mejia",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000519,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 113,
+		"CELULAR" : "3007193432",
+		"NOMBRE" : "DIRECTOR DE OCEAN MALL",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000436,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 114,
+		"CELULAR" : "3006034500",
+		"NOMBRE" : "Jennifer Acevedo",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000508,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 115,
+		"CELULAR" : "3006561901",
+		"NOMBRE" : "Karen Plata",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000508,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 116,
+		"CELULAR" : "3012408282",
+		"NOMBRE" : "DIRECTOR DE PORTAL DEL PRADO",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000508,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 117,
+		"CELULAR" : "3013818997",
+		"NOMBRE" : "Zenilma Patiño",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000403,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 118,
+		"CELULAR" : "3013688814",
+		"NOMBRE" : "Liliana",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000403,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 119,
+		"CELULAR" : "3002043723",
+		"NOMBRE" : "DIRECTOR DE RIOHACHA",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000403,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 120,
+		"CELULAR" : "3008183375",
+		"NOMBRE" : "Shirley Reyes",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000524,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 121,
+		"CELULAR" : "3004179520",
+		"NOMBRE" : "Elsa Puello",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000524,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 122,
+		"CELULAR" : "3005790579",
+		"NOMBRE" : "Marcela",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000038,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 123,
+		"CELULAR" : "3012424188",
+		"NOMBRE" : "Melba Lopez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000038,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 124,
+		"CELULAR" : "3007193432",
+		"NOMBRE" : "DIRECTOR DE SANTA MARTA",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000038,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 125,
+		"CELULAR" : "3008000087",
+		"NOMBRE" : "Maria Reyes",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000426,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 126,
+		"CELULAR" : "3007678383",
+		"NOMBRE" : "Indira Jaimes",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000426,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 127,
+		"CELULAR" : "3012408282",
+		"NOMBRE" : "DIRECTOR DE SOLEDAD",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000426,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 129,
+		"CELULAR" : "3003198880",
+		"NOMBRE" : "Kevin Peña",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000520,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 130,
+		"CELULAR" : "3012408282",
+		"NOMBRE" : "DIRECTOR DE UNICO BARRANQUILLA",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000520,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 131,
+		"CELULAR" : "3016572959",
+		"NOMBRE" : "Tatiana Rivero",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000040,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 132,
+		"CELULAR" : "3013772312",
+		"NOMBRE" : "Danna Mendoza",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000040,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 133,
+		"CELULAR" : "3012408282",
+		"NOMBRE" : "DIRECTOR DE VALLEDUPAR",
+		"CARGO" : "DIRECTOR DE CANAL",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000040,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 134,
+		"CELULAR" : "3015699882",
+		"NOMBRE" : "YOLANDA DUARTE CORREA",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000431,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 135,
+		"CELULAR" : "3012425536",
+		"NOMBRE" : "Silvia Socorro Cavadía Posada",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000431,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 136,
+		"CELULAR" : "3014180809",
+		"NOMBRE" : "Liliam Patricia Rojas Rojas",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000022,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 137,
+		"CELULAR" : "3004861919",
+		"NOMBRE" : "Johana Paola Barreto",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000022,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 138,
+		"CELULAR" : "3002043550",
+		"NOMBRE" : "Jenny Andrea Ruiz Guarín ",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000019,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 140,
+		"CELULAR" : "3012076328",
+		"NOMBRE" : "Paola Andrea Aguirre",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000019,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 141,
+		"CELULAR" : "3003557258",
+		"NOMBRE" : "Andrés Felipe Pérez Castañeda",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000603,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 143,
+		"CELULAR" : "3015018139",
+		"NOMBRE" : "Sara Maya",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000595,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 145,
+		"CELULAR" : "3004411712",
+		"NOMBRE" : "Veronica Ossa Penagos",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000602,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 146,
+		"CELULAR" : "3014000457",
+		"NOMBRE" : "Wilton David Girón",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000018,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 147,
+		"CELULAR" : "3014111306",
+		"NOMBRE" : "Sara Garcia",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000594,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 149,
+		"CELULAR" : "3006332910",
+		"NOMBRE" : "Andrea Gomez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000473,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 150,
+		"CELULAR" : "3017398931",
+		"NOMBRE" : "Angel Alexander Betancur López ",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000021,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 151,
+		"CELULAR" : "3007821828",
+		"NOMBRE" : "Wilma Jaramillo",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000021,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 152,
+		"CELULAR" : "3006908079",
+		"NOMBRE" : "Luz Adriana Delgado",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000595,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 153,
+		"CELULAR" : "3003715855",
+		"NOMBRE" : "Johana Paola Barragan",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000462,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 154,
+		"CELULAR" : "3002793757",
+		"NOMBRE" : "Carlos Andrés Gaviria Calderón",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000430,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 155,
+		"CELULAR" : "3013921259",
+		"NOMBRE" : "Fabio Carrasquilla",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000430,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 156,
+		"CELULAR" : "3012597921",
+		"NOMBRE" : "Andrea Quiceno Arias",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000018,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 158,
+		"CELULAR" : "3002319780",
+		"NOMBRE" : "Juan Sebastian Zamora Grajales",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000391,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 159,
+		"CELULAR" : "3004851296",
+		"NOMBRE" : "Natalia Aguirre",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000473,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 160,
+		"CELULAR" : "3015269012",
+		"NOMBRE" : "Daniela Ramirez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000603,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 161,
+		"CELULAR" : "3006188661",
+		"NOMBRE" : "Andrea Hernandez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000430,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 162,
+		"CELULAR" : "3008389064",
+		"NOMBRE" : "Cristian Acevedo",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000596,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 163,
+		"CELULAR" : "3012276868",
+		"NOMBRE" : "Cindy Janine Franco Arango",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000422,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 164,
+		"CELULAR" : "3015694792",
+		"NOMBRE" : "ÁNGELA GÓMEZ",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000604,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 166,
+		"CELULAR" : "3012898933",
+		"NOMBRE" : "Maria del Pilar Becerra",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000444,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 171,
+		"CELULAR" : "3012772358",
+		"NOMBRE" : "Robinson Ojeda",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002033,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 172,
+		"CELULAR" : "3012411073",
+		"NOMBRE" : "John Bellen",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000024,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 173,
+		"CELULAR" : "3016054996",
+		"NOMBRE" : "Mayerly Gelvez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000023,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 174,
+		"CELULAR" : "3006789270",
+		"NOMBRE" : "Andrea Naranjo",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000506,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 175,
+		"CELULAR" : "3012265932",
+		"NOMBRE" : "Diana Pineda",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000024,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 176,
+		"CELULAR" : "3004176371",
+		"NOMBRE" : "Julian Perez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000025,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 177,
+		"CELULAR" : "3008253687",
+		"NOMBRE" : "Sandra Urbina",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000025,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 179,
+		"CELULAR" : "3017043599",
+		"NOMBRE" : "Jeisson Mojica",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000498,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 180,
+		"CELULAR" : "3004966201",
+		"NOMBRE" : "Edith Liliana lopez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000042,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 181,
+		"CELULAR" : "3012761583",
+		"NOMBRE" : "Juan Carlos",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000042,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 182,
+		"CELULAR" : "3017838385",
+		"NOMBRE" : "Juan Carlos Beltran",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002057,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 183,
+		"CELULAR" : "3005169524",
+		"NOMBRE" : "Alberto Chavez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000030,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 184,
+		"CELULAR" : "3013358928",
+		"NOMBRE" : "Maria Isabel Muñoz",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000511,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 185,
+		"CELULAR" : "3003394609",
+		"NOMBRE" : "Alexis Mendez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000026,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 188,
+		"CELULAR" : "3007828751",
+		"NOMBRE" : "Adriana Rodriguez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000029,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 189,
+		"CELULAR" : "3006146842",
+		"NOMBRE" : "Diego Arias",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000026,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 190,
+		"CELULAR" : "3014608694",
+		"NOMBRE" : "Maribel cerquera",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000465,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 191,
+		"CELULAR" : "3015073966",
+		"NOMBRE" : "Arledy Obando ",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000034,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 192,
+		"CELULAR" : "3013388537",
+		"NOMBRE" : "Jose Coral",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000034,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 193,
+		"CELULAR" : "3014787322",
+		"NOMBRE" : "Paola Villaquiran",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000031,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 194,
+		"CELULAR" : "3007873914",
+		"NOMBRE" : "Mauricio Parra",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000031,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 195,
+		"CELULAR" : "3003401049",
+		"NOMBRE" : "Yohanna Diaz",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000438,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 196,
+		"CELULAR" : "3007807122",
+		"NOMBRE" : "Jose Angel Valencia",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000468,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 198,
+		"CELULAR" : "3013209068",
+		"NOMBRE" : "Breyner Herrera",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000029,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 199,
+		"CELULAR" : "3002857511",
+		"NOMBRE" : "Luisa Correa",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000439,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 200,
+		"CELULAR" : "3007040468",
+		"NOMBRE" : "Diana Susano",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000439,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 203,
+		"CELULAR" : "3005550030",
+		"NOMBRE" : "Adalberto Claro",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000523,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 205,
+		"CELULAR" : "3002328421",
+		"NOMBRE" : "LENNIN ALONSO SUESCUN",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 206,
+		"CELULAR" : "3007354355",
+		"NOMBRE" : "JAISON ANDRES GONZALEZ",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 207,
+		"CELULAR" : "3012226644",
+		"NOMBRE" : "Claudia González",
+		"CARGO" : "Jefe Regional",
+		"TIPO_CLIENTE" : "REG",
+		"COD_CDE" : NULL,
+		"REGIONAL" : "SUROCCIDENTE"
+	},
+	{
+		"ID" : 208,
+		"CELULAR" : "3004463580",
+		"NOMBRE" : "Constanza Ardila",
+		"CARGO" : "Jefe Regional",
+		"TIPO_CLIENTE" : "REG",
+		"COD_CDE" : NULL,
+		"REGIONAL" : "CENTRO"
+	},
+	{
+		"ID" : 209,
+		"CELULAR" : "3013681444",
+		"NOMBRE" : "José Galvis",
+		"CARGO" : "Jefe Regional",
+		"TIPO_CLIENTE" : "REG",
+		"COD_CDE" : NULL,
+		"REGIONAL" : "ORIENTE"
+	},
+	{
+		"ID" : 210,
+		"CELULAR" : "3006550095",
+		"NOMBRE" : "José Lotero",
+		"CARGO" : "Jefe Regional",
+		"TIPO_CLIENTE" : "REG",
+		"COD_CDE" : NULL,
+		"REGIONAL" : "COSTA"
+	},
+	{
+		"ID" : 211,
+		"CELULAR" : "3003109120",
+		"NOMBRE" : "Luz Deici García",
+		"CARGO" : "Jefe Regional",
+		"TIPO_CLIENTE" : "REG",
+		"COD_CDE" : NULL,
+		"REGIONAL" : "NOROCCIDENTE"
+	},
+	{
+		"ID" : 212,
+		"CELULAR" : "3008805938",
+		"NOMBRE" : "EDGARDO ENRIQUE RODRIGUEZ",
+		"CARGO" : "COORDINADOR CDSV",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 213,
+		"CELULAR" : "3016624545",
+		"NOMBRE" : "Sonia Gonzalez",
+		"CARGO" : "Jefe de Formacion CDEs",
+		"TIPO_CLIENTE" : "REG",
+		"COD_CDE" : NULL,
+		"REGIONAL" : "CENTRO"
+	},
+	{
+		"ID" : 221,
+		"CELULAR" : "3004377135",
+		"NOMBRE" : "DIEGO GARCIA V",
+		"CARGO" : "ANALISTA DE IMPLEMENTACION",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 222,
+		"CELULAR" : "3003252107",
+		"NOMBRE" : "EDUARDO TERRAZA",
+		"CARGO" : "COORDINADOR CDSV",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 223,
+		"CELULAR" : "3015014848",
+		"NOMBRE" : "HUBERT TELLER",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 224,
+		"CELULAR" : "3004000000",
+		"NOMBRE" : "MARCELO CATALDO",
+		"CARGO" : "VIP COMERCIAL",
+		"TIPO_CLIENTE" : "VIP",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 225,
+		"CELULAR" : "3007000000",
+		"NOMBRE" : "ESTEBAN IRIARTE",
+		"CARGO" : "CEO",
+		"TIPO_CLIENTE" : "PRE",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 226,
+		"CELULAR" : "3006300020",
+		"NOMBRE" : "JOSE DAVID MANTILLA",
+		"CARGO" : "VIP COPS",
+		"TIPO_CLIENTE" : "GER",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 227,
+		"CELULAR" : "3002741362",
+		"NOMBRE" : "LINA PEDRAZA",
+		"CARGO" : "JEFE DE CORPORATIVOS",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000522,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 228,
+		"CELULAR" : "3002004597",
+		"NOMBRE" : "ELKIN CUBIDES",
+		"CARGO" : "GERENTE DE CORPORATIVOS",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000522,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 229,
+		"CELULAR" : "3004277862",
+		"NOMBRE" : "DANILA BLANCO",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000023,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 230,
+		"CELULAR" : "3012772358",
+		"NOMBRE" : "ROBINSON OJEDA",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000464,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 232,
+		"CELULAR" : "3043613961",
+		"NOMBRE" : "ELIANA PRIETO",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000444,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 236,
+		"CELULAR" : "3043613953",
+		"NOMBRE" : "ANDERSON RAMIREZ",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002033,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 237,
+		"CELULAR" : "3043543673",
+		"NOMBRE" : "ANDREA BOTIA",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002033,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 238,
+		"CELULAR" : "3043613957",
+		"NOMBRE" : "JUAN MEJIA",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 4000464,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 239,
+		"CELULAR" : "3043727200",
+		"NOMBRE" : "JEAN CARLOS CANTOR",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002057,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 240,
+		"CELULAR" : "3005978804",
+		"NOMBRE" : "Juan Herrera",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000511,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 241,
+		"CELULAR" : "3003225027",
+		"NOMBRE" : "Luisa Alba",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000415,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 242,
+		"CELULAR" : "3005214726",
+		"NOMBRE" : "Yulieth Villegas",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000415,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 243,
+		"CELULAR" : "3004830939",
+		"NOMBRE" : "Jorge Florez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002029,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 244,
+		"CELULAR" : "3008303109",
+		"NOMBRE" : "Lorena Chacón",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002029,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 245,
+		"CELULAR" : "3013379713",
+		"NOMBRE" : "Yeidi Sanabria",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002031,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 246,
+		"CELULAR" : "3017595838",
+		"NOMBRE" : "Adriana Barbosa",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002031,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 247,
+		"CELULAR" : "3014665021",
+		"NOMBRE" : "Alvaro Casas",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000032,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 248,
+		"CELULAR" : "3014505293",
+		"NOMBRE" : "Liyi Charri",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000033,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 249,
+		"CELULAR" : "3043947387",
+		"NOMBRE" : "Claudia Rodríguez",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000009,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 250,
+		"CELULAR" : "3014054553",
+		"NOMBRE" : "Claudia Marulanda",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000009,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 251,
+		"CELULAR" : "3002447019",
+		"NOMBRE" : "Elizabeth Ortíz",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000478,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 252,
+		"CELULAR" : "3017566340",
+		"NOMBRE" : "Fabián Rodriguez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000406,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 253,
+		"CELULAR" : "3003550475",
+		"NOMBRE" : "Gabriel Rincón",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000019,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 254,
+		"CELULAR" : "3043726269",
+		"NOMBRE" : "Maria Helema Ruiz Valencia",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000596,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 255,
+		"CELULAR" : "3043734694",
+		"NOMBRE" : "Sandra Benites",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000391,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 256,
+		"CELULAR" : "3043734690",
+		"NOMBRE" : "Eliana Parra",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000391,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 257,
+		"CELULAR" : "3003553303",
+		"NOMBRE" : "Manuela Florez",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000473,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 258,
+		"CELULAR" : "3006172412",
+		"NOMBRE" : "Miryam Úsuga",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 2000422,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 260,
+		"CELULAR" : "3006673066",
+		"NOMBRE" : "Andres Doncell",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000468,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 261,
+		"CELULAR" : "3002859430",
+		"NOMBRE" : "Victor Ossa",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 3000468,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 263,
+		"CELULAR" : "3017550002",
+		"NOMBRE" : "Tatiana Linero",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000532,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 265,
+		"CELULAR" : "3007193432",
+		"NOMBRE" : "DIRECTOR DE CANAL",
+		"CARGO" : "DIRECTOR DE OCEAN MALL V2",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000532,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 266,
+		"CELULAR" : "3008997605",
+		"NOMBRE" : "JORGE GARCIA",
+		"CARGO" : "GERENTE COC",
+		"TIPO_CLIENTE" : "DIR",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 267,
+		"CELULAR" : "3014407606",
+		"NOMBRE" : "JOSE ANDRES MOLINA CARDENAS",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1002029,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 268,
+		"CELULAR" : "3012424524",
+		"NOMBRE" : "Harry Fajardo",
+		"CARGO" : "ADMINISTRADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 5000538,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 269,
+		"CELULAR" : "3005423750",
+		"NOMBRE" : "Cesar Correa",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000500,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 270,
+		"CELULAR" : "3016309320",
+		"NOMBRE" : "Camilo Andres Ortiz",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000002,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 271,
+		"CELULAR" : "3212075804",
+		"NOMBRE" : "Camilo Andres Ortiz",
+		"CARGO" : "COORDINADOR CDE",
+		"TIPO_CLIENTE" : "ADM",
+		"COD_CDE" : 1000002,
+		"REGIONAL" : NULL
+	},
+	{
+		"ID" : 272,
+		"CELULAR" : "3006789333",
+		"NOMBRE" : "HELDER PEREZ",
+		"CARGO" : "COORDINADOR COC",
+		"TIPO_CLIENTE" : "COC",
+		"COD_CDE" : NULL,
+		"REGIONAL" : NULL
+	}
+]
