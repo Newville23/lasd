@@ -2,15 +2,17 @@
 
 		<div class="container-fluid">
 
-			<div class="navbar-header">
+			<div class="navbar-header" style="margin-left: 75px">
 
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse-{{config.id}}" >
 					<span class="sr-only">Toggle navigation</span>
 					<span class="fa fa-bars fa-lg"></span>
 				</button>
 
-				<a class="navbar-brand" ng-href="{{'#'}}">{{datos.nombrePrincipal}}</a>
-
+				<a class="navbar-brand" ng-href="{{'#'}}" style="color:#144c87; font-size:2em">					
+					<img class="site-logo" ng-src="{{datos.logo}}">	
+					{{datos.nombrePrincipal}}
+				</a>
 			</div>    
 		
 			<!-- Collect the nav links, forms, and other content for toggling -->

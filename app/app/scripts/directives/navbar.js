@@ -24,6 +24,7 @@ angular.module('AppDirectiveTest', [])
 		$scope.datos = {
 			id: 1,
 			nombrePrincipal: 'Flügel',
+			logo: 'images/apple-touch-icon-144-precomposed2.png',
 			enlaces: [
 				{link: '#/', nombre: 'Inicio'},
 				{link: '#/about', nombre: 'About'}

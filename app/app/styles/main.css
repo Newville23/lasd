@@ -77,3 +77,21 @@ body {
     border-bottom: 0;
   }
 }
+
+.site-logo {
+  z-index: 9;
+  position: absolute;
+  top: -10px;
+  left: 5px;
+  width: auto;
+  height: 75px;
+  padding: -5px 0px -5px 0px;
+  -webkit-transition: 400ms all ease;
+  -moz-transition: 400ms all ease;
+  -ms-transition: 400ms all ease;
+  -o-transition: 400ms all ease;
+  transition: 400ms all ease;
+}
+.site-logo:hover {
+  transform: rotate(20deg);
+}
