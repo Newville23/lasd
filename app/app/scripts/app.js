@@ -11,6 +11,7 @@
 angular
   .module('appApp', [
     'AppDirectiveTest',
+    'menu',
     'ngAnimate',
     'ngCookies',
     'ngResource',
