@@ -29,6 +29,9 @@ angular
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
+      .when('/admin/estadistica', {
+        templateUrl: 'views/estadistica.html'
+      })
       .otherwise({
         redirectTo: '/'
       });
