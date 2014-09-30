@@ -12,6 +12,7 @@ angular
   .module('appApp', [
     'AppDirectiveTest',
     'menu',
+    'tabRoute',
     'ngAnimate',
     'ngCookies',
     'ngResource',
