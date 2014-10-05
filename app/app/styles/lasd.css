@@ -555,9 +555,10 @@ ul li.active a.navegacion{
 /*	border-bottom: 1px solid rgba(222, 222, 222, 0.28);*/
 	color: #444;
 }
-.barraPropiedades ul li.active{
+.barraPropiedades ul .active{
 	background-color: #e7e7e7;
 }
+
 .barraPropiedades li a{
 	color: #eee;
 }

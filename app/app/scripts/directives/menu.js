@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('menu', [])
+angular.module('lsComponents')
 	.directive('lsMenu', function(){
 
 		function link(scope, element, attrs){
@@ -26,10 +26,10 @@ angular.module('menu', [])
 			id: 1,
 			nombrePrincipal: 'Menú',
 			enlaces: [
-				{link: '#/', nombre: 'Formularios', icon: 'fa-list-alt'},
-				{link: '#/about', nombre: 'Estudiantes', icon: 'fa-user'},
-				{link: '#/about', nombre: 'Docentes', icon: 'fa-group'},
-				{link: '#/admin/estadistica', nombre: 'Estadisticas', icon: 'fa-bar-chart-o'}
+				{link: 'home', nombre: 'Formularios', icon: 'fa-list-alt'},
+				{link: 'about', nombre: 'Estudiantes', icon: 'fa-user'},
+				{link: 'about', nombre: 'Docentes', icon: 'fa-group'},
+				{link: 'estadistica', nombre: 'Estadisticas', icon: 'fa-bar-chart-o'}
 			]		
 		};
 		

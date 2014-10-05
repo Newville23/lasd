@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('AppDirectiveTest', [])
+angular.module('lsComponents', [])
 	.directive('lsHeader', function(){
 
 		function link(scope, element, attrs){
@@ -26,12 +26,12 @@ angular.module('AppDirectiveTest', [])
 			nombrePrincipal: 'Flügel',
 			logo: 'images/apple-touch-icon-144-precomposed2.png',
 			enlaces: [
-				{link: '#/', nombre: 'Inicio'},
-				{link: '#/about', nombre: 'About'}
+				{link: 'home', nombre: 'Inicio'},
+				{link: 'about', nombre: 'About'}
 			],
 			collapse:[
-				{link: '#/', nombre: 'Ayuda'},
-				{link: '#/about', nombre: 'Cerrar Sesión'}
+				{link: 'home', nombre: 'Ayuda'},
+				{link: 'about', nombre: 'Cerrar Sesión'}
 			]			
 		};
 		

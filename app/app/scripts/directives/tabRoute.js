@@ -1,23 +1,14 @@
 'use strict';
 
-angular.module('tabRoute', [])
+angular.module('lsComponents')
 	.directive('lsTabroute', function(){
 
-		// function link(scope, element, attrs){
-			
-		// 	scope.compararURL = function(url){
-
-		// 		if (location.hash === url) {
-		// 			return true;
-		// 		}else{
-		// 			return false;
-		// 		}
-		// 	}
-		// };
+		function link(scope, element, attrs){
+		};
 		return{
 			restrict: 'E',			
-			templateUrl: "views/tabRoute.html"
-			//link: link
+			templateUrl: "views/tabRoute.html",
+			link: link
 		};	
 	})
 	.controller('tabroute1', ['$scope','$location', function($scope){
@@ -25,9 +16,9 @@ angular.module('tabRoute', [])
 			id: 1,
 			clase: 'nav-tabs nav-justified',
 			enlaces: [
-				{link: '#/about', nombre: 'Inicio'},
-				{link: '#/about', nombre: 'About1'},
-				{link: '#/about', nombre: 'About2'}
+				{nombre: 'Inicio', link: '.a'},
+				{nombre: 'About1', link: '.b'},
+				{nombre: 'About2',  link: '.c'}
 			]		
 		};
 		

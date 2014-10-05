@@ -3,7 +3,6 @@
 		<div class="container-fluid">
 
 			<div class="navbar-header" style="margin-left: 75px">
-
 				<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse-{{config.id}}" >
 					<span class="sr-only">Toggle navigation</span>
 					<span class="fa fa-bars fa-lg"></span>
@@ -18,8 +17,10 @@
 			<!-- Collect the nav links, forms, and other content for toggling -->
 			<div class="collapse navbar-collapse navbar-ex1-collapse-{{config.id}}">
 				
-				<ul class="nav navbar-nav" ng-repeat="enlace in datos.enlaces">
-					<li ng-class="{active: compararURL(enlace.link)}"><a ng-href="{{enlace.link}}">{{enlace.nombre}}</a></li>
+				<ul class="nav navbar-nav" ng-repeat="enlace in datos.enlaces" >
+					<li ng-class="{active: compararURL(enlace.link)}" ui-sref-active="active">
+						<a ui-sref="{{enlace.link}}">{{enlace.nombre}}</a>
+					</li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-right visible-lg">
@@ -28,16 +29,16 @@
 						<b class="caret"></b>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a ng-href="{{datos.collapse[0]['link']}}"><i class="fa fa-wrench"></i> {{datos.collapse[0]['nombre']}}</a></li>
+						<li><a ui-sref="{{datos.collapse[0]['link']}}"><i class="fa fa-wrench"></i> {{datos.collapse[0]['nombre']}}</a></li>
 						<li class="divider"></li>
-						<li><a ng-href="{{datos.collapse[1]['link']}}"><i class="fa fa-off"></i> {{datos.collapse[1]['nombre']}}</a></li>
+						<li><a ui-sref="{{datos.collapse[1]['link']}}"><i class="fa fa-off"></i> {{datos.collapse[1]['nombre']}}</a></li>
 					</ul>
 				  </li>
 				</ul>
 
 				<ul class="nav navbar-nav navbar-left hidden-lg">
-				  <li><a ng-href="{{datos.collapse[0]['link']}}"><i class="fa fa-wrench"></i> {{datos.collapse[0]['nombre']}}</a></li>
-				  <li><a ng-href="{{datos.collapse[1]['link']}}"><i class="fa fa-off"></i> {{datos.collapse[1]['nombre']}}</a></li>
+				  <li><a ui-sref="{{datos.collapse[0]['link']}}"><i class="fa fa-wrench"></i> {{datos.collapse[0]['nombre']}}</a></li>
+				  <li><a ui-sref="{{datos.collapse[1]['link']}}"><i class="fa fa-off"></i> {{datos.collapse[1]['nombre']}}</a></li>
 				</ul>
 
 			</div><!-- /.navbar-collapse -->

@@ -7,9 +7,13 @@
 	<div class="" ng-show="sw" ng-class="{bpenvoltura: !sw}">
 		<ul class="list-unstyled" ng-repeat="enlace in datos.enlaces">
 
-			<a class="" href="{{enlace.link}}">
-				<li ng-class="{active: compararURL(enlace.link)}"><i style="padding-right: 8px" class="fa fa-lg {{enlace.icon}}"></i> {{enlace.nombre}}</li>
-			</a>
+			<div ui-sref-active="active">
+				<a class="" ui-sref="{{enlace.link}}">
+					<li>
+						<i style="padding-right: 8px" class="fa fa-lg {{enlace.icon}}"></i> {{enlace.nombre}}
+					</li>
+				</a>
+			</div>
 
 		</ul>
 	</div>
