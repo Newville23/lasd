@@ -36,7 +36,7 @@ angular
       })
       .state('estadistica', {
         url: '/admin/estadistica',
-        templateUrl: 'views/estadistica.html'
+        templateUrl: 'views/admin/estadistica.html'
       })
 
       // nested list with just some random string data
@@ -52,5 +52,18 @@ angular
         url: '/c',
         template: 'hola mundo c'
       });
+      // nested list with just some random string data
+      // .state('estadistica.a', {
+      //   url: '/a',
+      //   template: 'hola mundo a'
+      // })
+      // .state('estadistica.b', {
+      //   url: '/b',
+      //   template: 'hola mundo b'
+      // })
+      // .state('estadistica.c', {
+      //   url: '/c',
+      //   template: 'hola mundo c'
+      // });
 
   });
