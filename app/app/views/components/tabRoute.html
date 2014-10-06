@@ -1,13 +1,13 @@
 <!-- Nav tabs -->
 <ul class="nav {{datos.clase}}" role="tablist">
 	<li ng-repeat="enlace in datos.enlaces" ui-sref-active="active">
-		<a href="javascript:void(0)" ui-sref="{{enlace.link}}" role="tab" data-toggle="tab">{{enlace.nombre}}</a>
+		<a ui-sref="{{enlace.link}}" role="tab">{{enlace.nombre}}</a>
 	</li>
 </ul>
 
 <!-- Tab panes -->
 <div class="tab-content">
-	<div class="tab-pane active" id="home">
+	<div class="tab-pane active">
 		<div ui-view></div>
 	</div>
 </div>

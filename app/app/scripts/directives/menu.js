@@ -4,20 +4,11 @@ angular.module('lsComponents')
 	.directive('lsMenu', function(){
 
 		function link(scope, element, attrs){
-			
-			scope.compararURL = function(url){
-
-				if (location.hash === url) {
-					return true;
-				}else{
-					return false;
-				}
-			}
 			scope.sw = true;
 		};
 		return{
 			restrict: 'E',			
-			templateUrl: "views/menu.html",
+			templateUrl: "views/components/menu.html",
 			link: link
 		};	
 	})

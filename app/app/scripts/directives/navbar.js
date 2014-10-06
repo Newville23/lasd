@@ -16,7 +16,7 @@ angular.module('lsComponents', [])
 		};
 		return{
 			restrict: 'E',			
-			templateUrl: "views/navbar.html",
+			templateUrl: "views/components/navbar.html",
 			link: link
 		};	
 	})
