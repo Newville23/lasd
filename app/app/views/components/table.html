@@ -1,0 +1,24 @@
+<table class="table table-striped table-hover table-responsive">
+	<thead>
+		<tr class="">
+			<th>Fecha</th>
+			<th>Nombre</th>
+			<th>Labor</th>
+			<th>Tiempo Labor</th>
+			<th>Cargo</th>
+			<th>Sucursal</th>
+			<th>Regional</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="asesores in listaFiltradaAsesores | orderBy: '-tiempo_Labor'">
+			<td>{{asesores.fecha}}</td>
+			<td>{{asesores.nombre | uppercase}}</td>
+			<td>{{asesores.labor}}</td>
+			<td>{{asesores.tiempo_Labor}}</td>
+			<td>{{asesores.cargo}}</td>
+			<td>{{asesores.sucursal}}</td>
+			<td>{{asesores.regional}}</td>
+		</tr>
+	</tbody>
+</table>
