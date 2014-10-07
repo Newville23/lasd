@@ -1,4 +1,4 @@
-<div class="" id="notas">
+<div class="row" id="notas">
 	<div id="containerMaterias" style="min-width: 50%; height: 400px; margin: 0 auto"></div>
 	<div class="alert alert-info fontSize1" style="padding: 10px;">
 		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -19,3 +19,51 @@
 		</div>
 	</div>
 </div>
+<script>
+$(function () {
+	$('#containerMaterias').highcharts({
+		chart: {
+			type: 'column'
+		},
+		title: {
+			text: 'Promedio por materias'
+		},
+		subtitle: {
+			text: ''
+		},
+		xAxis: {
+			categories: [
+			'Matematicas',
+			'Sociales',
+			'Biologia',
+			'Fisica',
+			'Quimica',
+			'Español',
+			'Economia',
+			'Etica',
+			]
+		},
+		yAxis: {
+			min: 0,
+			max: 5,
+			title: {
+				text: 'Promedio'
+			}
+		},
+		tooltip: {
+			valueSuffix: ''
+		},
+		plotOptions: {
+			column: {
+				pointPadding: 0.2,
+				borderWidth: 0
+			}
+		},
+		series: [{
+			name: 'Materia',
+			data: [3.9, 4.8, 3.3, 3.0, 2.8, 4.3, 5.0, 4.6]
+
+		}]
+	});
+});
+</script>

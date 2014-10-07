@@ -27,7 +27,7 @@ angular.module('lsComponents')
 		};
 		$scope.estadistica = {
 			clase: 'nav-pills nav-stacked col-md-3',
-			claseBody: 'col-md-7',
+			claseBody: 'col-md-9',
 			enlaces: [
 				{nombre: 'Notas', link: '.notas'},
 				{nombre: 'Progreso clases', link: '.progreso'},
