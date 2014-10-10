@@ -11,8 +11,22 @@ angular.module('lsComponents')
 					return _.toArray(obj);
 				});			
 			};
+
+			scope.predicate = '0';
+			scope.reverse = false;
+			scope.tableOrder = function(val){
+				if (scope.predicate == val.toString()) {
+					scope.reverse = !scope.reverse;
+				}else{
+					scope.reverse = false;
+					scope.predicate = val.toString();
+				}
+				console
+			};
+
 			scope.tabla.datos = scope.ObjtoArray(scope.tabla.datos);
 			scope.limite = scope.tabla.datos.length;
+			
 		};
 		return{
 			restrict: 'E',			
@@ -27,10 +41,9 @@ angular.module('lsComponents')
 			datos: [
 				{link:'home', nombre: 'Formularios', icon: 'fa-list-alt', otro: 'mama', Bueno: 1},
 				{link:'about', nombre:'Estudiantes', icon:'fa-user', otro: 'mama', Bueno: 2},
-				{link:'about', nombre:'Docentes', icon:'fa-group', otro: 'mama', Bueno: 3},
+				{link:'about Lorem ipsum dolor si voluptas nobis reicien', nombre:'Docentes', icon:'fa-group', otro: 'mama', Bueno: 3},
 				{link:'estadistica', nombre:'Estadisticas', icon:'fa-bar-chart-o', otro: 'mama', Bueno: 2},
 				{link:'estadistica', nombre:'Estadisticas', icon:'fa-bar-chart-o', otro: 'mama', Bueno: 5}
 			]		
 		};
-		$scope.limite = 3;
 	}]);

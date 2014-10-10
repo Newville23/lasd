@@ -1,14 +1,19 @@
-<table class="table {{tabla.tableClass}}">
+<table class="table {{tabla.tableClass}} hidden-xs">
 	<thead>
 		<tr class="">
-			<th ng-repeat="campo in tabla.header">{{campo}}</th>
+			<th ng-repeat="(key, campo) in tabla.header"><a href="" ng-click="tableOrder(key)">{{campo}}</a></th>
 		</tr>
 	</thead>
 	<tbody>
-		<tr ng-repeat="fila in tabla.datos | orderBy: '4' | limitTo: limite">
+		<tr ng-repeat="fila in tabla.datos | orderBy: predicate:reverse | limitTo: limite">
 
 			<td ng-repeat="val in fila">{{val}}</td>
 		</tr>
 	</tbody>
 </table>
-{{tabla.datos}}
+
+<div class="visible-xs-block">
+	<div class="row list-group" ng-repeat="fila in tabla.datos | orderBy: predicate:reverse | limitTo: limite">
+		<div class="col-md-2 list-group-item" ng-repeat="(key, val) in fila"><strong>{{tabla.header[key]}}:</strong> {{val}}</div>
+	</div>
+</div>
