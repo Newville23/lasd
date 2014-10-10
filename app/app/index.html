@@ -28,10 +28,15 @@
 			<!-- Add your site or application content here -->
 			<div class="container">
 
+				
 				<!-- <div ng-view=""></div> -->
 				<div ui-view></div>
 
 				<div class="footer">
+					<div ng-controller="table1">
+						<input type="number" name="fname" ng-model="limite">
+						<ls-table></ls-table>
+					</div>
 				</div>
 			</div>
 
@@ -66,6 +71,7 @@
 		<script src="bower_components/angular-touch/angular-touch.js"></script>
 		<script src="bower_components/angular-route/angular-route.js"></script>
 		<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+		<script src="bower_components/underscore/underscore.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
@@ -78,6 +84,7 @@
 		<script src="scripts/directives/navbar.js"></script>
 		<script src="scripts/directives/menu.js"></script>
 		<script src="scripts/directives/tabRoute.js"></script>
+		<script src="scripts/directives/table.js"></script>
 
 		<!-- endbuild -->
 </body>

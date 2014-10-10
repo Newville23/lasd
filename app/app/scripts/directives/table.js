@@ -4,7 +4,15 @@ angular.module('lsComponents')
 	.directive('lsTable', function(){
 
 		function link(scope, element, attrs){
-			//scope.sw = true;
+			scope.ObjtoArray = function(array){
+				return _.map(array, function(obj){
+					//console.log(obj);
+					//console.log(_.toArray(obj));
+					return _.toArray(obj);
+				});			
+			};
+			scope.tabla.datos = scope.ObjtoArray(scope.tabla.datos);
+			scope.limite = scope.tabla.datos.length;
 		};
 		return{
 			restrict: 'E',			
@@ -14,13 +22,15 @@ angular.module('lsComponents')
 	})
 	.controller('table1', ['$scope', function($scope){
 		$scope.tabla = {
-			header: ['Link', 'Nombre', 'Formularios', 'Icon'],
+			header: ['Link', 'Nombre', 'Icon', 'Otro', 'Anita'],
+			tableClass: "table-striped table-hover table-responsive panel",
 			datos: [
-				{link: 'home', nombre: 'Formularios', icon: 'fa-list-alt'},
-				{link: 'about', nombre: 'Estudiantes', icon: 'fa-user'},
-				{link: 'about', nombre: 'Docentes', icon: 'fa-group'},
-				{link: 'estadistica', nombre: 'Estadisticas', icon: 'fa-bar-chart-o'}
+				{link:'home', nombre: 'Formularios', icon: 'fa-list-alt', otro: 'mama', Bueno: 1},
+				{link:'about', nombre:'Estudiantes', icon:'fa-user', otro: 'mama', Bueno: 2},
+				{link:'about', nombre:'Docentes', icon:'fa-group', otro: 'mama', Bueno: 3},
+				{link:'estadistica', nombre:'Estadisticas', icon:'fa-bar-chart-o', otro: 'mama', Bueno: 2},
+				{link:'estadistica', nombre:'Estadisticas', icon:'fa-bar-chart-o', otro: 'mama', Bueno: 5}
 			]		
 		};
-		
+		$scope.limite = 3;
 	}]);
