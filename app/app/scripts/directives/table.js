@@ -21,7 +21,7 @@ angular.module('lsComponents')
 					scope.reverse = false;
 					scope.predicate = val.toString();
 				}
-				console
+				
 			};
 
 			scope.tabla.datos = scope.ObjtoArray(scope.tabla.datos);

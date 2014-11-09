@@ -1,5 +1,5 @@
 <!doctype html>
-<html class="no-js">
+<html class="no-js" style="font-size: 1em;">
 <head>
 	<meta charset="utf-8">
 	<title></title>
@@ -12,6 +12,7 @@
 	<!-- bower:css -->
 	<link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
 	<link rel="stylesheet" href="bower_components/font-awesome/css/font-awesome.css" />
+	<link rel="stylesheet" href="bower_components/chartist/libdist/chartist.min.css" />
 	<!-- endbower -->
 	<!-- endbuild -->
 	<!-- build:css(.tmp) styles/main.css -->
@@ -29,19 +30,30 @@
 			<!-- Add your site or application content here -->
 			<div class="container">
 
-				
-				<!-- <div ng-view=""></div> -->
+
+				<!-- <div ng-view=""></directives> -->
 				<div ui-view></div>
 
 				<div class="footer">
-					<div ng-controller="table1">
+					<div class="container" ng-controller="table1">
+
 						<input type="number" name="fname" ng-model="limite">
 						<input type="text" name="fname" ng-model="search" placeholder="Busqueda">
-						<ls-table></ls-table>
+						<ls-table class=""></ls-table>
+
+						<div class="container">
+							<div class="panel panel-default">
+								<div class="panel-body">
+									<ls-chartbar ng-controller="bar1"></ls-chartbar>
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
 			</div>
 
+			<div class="ct-chart" id="jo"></div>
 
 			<!-- Google Analytics: change UA-XXXXX-X to be your site's ID -->
 			<script>
@@ -74,6 +86,7 @@
 		<script src="bower_components/angular-route/angular-route.js"></script>
 		<script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
 		<script src="bower_components/underscore/underscore.js"></script>
+		<script src="bower_components/chartist/libdist/chartist.min.js"></script>
 		<!-- endbower -->
 		<!-- endbuild -->
 
@@ -81,12 +94,15 @@
 		<script src="scripts/vendor/highcharts.js"></script>
 		<script src="scripts/app.js"></script>
 		<script src="scripts/routes/admin/statistic.js"></script>
+		<script src="scripts/services/services.js"></script>
 		<script src="scripts/controllers/main.js"></script>
 		<script src="scripts/controllers/about.js"></script>
+		<script src="scripts/controllers/test.js"></script>
 		<script src="scripts/directives/navbar.js"></script>
 		<script src="scripts/directives/menu.js"></script>
 		<script src="scripts/directives/tabRoute.js"></script>
 		<script src="scripts/directives/table.js"></script>
+		<script src="scripts/directives/charts/bar.js"></script>
 
 		<!-- endbuild -->
 </body>

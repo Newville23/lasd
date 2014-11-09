@@ -12,11 +12,12 @@ angular
   .module('appApp', [
     'ngAnimate',
     'ngCookies',
-    'ngResource',
     'ngRoute',
     'ngSanitize',
     'ngTouch',
     'ui.router',
+    'estadisticaServices',
+    'estadistica.controllers',
     'lsComponents'
   ])
   .config(function ($stateProvider, $urlRouterProvider) {
@@ -52,18 +53,5 @@ angular
         url: '/c',
         template: 'hola mundo c'
       });
-      // nested list with just some random string data
-      // .state('estadistica.a', {
-      //   url: '/a',
-      //   template: 'hola mundo a'
-      // })
-      // .state('estadistica.b', {
-      //   url: '/b',
-      //   template: 'hola mundo b'
-      // })
-      // .state('estadistica.c', {
-      //   url: '/c',
-      //   template: 'hola mundo c'
-      // });
 
   });

@@ -1,0 +1,80 @@
+{
+	"datos": {
+		"institucion": [
+			{
+				"Institucion_rut" : 10,
+				"nota" : 1.1173
+			},
+			{
+				"Institucion_rut" : 100,
+				"nota" : 0.3510
+			}
+		],
+		"grados": [
+			{
+				"Institucion_rut" : 10,
+				"nombre_curso" : "9",
+				"nota" : 1.1173
+			},
+			{
+				"Institucion_rut" : 100,
+				"nombre_curso" : "8",
+				"nota" : 0.9871
+			},
+			{
+				"Institucion_rut" : 100,
+				"nombre_curso" : "9",
+				"nota" : 0.0511
+			}
+		],
+		"materia": [
+			{
+				"Institucion_rut" : 10,
+				"materia" : "Ingles",
+				"nota" : 1.6160
+			},
+			{
+				"Institucion_rut" : 10,
+				"materia" : "Matematicas",
+				"nota" : 0.7017
+			},
+			{
+				"Institucion_rut" : 100,
+				"materia" : "Emprendimiento",
+				"nota" : 0.9871
+			},
+			{
+				"Institucion_rut" : 100,
+				"materia" : "Matemáticas",
+				"nota" : 0.0511
+			}
+		],
+		"tipo_evaluacion": [
+			{
+				"Institucion_rut" : 10,
+				"tipo_evaluacion" : "desarolla las adiciones.",
+				"nota" : 0.5167
+			},
+			{
+				"Institucion_rut" : 10,
+				"tipo_evaluacion" : "Escrita",
+				"nota" : 3.9167
+			},
+			{
+				"Institucion_rut" : 10,
+				"tipo_evaluacion" : "Escrita2",
+				"nota" : 1.9500
+			},
+			{
+				"Institucion_rut" : 10,
+				"tipo_evaluacion" : "Examen",
+				"nota" : 3.4500
+			},
+			{
+				"Institucion_rut" : 10,
+				"tipo_evaluacion" : "EXPO",
+				"nota" : 0.0000
+			}
+		]
+	}
+}

@@ -1,8 +1,14 @@
 <div class="row" id="notas">
-	<div id="containerMaterias" style="margin: 0 auto"></div>
+	<div id="contaainerMaterias" style="margin: 0 auto"></div>
+
+	<div ng-controller="notasCtrl">
+			<ls-chartbar></ls-chartbar>
+			<ls-Table></ls-Table>
+	</div>
+
+
 	<div class="alert alert-info fontSize1" style="padding: 10px;">
-		<button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-		<strong>¡Ayuda!:</strong> Mide las notas de los estudiantes por:
+		Mide las notas de los estudiantes por:
 	</div>
 	<div class="btn-group btn-group-justified">
 		<div class="btn-group">
@@ -19,51 +25,53 @@
 		</div>
 	</div>
 </div>
+
+
 <script>
 
-	$('#containerMaterias').highcharts({
-		chart: {
-			type: 'column'
-		},
-		title: {
-			text: 'Promedio por materias'
-		},
-		subtitle: {
-			text: ''
-		},
-		xAxis: {
-			categories: [
-			'Matematicas',
-			'Sociales',
-			'Biologia',
-			'Fisica',
-			'Quimica',
-			'Español',
-			'Economia',
-			'Etica',
-			]
-		},
-		yAxis: {
-			min: 0,
-			max: 5,
-			title: {
-				text: 'Promedio'
-			}
-		},
-		tooltip: {
-			valueSuffix: ''
-		},
-		plotOptions: {
-			column: {
-				pointPadding: 0.2,
-				borderWidth: 0
-			}
-		},
-		series: [{
-			name: 'Materia',
-			data: [3.9, 4.8, 3.3, 3.0, 2.8, 4.3, 5.0, 4.6]
+	// $('#containerMaterias').highcharts({
+	// 	chart: {
+	// 		type: 'column'
+	// 	},
+	// 	title: {
+	// 		text: 'Promedio por materias'
+	// 	},
+	// 	subtitle: {
+	// 		text: ''
+	// 	},
+	// 	xAxis: {
+	// 		categories: [
+	// 		'Matematicas',
+	// 		'Sociales',
+	// 		'Biologia',
+	// 		'Fisica',
+	// 		'Quimica',
+	// 		'Español',
+	// 		'Economia',
+	// 		'Etica',
+	// 		]
+	// 	},
+	// 	yAxis: {
+	// 		min: 0,
+	// 		max: 5,
+	// 		title: {
+	// 			text: 'Promedio'
+	// 		}
+	// 	},
+	// 	tooltip: {
+	// 		valueSuffix: ''
+	// 	},
+	// 	plotOptions: {
+	// 		column: {
+	// 			pointPadding: 0.2,
+	// 			borderWidth: 0
+	// 		}
+	// 	},
+	// 	series: [{
+	// 		name: 'Materia',
+	// 		data: [3.9, 4.8, 3.3, 3.0, 2.8, 4.3, 5.0, 4.6]
 
-		}]
-	});
+	// 	}]
+	// });
 
 </script>
