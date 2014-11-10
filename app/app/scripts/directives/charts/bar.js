@@ -4,12 +4,17 @@ angular.module('lsComponents')
 	.directive('lsChartbar', function(){
 
 		function link(scope, element, attrs){
-			new Chartist.Bar('#chartist-chart', scope.datos.data, scope.datos.options);
+
+			scope.attrs = attrs;
+			new Chartist.Bar('#' + attrs.type, scope.datos.data, scope.datos.options);
 		};
 		return{
-			restrict: 'E',			
-			template: "<div id='chartist-chart' class='ct-chart'></div>",
-			link: link
+			restrict: 'E',	
+			link: link,		
+			template: function(element, attrs){
+				return "<div id='" + attrs.type + "' class='ct-chart'></div>";
+			}
+			
 		};	
 	})
 	.controller('bar1', ['$scope','$location', function($scope){

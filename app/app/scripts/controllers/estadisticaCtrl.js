@@ -29,16 +29,18 @@ angular.module('estadistica.controllers', [])
 			header: [],
 			datos: []		
 		};
-
+		
 		Notas.get(function(data){
 			$scope.datos.data.labels = _.pluck(data.datos.grados, 'nombre_curso');
 			$scope.datos.data.series[0] = _.pluck(data.datos.grados, 'nota');
-			new Chartist.Bar('#chartist-chart', $scope.datos.data, $scope.datos.options);
 
 			$scope.tabla.header = _.keys(data.datos.grados[0]);
 			$scope.tabla.datos = $scope.ObjtoArray(data.datos.grados);
 			$scope.limite = $scope.tabla.datos.length;
-			//console.log(JSON.stringify($scope.tabla));			
-		});
 
+			if (typeof($scope.attrs) !== "undefined") {
+				new Chartist.Bar('#' + $scope.attrs.type, $scope.datos.data, $scope.datos.options);
+			};		
+		});
+		
 	}]);
