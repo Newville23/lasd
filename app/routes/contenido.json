@@ -1,0 +1,326 @@
+{
+  "contenido": [
+    {
+      "id_indicador": 4,
+      "Clase_numero": "13775731636734636",
+      "contenido": "logro1",
+      "periodo": "2",
+      "estado": 0,
+      "fecha_vencimiento": "2014-05-14T05:00:00.000Z",
+      "datetime_creacion": "2014-05-08T13:32:45.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 6,
+      "Clase_numero": "13775731636734636",
+      "contenido": "logro2",
+      "periodo": "1",
+      "estado": 0,
+      "fecha_vencimiento": "0000-00-00",
+      "datetime_creacion": "2014-05-08T15:07:53.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 19,
+      "Clase_numero": "13775731636734636",
+      "contenido": "dairo",
+      "periodo": "2",
+      "estado": 0,
+      "fecha_vencimiento": "2014-05-28T05:00:00.000Z",
+      "datetime_creacion": "2014-05-08T19:02:36.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 24,
+      "Clase_numero": "13775731636734636",
+      "contenido": "logro 4",
+      "periodo": "4",
+      "estado": 0,
+      "fecha_vencimiento": "2014-07-29T05:00:00.000Z",
+      "datetime_creacion": "2014-05-09T21:29:01.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 29,
+      "Clase_numero": "13775731636734636",
+      "contenido": "suma",
+      "periodo": "1",
+      "estado": 0,
+      "fecha_vencimiento": "2014-05-21T05:00:00.000Z",
+      "datetime_creacion": "2014-05-10T01:44:19.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 30,
+      "Clase_numero": "13775731636734636",
+      "contenido": "resta",
+      "periodo": "1",
+      "estado": 0,
+      "fecha_vencimiento": "2014-02-03T05:00:00.000Z",
+      "datetime_creacion": "2014-05-10T01:45:03.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 31,
+      "Clase_numero": "13775731636734636",
+      "contenido": "alaba al se\u00f1or",
+      "periodo": "1",
+      "estado": 0,
+      "fecha_vencimiento": "2014-12-09T05:00:00.000Z",
+      "datetime_creacion": "2014-05-10T01:46:32.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 32,
+      "Clase_numero": "13775731636734636",
+      "contenido": "vuela por lo aires",
+      "periodo": "1",
+      "estado": 0,
+      "fecha_vencimiento": "2014-01-01T05:00:00.000Z",
+      "datetime_creacion": "2014-05-10T01:47:17.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 33,
+      "Clase_numero": "13775731636734636",
+      "contenido": "vuela por lo aires 1.0",
+      "periodo": "1",
+      "estado": 0,
+      "fecha_vencimiento": "2014-12-23T05:00:00.000Z",
+      "datetime_creacion": "2014-05-10T01:47:49.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 34,
+      "Clase_numero": "13775731636734636",
+      "contenido": "vuela por lo aires 0.1",
+      "periodo": "1",
+      "estado": 0,
+      "fecha_vencimiento": "2014-03-19T05:00:00.000Z",
+      "datetime_creacion": "2014-05-10T01:49:42.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 35,
+      "Clase_numero": "13775731636734636",
+      "contenido": "Pablo ramos",
+      "periodo": "2",
+      "estado": 0,
+      "fecha_vencimiento": "2014-05-21T05:00:00.000Z",
+      "datetime_creacion": "2014-05-10T03:12:31.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 39,
+      "Clase_numero": "13775731636734636",
+      "contenido": "juan",
+      "periodo": "4",
+      "estado": 0,
+      "fecha_vencimiento": "2014-05-20T05:00:00.000Z",
+      "datetime_creacion": "2014-05-11T15:51:31.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 40,
+      "Clase_numero": "13775731636734636",
+      "contenido": "listoo",
+      "periodo": "3",
+      "estado": 0,
+      "fecha_vencimiento": "2014-07-23T05:00:00.000Z",
+      "datetime_creacion": "2014-05-11T17:49:09.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 42,
+      "Clase_numero": "13775731636734636",
+      "contenido": "sena",
+      "periodo": "3",
+      "estado": 0,
+      "fecha_vencimiento": "2014-05-29T05:00:00.000Z",
+      "datetime_creacion": "2014-05-12T17:56:49.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 44,
+      "Clase_numero": "13775731636734636",
+      "contenido": "resuelve con solvencia situaciones de la vida cotidiana empleando sistemas de ecuaciones diferenciales parciales, con metodos de discretizacion",
+      "periodo": "3",
+      "estado": 0,
+      "fecha_vencimiento": "2014-09-24T05:00:00.000Z",
+      "datetime_creacion": "2014-05-17T01:39:00.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 45,
+      "Clase_numero": "13775731636734636",
+      "contenido": "adfggsvfsdfshffvgc",
+      "periodo": "2",
+      "estado": 0,
+      "fecha_vencimiento": "2014-05-29T05:00:00.000Z",
+      "datetime_creacion": "2014-05-25T13:41:22.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    },
+    {
+      "id_indicador": 46,
+      "Clase_numero": "13775731636734636",
+      "contenido": "asdfghjkjhgsbDFYGCVOuasvjhbacIP",
+      "periodo": "3",
+      "estado": 0,
+      "fecha_vencimiento": "2014-09-23T05:00:00.000Z",
+      "datetime_creacion": "2014-05-29T19:07:18.000Z",
+      "datetime_modificacion": "0000-00-00 00:00:00"
+    }
+  ],
+  "calificaciones": [
+    {
+      "id": 1.3996916997462e+15,
+      "id_indicador": 35,
+      "tipo_evaluacion": "Exposici\u00f3n",
+      "concepto": "lo que sea",
+      "ponderacion": 15,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-10T03:14:59.000Z"
+    },
+    {
+      "id": 1.3996916998751e+15,
+      "id_indicador": 35,
+      "tipo_evaluacion": "Exposici\u00f3n",
+      "concepto": "lo que sea",
+      "ponderacion": 15,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-10T03:14:59.000Z"
+    },
+    {
+      "id": 1.4013904951581e+15,
+      "id_indicador": 46,
+      "tipo_evaluacion": "EXPO",
+      "concepto": "ASDNGFHBQFDVSFDbohaS",
+      "ponderacion": 20,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-29T19:08:15.000Z"
+    },
+    {
+      "id": 1.3996867011414e+16,
+      "id_indicador": 32,
+      "tipo_evaluacion": "Oral",
+      "concepto": "Principios de aerodin\u00e1mica",
+      "ponderacion": 15,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-10T01:51:41.000Z"
+    },
+    {
+      "id": 1.3996867517243e+16,
+      "id_indicador": 32,
+      "tipo_evaluacion": "T\u00e9cnica",
+      "concepto": "Volar 20 min",
+      "ponderacion": 85,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-10T01:52:31.000Z"
+    },
+    {
+      "id": 1.3996873129083e+16,
+      "id_indicador": 4,
+      "tipo_evaluacion": "Exposici\u00f3n",
+      "concepto": "suma y resta de fraccionarios",
+      "ponderacion": 20,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-10T02:01:52.000Z"
+    },
+    {
+      "id": 1.3996873478483e+16,
+      "id_indicador": 4,
+      "tipo_evaluacion": "Quiz",
+      "concepto": "10 ejercicios de suma y resta de fraccionarios",
+      "ponderacion": 80,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-10T02:02:27.000Z"
+    },
+    {
+      "id": 1.3996912705477e+16,
+      "id_indicador": 4,
+      "tipo_evaluacion": "qwefghgfds",
+      "concepto": "sghgfdsdv",
+      "ponderacion": 34,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-10T03:07:50.000Z"
+    },
+    {
+      "id": 1.3996913625118e+16,
+      "id_indicador": 30,
+      "tipo_evaluacion": "qwerty",
+      "concepto": "asdfghjkl",
+      "ponderacion": 45,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-10T03:09:22.000Z"
+    },
+    {
+      "id": 1.3996916046294e+16,
+      "id_indicador": 35,
+      "tipo_evaluacion": "Exposici\u00f3n",
+      "concepto": "lo que sea",
+      "ponderacion": 15,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-10T03:13:24.000Z"
+    },
+    {
+      "id": 1.3998288875559e+16,
+      "id_indicador": 39,
+      "tipo_evaluacion": "quiz",
+      "concepto": "Suma de fraccuones",
+      "ponderacion": 12,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-11T17:21:27.000Z"
+    },
+    {
+      "id": 1.3998291626609e+16,
+      "id_indicador": 39,
+      "tipo_evaluacion": "qwery",
+      "concepto": "Jhjhhh",
+      "ponderacion": 12,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-11T17:26:02.000Z"
+    },
+    {
+      "id": 1.3998333088839e+16,
+      "id_indicador": 40,
+      "tipo_evaluacion": "listo si es ya es ya",
+      "concepto": "rapido",
+      "ponderacion": 20,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-11T18:35:08.000Z"
+    },
+    {
+      "id": 1.3999175587865e+16,
+      "id_indicador": 42,
+      "tipo_evaluacion": "quiz",
+      "concepto": "Sena",
+      "ponderacion": 15,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-12T17:59:18.000Z"
+    },
+    {
+      "id": 1.4002908432031e+16,
+      "id_indicador": 44,
+      "tipo_evaluacion": "parcial",
+      "concepto": "Nanananannananannanannannana",
+      "ponderacion": 25,
+      "Clase_numero": "13775731636734636",
+      "Clase_Materia_id": 1,
+      "datetime_creacion": "2014-05-17T01:40:43.000Z"
+    }
+  ]
+}

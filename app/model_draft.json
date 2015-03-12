@@ -1,0 +1,74 @@
+// Documento Curso
+//Un curso es un una asignatura que contiene 
+//diferentes logros  y que es dada en diferentes 
+//salosnes y grados
+{
+	_id : "id_curso",
+	nombreCurso: "nombreCurso",
+	materia: "materia"
+	salones_matriculados : [
+		{
+			id_salones: ["id_salon_1", "id_salon_2", "id_salon_1"],
+			Fecha_inicio: "",
+			Fecha_fin: ""
+		}
+	]
+	indicadores_de_logro: [
+		{
+			id_indicador: "id_indicador",
+			descripcion: "texto",
+			periodo: "number",
+			fecha_vencimiento: "date",
+			calificacion: [
+				{
+					id_salon: "id_salon",
+					tipo_de_evaluacion: "text",
+					concepto: "text",
+					ponderacion: "float"
+					notas: [
+						{
+							estudiante_id: "id_estudiante",
+							nota: "float",
+							fecha: "timestamp"
+						},
+						{
+							estudiante_id: "id_estudiante",
+							nota: "float",
+							fecha: "timestamp"
+						},
+						
+					]
+
+					}
+				},
+				{
+					id_salon: "id_salon",
+					tipo_de_evaluacion: "text",
+					concepto: "text",
+					ponderacion: "float"
+				}
+
+			]
+
+		},
+		{
+			id_indicador: "id_indicador2",
+			descripcion: "texto2",
+			periodo: "number2",
+			calificacion: "calificacion2",
+			fecha_vencimiento: "date2"
+
+		}
+	]
+
+}
+
+// Documento salon
+{
+	_id : "id_salon"
+	grado: "4",
+	indice: "B",
+	id_docente_director:  "id_docente_director",
+	id_estudiantes: ["id_estudiante1", "id_estudiante2", "id_estudiante3", "id_estudiante"]
+	periodo: "periodo"
+}

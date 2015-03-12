@@ -61,8 +61,9 @@ class Profesor extends CI_Controller
 		$row['foros'] = $this->foro_model->getForoFromClase($numeroClase);
 		//echo "<pre>"; print_r($row); echo "</pre>";
 
+		// LLAMADA SIMPLE A LA TABLA Clase_indicador
 		$row['contenido_indicadores'] = $this->profesor_model->getIndicadoresModel($numeroClase);
-		//echo "<pre>"; print_r($row['listaCalificaciones']); echo "</pre>";
+		echo "<pre>"; print_r($row['contenido_indicadores']); echo "</pre>";
 		//echo "<pre>"; print_r($row); echo "</pre>";
 		// ----------------------------------------------------------------
 		// Se verifica que el numero de clase corresponda con el profesor.
