@@ -1,5 +1,6 @@
 var express = require('express');
 var mysql = require('mysql');
+var underscore = require('underscore');
 
 var rutasLogin = express.Router();
 
@@ -24,7 +25,7 @@ function getContenido (req, res) {
 	var Clase_numero = mysql.escape(req.query.clasenumero);
 	var data = {};
 	
-	if (Clase_numero) {
+	if (Clase_numero && Clase_numero != 'NULL') {
 
 		var contenidoIndicadoresQuery = "SELECT id AS id_indicador, CAST(Clase_numero AS CHAR) Clase_numero, contenido, periodo, estado, " +
 		"fecha_vencimiento, datetime_creacion, datetime_modificacion " +
@@ -34,9 +35,9 @@ function getContenido (req, res) {
 		var query = contenidoIndicadoresQuery + ';' + Calificaciones;
 
 		pool.query(query, function(err, rows, fields) {
-			if (err){res.status(400).json(contenidoIndicadoresQuery);return;}
+			if (err){res.status(400).json({error: '500'});return;}
 			data.contenido = rows[0];
-			data.calificaciones = rows[0];
+			data.calificaciones = rows[1];
 			res.json(data);
 		});
 	}else{
