@@ -8,7 +8,7 @@ app.use(express.static(__dirname + '/app'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
 var docenteContenido = require('./routes/docenteContenido');
-app.use('/contenido', docenteContenido);
+app.use('/contenido.json', docenteContenido);
 
 var port = 3000;
 http.listen(port, function(){
