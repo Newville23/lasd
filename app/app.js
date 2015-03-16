@@ -1,16 +1,20 @@
-var express = require('express');
-
-var app = express();
+var express = require('express'),
+ 	app = express(),
+ 	mysql = require('mysql'),
+ 	routes = require('./routes/routes'),
+ 	port = 3000;
+ 	
+var pool = mysql.createPool({
+	connectionLimit:100, host:'localhost', user:'root', password:'12345', multipleStatements: true
+});
 
 var http = require('http').Server(app);
 
 app.use(express.static(__dirname + '/app'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
-var docenteContenido = require('./routes/docenteContenido');
-app.use('/contenido.json', docenteContenido);
+routes(app, pool);
 
-var port = 3000;
 http.listen(port, function(){
 	console.log('Listen on Port ' + port);
 });

@@ -51,10 +51,11 @@ class Profesor extends CI_Controller
 			exit;
 		}
 		$row['datos'] = $this->user_model->getDatosUsuario('Profesor');
+		//echo "<pre>"; print_r($row['datos']); echo "</pre>";
 		$row['clasesDelProfe'] = $this->profesor_model->getClasesFromProfesor($row['datos']['identificacion']);
-
+		
 		$row['listaAlumnos'] = $this->user_model->getEstudiantesNotasFromClase($numeroClase);
-
+		echo "<pre>"; print_r($row['listaAlumnos']); echo "</pre>";
 		// Obtiene la lista de alumnos con sus notas, de una determinada clase
 		$row['listaCalificaciones'] = $this->user_model->getCalificacionesFromClase($numeroClase);
 
@@ -63,7 +64,7 @@ class Profesor extends CI_Controller
 
 		// LLAMADA SIMPLE A LA TABLA Clase_indicador
 		$row['contenido_indicadores'] = $this->profesor_model->getIndicadoresModel($numeroClase);
-		echo "<pre>"; print_r($row['contenido_indicadores']); echo "</pre>";
+		//echo "<pre>"; print_r($row['contenido_indicadores']); echo "</pre>";
 		//echo "<pre>"; print_r($row); echo "</pre>";
 		// ----------------------------------------------------------------
 		// Se verifica que el numero de clase corresponda con el profesor.
