@@ -3,9 +3,9 @@ var express = require('express'),
  	mysql = require('mysql'),
  	routes = require('./routes/routes'),
  	port = 3000;
- 	
+
 var pool = mysql.createPool({
-	connectionLimit:100, host:'localhost', user:'root', password:'12345', multipleStatements: true
+	connectionLimit:100, host:'localhost', user:'root', password:'12345', database: 'lasd3', multipleStatements: true
 });
 
 var http = require('http').Server(app);
