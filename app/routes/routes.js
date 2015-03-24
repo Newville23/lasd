@@ -146,8 +146,8 @@ function Contenido (pool) {
 
         pool.query('INSERT INTO Calificacion SET ?', data , function(err, rows, fields) {
             if (err){res.status(500).json({status: '500', err: err});return;}
-            rows.idcalificacion = id;
             rows.data = post;
+            rows.data.idcalificacion = id;
             res.json(rows);
         });
     }
