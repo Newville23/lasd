@@ -112,7 +112,7 @@ class User extends CI_Controller
 
 	function formLogro($Clase_numero, $materia_id)
 	{
-		if ($this->input->is_ajax_request()) {
+		//if ($this->input->is_ajax_request()) {
 			
 				$data['Clase_numero'] = $Clase_numero;
 				$data['materia_id'] = $materia_id;
@@ -121,18 +121,18 @@ class User extends CI_Controller
 				$data['indicadores'] = $this->profesor_model->getIndicadoresModel($Clase_numero);
 				//echo "<pre>"; print_r($data); echo "</pre>";
 				$this->load->view('profesor/includes/form-logros', $data);
-		}
+		//}
 	}
 
 	public function formLogroActualizar($Calificacion_id)
 	{
-		if ($this->input->is_ajax_request()) {
+		//if ($this->input->is_ajax_request()) {
 
 			$data['controller'] = 'actualizarLogro/' . $Calificacion_id;
 			$data['logro'] = $this->user_model->getLogroFromId($Calificacion_id);
 
 			$this->load->view('profesor/includes/form-logros', $data);
-		}
+		//}
 	}
 
 	function mostrarNota($Calificacion_id){

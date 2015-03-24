@@ -14,19 +14,23 @@ _.requiredList = function(obj, arrayKeys){
 };
 
 module.exports = function(app, pool) {
-    // parse application/x-www-form-urlencoded
-    // parse application/json
+
     app.use(bodyParser.urlencoded({ extended: false }));    
     app.use(bodyParser.json());
     var version = '/' + packageJson.version;
 
     var contenido = new Contenido(pool);
     
-    app.get('/docente/contenido.json', contenido.getContenido);
+    app.get(version + '/docente/contenido.json', contenido.getContenido);
     app.post(version + '/docente/contenido.json', contenido.postContenido);
+    app.put(version + '/docente/contenido.json', contenido.putContenido);
 
-    app.get('/docente/notas.json', contenido.getNotas);
-    app.get('/docente/estudiante.json', contenido.getEstudiantes);
+    app.get(version + '/docente/calificaciones.json', contenido.getCalificaciones);
+    app.post(version + '/docente/calificaciones.json', contenido.postCalificaciones);
+    app.put(version + '/docente/calificaciones.json', contenido.putCalificaciones);
+
+    app.get(version + '/docente/notas.json', contenido.getNotas);
+    app.get(version + '/docente/estudiante.json', contenido.getEstudiantes);
     //app.get('docente/listaEstudiantes.json', contenido.getListaEstudiantes);
 }
 
@@ -85,8 +89,69 @@ function Contenido (pool) {
 
         pool.query('INSERT INTO Clase_indicador SET ?', data , function(err, rows, fields) {
             if (err){res.status(500).json({status: '500', err: err});return;}
+            rows.data = post;
             res.json(rows);
         });
+    }
+    this.putContenido = function(req, res) {        
+    }
+
+    this.getCalificaciones = function(req, res) {
+        "use strict";
+
+        var id_clase = req.query.idclase ? 'AND Clase_numero = ' + pool.escape(req.query.idclase) : '';
+        var id_indicador = req.query.idindicador ? 'AND id_indicador = ' + pool.escape(req.query.idindicador) : '';
+        var id_calificacion = req.query.idcalificacion ? 'AND id = ' + pool.escape(req.query.idcalificacion) : '';
+        
+        if (id_clase) {
+
+            var query = "SELECT CAST(id AS CHAR) as id_calificacion, id_indicador, tipo_evaluacion, " + 
+            "concepto, ponderacion, CAST(Clase_numero AS CHAR) id_clase, Clase_Materia_id, datetime_creacion " + 
+            "FROM Calificacion WHERE 1 ";
+
+            var where = id_calificacion + ' ' + id_indicador + ' ' + id_clase;
+            query = query + where;
+
+            pool.query(query, function(err, rows, fields) {
+                
+                if (err){
+                    return res.status(500).json({error: '500', err: err});
+                }else if(rows.length == 0){
+                    return res.status(404).json({error: '404'});
+                }
+                return res.json(rows);
+            });
+        }else{
+            return res.status(400).json({status: '400'});
+        }
+    }
+    this.postCalificaciones = function(req, res) {
+
+        var id = moment().format("X") + _.random(1345, 9999999);
+        var post = req.body;
+
+        // se validan todos los parametros requeridos
+        if (!_.requiredList(post, ['idindicador', 'tipoeval', 'concepto', 'ponderacion', 'idclase'])) {
+            res.status(400).json({status: '400'});return;
+        };
+
+        var data = {
+            "id": id,
+            "id_indicador" : post.idindicador,
+            "tipo_evaluacion": post.tipoeval,
+            "concepto": post.concepto,
+            "ponderacion": post.ponderacion,
+            "Clase_numero": post.idclase
+        }
+
+        pool.query('INSERT INTO Calificacion SET ?', data , function(err, rows, fields) {
+            if (err){res.status(500).json({status: '500', err: err});return;}
+            rows.idcalificacion = id;
+            rows.data = post;
+            res.json(rows);
+        });
+    }
+    this.putCalificaciones = function(req, res) {
     }
 
     // Devuelve los datos de las notas de los estudiantes dada una id de una clase o un id de indicador.
@@ -94,22 +159,22 @@ function Contenido (pool) {
         "use strict";
 
         var id_clase = req.query.idclase ? 'AND Calificacion.Clase_numero = ' + pool.escape(req.query.idclase) : '';
-        var id_indicador = req.query.idindicador ? 'AND Clase_indicador.id = ' + pool.escape(req.query.idindicador) : '';
-        var id_estudiante = req.query.idestudiante ? 'AND Estudiante.identificacion = ' + pool.escape(req.query.idestudiante) : '';
+        var id_indicador = req.query.idindicador ? 'AND Calificacion.id_indicador = ' + pool.escape(req.query.idindicador) : '';
+        var id_calificacion = req.query.idcalificacion ? 'AND Calificacion.id = ' + pool.escape(req.query.idcalificacion) : '';
+        var id_estudiante = req.query.idestudiante ? 'AND Matricula.Estudiante_identificacion = ' + pool.escape(req.query.idestudiante) : '';
 
-        var notasQuery = "SELECT CAST(Calificacion.Clase_numero AS CHAR) id_clase , CAST(Calificacion_id AS CHAR) id_Calificacion, Clase_indicador.id as id_indicador, " +
-                        "identificacion as id_estudiante, periodo, nota, tipo_evaluacion, " +
-                        "concepto, ponderacion FROM lasd3.Calificacion " +
-                            "join lasd3.Agregar_notas " +
-                            "on Agregar_notas.Calificacion_id = Calificacion.id " +
-                            "join lasd3.Estudiante " +
-                            "on Estudiante.identificacion = Agregar_notas.Estudiante_identificacion " +
-                            "join lasd3.Clase_indicador " +
-                            "on Calificacion.id_indicador = Clase_indicador.id " +
+        var notasQuery = "SELECT Clase.numero AS id_clase,  Calificacion.id_indicador, Calificacion.id AS id_calificacion, " +
+                            "Matricula.Estudiante_identificacion as id_estudiante, tipo_evaluacion, nota, " +
+                            "fecha AS fecha_creacion_nota, concepto, ponderacion " +
+                            "FROM Calificacion " +
+                            "JOIN Clase ON Clase.numero = Calificacion.Clase_numero " +
+                            "JOIN Matricula ON Clase.Curso_codigo = Matricula.Curso_codigo " +
+                            "LEFT JOIN Agregar_notas ON Agregar_notas.Calificacion_id = Calificacion.id  " +
+                                    "AND Agregar_notas.Estudiante_identificacion = Matricula.Estudiante_identificacion " +
                         "WHERE 1 ";
 
-        if (id_clase || id_indicador || id_estudiante) {
-            var where = id_clase + ' ' + id_indicador + ' ' + id_estudiante;
+        if (id_clase || id_calificacion) {
+            var where = id_clase + ' ' + id_indicador + ' ' + id_calificacion + ' ' + id_estudiante;
             var query = notasQuery + where;
 
             pool.query(query, function(err, rows, fields) {
