@@ -20,6 +20,7 @@ module.exports = function(app, pool) {
     var version = '/' + packageJson.version;
 
     var contenido = new Contenido(pool);
+    var estudiante = new Estudiante(pool);
     
     app.get(version + '/docente/contenido.json', contenido.getContenido);
     app.post(version + '/docente/contenido.json', contenido.postContenido);
@@ -32,6 +33,8 @@ module.exports = function(app, pool) {
     app.get(version + '/docente/notas.json', contenido.getNotas);
     app.get(version + '/docente/estudiante.json', contenido.getEstudiantes);
     //app.get('docente/listaEstudiantes.json', contenido.getListaEstudiantes);
+
+    app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
 }
 
 
@@ -254,5 +257,37 @@ function Contenido (pool) {
         }else{
             return res.status(400).json({status: '400'});
         }
+    }
+}
+
+function Estudiante (pool) {
+    
+    this.postAsistencia = function (req, res) {
+        'use strict';
+
+        var id_clase = req.query.idclase ? pool.escape(req.query.idclase) : null;
+
+        // se escapa la fecha, si no se especifica se asigna la actual
+        var fecha = req.query.fecha ? pool.escape(req.query.fecha) : moment().format('YYYY-MM-DD');
+
+        // analizar y ajustar datos post
+
+        if (id_clase) {
+            
+            // se valida que la fecha no sea futura
+            if (moment().format('YYYY-MM-DD') < fecha.replace(/'/g , "")) {
+                return res.status(400).json({status: '400', msg: "Escoge una fecha valida."});
+            };
+            res.json({msg: "hola"});
+
+            // === Validacion de no editar la lista de asistencia (que no se haya realizado ya la asistencia) ========
+                //mensaje que ya se realizó
+
+            // insercion de asistencia
+
+        }else{
+            return res.status(400).json({status: '400', msg: "Falta especificar parametros"});
+        }
+        
     }
 }
