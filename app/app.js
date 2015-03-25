@@ -1,7 +1,8 @@
 var express = require('express'),
  	app = express(),
  	mysql = require('mysql'),
- 	routes = require('./routes/routes'),
+ 	routes = require('./routes/routes')
+ 	cors = require('cors'),
  	port = 3000;
 
 var pool = mysql.createPool({
@@ -10,6 +11,7 @@ var pool = mysql.createPool({
 
 var http = require('http').Server(app);
 
+app.use(cors());
 app.use(express.static(__dirname + '/app'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 
