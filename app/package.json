@@ -6,6 +6,7 @@
     "cors": "^2.5.3",
     "express": "^4.12.2",
     "moment": "^2.9.0",
+    "multer": "^0.1.8",
     "mysql": "^2.5.5",
     "underscore": "^1.8.2"
   },

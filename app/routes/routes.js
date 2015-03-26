@@ -14,9 +14,10 @@ _.requiredList = function(obj, arrayKeys){
 };
 
 module.exports = function(app, pool) {
-
-    app.use(bodyParser.urlencoded({ extended: false }));    
     app.use(bodyParser.json());
+    //app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
+    app.use(bodyParser.urlencoded({ extended: false }));    
+    
     var version = '/' + packageJson.version;
 
     var contenido = new Contenido(pool);
@@ -264,30 +265,52 @@ function Estudiante (pool) {
     
     this.postAsistencia = function (req, res) {
         'use strict';
-
+        var data = [];
+        //req.accepts('html, json');
         var id_clase = req.query.idclase ? pool.escape(req.query.idclase) : null;
 
         // se escapa la fecha, si no se especifica se asigna la actual
         var fecha = req.query.fecha ? pool.escape(req.query.fecha) : moment().format('YYYY-MM-DD');
+        var numeroEstudiantes = req.query.numeroEstudiantes;
 
         // analizar y ajustar datos post
+        var post = req.body;
 
-        if (id_clase) {
-            
-            // se valida que la fecha no sea futura
-            if (moment().format('YYYY-MM-DD') < fecha.replace(/'/g , "")) {
-                return res.status(400).json({status: '400', msg: "Escoge una fecha valida."});
-            };
-            res.json({msg: "hola"});
-
-            // === Validacion de no editar la lista de asistencia (que no se haya realizado ya la asistencia) ========
-                //mensaje que ya se realizó
-
-            // insercion de asistencia
-
-        }else{
-            return res.status(400).json({status: '400', msg: "Falta especificar parametros"});
+        if (!id_clase || !numeroEstudiantes) {
+            return res.status(400).json({status: '400', msg: "Falta especificar parametros GET"});
         }
+
+        if (!_.isArray(post)) {
+            return res.status(400).json({status: '400', msg: "Datos POST incorrectos o no especificados"});
+        }
+
+        if (pool.escape(_.size(post)) != numeroEstudiantes ) {
+            return res.status(400).json({status: '404', msg: "Numero de estudiantes no concuerda"});
+        }
+        // se valida que la fecha no sea futura
+        if (moment().format('YYYY-MM-DD') < fecha.replace(/'/g , "")) {
+            return res.status(400).json({status: '404', msg: "Escoge una fecha valida."});
+        };
+
+        _.each(post, function (estudiante) {
+            estudiante.Clase_numero = id_clase;
+            estudiante.fecha = fecha;
+            data.push(_.values(estudiante));
+            //console.log(estudiante);
+        });
+
+        res.send(data);
+
+        // === Validacion de no editar la lista de asistencia (que no se haya realizado ya la asistencia) ========
+            //mensaje que ya se realizó
+
+        // insercion de asistencia
+        // pool.query('INSERT INTO Asistencia (Estudiante_identificacion, Asistencia, Clase_numero, fecha) VALUES  ?', data , function(err, rows, fields) {
+        //     if (err){res.status(500).json({status: '500', err: err});return;}
+        //     rows.data = post;
+        //     rows.data.idcalificacion = id;
+        //     res.json(rows);
+        // });
         
     }
 }

@@ -39,6 +39,10 @@ angular
         url: '/admin/estadistica',
         templateUrl: 'views/admin/estadistica.html'
       })
+      .state('random', {
+        url: '/random',
+        templateUrl: 'views/random.html'
+      })
 
       // nested list with just some random string data
       .state('about.a', {
