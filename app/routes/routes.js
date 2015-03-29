@@ -32,6 +32,8 @@ module.exports = function(app, pool) {
     app.put(version + '/docente/calificaciones.json', contenido.putCalificaciones);
 
     app.get(version + '/docente/notas.json', contenido.getNotas);
+    app.post(version + '/docente/notas.json', contenido.postNotas);
+    app.put(version + '/docente/notas.json', contenido.putNotas);
 
     app.get(version + '/docente/estudiante.json', estudiante.getEstudiantes);
     
@@ -97,7 +99,29 @@ function Contenido (pool) {
             res.json(rows);
         });
     }
-    this.putContenido = function(req, res) {        
+    this.putContenido = function(req, res) {
+        var post = req.body;
+
+        var id_contenido = req.query.idcontenido;
+
+        if (!id_contenido) {
+            return res.status(400).json({status: '400', msg: "Falta especificar parametros GET"});
+        };
+
+        post.datetime_modificacion = moment().format('YYYY-MM-DD h:mm:ss');
+
+        // var data = {
+        //     "contenido": post.contenido,
+        //     "periodo": post.periodo,
+        //     "fecha_vencimiento": post.fechavencimiento,
+        //     "datetime_modificacion" : moment().format('YYYY-MM-DD h:mm:ss');
+        // }
+
+        query = pool.query('UPDATE Clase_indicador SET ? WHERE id = ?', [post, id_contenido] , function(err, rows, fields) {
+            if (err){res.status(400).json({status: '400'});return;}
+            rows.data = post;
+            res.json(rows);
+        });
     }
 
     this.getCalificaciones = function(req, res) {
@@ -157,6 +181,27 @@ function Contenido (pool) {
         });
     }
     this.putCalificaciones = function(req, res) {
+        var post = req.body;
+
+        var id_calificacion = req.query.idcalificacion;
+
+        if (!id_calificacion) {
+            return res.status(400).json({status: '400', msg: "Falta especificar parametros GET"});
+        };
+
+        // var data = {
+        //     "id_indicador" : post.idindicador,
+        //     "tipo_evaluacion": post.tipoeval,
+        //     "concepto": post.concepto,
+        //     "ponderacion": post.ponderacion,
+        //     "Clase_numero": post.idclase
+        // }
+
+        query = pool.query('UPDATE Calificacion SET ? WHERE id = ?', [post, id_calificacion] , function(err, rows, fields) {
+            if (err){res.status(400).json({status: '400'});return;}
+            rows.data = post;
+            res.json(rows);
+        });
     }
 
     // Devuelve los datos de las notas de los estudiantes dada una id de una clase o un id de indicador.
@@ -194,6 +239,10 @@ function Contenido (pool) {
         }else{
             return res.status(400).json({status: '400'});
         }   
+    }
+    this.postNotas = function (req, res) {
+    }
+    this.putNotas = function (req, res) {
     }
 }
 
