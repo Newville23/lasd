@@ -31,7 +31,7 @@ angular
         controller: 'MainCtrl'
       })
       .state('about', {
-        url: '/about',
+        url: '/about/:idclase',
         templateUrl: 'views/about.html',
         controller: 'AboutCtrl'
       })
@@ -40,7 +40,7 @@ angular
         templateUrl: 'views/admin/estadistica.html'
       })
       .state('random', {
-        url: '/random',
+        url: '/random/:idclase/:tema',
         templateUrl: 'views/random.html'
       })
 
@@ -54,7 +54,7 @@ angular
         template: 'hola mundo b'
       })
       .state('about.c', {
-        url: '/c',
+        url: '/contenido',
         template: 'hola mundo c'
       });
 

@@ -32,9 +32,9 @@ module.exports = function(app, pool) {
     app.put(version + '/docente/calificaciones.json', contenido.putCalificaciones);
 
     app.get(version + '/docente/notas.json', contenido.getNotas);
-    app.get(version + '/docente/estudiante.json', contenido.getEstudiantes);
-    //app.get('docente/listaEstudiantes.json', contenido.getListaEstudiantes);
 
+    app.get(version + '/docente/estudiante.json', estudiante.getEstudiantes);
+    
     app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
 }
 
@@ -195,6 +195,9 @@ function Contenido (pool) {
             return res.status(400).json({status: '400'});
         }   
     }
+}
+
+function Estudiante (pool) {
 
     //Devuelve la lista de los estudiantes con los datos, además de la asistencia, 
     //dada la id de la clase y la fecha. Si no se especifica la fecha, se toma la actual.
@@ -260,9 +263,6 @@ function Contenido (pool) {
             return res.status(400).json({status: '400'});
         }
     }
-}
-
-function Estudiante (pool) {
     
     this.postAsistencia = function (req, res) {
         'use strict';
@@ -293,23 +293,31 @@ function Estudiante (pool) {
             return res.status(400).json({status: '404', msg: "Escoge una fecha valida."});
         };
 
-        _.each(post, function (estudiante) {
-            estudiante.Clase_numero = id_clase;
-            estudiante.fecha = fecha;
-            data.push(_.values(estudiante));
-        });
-
         // === Validacion de no editar la lista de asistencia (que no se haya realizado ya la asistencia) ========
-            //mensaje que ya se realizó
-
-        // insercion de asistencia
-        var query = 'INSERT INTO Asistencia (Estudiante_identificacion, Asistencia, Clase_numero, fecha) VALUES  ?';
-
-        pool.query(query, [data] , function(err, rows, fields) {
-            if (err){res.status(500).json({status: '500', err: err});return;}
-            rows.data = data;
-            res.json(rows);
-        });
+        var  list = "SELECT *  FROM lasd3.Asistencia WHERE Clase_numero = " + pool.escape(id_clase) + " AND fecha = " + pool.escape(fecha);
         
+        pool.query(list, function (err, rows, fields) {
+            if (err){res.status(500).json({status: '500', err: err});return;}
+            
+            if (_.size(rows) > 0){
+                return res.status(400).json({status: '400', msg: "Ya se realizó la asistencia"});
+            }else{
+
+                /* asigna al array data un grupo de array que corresonden a los valores a insertar
+                ej: [["332323","si","13775731636734635","2015-03-24"],["12121212","si","13775731636734635","2015-03-24"]] */
+                _.each(post, function (estudiante) {
+                    estudiante.Clase_numero = id_clase;
+                    estudiante.fecha = fecha;
+                    data.push(_.values(estudiante));
+                });
+                // insercion de asistencia
+                var query = 'INSERT INTO Asistencia (Estudiante_identificacion, Asistencia, Clase_numero, fecha) VALUES  ?';
+                pool.query(query, [data] , function(err, rows, fields) {
+                    if (err){res.status(500).json({status: '500', err: err});return;}
+                    rows.data = post;
+                    res.json(rows);
+                });
+            }
+        });       
     }
 }
