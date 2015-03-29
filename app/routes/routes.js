@@ -213,7 +213,7 @@ function Contenido (pool) {
         var id_calificacion = req.query.idcalificacion ? 'AND Calificacion.id = ' + pool.escape(req.query.idcalificacion) : '';
         var id_estudiante = req.query.idestudiante ? 'AND Matricula.Estudiante_identificacion = ' + pool.escape(req.query.idestudiante) : '';
 
-        var notasQuery = "SELECT Clase.numero AS id_clase,  Calificacion.id_indicador, Calificacion.id AS id_calificacion, " +
+        var notasQuery = "SELECT CAST(Clase.numero AS CHAR) AS id_clase,  Calificacion.id_indicador, CAST(Calificacion.id AS CHAR) AS id_calificacion, " +
                             "Matricula.Estudiante_identificacion as id_estudiante, tipo_evaluacion, nota, " +
                             "fecha AS fecha_creacion_nota, concepto, ponderacion " +
                             "FROM Calificacion " +
@@ -229,9 +229,9 @@ function Contenido (pool) {
 
             pool.query(query, function(err, rows, fields) {
                 if (err){
-                    return res.status(500).json({error: '500'});
+                    return res.status(500).json({status: '500', err: err});
                 }else if(rows.length == 0){
-                    return res.status(404).json({error: '404'});
+                    return res.status(404).json({status: '404'});
                 }
                 return res.json(rows);
             });
@@ -241,8 +241,52 @@ function Contenido (pool) {
         }   
     }
     this.postNotas = function (req, res) {
+        
+        var post = req.body;
+
+        // se validan todos los parametros requeridos
+        if (!_.requiredList(post, ['idestudiante', 'idcalificacion', 'nota'])) {
+            res.status(400).json({status: '400', msg: 'Faltan datos requeridos'});return;
+        };
+
+        var data = {
+            "Estudiante_identificacion": post.idestudiante,
+            "Calificacion_id": post.idcalificacion,
+            "nota": post.nota
+        }
+
+        pool.query('INSERT INTO Agregar_notas SET ?', [data] , function(err, rows, fields) {
+            if (err){res.status(500).json({status: '500', err: err});return;}
+            rows.data = post;
+            res.json(rows);
+        });
     }
+
     this.putNotas = function (req, res) {
+        
+        var get ={};
+        id_estudiante = req.query.idestudiante || null;
+        id_calificacion = req.query.idcalificacion || null;
+
+        if (id_estudiante && id_calificacion) {
+            var post = req.body;
+
+            if (!_.size(post)) {
+                return res.status(400).json({status: '400', msg: 'Faltan datos POST requeridos'});
+            };
+            post.datetime_modificacion = moment().format('YYYY-MM-DD h:mm:ss');
+
+            var query = 'UPDATE Agregar_notas SET ? WHERE Estudiante_identificacion = ? and Calificacion_id = ?';
+            pool.query(query, [post, id_estudiante, id_calificacion] , function(err, rows, fields) {
+                if (err){res.status(500).json({status: '500', err: err});return;}
+                rows.data = post;
+                res.json(rows);
+            });
+        
+        }else{
+            return res.status(400).json({status: '400', msg: 'Faltan datos requeridos'});
+        }
+        
     }
 }
 
