@@ -75,12 +75,13 @@ md-checkbox{
   color:white;
  padding: 15px;
 }
-.well{
+.well, .well-margin{
   margin-bottom: 4px;
   margin-top: 2px;
   margin-left: 2px;
   margin-right: 2px;
 }
+
 .well-sm{
 
   padding:6px !important;

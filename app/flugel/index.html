@@ -16,10 +16,10 @@
         <md-sidenav class="md-sidenav-left md-whiteframe-z1" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
             <md-toolbar><div class="md-toolbar-tools"><span> Hola:Juan </span></div> </md-toolbar>
             <md-content layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
-                <a ng-repeat="x in clases" class="Matbar2" ui-sref="Docente({idclase:x.state})">
+                <md-button flex ng-repeat="x in clases" class="md-raised md-primary" ui-sref="Docente({idclase:x.state})" style=" margin: 8px; padding: 4%;">
                     <strong>{{x.curso}}</strong><br>
                     <small>{{x.materia}}</small>
-                </a>
+                </md-button>
             </md-content>
         </md-sidenav>
         <!-- este es el sidenav left abierto por defecto -->
