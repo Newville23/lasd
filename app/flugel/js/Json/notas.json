@@ -1,0 +1,20 @@
+[
+  { "Clase_numero":"13775732497044",
+	"Calificacion_id":"13995281753682120",
+	"indicador_id":1,
+	"estudiante_id":332323,
+	"periodo":"1",
+	"nota":0,
+	"tipo_evaluacion":"Escrita",
+	"concepto":"Test",
+	"ponderacion":10
+  },
+
+{"Clase_numero":"13775732497044","Calificacion_id":"13995281753682120","indicador_id":1,"estudiante_id":12121212,"periodo":"1","nota":4,"tipo_evaluacion":"Escrita","concepto":"Test","ponderacion":10},
+{"Clase_numero":"13775732497044","Calificacion_id":"13995281753682120","indicador_id":1,"estudiante_id":1143124139,"periodo":"1","nota":7,"tipo_evaluacion":"Escrita","concepto":"Test","ponderacion":10},
+{"Clase_numero":"13775732497044","Calificacion_id":"13995281753682120","indicador_id":1,"estudiante_id":342345345345,"periodo":"1","nota":6,"tipo_evaluacion":"Escrita","concepto":"Test","ponderacion":10},
+{"Clase_numero":"13775732497044","Calificacion_id":"13998306575992196","indicador_id":3,"estudiante_id":332323,"periodo":"3","nota":0,"tipo_evaluacion":"jpelita","concepto":"Jdfggerygf","ponderacion":50},
+{"Clase_numero":"13775732497044","Calificacion_id":"13998306575992196","indicador_id":3,"estudiante_id":12121212,"periodo":"3","nota":0,"tipo_evaluacion":"jpelita","concepto":"Jdfggerygf","ponderacion":50},
+{"Clase_numero":"13775732497044","Calificacion_id":"13998306575992196","indicador_id":3,"estudiante_id":1143124139,"periodo":"3","nota":0,"tipo_evaluacion":"jpelita","concepto":"Jdfggerygf","ponderacion":50},
+{"Clase_numero":"13775732497044","Calificacion_id":"13998306575992196","indicador_id":3,"estudiante_id":342345345345,"periodo":"3","nota":0,"tipo_evaluacion":"jpelita","concepto":"Jdfggerygf","ponderacion":50}
+]

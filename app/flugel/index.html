@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CDapp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Def</title>
+        <link rel="stylesheet" href="//ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+
+    <body layout="row" ng-controller="soloDatosCtrl">
+        <!-- este es el sidenav left abierto por defecto -->
+        <md-sidenav class="md-sidenav-left md-whiteframe-z1" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
+            <md-toolbar><div class="md-toolbar-tools"><span> Hola:Juan </span></div> </md-toolbar>
+            <md-content layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
+                <a ng-repeat="x in clases" class="Matbar2" ui-sref="Docente({idclase:x.state})">
+                    <strong>{{x.curso}}</strong><br>
+                    <small>{{x.materia}}</small>
+                </a>
+            </md-content>
+        </md-sidenav>
+        <!-- este es el sidenav left abierto por defecto -->
+
+        <!-- este es el layout de contenido principal  -->
+        <md-content layout="column" flex>
+            <md-toolbar layout="row">
+                <div class="md-toolbar-tools">
+                    <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="menuBtn">
+                        <span class="visually-hidden">Menu</span>
+                    </md-button>
+                    <span>Ayudas</span>
+                    <span flex></span>
+                    <section layout="row" layout-sm="column" layout-align="end center">
+                        <md-button class="md-fab md-primary" aria-label="Eat cake">
+                            +
+                        </md-button>
+                    </section>
+                </div>
+            </md-toolbar>
+
+            <md-content layout="column" class="md-padding" flex>
+                <div flex ui-view></div>          
+            </md-content>
+
+        </md-content>
+        <!-- este es el layout de contenido principal  -->
+
+        <!-- este es el sidenav right cerrado por defecto CRUD -->
+        <md-sidenav class="md-sidenav-right md-whiteframe-z1" md-component-id="right">
+            <md-toolbar><div class="md-toolbar-tools"><span>Crea un Nuevo logro</span></div> </md-toolbar>
+            <md-content layout="column" class="md-padding"> 
+                <form>
+                    <md-input-container>
+                        <label>Descripción del Logro</label>
+                        <textarea name=""  columns="1"></textarea>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Username</label>
+                        <input type="text">
+                    </md-input-container>                             
+                </form> 
+        </md-sidenav>
+    <!-- este es el sidenav right cerrado por defecto CRUD -->
+
+    </body>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.95.3/js/materialize.min.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>    
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.3.13/angular-messages.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-animate.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.3.6/angular-aria.min.js"></script> 
+
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.8.3/angular-material.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.13/angular-ui-router.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
+    
+    <script src="js/Directives/dir.js"></script>
+    <script src="js/Services/servicios.js"></script>
+    <script src="app.js"></script>
+
+</html>

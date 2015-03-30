@@ -1,0 +1,36 @@
+<table class="table table-responsive">
+	<thead>
+		<tr>
+			<th class="hidden-xs"></th>
+			<th class="hidden-xs"></th>
+			<th>Apellido</th>
+			<th class="hidden-xs"></th>
+			<th>Nombre</th>
+			<th class="hidden-xs"></th>
+			<th><label for="">Notas</label></th>
+			<th class="hidden-xs"></th>
+			<th class="hidden-xs"></th>
+		</tr>
+			
+	</thead>
+	<tbody>
+		<form action="">
+			<tr ng-repeat="estudiante in Estudiantes">
+
+			<td class="hidden-xs"></td>
+			<td class="hidden-xs"></td>
+			<td>{{estudiante.apellido}}</td>
+			<td class="hidden-xs"></td>
+			<td>{{estudiante.nombre}}</td>
+			<td class="hidden-xs"></td>
+			<td> 			
+				{{estudiante.tipo_sangre}}
+			</td>
+			<td class="hidden-xs"></td>
+			<td class="hidden-xs"></td>
+		</tr>
+		</form>
+		
+	</tbody>
+
+</table>

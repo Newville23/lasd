@@ -1,0 +1,34 @@
+[
+    {
+        "Estudiante_identificacion": 332323,
+        "tipo_identificacion": "Registro civil",
+        "nombre": "José Plácido",
+        "apellido": "Domingo Embil",
+        "fecha_nacimiento": "0000-00-00",
+        "tipo_sangre": "O Negativo"
+    },
+    {
+        "Estudiante_identificacion": 12121212,
+        "tipo_identificacion": "Tarjeta de identidad",
+        "nombre": "Josep Maria",
+        "apellido": "Carreras Coll",
+        "fecha_nacimiento": "0000-00-00",
+        "tipo_sangre": "A Positivo"
+    },
+    {
+        "Estudiante_identificacion": 1143124139,
+        "tipo_identificacion": "cedula",
+        "nombre": "Lennin Alonso",
+        "apellido": "Suescun Devia",
+        "fecha_nacimiento": "1990-12-06T05:00:00.000Z",
+        "tipo_sangre": "0"
+    },
+    {
+        "Estudiante_identificacion": 342345345345,
+        "tipo_identificacion": "Registro civil",
+        "nombre": "pedro pablo",
+        "apellido": "Miranda Gomez",
+        "fecha_nacimiento": "0000-00-00",
+        "tipo_sangre": "O Positivo"
+    }
+]
