@@ -1,0 +1,19 @@
+<form name="userForm" flex='20'>
+	     <md-input-container >
+	       <label>Last Name</label>
+	       <input name="lastName" ng-model="lastName" required md-maxlength="10" minlength="4" ng-model-options="{ debounce: 700 }">
+	         <div ng-messages="userForm.lastName.$error" ng-show="userForm.lastName.$dirty || userForm.lastName.$touched">
+	         <div ng-message="required">This is required!</div>
+	         <div ng-message="md-maxlength">That's too long!</div>
+	         <div ng-message="minlength">That's too short!</div>
+	       </div>
+	     </md-input-container>
+	     <md-input-container>
+	       <label>Biography</label>
+	       <input name="bio" ng-model="biography" required md-maxlength="150">
+	          <div ng-messages="userForm.bio.$error" ng-show="userForm.bio.$dirty || userForm.bio.$touched">
+	         <div ng-message="required">This is required!</div>
+	         <div ng-message="md-maxlength">That's too long!</div>
+	       </div>
+	     </md-input-container>
+</form>

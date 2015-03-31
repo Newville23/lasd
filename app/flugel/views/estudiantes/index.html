@@ -1,0 +1,93 @@
+  <div class="container"  layout="column" flex ng-controller="EstudiantesCtrl" layout-fill>
+   <div layout="row">
+     <md-input-container layout="70" layout-fill>
+      <label>buscar</label>
+      <input ng-model="search">
+       
+    </md-input-container>
+    <md-switch flex="30" ng-model="asist" ng-click="asisToast()" aria-label="Switch 1" ng-true-value="false" ng-false-value="true">
+
+    Asistencia
+    <md-tooltip>Tomar Asistencia</md-tooltip>
+  </md-switch>
+    </div>
+   <!-- lista de estudiantes-->
+<div layout= "row" layout-fill>
+    <md-list flex="80">
+      <md-item  ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
+        <md-item-content class="md-whiteframe-z1 itemList">
+          <div class="md-tile-left">
+              <img ng-src="{{estudiante.face}}" class="face" alt="{{estudiante.nombre}}">
+          </div>
+          <div ng-click="toggleRight(estudiante)" class="md-tile-content">
+            <h3>{{estudiante.nombre}} {{estudiante.apellido}}</h3>
+            <h4>Curso - {{estudiante.curso}}</h4>
+            
+
+
+
+         </div>
+        <div class="md-tile-right">
+        
+        <!-- Grupo de botones para gestionar la toma de asistencias -->
+
+            <div class="btn-group">
+
+                <label ng-disabled="asist" class="btn btn-default btn-green" ng-class="{active: estudiante.asistencia == 'si'}">
+                    <input class="radio"  type="radio" ng-model="estudiante.asistencia"  value="si" ><md-icon md-svg-src="{{ iconCheck }}" alt="Check Icon">
+                  </md-icon>
+                </label>
+
+                <label ng-disabled="asist" class="btn btn-default btn-red " ng-class="{active: estudiante.asistencia == 'no'}">
+                  <input class="radio" type="radio" ng-model="estudiante.asistencia" value="no" ><md-icon md-svg-src="{{ iconClose }}" alt="Close Icon">
+                </md-icon>
+              </label>
+
+            </div> 
+        </div>
+
+
+        </md-item-content>
+      </md-item>
+    </md-list>
+
+    <!-- Boton para envío de asistencia al servidor  -->
+
+            <md-button ng-show="!asist" flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="save($event)">
+            <md-tooltip>Enviar asistencia</md-tooltip>
+              <md-icon md-svg-src="{{iconSend}}" ></md-icon>
+
+            </md-button>
+    
+    <!-- menu derecho se desplegable  para +info -->
+
+    <md-sidenav class="md-sidenav-right " md-component-id="right" >
+      <md-toolbar >
+          <div layout="row" layout-align="start center">
+          <div flex="25" class="md-tile-left">
+              <img style = "background: white;" ng-src="{{name.face}}" class="face" alt="{{estudiante.nombre}}">
+          </div>
+            <h1 flex="80" style="color: white;" class="md-toolbar-tools">{{name.nombre}} {{name.apellido}}</h1>
+
+          </div>
+      </md-toolbar>
+
+      <md-content layout="column" layout-fill  class="md-padding">
+        <form name="userForm">
+        <md-input-container flex>
+          <label>Tipo de sangre</label>
+          <input ng-model="name.tipoSangre" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+        <md-input-container flex>
+          <label>Curso</label>
+          <input ng-model="name.curso" ng-model="checked" ng-disabled="checked">
+        </md-input-container>
+
+        </form>
+
+        </md-content>
+    </md-sidenav>
+</div>
+ <pre>{{estudiantes | json}}</pre>
+
+</div>

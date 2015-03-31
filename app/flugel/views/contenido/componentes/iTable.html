@@ -1,0 +1,25 @@
+<table class="table table-hover table-responsive panel hidden-xs">
+	
+	<thead>
+		<tr class="">
+			<th ng-repeat="(key,campo) in tabla.header" ng-click="tableOrder(key)" style="cursor:pointer">
+				{{campo}}
+			</th>
+		</tr>
+	</thead>
+
+	<tbody>
+		<tr ng-repeat="fila in tabla.datos | filter:search:strict | orderBy: predicate:reverse">
+			<td ng-repeat="val in fila track by $index">{{val}}</td>
+		</tr>
+	</tbody>
+	
+</table>
+
+<div class="visible-xs-block">
+	<div class="row list-group" ng-repeat="fila in tabla.datos | filter:search:strict | orderBy: predicate:reverse">
+		<div class="col-md-2 list-group-item" ng-repeat="(key, val) in fila track by $index ">
+			<strong ng-click="tableOrder(key)" style="cursor:pointer">{{tabla.header[key]}}:</strong> {{val}}
+		</div>
+	</div>
+</div>

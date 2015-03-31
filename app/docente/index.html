@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="CDapp">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width">
+        <title>Def</title>
+        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+        <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
+        <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
+        <link rel="stylesheet" href="/bower_components/chartist/dist/chartist.min.css" />
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+
+    <body layout="row" ng-controller="soloDatosCtrl">
+        <!-- este es el sidenav left abierto por defecto -->
+        <md-sidenav class="md-sidenav-left md-whiteframe-z1" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
+            <md-toolbar><div class="md-toolbar-tools"><span> Hola:Juan </span></div> </md-toolbar>
+            <md-content layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
+                <md-button flex ng-repeat="x in clases" class="md-raised md-primary" ui-sref="Docente({idclase:x.state})" style=" margin: 8px; padding: 4%;">
+                    <strong>{{x.curso}}</strong><br>
+                    <small>{{x.materia}}</small>
+                </md-button>
+            </md-content>
+        </md-sidenav>
+        <!-- este es el sidenav left abierto por defecto -->
+
+        <!-- este es el layout de contenido principal  -->
+        <md-content layout="column" flex>
+            <md-toolbar layout="row">
+                <div class="md-toolbar-tools">
+                    <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="menuBtn">
+                        <span class="visually-hidden">Menu</span>
+                    </md-button>
+                    <span>Ayudas</span>
+                    <span flex></span>
+                    <section layout="row" layout-sm="column" layout-align="end center">
+                        <md-button class="md-fab md-primary" aria-label="Eat cake">
+                            +
+                        </md-button>
+                    </section>
+                </div>
+            </md-toolbar>
+
+            <md-content layout="column" class="md-padding" flex>
+                <div flex ui-view></div>          
+            </md-content>
+
+        </md-content>
+        <!-- este es el layout de contenido principal  -->
+
+        <!-- este es el sidenav right cerrado por defecto CRUD -->
+        <md-sidenav class="md-sidenav-right md-whiteframe-z1" md-component-id="right">
+            <md-toolbar><div class="md-toolbar-tools"><span>Crea un Nuevo logro</span></div> </md-toolbar>
+            <md-content layout="column" class="md-padding"> 
+                <form>
+                    <md-input-container>
+                        <label>Descripción del Logro</label>
+                        <textarea name=""  columns="1"></textarea>
+                    </md-input-container>
+                    <md-input-container>
+                        <label>Username</label>
+                        <input type="text">
+                    </md-input-container>                             
+                </form> 
+        </md-sidenav>
+    <!-- este es el sidenav right cerrado por defecto CRUD -->
+
+    </body>
+
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.min.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+    <script src="/bower_components/underscore/underscore.js"></script>
+    <script src="/bower_components/chartist/dist/chartist.min.js"></script>
+               
+    
+    <script src="js/Directives/dir.js"></script>
+    <script src="js/Services/servicios.js"></script>
+    <script src="app.js"></script>
+
+</html>
