@@ -25,8 +25,12 @@ angular.module('CDapp',[
     // Now set up the states
     $stateProvider
     // Rol de Doncente que cuenta con un parametro para cada clase
+    .state('Home', {
+        url: "/Docente",
+        templateUrl: "html/home/index.html"
+    })
     .state('Docente',{
-        url:"/Docente/:idclase",
+        url:"/Docente/{idclase:[0-9a-fA-F]{1,25}}", // sólo caracteres alfanuméricos
         templateUrl:"html/todo.html",
         controller: function($stateParams){
             console.log($stateParams);
@@ -41,7 +45,6 @@ angular.module('CDapp',[
     .state('Docente.Evaluaciones', {
         url: "/Evaluaciones",
         templateUrl: "html/Evaluaciones.html",
-
     })
     .state('Docente.Foro', {
         url: "/Foro",

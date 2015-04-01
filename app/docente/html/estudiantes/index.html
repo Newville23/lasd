@@ -30,19 +30,16 @@
         <div class="md-tile-right">
         
         <!-- Grupo de botones para gestionar la toma de asistencias -->
-
             <div class="btn-group">
-
                 <label ng-disabled="asist" class="btn btn-default btn-green" ng-class="{active: estudiante.asistencia == 'si'}">
-                    <input class="radio"  type="radio" ng-model="estudiante.asistencia"  value="si" ><md-icon md-svg-src="{{ iconCheck }}" alt="Check Icon">
-                  </md-icon>
+                    <input class="radio"  type="radio" ng-model="estudiante.asistencia"  value="si" >
+                    <i class="fa fa-check fa-lg"></i>
                 </label>
 
                 <label ng-disabled="asist" class="btn btn-default btn-red " ng-class="{active: estudiante.asistencia == 'no'}">
-                  <input class="radio" type="radio" ng-model="estudiante.asistencia" value="no" ><md-icon md-svg-src="{{ iconClose }}" alt="Close Icon">
-                </md-icon>
-              </label>
-
+                    <input class="radio" type="radio" ng-model="estudiante.asistencia" value="no" >
+                    <i class="fa fa-times fa-lg"></i>
+                </label>
             </div> 
         </div>
 
@@ -55,8 +52,7 @@
 
             <md-button ng-show="!asist" flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="save($event)">
             <md-tooltip>Enviar asistencia</md-tooltip>
-              <md-icon md-svg-src="{{iconSend}}" ></md-icon>
-
+                <i class="fa fa-paper-plane fa-lg"></i>
             </md-button>
     
     <!-- menu derecho se desplegable  para +info -->
@@ -88,6 +84,6 @@
         </md-content>
     </md-sidenav>
 </div>
- <pre>{{estudiantes | json}}</pre>
+<!--  <pre>{{estudiantes | json}}</pre> -->
 
 </div>

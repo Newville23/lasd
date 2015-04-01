@@ -12,8 +12,8 @@ var pool = mysql.createPool({
 var http = require('http').Server(app);
 
 app.use(cors());
-app.use(express.static(__dirname + '/flugel'));
-app.use('/docente', express.static(__dirname + '/docente'));
+app.use('/villa', express.static(__dirname + '/flugel'));
+app.use(express.static(__dirname + '/docente'));
 app.use('/old', express.static(__dirname + '/app'));
 app.use('/bower_components', express.static(__dirname + '/bower_components'));
 

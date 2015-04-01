@@ -22,7 +22,7 @@
                 </div> 
             </md-toolbar>
             <md-content layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
-                <md-button flex ng-repeat="clase in clases" class="md-raised md-primary" ui-sref="Docente({idclase:x.state})" style=" margin: 8px; padding: 4%;">
+                <md-button flex ng-repeat="clase in clases" class="md-raised md-primary" ui-sref="Docente({idclase:clase.state})" style=" margin: 8px; padding: 4%;">
                     <strong>{{clase.curso}}</strong><br>
                     <small>{{clase.materia}}</small>
                 </md-button>
@@ -42,9 +42,11 @@
                 </div>
             </md-toolbar>
 
-            <md-content layout="column" class="md-padding board" flex>
-                <div flex ui-view></div>          
+            <md-content layout="column" class="md-padding board" flex layout-align="center center">
+                <div flex ui-view></div>        
             </md-content>
+
+            <!-- <md-content  layout-margin  class="board"   ng-controller="MainCtrl" ui-view layout="column"  layout-align="center center"  > -->
 
         </md-content>
         <!-- este es el layout de contenido principal  -->
