@@ -1,12 +1,8 @@
-
-
-  <md-tabs ui-sref-active="active" flex>
+<md-tabs ui-sref-active="active" flex md-stretch-tabs="always">
     <md-tab ng-repeat="tab in tabs" ui-sref="{{curso.grado}}.{{tab.title}}" ng-disabled="tab.disabled" label="{{tab.title}}">
 		<md-content layout-margin  class="board" layout="column" ui-view  layout-align="center center"> </md-content>
-
     </md-tab>
-
-  </md-tabs>
+</md-tabs>
 
 	
 

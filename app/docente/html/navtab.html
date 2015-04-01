@@ -1,7 +1,7 @@
 <ul class="nav nav-tabs nav-justified">
   <li role="presentation" ng-repeat="tab in navTab" class="{{tab.classe}}"  data-toggle="tab" ui-sref-active="active">
     <a ui-sref="{{tab.state}}">
-      <i class="{{tab.icon}}"></i>&nbsp&nbsp{{tab.Nombre}}
+      <i class="{{tab.icon}}"></i> <span class="hidden-xs">{{tab.Nombre}}</span>
     </a>
   </li>   
 </ul>

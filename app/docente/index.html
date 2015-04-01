@@ -12,13 +12,19 @@
     </head>
 
     <body layout="row" ng-controller="soloDatosCtrl">
-        <!-- este es el sidenav left abierto por defecto -->
-        <md-sidenav class="md-sidenav-left md-whiteframe-z1" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
-            <md-toolbar><div class="md-toolbar-tools"><span> Hola:Juan </span></div> </md-toolbar>
+        <!-- este es el sidenav left (barra de la izquierda) abierto por defecto -->
+        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
+            <md-toolbar  md-theme="top">
+                <div class="md-toolbar-tools">
+                    <a class="navbar-brand" href="#/Docente" style="color:#144c87; font-size:1.6em; margin-left: 50px"> 
+                        <img class="site-logo" ng-src="images/flugels.png">Flügel
+                    </a>
+                </div> 
+            </md-toolbar>
             <md-content layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
-                <md-button flex ng-repeat="x in clases" class="md-raised md-primary" ui-sref="Docente({idclase:x.state})" style=" margin: 8px; padding: 4%;">
-                    <strong>{{x.curso}}</strong><br>
-                    <small>{{x.materia}}</small>
+                <md-button flex ng-repeat="clase in clases" class="md-raised md-primary" ui-sref="Docente({idclase:x.state})" style=" margin: 8px; padding: 4%;">
+                    <strong>{{clase.curso}}</strong><br>
+                    <small>{{clase.materia}}</small>
                 </md-button>
             </md-content>
         </md-sidenav>
@@ -26,22 +32,17 @@
 
         <!-- este es el layout de contenido principal  -->
         <md-content layout="column" flex>
-            <md-toolbar layout="row">
+            <md-toolbar md-theme="top" layout="row">
                 <div class="md-toolbar-tools">
-                    <md-button ng-click="toggleSidenav('left')" hide-gt-sm class="menuBtn">
-                        <span class="visually-hidden">Menu</span>
+                    <md-button ng-click="toggleSidenav('left')" flex="10"  hide-gt-sm class="menuBtn">
+                        <i class="fa fa-bars"></i>
+
                     </md-button>
-                    <span>Ayudas</span>
-                    <span flex></span>
-                    <section layout="row" layout-sm="column" layout-align="end center">
-                        <md-button class="md-fab md-primary" aria-label="Eat cake">
-                            +
-                        </md-button>
-                    </section>
+                    <span style="padding-left:4px;">Menú</span>
                 </div>
             </md-toolbar>
 
-            <md-content layout="column" class="md-padding" flex>
+            <md-content layout="column" class="md-padding board" flex>
                 <div flex ui-view></div>          
             </md-content>
 
@@ -49,7 +50,7 @@
         <!-- este es el layout de contenido principal  -->
 
         <!-- este es el sidenav right cerrado por defecto CRUD -->
-        <md-sidenav class="md-sidenav-right md-whiteframe-z1" md-component-id="right">
+        <md-sidenav class="md-sidenav-right md-whiteframe-z2" md-component-id="right">
             <md-toolbar><div class="md-toolbar-tools"><span>Crea un Nuevo logro</span></div> </md-toolbar>
             <md-content layout="column" class="md-padding"> 
                 <form>
