@@ -175,3 +175,62 @@ h5{
 .board{
   background-color: #e5e5e5 !important;
 }
+.itemList{
+    background-color: #fff;
+  border-bottom: 1px solid #ececec;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+
+.btn-group{
+      margin-right: 16px;
+
+}
+
+.radio{
+  display : none  ;
+}
+
+/*Boton Flotante */
+
+.pluss{
+    position: fixed;
+     bottom: 24px; 
+    right: 40px;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+}
+
+.face {
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  width: 48px;
+  margin: 16px; 
+}
+
+/* Customize container */
+@media (min-width: 768px) {
+  .container {
+    max-width: 730px;
+  }
+}
+.md-tile-content h3 {
+  font-weight: bold;
+}
+
+.btn-green{
+    color: #333;
+}
+.btn-green.active{
+  color: #fff;
+  background-color: #47a447 !important;
+  border-color: #398439 !important;
+}
+
+.btn-red.active{
+  color: #fff;;
+  background-color: #d9534f !important;
+  border-color: #d43f3a !important;
+}

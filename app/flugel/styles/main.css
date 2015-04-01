@@ -133,11 +133,12 @@ font-weight: bold;
 color: #999;
 }
 
- .face {
+.face {
   border-radius: 30px;
   border: 1px solid #ddd;
   width: 48px;
-  margin: 16px; }
+  margin: 16px; 
+}
 
   .md-tile-content h3{
     font-weight: bold;

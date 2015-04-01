@@ -49,8 +49,8 @@ angular.module('CDapp',[
     })
     .state('Docente.Estudiantes', {
         url: "/Estudiantes",
-        templateUrl: "html/bform.html",
-
+        templateUrl: "html/estudiantes/index.html",
+        controller: 'EstudiantesCtrl'
     })
     .state('Docente.Trabajos', {
         url: "/Trabajos",

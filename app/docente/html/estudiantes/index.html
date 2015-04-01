@@ -22,7 +22,11 @@
           <div ng-click="toggleRight(estudiante)" class="md-tile-content">
             <h3>{{estudiante.nombre}} {{estudiante.apellido}}</h3>
             <h4>Curso - {{estudiante.curso}}</h4>
-          </div>
+            
+
+
+
+         </div>
         <div class="md-tile-right">
         
         <!-- Grupo de botones para gestionar la toma de asistencias -->
@@ -50,12 +54,12 @@
     <!-- Boton para envío de asistencia al servidor  -->
 
             <md-button ng-show="!asist" flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="save($event)">
-                <md-tooltip>Enviar asistencia</md-tooltip>
-                <md-icon md-svg-src="{{iconSend}}" ></md-icon>
+            <md-tooltip>Enviar asistencia</md-tooltip>
+              <md-icon md-svg-src="{{iconSend}}" ></md-icon>
+
             </md-button>
     
     <!-- menu derecho se desplegable  para +info -->
-    
 
     <md-sidenav class="md-sidenav-right " md-component-id="right" >
       <md-toolbar >

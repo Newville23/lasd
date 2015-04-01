@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width">
         <title>Def</title>
-        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.min.css">
+        <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css">
         <link rel="stylesheet" href="/bower_components/bootstrap/dist/css/bootstrap.css" />
         <link rel="stylesheet" href="/bower_components/font-awesome/css/font-awesome.css" />
         <link rel="stylesheet" href="/bower_components/chartist/dist/chartist.min.css" />
@@ -13,7 +13,7 @@
 
     <body layout="row" ng-controller="soloDatosCtrl">
         <!-- este es el sidenav left (barra de la izquierda) abierto por defecto -->
-        <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
+        <md-sidenav class="md-sidenav-left md-whiteframe-z1" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
             <md-toolbar  md-theme="top">
                 <div class="md-toolbar-tools">
                     <a class="navbar-brand" href="#/Docente" style="color:#144c87; font-size:1.6em; margin-left: 50px"> 
@@ -82,6 +82,7 @@
     
     <script src="js/Directives/dir.js"></script>
     <script src="js/Services/servicios.js"></script>
+    <script src="js/controllers/estudiantes.js"></script>
     <script src="app.js"></script>
 
 </html>
