@@ -1,6 +1,9 @@
 var moment = require('moment');
 var bodyParser = require('body-parser');
 var packageJson = require('../package.json');
+var session = require('express-session');
+
+app.use(session({secret: 'ssshhhhh'}));
 
 var _ = require("underscore");
 // valida la existencia de una lista de keys en un objeto,
@@ -22,6 +25,7 @@ module.exports = function(app, pool) {
 
     var contenido = new Contenido(pool);
     var estudiante = new Estudiante(pool);
+    var usuario = new Usuario(pool);
     
     app.get(version + '/docente/contenido.json', contenido.getContenido);
     app.post(version + '/docente/contenido.json', contenido.postContenido);
@@ -38,6 +42,8 @@ module.exports = function(app, pool) {
     app.get(version + '/docente/estudiante.json', estudiante.getEstudiantes);
     
     app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
+
+    app.post(version + '/usuario/login.json', usuario.login);
 }
 
 
@@ -413,4 +419,80 @@ function Estudiante (pool) {
             }
         });       
     }
+}
+
+function Usuario (pool) {
+
+    this.login = function (req, res) {
+
+        var post = req.body;
+
+        // se validan todos los parametros requeridos
+        if (!_.requiredList(post, ['usuario', 'pass'])) {
+            res.status(400).json({status: '400'});return;
+        };
+      
+        var query = 'SELECT id, usuario, rol, estado, email, facebook, twiter, nombre, apellido  FROM Usuario WHERE usuario = ? and pass = sha1(?)';
+        
+        pool.query(query, [post.usuario, post.pass] , function(err, rows, fields) {
+            if (err){res.status(500).json({status: '500', err: err});return;}            
+
+            if (!_.size(rows)) {
+                res.status(400).json({status: '400', msg: 'Datos incorrectos'});return;
+            };
+            if (rows[0].estado != 0) {
+                res.status(400).json({status: '400', msg: 'Usuario deshabilitado'});return;
+            };
+            res.json(rows);
+        });
+        
+    }
+
+    // function loginajax()
+    // {
+    //         $this->validacion_atributos();
+
+    //         if ($this->form_validation->run()) {
+
+    //             $row = $this->login_model->getUsuario();
+
+    //             if (!$row) 
+    //             {
+    //                 $data['estado'] = 0;
+    //                 $data['msj'] = 'Datos incorrectos';
+
+    //                 echo json_encode($data);
+                
+    //             }
+    //             elseif ($row['estado'] != 1) 
+    //             {
+    //                 $data['estado'] = 0;
+    //                 $data['msj'] = 'Usuario deshabilitado';
+
+    //                 echo json_encode($data);
+    //             }
+    //             else
+    //             {
+    //                 $this->sesion->set('autenticado', true);
+    //                 $this->sesion->set('level', $row['rol']);
+    //                 $this->sesion->set('usuario', $row['usuario']);
+    //                 $this->sesion->set('id_usuario', $row['id']);
+    //                 $this->sesion->set('tiempo', time());
+
+    //                 // Se almacenan los datos de sesión
+    //                 $this->login_model->setSesion($row['id']);
+                    
+    //                 $data['estado'] = 1;
+    //                 $data['msj'] = site_url($row['rol']);
+    //                 echo json_encode($data);
+    //             }
+    //         }
+    //         else{
+    //             $data['estado'] = 0;
+    //             $data['msj'] = validation_errors();
+    //             echo json_encode($data);
+    //         }
+
+
+    // }
 }
