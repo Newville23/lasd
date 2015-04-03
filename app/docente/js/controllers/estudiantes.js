@@ -22,10 +22,10 @@ angular.module('Dirapp')
   .controller('EstudiantesCtrl', function ($scope, $mdSidenav, $mdDialog, $mdToast) {
 
 
- $scope.toggleRight = function(name) {
+ $scope.infoRight = function(name) {
 
 
-    $mdSidenav('right').toggle()
+    $mdSidenav('info').toggle()
                         .then(function(){
 
                           $scope.name = name;
@@ -113,7 +113,7 @@ angular.module('Dirapp')
 				
 				// Toast para la toma de asistencia //
 			    
-			    $scope.toastPosition = {  bottom: true, top: false, left: true, right: false }; 
+			    $scope.toastPosition = {  bottom: false, top: true, left: false, right: true }; 
 			      
 			      $scope.getToastPosition = function() {
 				    return Object.keys($scope.toastPosition)
