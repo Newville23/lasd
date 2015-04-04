@@ -45,10 +45,10 @@ class Login_model extends CI_Model
 		//$DB2 = $this->load->database('lasd', TRUE);
 
 		$data = array(
-			'session_id' => $this->session->userdata('session_id'),
+			'id_session' => $this->session->userdata('session_id'),
 			'ip_address' => $this->session->userdata('ip_address'),
 			'user_agent' => $this->session->userdata('user_agent'),
-			'Usuario_id' => $Usuario_id,
+			'id_usuario' => $Usuario_id,
 		);
 
 		// $DB2->insert('Sesion', $data);

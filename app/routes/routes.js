@@ -1,9 +1,9 @@
 var moment = require('moment');
 var bodyParser = require('body-parser');
 var packageJson = require('../package.json');
-var session = require('express-session');
-
-app.use(session({secret: 'ssshhhhh'}));
+var bcrypt = require('bcrypt');
+var crypto = require('crypto');
+var cookieParser = require('cookie-parser');
 
 var _ = require("underscore");
 // valida la existencia de una lista de keys en un objeto,
@@ -18,8 +18,8 @@ _.requiredList = function(obj, arrayKeys){
 
 module.exports = function(app, pool) {
     app.use(bodyParser.json());
-    //app.use(bodyParser.raw({ type: 'application/vnd.custom-type' }));
-    app.use(bodyParser.urlencoded({ extended: false }));    
+    app.use(bodyParser.urlencoded({ extended: false })); 
+    app.use(cookieParser());   
     
     var version = '/' + packageJson.version;
 
@@ -44,6 +44,14 @@ module.exports = function(app, pool) {
     app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
 
     app.post(version + '/usuario/login.json', usuario.login);
+
+    // Error handling middleware
+    app.use(function(err, req, res, next){
+        "use strict";
+        //console.error(err);
+        //console.error(err.stack);
+        res.status(500).json({ error: err });
+    });
 }
 
 
@@ -422,77 +430,95 @@ function Estudiante (pool) {
 }
 
 function Usuario (pool) {
-
-    this.login = function (req, res) {
-
+    "use strict";
+    var usuarioThis = this;
+    
+    this.login = function (req, res, next) {
+        "use strict";
         var post = req.body;
 
         // se validan todos los parametros requeridos
         if (!_.requiredList(post, ['usuario', 'pass'])) {
             res.status(400).json({status: '400'});return;
         };
-      
-        var query = 'SELECT id, usuario, rol, estado, email, facebook, twiter, nombre, apellido  FROM Usuario WHERE usuario = ? and pass = sha1(?)';
-        
-        pool.query(query, [post.usuario, post.pass] , function(err, rows, fields) {
-            if (err){res.status(500).json({status: '500', err: err});return;}            
 
-            if (!_.size(rows)) {
-                res.status(400).json({status: '400', msg: 'Datos incorrectos'});return;
-            };
-            if (rows[0].estado != 0) {
-                res.status(400).json({status: '400', msg: 'Usuario deshabilitado'});return;
-            };
-            res.json(rows);
+        // Consulta la base de datos y valida que sea el usuario y contraseña correctos, retorna el objeto usuario
+        usuarioThis.validateLogin(post.usuario, post.pass, function(err, usuario){
+            if (err){
+                if (err.noUsuario) {
+                    return res.status(400).json({status: '400', err: err});
+                }else if(err.errorUsuarioDeshabilitado){
+                    return res.status(400).json({status: '400', err: err});
+                }else if(err.invalidPasswordRrror){
+                    return res.status(400).json({status: '400', err: err});
+                }else{
+                    return next(err); // otro tipo de error
+                }
+            }
+            // Genera una id_session sha1 e inserta en bd los datos de sesion
+            usuarioThis.startSession(req, usuario.usuario, function(err, id_session){
+                "use strict";
+                if (err) return next(err);
+                res.cookie('session', id_session);
+                return res.json({usuario: usuario.usuario, login: true});
+            })
         });
-        
+    };
+
+    this.validateLogin = function (usuario, pass, callback) {
+        "use strict";
+
+        function validateUserDoc(err, rows, fields) {
+            "use strict";
+
+            if (err) return callback(err, null);     
+
+            if (!_.size(rows[0])) {
+                var errorNoUsuario = new Error("Usuario: " + usuario + " no existe");
+                errorNoUsuario.noUsuario = true;
+                callback(errorNoUsuario, null);
+                return;
+            }
+            if (rows[0].estado != 1) {
+                var errorUsuarioDeshabilitado = new Error("Usuario deshabilitado");
+                errorUsuarioDeshabilitado.usuarioDeshabilitado = true;
+                callback(errorUsuarioDeshabilitado, null);
+                return;
+            }
+            if (bcrypt.compareSync(pass, rows[0].pass)) {
+                callback(null, rows[0]);
+            }else{
+                var invalidPasswordRrror = new Error("Invalid password");
+                invalidPasswordRrror.invalid_password = true;
+                callback(invalidPasswordRrror, null);
+            }            
+        };
+        var query = 'SELECT * FROM Usuario WHERE usuario = ?';
+        pool.query(query, [usuario] , validateUserDoc);
     }
 
-    // function loginajax()
-    // {
-    //         $this->validacion_atributos();
+    this.startSession = function(req, username, callback) {
+        "use strict";
 
-    //         if ($this->form_validation->run()) {
+        // Generate session id
+        var current_date = (new Date()).valueOf().toString();
+        var random = Math.random().toString();
+        var id_session = crypto.createHash('sha1').update(current_date + random).digest('hex');
 
-    //             $row = $this->login_model->getUsuario();
+        // Create session document
+        var session = {'username': username, '_id': id_session}
 
-    //             if (!$row) 
-    //             {
-    //                 $data['estado'] = 0;
-    //                 $data['msj'] = 'Datos incorrectos';
+        // Insert session document
+        var data = {id_session: id_session, 
+                    ip_address: req.ip, 
+                    usuario: username, 
+                    user_agent: req.headers['user-agent']};
 
-    //                 echo json_encode($data);
-                
-    //             }
-    //             elseif ($row['estado'] != 1) 
-    //             {
-    //                 $data['estado'] = 0;
-    //                 $data['msj'] = 'Usuario deshabilitado';
-
-    //                 echo json_encode($data);
-    //             }
-    //             else
-    //             {
-    //                 $this->sesion->set('autenticado', true);
-    //                 $this->sesion->set('level', $row['rol']);
-    //                 $this->sesion->set('usuario', $row['usuario']);
-    //                 $this->sesion->set('id_usuario', $row['id']);
-    //                 $this->sesion->set('tiempo', time());
-
-    //                 // Se almacenan los datos de sesión
-    //                 $this->login_model->setSesion($row['id']);
-                    
-    //                 $data['estado'] = 1;
-    //                 $data['msj'] = site_url($row['rol']);
-    //                 echo json_encode($data);
-    //             }
-    //         }
-    //         else{
-    //             $data['estado'] = 0;
-    //             $data['msj'] = validation_errors();
-    //             echo json_encode($data);
-    //         }
-
-
-    // }
+        var query = 'INSERT INTO Sesion_temp SET ?';
+        pool.query(query, [data] , function(err, rows, fields) {
+            "use strict";
+            if (err){return callback(err, null);}
+            callback(null, id_session);
+        });
+    }
 }
