@@ -48,6 +48,7 @@ module.exports = function(app, pool) {
     app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
 
     app.post(version + '/usuario/login.json', usuario.login);
+    app.post(version + '/usuario/logout.json', usuario.logout);
 
     app.get('/test', function (req, res) {
         res.json(req.session);
@@ -56,7 +57,7 @@ module.exports = function(app, pool) {
     // Error handling middleware
     app.use(function(err, req, res, next){
         "use strict";
-        //console.error(err);
+        console.error(err);
         //console.error(err.stack);
         res.status(500).json({ error: err });
     });
@@ -446,8 +447,8 @@ function Usuario (pool) {
         var post = req.body;
 
         // se validan todos los parametros requeridos
-        if (!_.requiredList(post, ['usuario', 'pass'])) {
-            res.status(400).json({status: '400'});return;
+        if(!_.requiredList(post, ['usuario', 'pass'])) {
+            return res.status(400).json({status: '400'});
         };
 
         // valida que no exista sesiones
@@ -477,6 +478,22 @@ function Usuario (pool) {
                 res.cookie('session', id_session);
                 return res.json({usuario: usuario.usuario, login: true});
             })
+        });
+    };
+
+    this.logout = function(req, res, next){
+        "use strict";
+
+        var id_session = req.cookies.session;
+
+        if (!id_session) {
+            return res.json({login: false, msg: 'Session not set'});
+        }
+        usuarioThis.endSession(id_session, function (err) {
+            "use strict";
+
+            res.clearCookie('session');
+            return res.json({login: false, msg: 'Session has been closed'});
         });
     };
 
@@ -510,7 +527,7 @@ function Usuario (pool) {
         };
         var query = 'SELECT * FROM Usuario WHERE usuario = ?';
         pool.query(query, [usuario] , validateUserDoc);
-    }
+    };
 
     this.startSession = function(req, user, callback) {
         "use strict";
@@ -533,7 +550,17 @@ function Usuario (pool) {
             if (err){return callback(err, null);}
             callback(null, id_session);
         });
-    }
+    };
+
+    this.endSession = function(id_session, callback) {
+        "use strict";
+        // Remove session document
+        var query = 'DELETE FROM Sesion_temp WHERE id_session = ?';
+        pool.query(query, [id_session] , function(err, rows, fields) {
+            "use strict";
+            callback(err);
+        });
+    };
 
     // Vaida que exista la sesion, si no arroja un error en req.session.err
     this.isLoggedInMiddleware = function(req, res, next) {
@@ -557,8 +584,10 @@ function Usuario (pool) {
             }
             if (!_.size(rows)) {
                 // Debe aqui borrarse la cookie
+                res.clearCookie('session');
                 req.session.err = new Error("Session: " + id_session + " does not exist");
-                req.session.err.sessionExist = false;return next();
+                req.session.err.sessionExist = false;
+                return next();
             }
             req.session.user = rows[0];
             return next();
