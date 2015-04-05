@@ -4,8 +4,8 @@ var packageJson = require('../package.json');
 var bcrypt = require('bcrypt');
 var crypto = require('crypto');
 var cookieParser = require('cookie-parser');
-
 var _ = require("underscore");
+
 // valida la existencia de una lista de keys en un objeto,
 // se usa para vailadr si estan los valores requeridos.
 _.requiredList = function(obj, arrayKeys){
@@ -19,13 +19,17 @@ _.requiredList = function(obj, arrayKeys){
 module.exports = function(app, pool) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false })); 
-    app.use(cookieParser());   
+    app.use(cookieParser());
+
+
     
     var version = '/' + packageJson.version;
 
     var contenido = new Contenido(pool);
     var estudiante = new Estudiante(pool);
     var usuario = new Usuario(pool);
+
+    app.use(usuario.isLoggedInMiddleware); 
     
     app.get(version + '/docente/contenido.json', contenido.getContenido);
     app.post(version + '/docente/contenido.json', contenido.postContenido);
@@ -44,6 +48,10 @@ module.exports = function(app, pool) {
     app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
 
     app.post(version + '/usuario/login.json', usuario.login);
+
+    app.get('/test', function (req, res) {
+        res.json(req.session);
+    });
 
     // Error handling middleware
     app.use(function(err, req, res, next){
@@ -442,6 +450,13 @@ function Usuario (pool) {
             res.status(400).json({status: '400'});return;
         };
 
+        // valida que no exista sesiones
+        if(req.session.user){
+            if (req.session.user.usuario == post.usuario) {
+                return res.json({usuario: req.session.user.usuario, login: true, msg: 'sesión iniciada'});
+            }
+        }
+
         // Consulta la base de datos y valida que sea el usuario y contraseña correctos, retorna el objeto usuario
         usuarioThis.validateLogin(post.usuario, post.pass, function(err, usuario){
             if (err){
@@ -456,7 +471,7 @@ function Usuario (pool) {
                 }
             }
             // Genera una id_session sha1 e inserta en bd los datos de sesion
-            usuarioThis.startSession(req, usuario.usuario, function(err, id_session){
+            usuarioThis.startSession(req, usuario, function(err, id_session){
                 "use strict";
                 if (err) return next(err);
                 res.cookie('session', id_session);
@@ -497,7 +512,7 @@ function Usuario (pool) {
         pool.query(query, [usuario] , validateUserDoc);
     }
 
-    this.startSession = function(req, username, callback) {
+    this.startSession = function(req, user, callback) {
         "use strict";
 
         // Generate session id
@@ -505,14 +520,12 @@ function Usuario (pool) {
         var random = Math.random().toString();
         var id_session = crypto.createHash('sha1').update(current_date + random).digest('hex');
 
-        // Create session document
-        var session = {'username': username, '_id': id_session}
-
         // Insert session document
         var data = {id_session: id_session, 
                     ip_address: req.ip, 
-                    usuario: username, 
-                    user_agent: req.headers['user-agent']};
+                    usuario: user.usuario, 
+                    user_agent: req.headers['user-agent'],
+                    rol: user.rol};
 
         var query = 'INSERT INTO Sesion_temp SET ?';
         pool.query(query, [data] , function(err, rows, fields) {
@@ -521,4 +534,35 @@ function Usuario (pool) {
             callback(null, id_session);
         });
     }
+
+    // Vaida que exista la sesion, si no arroja un error en req.session.err
+    this.isLoggedInMiddleware = function(req, res, next) {
+        "use strict";
+        req.session = {};
+        var id_session = req.cookies.session;
+
+        if (!id_session) {
+            req.session.err = Error("Session not set");
+            req.session.err.sessionSet = false;
+            return next();
+        }
+
+        var query = 'SELECT * FROM Sesion_temp WHERE id_session = ?';
+        pool.query(query, [id_session] , function(err, rows, fields) {
+            "use strict";
+            
+            if (err){
+                req.session.err = err;
+                return next();
+            }
+            if (!_.size(rows)) {
+                // Debe aqui borrarse la cookie
+                req.session.err = new Error("Session: " + id_session + " does not exist");
+                req.session.err.sessionExist = false;return next();
+            }
+            req.session.user = rows[0];
+            return next();
+        });
+    };
+
 }
