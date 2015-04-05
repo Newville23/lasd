@@ -67,6 +67,11 @@ angular.module('CDapp',[
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
+    
+    $scope.close = function() {
+     $mdSidenav('left').close();
+
+  };
 
     $scope.clases =[
         {curso:'10A', materia:'Matematicas',state:'10A'},

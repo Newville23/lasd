@@ -5,7 +5,7 @@
       <input ng-model="search">
        
     </md-input-container>
-    <md-switch flex="30" ng-model="asist" ng-click="asisToast()" aria-label="Switch 1" ng-true-value="false" ng-false-value="true">
+    <md-switch flex="30" ng-model="asist" ng-click="asisToast()" aria-label="Asistencia" ng-true-value="false" ng-false-value="true">
 
     Asistencia
     <md-tooltip>Tomar Asistencia</md-tooltip>
@@ -14,23 +14,14 @@
    <!-- lista de estudiantes-->
 <div layout= "row" layout-fill>
     <md-list flex="80">
-      <md-item  ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
-        <md-item-content class="md-whiteframe-z1 itemList">
-          <div class="md-tile-left">
-              <img ng-src="{{estudiante.face}}" class="face" alt="{{estudiante.nombre}}">
-          </div>
-          <div ng-click="toggleRight(estudiante)" class="md-tile-content">
-            <h3>{{estudiante.nombre}} {{estudiante.apellido}}</h3>
-            <h4>Curso - {{estudiante.curso}}</h4>
-            
-
-
-
-         </div>
-        <div class="md-tile-right">
-        
+      <md-item class="md-whiteframe-z1 md-2-line itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
+        <img ng-src="{{estudiante.face}}" class="face" alt="{{estudiante.nombre}}" />
+        <div ng-click="infoRight(estudiante)" class="md-item-text">
+          <h3>{{estudiante.nombre}} {{estudiante.apellido}}</h3>
+          <h4>Curso - {{estudiante.curso}}</h4>
+        </div>
         <!-- Grupo de botones para gestionar la toma de asistencias -->
-            <div class="btn-group">
+            <div  class="btn-group md-secondary listbtn" >
                 <label ng-disabled="asist" class="btn btn-default btn-green" ng-class="{active: estudiante.asistencia == 'si'}">
                     <input class="radio"  type="radio" ng-model="estudiante.asistencia"  value="si" >
                     <i class="fa fa-check fa-lg"></i>
@@ -41,10 +32,6 @@
                     <i class="fa fa-times fa-lg"></i>
                 </label>
             </div> 
-        </div>
-
-
-        </md-item-content>
       </md-item>
     </md-list>
 
@@ -57,7 +44,7 @@
     
     <!-- menu derecho se desplegable  para +info -->
 
-    <md-sidenav class="md-sidenav-right " md-component-id="right" >
+    <md-sidenav  layout-fill class="md-sidenav-right " md-component-id="info" >
       <md-toolbar >
           <div layout="row" layout-align="start center">
           <div flex="25" class="md-tile-left">
