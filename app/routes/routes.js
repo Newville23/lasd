@@ -2,8 +2,8 @@ var moment = require('moment');
 var bodyParser = require('body-parser');
 var packageJson = require('../package.json');
 var bcrypt = require('bcrypt');
-var crypto = require('crypto');
 var cookieParser = require('cookie-parser');
+var SessionHandler = require('./session');
 var _ = require("underscore");
 
 // valida la existencia de una lista de keys en un objeto,
@@ -20,17 +20,23 @@ module.exports = function(app, pool) {
     app.use(bodyParser.json());
     app.use(bodyParser.urlencoded({ extended: false })); 
     app.use(cookieParser());
-
-
     
     var version = '/' + packageJson.version;
 
-    var contenido = new Contenido(pool);
-    var estudiante = new Estudiante(pool);
-    var usuario = new Usuario(pool);
+    var usuario = new Usuario(pool);    
+    app.use(usuario.isLoggedInMiddleware);    
 
-    app.use(usuario.isLoggedInMiddleware); 
-    
+    var contenido = new Contenido(pool);
+    var estudiante = new Estudiante(pool);  
+
+
+    //---------- Manejo de sesiones --------------------------
+    app.post(version + '/usuario/login.json', usuario.login);
+    app.post(version + '/usuario/logout.json', usuario.logout);
+    //---------- Fin manejo de sesiones ----------------------
+
+
+    // ----------- Api para módulo de docentes ----------------
     app.get(version + '/docente/contenido.json', contenido.getContenido);
     app.post(version + '/docente/contenido.json', contenido.postContenido);
     app.put(version + '/docente/contenido.json', contenido.putContenido);
@@ -46,9 +52,9 @@ module.exports = function(app, pool) {
     app.get(version + '/docente/estudiante.json', estudiante.getEstudiantes);
     
     app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
+    // ----------- Fin Api para módulo de docentes ----------------
 
-    app.post(version + '/usuario/login.json', usuario.login);
-    app.post(version + '/usuario/logout.json', usuario.logout);
+
 
     app.get('/test', function (req, res) {
         res.json(req.session);
@@ -63,7 +69,130 @@ module.exports = function(app, pool) {
     });
 }
 
+function Usuario (pool) {
+    "use strict";
+    var session = new SessionHandler(pool);
+    var usuarioThis = this;
+    
+    this.login = function (req, res, next) {
+        "use strict";
+        var post = req.body;
 
+        // se validan todos los parametros requeridos
+        if(!_.requiredList(post, ['usuario', 'pass'])) {
+            return res.status(400).json({status: '400'});
+        };
+
+        // valida que no exista sesiones
+        if(req.session.user){
+            if (req.session.user.usuario == post.usuario) {
+                return res.json({usuario: req.session.user.usuario, login: true, msg: 'sesión iniciada'});
+            }
+        }
+
+        // Consulta la base de datos y valida que sea el usuario y contraseña correctos, retorna el objeto usuario
+        usuarioThis.validateLogin(post.usuario, post.pass, function(err, usuario){
+            if (err){
+                if (err.noUsuario) {
+                    return res.status(400).json({status: '400', err: err});
+                }else if(err.errorUsuarioDeshabilitado){
+                    return res.status(400).json({status: '400', err: err});
+                }else if(err.invalidPasswordRrror){
+                    return res.status(400).json({status: '400', err: err});
+                }else{
+                    return next(err); // otro tipo de error
+                }
+            }
+            // Genera una id_session sha1 e inserta en bd los datos de sesion
+            session.startSession(req, usuario, function(err, id_session){
+                "use strict";
+                if (err) return next(err);
+                res.cookie('session', id_session);
+                return res.json({usuario: usuario.usuario, login: true});
+            })
+        });
+    };
+
+    this.logout = function(req, res, next){
+        "use strict";
+
+        var id_session = req.cookies.session;
+
+        if (!id_session) {
+            return res.json({login: false, msg: 'Session not set'});
+        }
+        session.endSession(id_session, function (err) {
+            "use strict";
+
+            res.clearCookie('session');
+            return res.json({login: false, msg: 'Session has been closed'});
+        });
+    };
+
+    this.validateLogin = function (usuario, pass, callback) {
+        "use strict";
+
+        function validateUserDoc(err, rows, fields) {
+            "use strict";
+
+            if (err) return callback(err, null);     
+
+            if (!_.size(rows[0])) {
+                var errorNoUsuario = new Error("Usuario: " + usuario + " no existe");
+                errorNoUsuario.noUsuario = true;
+                callback(errorNoUsuario, null);
+                return;
+            }
+            if (rows[0].estado != 1) {
+                var errorUsuarioDeshabilitado = new Error("Usuario deshabilitado");
+                errorUsuarioDeshabilitado.usuarioDeshabilitado = true;
+                callback(errorUsuarioDeshabilitado, null);
+                return;
+            }
+            if (bcrypt.compareSync(pass, rows[0].pass)) {
+                callback(null, rows[0]);
+            }else{
+                var invalidPasswordRrror = new Error("Invalid password");
+                invalidPasswordRrror.invalid_password = true;
+                callback(invalidPasswordRrror, null);
+            }            
+        };
+        var query = 'SELECT * FROM Usuario WHERE usuario = ?';
+        pool.query(query, [usuario] , validateUserDoc);
+    };
+
+        // Vaida que exista la sesion, si no arroja un error en req.session.err
+    this.isLoggedInMiddleware = function(req, res, next) {
+        "use strict";
+        req.session = {};
+        var id_session = req.cookies.session;
+
+        if (!id_session) {
+            req.session.err = Error("Session not set");
+            req.session.err.sessionSet = false;
+            return next();
+        }
+
+        var query = 'SELECT * FROM Sesion_temp WHERE id_session = ?';
+        pool.query(query, [id_session] , function(err, rows, fields) {
+            "use strict";
+            
+            if (err){
+                req.session.err = err;
+                return next();
+            }
+            if (!_.size(rows)) {
+                // Debe aqui borrarse la cookie
+                res.clearCookie('session');
+                req.session.err = new Error("Session: " + id_session + " does not exist");
+                req.session.err.sessionExist = false;
+                return next();
+            }
+            req.session.user = rows[0];
+            return next();
+        });
+    };
+}
 
 function Contenido (pool) {
     // Devuelve los datos de indicadores de logros y las calificaciones de los estudiantes, de una clase especifica.
@@ -436,162 +565,4 @@ function Estudiante (pool) {
             }
         });       
     }
-}
-
-function Usuario (pool) {
-    "use strict";
-    var usuarioThis = this;
-    
-    this.login = function (req, res, next) {
-        "use strict";
-        var post = req.body;
-
-        // se validan todos los parametros requeridos
-        if(!_.requiredList(post, ['usuario', 'pass'])) {
-            return res.status(400).json({status: '400'});
-        };
-
-        // valida que no exista sesiones
-        if(req.session.user){
-            if (req.session.user.usuario == post.usuario) {
-                return res.json({usuario: req.session.user.usuario, login: true, msg: 'sesión iniciada'});
-            }
-        }
-
-        // Consulta la base de datos y valida que sea el usuario y contraseña correctos, retorna el objeto usuario
-        usuarioThis.validateLogin(post.usuario, post.pass, function(err, usuario){
-            if (err){
-                if (err.noUsuario) {
-                    return res.status(400).json({status: '400', err: err});
-                }else if(err.errorUsuarioDeshabilitado){
-                    return res.status(400).json({status: '400', err: err});
-                }else if(err.invalidPasswordRrror){
-                    return res.status(400).json({status: '400', err: err});
-                }else{
-                    return next(err); // otro tipo de error
-                }
-            }
-            // Genera una id_session sha1 e inserta en bd los datos de sesion
-            usuarioThis.startSession(req, usuario, function(err, id_session){
-                "use strict";
-                if (err) return next(err);
-                res.cookie('session', id_session);
-                return res.json({usuario: usuario.usuario, login: true});
-            })
-        });
-    };
-
-    this.logout = function(req, res, next){
-        "use strict";
-
-        var id_session = req.cookies.session;
-
-        if (!id_session) {
-            return res.json({login: false, msg: 'Session not set'});
-        }
-        usuarioThis.endSession(id_session, function (err) {
-            "use strict";
-
-            res.clearCookie('session');
-            return res.json({login: false, msg: 'Session has been closed'});
-        });
-    };
-
-    this.validateLogin = function (usuario, pass, callback) {
-        "use strict";
-
-        function validateUserDoc(err, rows, fields) {
-            "use strict";
-
-            if (err) return callback(err, null);     
-
-            if (!_.size(rows[0])) {
-                var errorNoUsuario = new Error("Usuario: " + usuario + " no existe");
-                errorNoUsuario.noUsuario = true;
-                callback(errorNoUsuario, null);
-                return;
-            }
-            if (rows[0].estado != 1) {
-                var errorUsuarioDeshabilitado = new Error("Usuario deshabilitado");
-                errorUsuarioDeshabilitado.usuarioDeshabilitado = true;
-                callback(errorUsuarioDeshabilitado, null);
-                return;
-            }
-            if (bcrypt.compareSync(pass, rows[0].pass)) {
-                callback(null, rows[0]);
-            }else{
-                var invalidPasswordRrror = new Error("Invalid password");
-                invalidPasswordRrror.invalid_password = true;
-                callback(invalidPasswordRrror, null);
-            }            
-        };
-        var query = 'SELECT * FROM Usuario WHERE usuario = ?';
-        pool.query(query, [usuario] , validateUserDoc);
-    };
-
-    this.startSession = function(req, user, callback) {
-        "use strict";
-
-        // Generate session id
-        var current_date = (new Date()).valueOf().toString();
-        var random = Math.random().toString();
-        var id_session = crypto.createHash('sha1').update(current_date + random).digest('hex');
-
-        // Insert session document
-        var data = {id_session: id_session, 
-                    ip_address: req.ip, 
-                    usuario: user.usuario, 
-                    user_agent: req.headers['user-agent'],
-                    rol: user.rol};
-
-        var query = 'INSERT INTO Sesion_temp SET ?';
-        pool.query(query, [data] , function(err, rows, fields) {
-            "use strict";
-            if (err){return callback(err, null);}
-            callback(null, id_session);
-        });
-    };
-
-    this.endSession = function(id_session, callback) {
-        "use strict";
-        // Remove session document
-        var query = 'DELETE FROM Sesion_temp WHERE id_session = ?';
-        pool.query(query, [id_session] , function(err, rows, fields) {
-            "use strict";
-            callback(err);
-        });
-    };
-
-    // Vaida que exista la sesion, si no arroja un error en req.session.err
-    this.isLoggedInMiddleware = function(req, res, next) {
-        "use strict";
-        req.session = {};
-        var id_session = req.cookies.session;
-
-        if (!id_session) {
-            req.session.err = Error("Session not set");
-            req.session.err.sessionSet = false;
-            return next();
-        }
-
-        var query = 'SELECT * FROM Sesion_temp WHERE id_session = ?';
-        pool.query(query, [id_session] , function(err, rows, fields) {
-            "use strict";
-            
-            if (err){
-                req.session.err = err;
-                return next();
-            }
-            if (!_.size(rows)) {
-                // Debe aqui borrarse la cookie
-                res.clearCookie('session');
-                req.session.err = new Error("Session: " + id_session + " does not exist");
-                req.session.err.sessionExist = false;
-                return next();
-            }
-            req.session.user = rows[0];
-            return next();
-        });
-    };
-
 }
