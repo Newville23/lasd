@@ -446,8 +446,8 @@ function Usuario (pool) {
         var post = req.body;
 
         // se validan todos los parametros requeridos
-        if (!_.requiredList(post, ['usuario', 'pass'])) {
-            res.status(400).json({status: '400'});return;
+        if(!_.requiredList(post, ['usuario', 'pass'])) {
+            return res.status(400).json({status: '400'});
         };
 
         // valida que no exista sesiones
@@ -557,8 +557,10 @@ function Usuario (pool) {
             }
             if (!_.size(rows)) {
                 // Debe aqui borrarse la cookie
+                res.clearCookie('session');
                 req.session.err = new Error("Session: " + id_session + " does not exist");
-                req.session.err.sessionExist = false;return next();
+                req.session.err.sessionExist = false;
+                return next();
             }
             req.session.user = rows[0];
             return next();
