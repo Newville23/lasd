@@ -28,6 +28,7 @@ module.exports = function(app, pool) {
 
     var contenido = new Contenido(pool);
     var estudiante = new Estudiante(pool);  
+    var docente = new Docente(pool);
 
 
     //---------- Manejo de sesiones --------------------------
@@ -52,6 +53,9 @@ module.exports = function(app, pool) {
     app.get(version + '/docente/estudiante.json', estudiante.getEstudiantes);
     
     app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
+
+    app.get(version + '/docente/datos.json', usuario.datos);
+    app.get(version + '/docente/listaclases.json', docente.listaClases);
     // ----------- Fin Api para módulo de docentes ----------------
 
 
@@ -161,7 +165,7 @@ function Usuario (pool) {
         pool.query(query, [usuario] , validateUserDoc);
     };
 
-        // Vaida que exista la sesion, si no arroja un error en req.session.err
+    // Vaida que exista la sesion, si no arroja un error en req.session.err
     this.isLoggedInMiddleware = function(req, res, next) {
         "use strict";
         req.session = {};
@@ -192,6 +196,66 @@ function Usuario (pool) {
             return next();
         });
     };
+
+    this.datos = function (req, res) {     
+
+        if(!req.session.user){
+            return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
+        }
+
+        var usuario = req.session.user.usuario
+        
+        var query = 'SELECT id AS id_usuario, usuario, identificacion, tipo_identificacion, rol, nombre, apellido, ' +
+                        'profesion,  fecha_nacimiento, email, facebook, twiter, fecha_creacion, Institucion_rut, estado ' +
+                    'FROM Profesor ' +
+                    'JOIN Usuario ' +
+                        'ON Profesor.Usuario_id = Usuario.id ' +
+                    'WHERE usuario = ?';
+        pool.query(query, [usuario], function(err, rows, fields) {
+                
+            if (err){
+                return res.status(500).json({error: '500', err: err});
+            }else if(!_.size(rows)){
+                return res.status(404).json({error: '404'});
+            }                          
+            return res.json(rows[0]);
+        });
+    }
+}
+
+function Docente (pool) {    
+    
+    this.listaClases = function(req, res){
+
+        var id_profesor = req.query.idprofesor;
+        if (!id_profesor) { 
+            return res.status(400).json({error: '400'});
+        }
+
+        if(!req.session.user){
+            return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
+        }/*else if (req.session.user.usuario != usuario) {
+            return res.status(403).json({"errors":[{"code":215,"message":"Sorry, you are not authorized to see this."}]});
+        };*/
+
+        var query = 'SELECT numero AS id_clase, Materia_id AS id_materia, Profesor_identificacion AS id_profesor, codigo as id_curso, ' +
+                    'Clase.Institucion_rut AS id_institucion, nombre AS materia, nombre_curso, indice, ' + 
+                    'Profesor_director_grupo_identificacion AS id_profesor_grupo ' +
+                    'FROM lasd3.Clase ' +
+                    'JOIN Materia ON Materia.id = Clase.Materia_id ' +
+                    'JOIN Curso ON Curso.codigo = Clase.Curso_codigo ' +
+                    'WHERE Profesor_identificacion = ?';
+
+        pool.query(query, [id_profesor], function(err, rows, fields) {
+                
+            if (err){
+                return res.status(500).json({error: '500', err: err});
+            }if (!_.size(rows)) {
+                return res.status(404).json({error: '404'});
+            };                
+            return res.json(rows);
+        });
+    }
 }
 
 function Contenido (pool) {

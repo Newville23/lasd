@@ -37,7 +37,7 @@ class Profesor extends CI_Controller
 
 		$row['datos'] = $this->user_model->getDatosUsuario('Profesor');
 		$row['clase'] = $this->profesor_model->getClasesFromProfesor($row['datos']['identificacion']);
-		//echo "<pre>"; print_r($row); echo "</pre>";
+		echo "<pre>"; print_r($row); echo "</pre>";
 
 		$this->load->view('templates/header', $data);
 		$this->load->view('profesor/index', $row);
@@ -51,9 +51,9 @@ class Profesor extends CI_Controller
 			exit;
 		}
 		$row['datos'] = $this->user_model->getDatosUsuario('Profesor');
-		//echo "<pre>"; print_r($row['datos']); echo "</pre>";
-		$row['clasesDelProfe'] = $this->profesor_model->getClasesFromProfesor($row['datos']['identificacion']);
 		
+		$row['clasesDelProfe'] = $this->profesor_model->getClasesFromProfesor($row['datos']['identificacion']);
+		echo "<pre>"; print_r($row); echo "</pre>";
 		$row['listaAlumnos'] = $this->user_model->getEstudiantesNotasFromClase($numeroClase);
 		//echo "<pre>"; print_r($row['listaAlumnos']); echo "</pre>";
 		// Obtiene la lista de alumnos con sus notas, de una determinada clase
