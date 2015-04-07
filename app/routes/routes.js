@@ -278,7 +278,7 @@ function Contenido (pool) {
             "FROM lasd3.Calificacion WHERE Clase_numero = " + id_clase;
             var query = contenidoIndicadoresQuery + ';' + Calificaciones;
 
-            pool.query(query, function(err, rows, fields) {
+            pool.query(contenidoIndicadoresQuery, function(err, rows, fields) {
                 
                 if (err){
                     return res.status(500).json({error: '500'});
@@ -288,7 +288,7 @@ function Contenido (pool) {
 
                 data.contenido = rows[0];
                 data.calificaciones = rows[1];
-                return res.json(data);
+                return res.json(rows);
             });
         }else{
             return res.status(400).json({status: '400'});
