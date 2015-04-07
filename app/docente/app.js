@@ -1,9 +1,10 @@
 angular.module('CDapp',[
+    'ui.router',
     'ngMaterial',
     'ngMessages',
     'Dirapp',
     'Servapp',
-    'ui.router'
+    'SerFlugel'
     ])
 
 .config(function($mdThemingProvider) {
@@ -33,8 +34,18 @@ angular.module('CDapp',[
         url:"/Docente/{idclase:[0-9a-fA-F]{1,25}}", // sólo caracteres alfanuméricos
         templateUrl:"html/todo.html",
         controller: function($stateParams){
-            console.log($stateParams);
+            //console.log($stateParams);
         }
+    })
+    .state('Test', {
+        url: "/test",
+        template: "<h1>test</h1>",
+        controller: 'testCotroller'
+    })
+    .state('Test2', {
+        url: "/test2",
+        template: "<h1>test2</h1>",
+        controller: 'test2Cotroller'
     })
     
     // estados anidaddos
@@ -86,7 +97,7 @@ angular.module('CDapp',[
         $scope.Logros = data.contenido;
         $scope.Evaluaciones = data.calificaciones;
 
-        console.log(data.calificaciones);
+        //console.log(data.calificaciones);
         var control = function(){
             var e = $scope.Evaluaciones;
             var tp =[];
@@ -98,12 +109,12 @@ angular.module('CDapp',[
                     }
                 }
             }
-            console.log(tp);
+            //console.log(tp);
             var total = 0;
             $.each(tp,function() {
                 total += this;
             });
-            console.log(total);
+            //console.log(total);
             $scope.total=total;
         };
         control();
@@ -111,7 +122,7 @@ angular.module('CDapp',[
 
     $http.get('js/Json/estudiantes.json').success(function (data){
         $scope.Estudiantes = data;
-        console.log($scope.Estudiantes);
+        //console.log($scope.Estudiantes);
     });
 
     $scope.edit = function(examen){
