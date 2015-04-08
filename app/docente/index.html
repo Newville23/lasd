@@ -33,7 +33,7 @@
         <!-- este es el sidenav left abierto por defecto -->
 
         <!-- este es el layout de contenido principal  -->
-        <md-content layout="column" flex>
+        <div layout="column" flex>
             <md-toolbar md-theme="top" layout="row">
                 <div class="md-toolbar-tools">
                     <md-button ng-click="toggleSidenav('left')" flex="10"  hide-gt-sm class="menuBtn">
@@ -44,13 +44,13 @@
                 </div>
             </md-toolbar>
 
-            <md-content layout="column" class="md-padding board" flex layout-align="center center">
+            <div layout="column" class="md-padding board" flex layout-align="center center">
                 <div flex ui-view></div>        
-            </md-content>
+            </div>
 
             <!-- <md-content  layout-margin  class="board"   ng-controller="MainCtrl" ui-view layout="column"  layout-align="center center"  > -->
 
-        </md-content>
+        </div>
         <!-- este es el layout de contenido principal  -->
 
         <!-- este es el sidenav right cerrado por defecto CRUD -->
