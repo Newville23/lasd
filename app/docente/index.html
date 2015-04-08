@@ -33,7 +33,7 @@
         <!-- este es el sidenav left abierto por defecto -->
 
         <!-- este es el layout de contenido principal  -->
-        <div layout="column" flex>
+        <md-content layout="column" flex>
             <md-toolbar md-theme="top" layout="row">
                 <div class="md-toolbar-tools">
                     <md-button ng-click="toggleSidenav('left')" flex="10"  hide-gt-sm class="menuBtn">
@@ -44,13 +44,13 @@
                 </div>
             </md-toolbar>
 
-            <div layout="column" class="md-padding board" flex layout-align="center center">
+            <md-content layout="column" class="md-padding board" flex>
                 <div flex ui-view></div>        
-            </div>
+            </md-content>
 
             <!-- <md-content  layout-margin  class="board"   ng-controller="MainCtrl" ui-view layout="column"  layout-align="center center"  > -->
 
-        </div>
+        </md-content>
         <!-- este es el layout de contenido principal  -->
 
         <!-- este es el sidenav right cerrado por defecto CRUD -->
@@ -79,7 +79,7 @@
     <script src="/bower_components/angular-messages/angular-messages.min.js"></script>
     <script src="/bower_components/angular-animate/angular-animate.js"></script>
     <script src="/bower_components/angular-aria/angular-aria.js"></script>
-    <script src="/bower_components/angular-material/angular-material.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angular_material/0.7.1/angular-material.min.js"></script>
     <script src="/bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     <script src="/bower_components/underscore/underscore.js"></script>
     <script src="/bower_components/chartist/dist/chartist.min.js"></script>
