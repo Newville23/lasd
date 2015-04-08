@@ -134,12 +134,5 @@ angular.module('Dirapp')
 
 				  };
 
-			
-
-		    //iconos de la vista estudiantes
-		    $scope.iconInfo = '/bower_components/material-design-icons/action/svg/production/ic_info_24px.svg';
-		    $scope.iconCheck = '/bower_components/material-design-icons/navigation/svg/production/ic_check_18px.svg';
-		    $scope.iconClose = '/bower_components/material-design-icons/navigation/svg/production/ic_close_18px.svg';
-		    $scope.iconSend = '/bower_components/material-design-icons/content/svg/production/ic_send_24px.svg'
   });
 

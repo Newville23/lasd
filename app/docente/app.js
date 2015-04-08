@@ -34,7 +34,7 @@ angular.module('CDapp',[
         url:"/Docente/:idclase", // sólo caracteres alfanuméricos
         templateUrl:"html/todo.html",
         controller: function($stateParams){
-            //console.log($stateParams);
+            console.log($stateParams);
         }
     })
     .state('Test', {

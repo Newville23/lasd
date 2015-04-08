@@ -27,7 +27,10 @@ angular.module('Dirapp',[])
 			{Nombre:'Estudiantes',classe:'',icon:'fa fa-users fa-lg fa-fw',state:'Docente.Estudiantes'},
 			{Nombre:'Trabajos',classe:'',icon:'fa fa-tasks fa-lg fa-fw',state:'Docente.Trabajos'}
 			];
-		}]
+		}],
+		link: function link(scope, element, attrs){
+			//console.log(location)
+		}
 
 	};
 

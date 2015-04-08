@@ -1,37 +1,37 @@
 <div layout="column" flex ng-controller="EstudiantesCtrl" layout-fill>
-    <div layout="row" layout-sm="column">
-        <md-input-container flex="70" flex-sm="100">
+    <div class="row">
+        <md-input-container class="col-md-7">
             <label>buscar</label>
             <input ng-model="search">           
         </md-input-container>
 
-        <md-switch flex="30"  flex-sm="100" ng-model="asist" ng-click="asisToast()" aria-label="Asistencia" ng-true-value="false" ng-false-value="true">
+        <md-switch class="col-md-3" ng-model="asist" ng-click="asisToast()" aria-label="Asistencia" ng-true-value="false" ng-false-value="true">
             <div>Asistencia</div> 
             <md-tooltip hide-sm>Activar Asistencia</md-tooltip>
         </md-switch>
     </div>
    <!-- lista de estudiantes-->
-    <div layout="row" layout-fill>
+    <div layout="row">
         <md-list flex="100">
-            <md-item class="md-whiteframe-z1 md-2-line itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
-                <img ng-src="{{estudiante.face}}" class="face" alt="{{estudiante.nombre}}" />
-                <div ng-click="infoRight(estudiante)" class="md-item-text">
+            <md-list-item class="md-whiteframe-z1 md-2-line itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
+                <img ng-src="{{estudiante.face}}" class="md-avatar" alt="{{estudiante.nombre}}" />
+                <div ng-click="infoRight(estudiante)" class="md-list-item-text">
                     <h3>{{estudiante.nombre}} {{estudiante.apellido}}</h3>
                     <h4>Curso - {{estudiante.curso}}</h4>
                 </div>
                 <!-- Grupo de botones para gestionar la toma de asistencias -->
                 <div  class="btn-group md-secondary listbtn" >
-                    <label ng-disabled="asist" class="btn btn-default btn-green" ng-class="{active: estudiante.asistencia == 'si'}">
+                    <label ng-disabled="asist" class="btn btn-default btn-green btn-sm" ng-class="{active: estudiante.asistencia == 'si'}">
                         <input class="radio"  type="radio" ng-model="estudiante.asistencia"  value="si" >
                         <i class="fa fa-check fa-lg"></i>
                     </label>
 
-                    <label ng-disabled="asist" class="btn btn-default btn-red " ng-class="{active: estudiante.asistencia == 'no'}">
+                    <label ng-disabled="asist" class="btn btn-default btn-red btn-sm" ng-class="{active: estudiante.asistencia == 'no'}">
                         <input class="radio" type="radio" ng-model="estudiante.asistencia" value="no" >
                         <i class="fa fa-times fa-lg"></i>
                     </label>
                 </div> 
-            </md-item>
+            </md-list-item>
         </md-list>
 
         <!-- Boton para envío de asistencia al servidor  -->
