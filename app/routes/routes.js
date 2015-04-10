@@ -179,21 +179,27 @@ function Usuario (pool) {
 
         var query = 'SELECT * FROM Sesion_temp WHERE id_session = ?';
         pool.query(query, [id_session] , function(err, rows, fields) {
-            "use strict";
-            
+            "use strict";            
             if (err){
-                req.session.err = err;
-                return next();
-            }
-            if (!_.size(rows)) {
-                // Debe aqui borrarse la cookie
+                req.session.err = err; return next();
+            } if (!_.size(rows)) {
                 res.clearCookie('session');
                 req.session.err = new Error("Session: " + id_session + " does not exist");
                 req.session.err.sessionExist = false;
                 return next();
             }
+
             req.session.user = rows[0];
-            return next();
+
+            usuarioThis.getDatoDocente(req.session.user.usuario, function(err, data){
+
+                if (err) {
+                     req.session.err = err; return next();
+                }
+                req.session.userData = data;
+                return next();
+            });
+            
         });
     };
 
@@ -219,6 +225,28 @@ function Usuario (pool) {
                 return res.status(404).json({error: '404'});
             }                          
             return res.json(rows[0]);
+        });
+    }
+
+    this.getDatoDocente = function (usuario, callback) {
+        "use strict";  
+
+        var query = 'SELECT id AS id_usuario, usuario, identificacion, tipo_identificacion, rol, nombre, apellido, ' +
+                        'profesion,  fecha_nacimiento, email, facebook, twiter, fecha_creacion, Institucion_rut, estado ' +
+                    'FROM Profesor ' +
+                    'JOIN Usuario ' +
+                        'ON Profesor.Usuario_id = Usuario.id ' +
+                    'WHERE usuario = ?';
+        pool.query(query, [usuario], function(err, rows, fields) {                
+            "use strict";
+            if (err){
+                return callback(err, null)
+            }else if(!_.size(rows)) {
+                var error = new Error("Sorry, that data does not exist");
+                error.status = 404;
+                return callback(error, null)
+            }
+            callback(null, rows[0]);
         });
     }
 }
