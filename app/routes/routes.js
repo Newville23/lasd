@@ -38,6 +38,11 @@ module.exports = function(app, pool) {
 
 
     // ----------- Api para módulo de docentes ----------------
+    app.get(version + '/coordinador/estudiante.json', estudiante.getEstudiantesByCurso);
+    // ----------- Fin para módulo de docentes ----------------
+
+
+    // ----------- Api para módulo de docentes ----------------
     app.get(version + '/docente/contenido.json', contenido.getContenido);
     app.post(version + '/docente/contenido.json', contenido.postContenido);
     app.put(version + '/docente/contenido.json', contenido.putContenido);
@@ -194,7 +199,7 @@ function Usuario (pool) {
             usuarioThis.getDatoDocente(req.session.user.usuario, function(err, data){
 
                 if (err) {
-                     req.session.err = err; return next();
+                    req.session.err = err; return next();
                 }
                 req.session.userData = data;
                 return next();
@@ -204,27 +209,16 @@ function Usuario (pool) {
     };
 
     this.datos = function (req, res) {     
-
+        "use strict";
         if(!req.session.user){
             return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
         }
-
-        var usuario = req.session.user.usuario
-        
-        var query = 'SELECT id AS id_usuario, usuario, identificacion, tipo_identificacion, rol, nombre, apellido, ' +
-                        'profesion,  fecha_nacimiento, email, facebook, twiter, fecha_creacion, Institucion_rut, estado ' +
-                    'FROM Profesor ' +
-                    'JOIN Usuario ' +
-                        'ON Profesor.Usuario_id = Usuario.id ' +
-                    'WHERE usuario = ?';
-        pool.query(query, [usuario], function(err, rows, fields) {
-                
-            if (err){
-                return res.status(500).json({error: '500', err: err});
-            }else if(!_.size(rows)){
-                return res.status(404).json({error: '404'});
-            }                          
-            return res.json(rows[0]);
+        var usuario = req.session.user.usuario;
+        usuarioThis.getDatoDocente(usuario, function(err, data){
+                if (err) {
+                    console.log(err);
+                }
+                return res.json(data);
         });
     }
 
@@ -577,28 +571,31 @@ function Estudiante (pool) {
 
     this.getEstudiantesByCurso = function (req, res) {
         "use strict";
-        
-        var Curso_codigo = req.query.cursocodigo ? pool.escape(req.query.cursocodigo) : null;
+        if(!req.session.userData){
+            return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
+        }
 
-        var query = "SELECT Estudiante_identificacion AS id_estudiante, tipo_identificacion, nombre, apellido, fecha_nacimiento, tipo_sangre FROM lasd3.Matricula " +
+        var id_institucion = req.session.userData.Institucion_rut;
+
+        var Curso_codigo = req.query.cursocodigo ? 'AND Curso_codigo = ' + pool.escape(req.query.cursocodigo) : '';
+
+        var query = "SELECT Estudiante_identificacion AS id_estudiante, tipo_identificacion, usuario, nombre, apellido, rol, fecha_nacimiento, " +
+                        "email, tipo_sangre, Curso_codigo AS id_curso, Institucion_rut AS id_institucion, year, fecha_creacion " +
+                        "FROM lasd3.Matricula " +
                         "JOIN lasd3.Estudiante " +
                         "ON Estudiante.identificacion = Matricula.Estudiante_identificacion " +
                         "JOIN lasd3.Usuario " +
                         "ON Usuario.id = Estudiante.Usuario_id " +
-                        "WHERE Curso_codigo = " + Curso_codigo;
+                        "WHERE Institucion_rut = "+ id_institucion + " " + Curso_codigo;
         
-        if (Curso_codigo) {
-            pool.query(query, function(err, rows, fields) {
-                if (err){
-                    return res.status(500).json({error: '500'});
-                }else if(rows.length == 0){
-                    return res.status(404).json({error: '404'});
-                }
-                return res.json(rows);
-            });
-        }else{
-            return res.status(400).json({status: '400'});
-        }
+        pool.query(query, function(err, rows, fields) {
+            if (err){
+                return res.status(500).json({error: '500'});
+            }else if(rows.length == 0){
+                return res.status(404).json({error: '404'});
+            }
+            return res.json(rows);
+        });
     }
     
     this.postAsistencia = function (req, res) {
