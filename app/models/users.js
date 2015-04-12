@@ -46,6 +46,17 @@ function Users(pool) {
         });
 	}
 
+	this.checkField = function (fiel, fielName, tableName, callback) {
+        "use strict";
+        var query = "SELECT " + fielName + " FROM " + tableName + " WHERE " + fielName + " = ?";
+        pool.query(query, [fiel], function (err, rows, fields) {
+            "use strict";
+            if (err) {return callback(err, null);}
+            var sw = _.size(rows) ? 1 : 0;
+            callback(null, sw);
+        });
+    }
+
 }
 
 module.exports = Users;
