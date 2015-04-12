@@ -45,6 +45,8 @@ module.exports = function(app, pool) {
     // ----------- Api para módulo de coordinadores ----------------
     app.get(version + '/coordinador/estudiante.json', estudiante.getEstudiantesByCurso);
     app.post(version + '/coordinador/estudiante.json', estudiante.postEstudiantes);
+
+    app.post(version + '/coordinador/profesor.json', docente.postProfesor);
     // ----------- Fin para módulo de coordinadores ----------------
 
 
@@ -77,7 +79,7 @@ module.exports = function(app, pool) {
     app.use(function(err, req, res, next){
         "use strict";
         console.error(err);
-        //console.error(err.stack);
+        console.error(err.stack);
         res.status(500).json({ error: err });
     });
 }
@@ -252,6 +254,7 @@ function Usuario (pool) {
 }
 
 function Docente (pool) {    
+    var userModel = new UserModel(pool);
     
     this.listaClases = function(req, res){
 
@@ -283,6 +286,57 @@ function Docente (pool) {
             };                
             return res.json(rows);
         });
+    }
+
+    this.postProfesor = function (req, res) {
+        "use strict";
+        if(!req.session.userData){            
+            return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
+        }else if(req.session.userData.rol != "admin"){
+            return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
+        }
+
+        var post = req.body;
+        post.id_institucion = req.session.userData.Institucion_rut;
+
+        if (!_.requiredList(post, ['usuario', 'rol', 'nombre', 'apellido', 'idprofesor', 'tipoidentificacion'])) {
+            return res.status(400).json({status: '400', msg: "faltan datos requeridos"});
+        };
+
+         //verificar usuario, si el usuario existe...
+        var fielName = 'usuario', tableName = 'Usuario';
+        userModel.checkField(post.usuario, fielName, tableName, function (err, sw) {
+            if (err) {return res.status(500)}
+            if (sw) { return res.status(409).json({"errors":[{"code":10, "message":"username already taken"}]}); }
+
+             // vericar Email
+            var fielName = 'email', tableName = 'Usuario';
+            userModel.checkField(post.email, fielName, tableName, function (err, sw) {
+                if (err) {return res.status(500)};
+                if (sw) { return res.status(409).json({"errors":[{"code":11, "message":"email already exist"}]})};
+
+                // vericar id profesor
+                var fielName = 'identificacion', tableName = 'Profesor';
+                userModel.checkField(post.idestudiante, fielName, tableName, function (err, sw) {
+                    if (err) {return res.status(500)};
+                    if (sw) { return res.status(409).json({"errors":[{"code":12, "message":"teacher already exist"}]})};
+
+                    // Insertar en la tabla usuario ------------------                    
+                    userModel.addUser(post, bcrypt, moment, function (err, rows) {
+                        if (err) {return res.status(500).json(err)};                        
+
+                        // Insetar tabla estudiante -----------------------
+                        userModel.addProfesor(post, rows.dataUser, function (err, rows) {
+                            if (err) {return res.status(500).json(err)};
+                            return res.json(rows);
+                        });                        
+   
+                    });                    
+                });
+
+            });
+        });
+
     }
 }
 

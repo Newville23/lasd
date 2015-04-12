@@ -46,6 +46,24 @@ function Users(pool) {
         });
 	}
 
+	this.addProfesor  = function (post, dataUser, callback) {
+		var data = {
+            "identificacion": post.idprofesor,
+            "tipo_identificacion": post.tipoidentificacion,
+            "profesion": post.profesion,
+            "fecha_nacimiento": post.fechanacimiento,
+            "Usuario_id": dataUser.id,
+            "Institucion_rut": post.id_institucion
+        };
+
+        var query = 'INSERT INTO Profesor SET ?';
+		pool.query(query, [data] , function(err, rows, fields) {
+            "use strict";
+            if (err){return callback(err, null);}
+            callback(null, rows);
+        });
+	}
+
 	this.checkField = function (fiel, fielName, tableName, callback) {
         "use strict";
         var query = "SELECT " + fielName + " FROM " + tableName + " WHERE " + fielName + " = ?";
@@ -56,6 +74,8 @@ function Users(pool) {
             callback(null, sw);
         });
     }
+
+
 
 }
 
