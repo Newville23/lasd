@@ -4,6 +4,7 @@ var packageJson = require('../package.json');
 var bcrypt = require('bcrypt');
 var cookieParser = require('cookie-parser');
 var SessionHandler = require('./session');
+var UserModel = require('../models/users');
 var _ = require("underscore");
 
 // valida la existencia de una lista de keys en un objeto,
@@ -34,12 +35,18 @@ module.exports = function(app, pool) {
     //---------- Manejo de sesiones --------------------------
     app.post(version + '/usuario/login.json', usuario.login);
     app.post(version + '/usuario/logout.json', usuario.logout);
+
+    app.get(version + '/usuario/checkuser', estudiante.checkUser);
+    app.get(version + '/usuario/checkemail', estudiante.checkEmail);
     //---------- Fin manejo de sesiones ----------------------
 
 
-    // ----------- Api para módulo de docentes ----------------
+    // ----------- Api para módulo de coordinadores ----------------
     app.get(version + '/coordinador/estudiante.json', estudiante.getEstudiantesByCurso);
-    // ----------- Fin para módulo de docentes ----------------
+    app.post(version + '/coordinador/estudiante.json', estudiante.postEstudiantes);
+
+
+    // ----------- Fin para módulo de coordinadores ----------------
 
 
     // ----------- Api para módulo de docentes ----------------
@@ -243,6 +250,8 @@ function Usuario (pool) {
             callback(null, rows[0]);
         });
     }
+
+    this.insertDatos = function (data, callback) {}
 }
 
 function Docente (pool) {    
@@ -530,6 +539,10 @@ function Contenido (pool) {
 
 function Estudiante (pool) {
 
+    var userModel = new UserModel(pool);
+
+    var estudianteThis = this;
+
     //Devuelve la lista de los estudiantes con los datos, además de la asistencia, 
     //dada la id de la clase y la fecha. Si no se especifica la fecha, se toma la actual.
     this.getEstudiantes = function (req, res) {
@@ -597,6 +610,53 @@ function Estudiante (pool) {
             return res.json(rows);
         });
     }
+
+    this.postEstudiantes = function (req, res) {
+        "use strict";
+        if(!req.session.userData){
+            return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
+        }
+        
+        var post = req.body;
+        post.id_institucion = req.session.userData.Institucion_rut;
+
+        if (!_.requiredList(post, ['usuario', 'email', 'rol', 'nombre', 'apellido', 'idestudiante', 'tipoidentificacion'])) {
+            return res.status(400).json({status: '400', msg: "faltan datos requeridos"});
+        };
+
+        //verificar usuario, si el usuario existe...
+        var fielName = 'usuario', tableName = 'Usuario';
+        estudianteThis.checkField(post.usuario, fielName, tableName, function (err, sw) {
+            if (err) {return res.status(500)}
+            if (sw) { return res.status(409).json({"errors":[{"code":10, "message":"username already taken"}]}); }
+
+             // vericar Email
+            var fielName = 'email', tableName = 'Usuario';
+            estudianteThis.checkField(post.email, fielName, tableName, function (err, sw) {
+                if (err) {return res.status(500)};
+                if (sw) { return res.status(409).json({"errors":[{"code":11, "message":"email already exist"}]})};
+
+                // vericar id estudiante
+                var fielName = 'identificacion', tableName = 'Estudiante';
+                estudianteThis.checkField(post.idestudiante, fielName, tableName, function (err, sw) {
+                    if (err) {return res.status(500)};
+                    if (sw) { return res.status(409).json({"errors":[{"code":12, "message":"student already exist"}]})};
+
+                    // Insertar en la tabla usuario ------------------                    
+                    userModel.addUser(post, bcrypt, moment, function (err, rows) {
+                        if (err) {return res.status(500).json(err)};                        
+
+                        // Insetar tabla estudiante -----------------------
+                        userModel.addStudent(post, rows.dataUser, function (err, rows) {
+                            if (err) {return res.status(500).json(err)};
+                            return res.json(rows);
+                        });                        
+   
+                    });                    
+                });
+            });
+        });
+    }
     
     this.postAsistencia = function (req, res) {
         'use strict';
@@ -653,5 +713,37 @@ function Estudiante (pool) {
                 });
             }
         });       
+    }
+
+    this.checkUser = function(req, res){
+        var fiel = req.query.usuario;
+        if (!fiel) {return res.status(400).json({status: '400'});}        
+
+        var fielName = 'usuario', tableName = 'Usuario';
+        estudianteThis.checkField(fiel, fielName, tableName, function (err, sw) {
+            if (err) {return res.status(500)};
+            res.json(sw);
+        });
+    }
+    this.checkEmail = function (req, res) {
+        var fiel = req.query.email;
+        if (!fiel) {return res.status(400).json({status: '400'});}        
+
+        var fielName = 'email', tableName = 'Usuario';
+        estudianteThis.checkField(fiel, fielName, tableName, function (err, sw) {
+            if (err) {return res.status(500)};
+            res.json(sw);
+        });
+    }
+
+    this.checkField = function (fiel, fielName, tableName, callback) {
+        "use strict";
+        var query = "SELECT " + fielName + " FROM " + tableName + " WHERE " + fielName + " = ?";
+        pool.query(query, [fiel], function (err, rows, fields) {
+            "use strict";
+            if (err) {return callback(err, null);}
+            var sw = _.size(rows) ? 1 : 0;
+            callback(null, sw);
+        })
     }
 }
