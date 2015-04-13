@@ -46,6 +46,7 @@ module.exports = function(app, pool) {
     app.get(version + '/coordinador/estudiante.json', estudiante.getEstudiantesByCurso);
     app.post(version + '/coordinador/estudiante.json', estudiante.postEstudiantes);
 
+    app.get(version + '/coordinador/profesor.json', docente.getProfesores);
     app.post(version + '/coordinador/profesor.json', docente.postProfesor);
     // ----------- Fin para módulo de coordinadores ----------------
 
@@ -87,6 +88,7 @@ module.exports = function(app, pool) {
 function Usuario (pool) {
     "use strict";
     var session = new SessionHandler(pool);
+    var userModel = new UserModel(pool);
     var usuarioThis = this;
     
     this.login = function (req, res, next) {
@@ -202,11 +204,8 @@ function Usuario (pool) {
 
             req.session.user = rows[0];
 
-            usuarioThis.getDatoDocente(req.session.user.usuario, function(err, data){
-
-                if (err) {
-                    req.session.err = err; return next();
-                }
+            userModel.getDatoUser(req.session.user.usuario, function(err, data){
+                if (err) {req.session.err = err; return next();}
                 req.session.userData = data;
                 return next();
             });
@@ -220,33 +219,11 @@ function Usuario (pool) {
             return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
         }
         var usuario = req.session.user.usuario;
-        usuarioThis.getDatoDocente(usuario, function(err, data){
+        userModel.getDatoUser(usuario, function(err, data){
                 if (err) {
                     console.log(err);
                 }
                 return res.json(data);
-        });
-    }
-
-    this.getDatoDocente = function (usuario, callback) {
-        "use strict";  
-
-        var query = 'SELECT id AS id_usuario, usuario, identificacion, tipo_identificacion, rol, nombre, apellido, ' +
-                        'profesion,  fecha_nacimiento, email, facebook, twiter, fecha_creacion, Institucion_rut, estado ' +
-                    'FROM Profesor ' +
-                    'JOIN Usuario ' +
-                        'ON Profesor.Usuario_id = Usuario.id ' +
-                    'WHERE usuario = ?';
-        pool.query(query, [usuario], function(err, rows, fields) {                
-            "use strict";
-            if (err){
-                return callback(err, null)
-            }else if(!_.size(rows)) {
-                var error = new Error("Sorry, that data does not exist");
-                error.status = 404;
-                return callback(error, null)
-            }
-            callback(null, rows[0]);
         });
     }
 
@@ -283,9 +260,31 @@ function Docente (pool) {
                 return res.status(500).json({error: '500', err: err});
             }if (!_.size(rows)) {
                 return res.status(404).json({error: '404'});
-            };                
+            }              
             return res.json(rows);
         });
+    }
+
+    this.getProfesores = function (req, res) {
+
+        if(!req.session.userData){            
+            return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
+        }else if(req.session.userData.rol != "admin"){
+            return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
+        }
+       
+        var institucion_rut = req.session.userData.Institucion_rut;
+        var rol = 'profesor';
+
+        userModel.getDataDocentes(institucion_rut, rol, function (err, rows) {
+            if (err) {
+                return res.status(500).json({error: '500', err: err});
+            }
+            if (!_.size(rows)) {
+                return res.status(404).json({error: '404'});
+            }
+            return res.json(rows);
+        })
     }
 
     this.postProfesor = function (req, res) {
@@ -336,7 +335,6 @@ function Docente (pool) {
 
             });
         });
-
     }
 }
 

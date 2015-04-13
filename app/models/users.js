@@ -75,7 +75,44 @@ function Users(pool) {
         });
     }
 
+    this.getDatoUser = function (usuario, callback) {
+        "use strict";  
 
+        var query = 'SELECT id AS id_usuario, usuario, identificacion, tipo_identificacion, rol, nombre, apellido, ' +
+                        'profesion,  fecha_nacimiento, email, fecha_creacion, Institucion_rut, estado ' +
+                    'FROM Profesor ' +
+                    'JOIN Usuario ' +
+                        'ON Profesor.Usuario_id = Usuario.id ' +
+                    'WHERE usuario = ?';
+        pool.query(query, [usuario], function(err, rows, fields) {                
+            "use strict";
+            if (err){
+                return callback(err, null)
+            }else if(!_.size(rows)) {
+                var error = new Error("Sorry, that data does not exist");
+                error.status = 404;
+                return callback(error, null)
+            }
+            callback(null, rows[0]);
+        });
+    }
+
+    this.getDataDocentes = function (idinstitucion, rol, callback) {
+        "use strict";
+        var query =  "SELECT id AS id_usuario, usuario, identificacion, tipo_identificacion, rol, nombre, apellido, " +
+                        "profesion,  fecha_nacimiento, email, fecha_creacion, Institucion_rut, estado " +
+                    "FROM Profesor " +
+                    "JOIN Usuario " +
+                        "ON Profesor.Usuario_id = Usuario.id " +
+                    "WHERE 1 AND institucion_rut = ? and rol = ?";
+        pool.query(query, [idinstitucion, rol], function(err, rows, fields) {
+            "use strict";
+            if (err){
+                return callback(err, null)
+            }
+            callback(null, rows);
+        });
+    }
 
 }
 
