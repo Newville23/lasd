@@ -236,7 +236,24 @@ h5{
 }
 .listbtn{
 
-    padding-top: 19px !important; 
+    padding-top: 19px !important;
+}
 
-
+.nav-justified-only {
+  width: 100%;
+}
+.nav-justified-only > li {
+  float: none;
+}
+.nav-justified-only > li > a {
+  margin-bottom: 5px;
+  text-align: center;
+}
+.nav-justified-only > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+.nav-justified-only > li {
+  display: table-cell;
+  width: 1%;
 }
