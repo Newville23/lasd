@@ -1,7 +1,10 @@
-<ul class="nav nav-pills nav-justified-only" style="font-size: 14px;">
-  <li role="presentation" ng-repeat="tab in navTab" class="{{tab.classe}}"  data-toggle="tab" ui-sref-active="active">
-    <a ui-sref="{{tab.state}}">
-      <i class="{{tab.icon}}"></i> <span class="hidden-xs">{{tab.Nombre}}</span>
-    </a>
-  </li>   
+<ul class="nav nav-pills-only nav-justified-only" style="font-size: 14px;">
+  	<li ng-click="toggleSidenav('left')" flex="10"  hide-gt-sm>
+        <a href=""><i class="fa fa-bars fa-lg"></i></a>        		
+    </li> 
+  	<li role="presentation" ng-repeat="tab in navTab" class="{{tab.classe}}"  data-toggle="tab" ui-sref-active="active">
+    	<a ui-sref="{{tab.state}}">
+      		<i class="{{tab.icon}}"></i> <span class="hidden-xs">{{tab.Nombre}}</span>
+    	</a>
+  	</li>   
 </ul>

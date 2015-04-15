@@ -257,3 +257,11 @@ h5{
   display: table-cell;
   width: 1%;
 }
+
+.nav-pills-only>li.active>a {
+  color: #144c87;
+  /* background-color: #337ab7; */
+}
+.nav-pills-only>li>a {
+  color: gray;
+} 
