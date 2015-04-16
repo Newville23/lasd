@@ -128,7 +128,7 @@ angular.module('Dirapp')
 					      $mdToast.simple()
 					        .content('Ahora puede tomar la asistencia!')
 					        .position($scope.getToastPosition())
-					        .hideDelay(3000)
+					        .hideDelay(1500)
 				    );
 			    	};
 

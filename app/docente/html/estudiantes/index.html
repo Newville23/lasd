@@ -12,7 +12,7 @@
     </div>
    <!-- lista de estudiantes-->
     <div layout="row">
-        <md-list flex="100">
+        <md-list flex="100" style="margin-bottom:34px">
             <md-list-item class="md-whiteframe-z1 md-2-line itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
                 <img ng-src="{{estudiante.face}}" class="md-avatar" alt="{{estudiante.nombre}}" />
                 <div ng-click="infoRight(estudiante)" class="md-list-item-text">
@@ -36,8 +36,8 @@
 
         <!-- Boton para envío de asistencia al servidor  -->
 
-        <md-button ng-show="!asist" flex class=" pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="save($event)">
-        <md-tooltip hide-sm>Enviar asistencia</md-tooltip>
+        <md-button ng-show="!asist" flex class="pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="save($event)">
+            <md-tooltip hide-sm>Enviar asistencia</md-tooltip>
             <i class="fa fa-paper-plane fa-lg"></i>
         </md-button>
         
