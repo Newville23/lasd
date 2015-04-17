@@ -1,42 +1,41 @@
 <div class="panel-group" id="" role="tablist" aria-multiselectable="true">
       <!--  aqui comienza el repeater para los cada periodo en el scope periodos -->
-      <div class="panel panel-default" ng-repeat="periodo in Periodos">
+    <div class="panel panel-default" ng-repeat="periodo in Periodos">
 
-            <div class="panel-heading" role="tab" id="headingOne">
-                <h4 class="panel-title">
-                   <span class="titulo" data-toggle="collapse" data-target="#{{periodo.targetid}}" aria-expanded="{{periodo.expanded}}" aria-controls="{{periodo.targetid}}" data-parent="#accordion">
-                      {{periodo.periodo}}
-                  </span>
-                  <span class="pull-right" title="Crea aquí un nuevo Logro" data-toggle="tooltip" data-placement="top">
-                      <i class="fa fa-plus-square fa-lg" ng-click="toggleSidenav('right')"></i>        
-                  </span>
-                </h4>
-            </div>
+        <div class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-target="#{{periodo.targetid}}" aria-expanded="{{periodo.expanded}}" aria-controls="{{periodo.targetid}}" data-parent="#accordion"style="cursor: pointer;" >
+            <h4 class="panel-title">
+               <span class="titulo">
+                  {{periodo.periodo}}
+              </span>
+            </h4>
+        </div>
 
-      <div id="{{periodo.targetid}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-          <div class="panel-body">
-            <!-- aqui se filtra cada logro de acuerdo con su periodo que es una propiedad del scope Logros y periodo.id que es una propidad del escope Periodos -->
-            <div ng-repeat="x in Logros | filter:{periodo:periodo.id}">
-                <well-logros></well-logros>
+        <div id="{{periodo.targetid}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+            <div class="panel-body">
+                <!-- aqui se filtra cada logro de acuerdo con su periodo que es una propiedad del scope Logros y periodo.id que es una propidad del escope Periodos -->
+                <div ng-repeat="x in Logros | filter:{periodo:periodo.id}">
+                    <well-logros></well-logros>
 
-                <div class="collapse" id="{{x.id_indicador}}">
-                  <hr>
-                      <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#mymodal" ng-click="showLogro(x)">
-                        <span class="visible-lg visible-md visible-sm">Agregar Evaluacion</span>
-                        <span class="visible-xs">+ Evaluacion</span>
-                      </button>
-                  <br> 
+                    <div class="collapse" id="{{x.id_indicador}}">
+                        <hr>
+                        <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#mymodal" ng-click="showLogro(x)">
+                            <span class="visible-lg visible-md visible-sm">Agregar Evaluacion</span>
+                            <span class="visible-xs">+ Evaluacion</span>
+                        </button>
+                        <br> 
 
-                <tabla-evaluaciones></tabla-evaluaciones>
-                <hr>
+                        <tabla-evaluaciones></tabla-evaluaciones>
+                        <hr>
+                    </div>
                 </div>
             </div>
-          </div>
         </div>
-      </div>
+    </div>
+    <md-button class="pluss md-primary md-fab" ng-click="toggleSidenav('right')" 
+        title="Nuevo Logro" data-toggle="tooltip" data-placement="top">
+        <i class="fa fa-plus fa-lg"></i>
+    </md-button>
 </div>
-
-
 
 <modal-evaluaciones></modal-evaluaciones>
 <modal-estudiantes></modal-estudiantes>
