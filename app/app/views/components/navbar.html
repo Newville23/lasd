@@ -18,7 +18,7 @@
 			<div class="collapse navbar-collapse navbar-ex1-collapse-{{config.id}}">
 				
 				<ul class="nav navbar-nav" ng-repeat="enlace in datos.enlaces" >
-					<li ng-class="{active: compararURL(enlace.link)}" ui-sref-active="active">
+					<li ui-sref-active="active">
 						<a ui-sref="{{enlace.link}}">{{enlace.nombre}}</a>
 					</li>
 				</ul>

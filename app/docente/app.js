@@ -21,21 +21,18 @@ angular.module('CDapp',[
 .config(function($stateProvider, $urlRouterProvider) {
 
     // For any unmatched url, redirect to /state1
-    $urlRouterProvider.otherwise("/Docente");
+    $urlRouterProvider.otherwise("/Docente/");
       //
     // Now set up the states
     $stateProvider
     // Rol de Doncente que cuenta con un parametro para cada clase
     .state('Home', {
-        url: "/Docente",
+        url: "/Docente/",
         templateUrl: "html/home/index.html"
     })
     .state('Docente',{
-        url:"/Docente/:idclase", // sólo caracteres alfanuméricos
-        templateUrl:"html/todo.html",
-        controller: function($stateParams){
-            console.log($stateParams);
-        }
+        url:"/Docente/{idclase:[0-9a-fA-F]{1,25}}", // sólo caracteres alfanuméricos
+        templateUrl:"html/todo.html"
     })
     .state('Test', {
         url: "/test",
@@ -69,7 +66,6 @@ angular.module('CDapp',[
     .state('Docente.Trabajos', {
         url: "/Trabajos",
         template: "<h3>Espacio Trabajos<h3/>",
-
     })
 })
 
