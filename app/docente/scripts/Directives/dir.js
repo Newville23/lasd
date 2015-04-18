@@ -3,7 +3,7 @@ angular.module('Dirapp',[])
 .directive('aCordeon', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/acordeon.html',
+		templateUrl:'views/acordeon.html',
 		controller:['$scope', function ($scope){
 			$scope.Periodos =[
 			{periodo:'Primer Perido',targetid:'primero',expanded:true,id:'1'},
@@ -19,7 +19,7 @@ angular.module('Dirapp',[])
 .directive('navTab', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/navtab.html',
+		templateUrl:'views/navtab.html',
 		controller:['$scope', function ($scope){
 			$scope.navTab =[
 			{Nombre:'Contenido',classe:'',icon:'fa fa-list-alt fa-lg',state:'Docente.Contenido'},
@@ -69,7 +69,7 @@ angular.module('Dirapp',[])
 
   return {
   	restrict: 'E',
-  	templateUrl: "html/iTable.html",
+  	templateUrl: "views/iTable.html",
   	link: link
 
   };
@@ -90,56 +90,56 @@ angular.module('Dirapp',[])
 .directive('modalEvaluaciones', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/modalEvaluaciones.html'
+		templateUrl:'views/modalEvaluaciones.html'
 	};
 
 })
 .directive('modalVernotas', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/modalverNotas.html'
+		templateUrl:'views/modalverNotas.html'
 	};
 
 })
 .directive('modalEstudiantes', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/modalEstudiantesaddNota.html'
+		templateUrl:'views/modalEstudiantesaddNota.html'
 	};
 
 })
 .directive('modalEliminar', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/modalEliminar.html'
+		templateUrl:'views/modalEliminar.html'
 	};
 
 })
 .directive('tablaEvaluaciones', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/tablaEvaluaciones.html'
+		templateUrl:'views/tablaEvaluaciones.html'
 	};
 
 })
 .directive('tablaVernotas', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/tablaverNotas.html'
+		templateUrl:'views/tablaverNotas.html'
 	};
 
 })
 .directive('wellLogros', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/wellLogros.html'
+		templateUrl:'views/wellLogros.html'
 	};
 
 })
 .directive('tablaEstudiantesaddnotas', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'html/tablaEstudiantesaddNotas.html'
+		templateUrl:'views/tablaEstudiantesaddNotas.html'
 	};
 
 });

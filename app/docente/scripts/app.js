@@ -28,11 +28,11 @@ angular.module('CDapp',[
     // Rol de Doncente que cuenta con un parametro para cada clase
     .state('Home', {
         url: "/Docente/",
-        templateUrl: "html/home/index.html"
+        templateUrl: "views/todo.html"
     })
     .state('Docente',{
         url:"/Docente/{idclase:[0-9a-fA-F]{1,25}}", // sólo caracteres alfanuméricos
-        templateUrl:"html/todo.html"
+        templateUrl:"views/todo.html"
     })
     .state('Test', {
         url: "/test",
@@ -48,11 +48,11 @@ angular.module('CDapp',[
     // estados anidaddos
     .state('Docente.Contenido', {
         url: "/Contenido",
-        templateUrl: "html/Contenido.html"
+        templateUrl: "views/Contenido.html"
     })
     .state('Docente.Evaluaciones', {
         url: "/Evaluaciones",
-        templateUrl: "html/Evaluaciones.html",
+        templateUrl: "views/Evaluaciones.html",
     })
     .state('Docente.Foro', {
         url: "/Foro",
@@ -60,7 +60,7 @@ angular.module('CDapp',[
     })
     .state('Docente.Estudiantes', {
         url: "/Estudiantes",
-        templateUrl: "html/estudiantes/index.html",
+        templateUrl: "views/estudiantes/index.html",
         controller: 'EstudiantesCtrl'
     })
     .state('Docente.Trabajos', {
@@ -88,7 +88,7 @@ angular.module('CDapp',[
     ];
 
 
-    $http.get('js/Json/contenido.json').success(function (data){
+    $http.get('scripts/Json/contenido.json').success(function (data){
         
         $scope.Logros = data.contenido;
         $scope.Evaluaciones = data.calificaciones;
@@ -116,7 +116,7 @@ angular.module('CDapp',[
         control();
     });
 
-    $http.get('js/Json/estudiantes.json').success(function (data){
+    $http.get('scripts/Json/estudiantes.json').success(function (data){
         $scope.Estudiantes = data;
         //console.log($scope.Estudiantes);
     });
@@ -133,4 +133,21 @@ angular.module('CDapp',[
         $scope.texto=Logro;
 
     };
-}]);
+}])
+.controller('ListCtrl', function($scope, $mdDialog) {
+
+  $scope.settings = [
+    { name: 'Wi-Fi', extraScreen: 'Wi-fi menu', icon: 'device:network-wifi', enabled: true },
+    { name: 'Bluetooth', extraScreen: 'Bluetooth menu', icon: 'device:bluetooth', enabled: false },
+  ];
+  $scope.navigateTo = function(to, event) {
+    $mdDialog.show(
+      $mdDialog.alert()
+        .title('Navigating')
+        .content('Imagine being taken to ' + to)
+        .ariaLabel('Navigation demo')
+        .ok('Neat!')
+        .targetEvent(event)
+    );
+  };
+});

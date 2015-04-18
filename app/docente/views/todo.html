@@ -1,0 +1,26 @@
+ <!-- este es el sidenav left (barra de la izquierda) abierto por defecto -->
+ <md-sidenav flex class="md-sidenav-left md-whiteframe-z1" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
+    <md-toolbar  md-theme="top">
+        <div class="md-toolbar-tools" ng-click = "close()">
+            <a  class="navbar-brand" href="#/Docente" style="color:#144c87; font-size:1.6em; margin-left: 50px"> 
+                <img class="site-logo" ng-src="images/flugels.png">Flügel
+            </a>
+        </div> 
+    </md-toolbar>
+    <md-content  class="md-padding" layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
+        <md-button flex ng-click = "close()" ng-repeat="clase in clases" class="md-raised md-primary" ui-sref="Docente({idclase:clase.state})" >
+            <strong>{{clase.curso}}</strong><br>
+            <small>{{clase.materia}}</small>
+        </md-button>
+    </md-content>
+</md-sidenav>
+
+<md-content flex class="board">
+	<md-toolbar md-theme="top" layout="row">
+	    <div class="md-toolbar-tools">
+	        <nav-tab></nav-tab>
+	    </div>
+	</md-toolbar>    
+
+	<div  ui-view class="board" layout-margin  layout="column" layout-align="center center"></div> 
+</md-content>

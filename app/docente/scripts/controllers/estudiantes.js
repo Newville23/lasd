@@ -4,33 +4,28 @@
 //Controlador del dialogo nueva asistencia /
 function Dialogasistencia($scope, $mdDialog) {
 
-  $scope.save = function(estudiantes) {
-     $mdDialog.hide(estudiantes);
-  };
+	$scope.save = function(estudiantes) {
+	   $mdDialog.hide(estudiantes);
+	};
 
-  $scope.hide = function() {
-    $mdDialog.hide();
-  };
+	$scope.hide = function() {
+	  $mdDialog.hide();
+	};
 
-  $scope.cancel = function() {
-    $mdDialog.cancel();
-  };
-
+	$scope.cancel = function() {
+	  $mdDialog.cancel();
+	};
 }
 
-angular.module('estudianteApp')
+angular.module('Dirapp')
   .controller('EstudiantesCtrl', function ($scope, $mdSidenav, $mdDialog, $mdToast) {
 
-
- $scope.toggleRight = function(name) {
-
-
-    $mdSidenav('right').toggle()
-                        .then(function(){
-
-                          $scope.name = name;
-                        });
-  };
+	$scope.infoRight = function(name) {
+	    $mdSidenav('info').toggle()
+	    .then(function(){    
+	    	$scope.name = name;
+	    });
+	};
 
 	var estudiantes = [
 	      {
@@ -108,14 +103,12 @@ angular.module('estudianteApp')
 					    })
 					    .then(function(estudiantes) {
 					            //Aqui se debe ejecutar el post a la DB, Agrgando fecha al objeto a envíar
-					    });
-				
+					    });				
 			    }
-
 				
 				// Toast para la toma de asistencia //
 			    
-			    $scope.toastPosition = {  bottom: true, top: false, left: true, right: false }; 
+			    $scope.toastPosition = {  bottom: false, top: true, left: false, right: true }; 
 			      
 			      $scope.getToastPosition = function() {
 				    return Object.keys($scope.toastPosition)
@@ -130,18 +123,11 @@ angular.module('estudianteApp')
 					      $mdToast.simple()
 					        .content('Ahora puede tomar la asistencia!')
 					        .position($scope.getToastPosition())
-					        .hideDelay(3000)
+					        .hideDelay(1500)
 				    );
 			    	};
 
 				  };
 
-			
-
-		    //iconos de la vista estudiantes
-		    $scope.iconInfo = 'bower_components/material-design-icons/action/svg/production/ic_info_24px.svg';
-		    $scope.iconCheck = 'bower_components/material-design-icons/navigation/svg/production/ic_check_18px.svg';
-		    $scope.iconClose = 'bower_components/material-design-icons/navigation/svg/production/ic_close_18px.svg';
-		    $scope.iconSend = 'bower_components/material-design-icons/content/svg/production/ic_send_24px.svg'
   });
 

@@ -1,5 +1,3 @@
-'use strict';
-
 angular.module('Servapp',[])
 
 .factory('Datos',['$http', function ($http){
@@ -9,7 +7,7 @@ angular.module('Servapp',[])
 	todoDatos.contenido={};
 
 	todoDatos.profesores=
-		$http.get('scripts/json/contenido.json').success(function(data){
+		$http.get('scripts/Json/contenido.json').success(function(data){
 			return data;
 		});
 	
