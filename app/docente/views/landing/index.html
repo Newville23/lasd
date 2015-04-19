@@ -32,15 +32,12 @@
 			border: solid 4px #204C86 ;
 			border-radius: 4px;
 			color: #204C86 ;
-			font: 1.5em "Open Sans", Helvetica, Arial, sans-serif;
-			height: 50px;
+			font: 1.1em "Open Sans", Helvetica, Arial, sans-serif;
+			height: 40px;
 			padding: 4px;
-			margin-top: 40px;
 			margin-right: 1000px;
 			font-weight: bold;
 			text-decoration: none;
-			width: 250px;
-
 		}
 
 		.btn:hover, .btn-azul:hover{
@@ -75,7 +72,6 @@
 			-o-transition: background-color 0.5s ease,color 0.5s ease;
 			transition: background-color 0.5s ease,color 0.5s ease;
 		}
-
 	</style>
 
 
@@ -97,8 +93,6 @@
 					<ul class="nav navbar-nav navbar-right">
 						<li ><a class="text-center" data-toggle="modal" data-target=".bs-example-modal-sm">Ingresar</a></li>
 					</ul>
-
-
 				</div>
 			</div>
 		</nav>
@@ -106,16 +100,14 @@
 <div layout="row" layout-wrap>
 	
 	<section id="start" flex="100">
-		<div class="container" style=" margin-bottom: 30px; margin-top: 3.75em;">
-		<div class="col-lg-6 col-sm-12">
+		<div class="col-lg-6 col-sm-12" style=" margin-bottom: 30px; margin-top: 3.75em;">
 			<h2>Volemos Juntos</h2>
 			<p id="start-p" >Obtén reportes precisos y confiables de tu plantel educativo en tiempo real, y has que tu progreso en la educación sea productivo.</p>
-			<a id="empezar" class="btn" href="#empezar" style="margin-right: 0px;">Empieza ahora</a>
-			</div>
+			<a id="empezar" class="btn" style="margin-right: 0px;" ng-click="showAdvanced($event)">Empieza ahora</a>
 		</div>		
 	</section>
 
-	<section  id="empieza" class="exp" flex="100">
+	<section  id="empieza" class="exp" flex="100" style="background-color:white">
 			<div class="col-md-8 col-md-offset-2 col-sm-12 col-sx-12" >
 				<h2 class=" text-center">No pierdas ningún progreso de tu institución</h2>
 				<p class=" text-center">Infórmate, evalúa y comunica desde cualquier lugar los logros obtenidos por tu plantel educativo</p>
@@ -172,26 +164,20 @@
 					<h4 class="modal-title text-center">Iniciar sesión</h4>
 				</div>
 				<div class="modal-body">
-
 					<div id="errorvalidation2" class="hidden">
                         <div class="alert alert-danger">
                             <button type="button" class="close" data-dismiss="alert">&times;</button>
                         </div>
                     </div>
-
 					<div class="main">
-						<form action="">
+						<form ng-submit="setLoginForm()">
 							<div class="form-group">
 								<label >Usuario</label>
-								<input type="text" class="form-control" name="usuario" value="" placeholder="Ingrese su usuario">
+								<input type="text" required class="form-control" name="usuario" ng-model="form.usuario" placeholder="Ingrese su usuario">
 							</div>
 							<div class="form-group">
-								<label >Clave</label>
-								<input type="password" class="form-control" name="pass" placeholder="Ingrese su clave">
-							</div>
-							<div class="form-group">
-								<label class="col-sm-2 control label"><a href="#">¿Olvido su contraseña?</a></label>
-
+								<label >Clave <a href="#" style="font-size: 75%;">¿Olvido su contraseña?</a></label>
+								<input type="password" required class="form-control" name="pass" ng-model="form.pass" placeholder="Ingrese su clave">
 							</div>
 							<button type="submit" class="btn-azul btn-default form-control">Acceder</button>
 						</form>

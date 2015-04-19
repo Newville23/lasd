@@ -2,6 +2,7 @@ angular.module('CDapp',[
     'ui.router',
     'ngMaterial',
     'ngMessages',
+    'ngCookies',
     'Dirapp',
     'Servapp',
     'SerFlugel'
@@ -36,7 +37,8 @@ angular.module('CDapp',[
     })
     .state('login', {
         url: "/login",
-        templateUrl: "views/landing/index.html"
+        templateUrl: "views/landing/index.html",
+        controller: "LandingCtrl"
     })
     .state('Test', {
         url: "/test",
@@ -81,8 +83,7 @@ angular.module('CDapp',[
     
     $scope.close = function() {
      $mdSidenav('left').close();
-
-  };
+    };
 
     $scope.clases =[
         {curso:'10A', materia:'Matematicas',state:'10A'},

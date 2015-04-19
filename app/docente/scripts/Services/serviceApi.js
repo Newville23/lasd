@@ -1,15 +1,23 @@
 angular.module('SerFlugel', ['ngResource'])
 
-.factory('Version', function () {
-	var version = "0.2.1";
-	return version;
-})
-.factory('Docente',['$resource', 'Version', function ContenidoFactory($resource, Version){
+.factory('Config', function () {
 	return {
-		contenido : $resource('http://localhost:3000/' + Version + '/docente/contenido.json', {}, { update: {method: 'PUT'}}),
-		calificaciones: $resource('http://localhost:3000/' + Version + '/docente/calificaciones.json', {}, { update: {method: 'PUT'}}),
-		notas: $resource('http://localhost:3000/'+ Version +'/docente/notas.json', {}, { update: {method: 'PUT'}}),
-		estudiantes: $resource('http://localhost:3000/'+ Version +'/docente/estudiante.json', {}, { update: {method: 'PUT'}})
+		version : "0.2.1",
+		ip: location.hostname,
+		port: location.port
+	};
+})
+.factory('Docente',['$resource', 'Config', function ContenidoFactory($resource, Config){
+	return {
+		contenido : $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/docente/contenido.json', {}, { update: {method: 'PUT'}}),
+		calificaciones: $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/docente/calificaciones.json', {}, { update: {method: 'PUT'}}),
+		notas: $resource('http://' + Config.ip + ':' + Config.port + '/' + Config.version +'/docente/notas.json', {}, { update: {method: 'PUT'}}),
+		estudiantes: $resource('http://' + Config.ip + ':' + Config.port + '/' + Config.version +'/docente/estudiante.json', {}, { update: {method: 'PUT'}})
+	}
+}])
+.factory('Usuario',['$resource', 'Config', function ContenidoFactory($resource, Config){
+	return {
+		login : $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/usuario/login.json')
 	}
 }])
 

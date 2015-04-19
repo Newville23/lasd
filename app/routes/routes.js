@@ -33,7 +33,13 @@ module.exports = function(app, pool) {
 
 
     //---------- Manejo de sesiones --------------------------
-    app.post(version + '/usuario/login.json', usuario.login);
+    app.post(version + '/usuario/login.json', usuario.login);    
+    app.get(version + '/usuario/login.json', function (req, res) {
+        if (req.session.err) {
+            return res.status(500).json(req.session);
+        }
+        res.json(req.session);        
+    });
     app.post(version + '/usuario/logout.json', usuario.logout);
 
     app.get(version + '/usuario/checkuser', estudiante.checkUser);
@@ -71,10 +77,6 @@ module.exports = function(app, pool) {
     app.get(version + '/docente/datos.json', usuario.datos);
     app.get(version + '/docente/listaclases.json', docente.listaClases);
     // ----------- Fin Api para módulo de docentes ----------------
-
-    app.get('/test', function (req, res) {
-        res.json(req.session);
-    });
 
     // Error handling middleware
     app.use(function(err, req, res, next){
@@ -187,6 +189,7 @@ function Usuario (pool) {
         if (!id_session) {
             req.session.err = Error("Session not set");
             req.session.err.sessionSet = false;
+            req.session.login = false;
             return next();
         }
 
@@ -199,6 +202,7 @@ function Usuario (pool) {
                 res.clearCookie('session');
                 req.session.err = new Error("Session: " + id_session + " does not exist");
                 req.session.err.sessionExist = false;
+                req.session.login = false;
                 return next();
             }
 
@@ -207,6 +211,7 @@ function Usuario (pool) {
             userModel.getDatoUser(req.session.user.usuario, function(err, data){
                 if (err) {req.session.err = err; return next();}
                 req.session.userData = data;
+                req.session.login = true;
                 return next();
             });
             
