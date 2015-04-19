@@ -14,7 +14,7 @@
     <div layout="row">
         <md-list flex="100" style="margin-bottom:34px" ng-controller="ListCtrl">
             <md-list-item class="md-whiteframe-z1 md-2-line itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
-                <img ng-src="{{estudiante.face}}" class="md-avatar" alt="{{estudiante.nombre}}" />
+                <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" />
                 <div  class="md-list-item-text" ng-click="navigateTo(setting.extraScreen, $event)">
                     <h3>{{estudiante.nombre}} {{estudiante.apellido}}</h3>
                     <h4>Curso - {{estudiante.curso}}</h4>

@@ -210,12 +210,6 @@ h5{
   margin: 16px; 
 }
 
-/* Customize container */
-@media (min-width: 768px) {
-  .container {
-    max-width: 730px;
-  }
-}
 .md-tile-content h3 {
   font-weight: bold;
 }

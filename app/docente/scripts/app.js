@@ -34,6 +34,10 @@ angular.module('CDapp',[
         url:"/Docente/{idclase:[0-9a-fA-F]{1,25}}", // sólo caracteres alfanuméricos
         templateUrl:"views/todo.html"
     })
+    .state('login', {
+        url: "/login",
+        templateUrl: "views/landing/index.html"
+    })
     .state('Test', {
         url: "/test",
         template: "<h1>test</h1>",

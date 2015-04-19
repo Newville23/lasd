@@ -1,13 +1,15 @@
 angular.module('SerFlugel', ['ngResource'])
 
-.factory('Docente',['$resource', function ContenidoFactory($resource){
+.factory('Version', function () {
+	var version = "0.2.1";
+	return version;
+})
+.factory('Docente',['$resource', 'Version', function ContenidoFactory($resource, Version){
 	return {
-		contenido : $resource('http://localhost:3000/0.0.1/docente/contenido.json', {}, { update: {method: 'PUT'}
-		}),
-		calificaciones: $resource('http://localhost:3000/0.0.1/docente/calificaciones.json', {}, { update: {method: 'PUT'}
-		}),
-		notas: $resource('http://localhost:3000/0.0.1/docente/notas.json', {}, { update: {method: 'PUT'}
-		})
+		contenido : $resource('http://localhost:3000/' + Version + '/docente/contenido.json', {}, { update: {method: 'PUT'}}),
+		calificaciones: $resource('http://localhost:3000/' + Version + '/docente/calificaciones.json', {}, { update: {method: 'PUT'}}),
+		notas: $resource('http://localhost:3000/'+ Version +'/docente/notas.json', {}, { update: {method: 'PUT'}}),
+		estudiantes: $resource('http://localhost:3000/'+ Version +'/docente/estudiante.json', {}, { update: {method: 'PUT'}})
 	}
 }])
 
@@ -17,9 +19,8 @@ angular.module('SerFlugel', ['ngResource'])
 	var query = {idclase: '13775731636734635'};
 	Docente.contenido.query(query, function(data){
 		console.log(data);
-	}, function(data){
-		// Error
-		console.log(data);
+	}, function(data){		
+		console.log(data); // Error
 	});
 
 	// // // Datos POST 
