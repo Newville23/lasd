@@ -34,12 +34,7 @@ module.exports = function(app, pool) {
 
     //---------- Manejo de sesiones --------------------------
     app.post(version + '/usuario/login.json', usuario.login);    
-    app.get(version + '/usuario/login.json', function (req, res) {
-        if (req.session.err) {
-            return res.status(500).json(req.session);
-        }
-        res.json(req.session);        
-    });
+    app.get(version + '/usuario/login.json', usuario.getlogin);
     app.post(version + '/usuario/logout.json', usuario.logout);
 
     app.get(version + '/usuario/checkuser', estudiante.checkUser);
@@ -132,6 +127,13 @@ function Usuario (pool) {
         });
     };
 
+    this.getlogin = function(req, res) {
+        if (req.session.err) {
+            return res.status(500).json(req.session);
+        }
+        res.json(req.session);     
+    }
+
     this.logout = function(req, res, next){
         "use strict";
 
@@ -187,8 +189,7 @@ function Usuario (pool) {
         var id_session = req.cookies.session;
 
         if (!id_session) {
-            req.session.err = Error("Session not set");
-            req.session.err.sessionSet = false;
+            req.session.msg = "Session not set";
             req.session.login = false;
             return next();
         }
@@ -200,8 +201,7 @@ function Usuario (pool) {
                 req.session.err = err; return next();
             } if (!_.size(rows)) {
                 res.clearCookie('session');
-                req.session.err = new Error("Session: " + id_session + " does not exist");
-                req.session.err.sessionExist = false;
+                req.session.msg = "Session: " + id_session + " does not exist";
                 req.session.login = false;
                 return next();
             }
