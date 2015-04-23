@@ -87,6 +87,13 @@ angular.module('Dirapp',[])
     }
   };
 })
+.directive('modalNewLogro', function (){
+	return{
+		restrict: 'E',      
+		templateUrl:'views/modalNewLogro.html'
+	};
+
+})
 .directive('modalAddEvaluaciones', function (){
 	return{
 		restrict: 'E',      
@@ -101,10 +108,10 @@ angular.module('Dirapp',[])
 	};
 
 })
-.directive('modalEstudiantes', function (){
+.directive('modalAddNotas', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'views/modalEstudiantesaddNota.html'
+		templateUrl:'views/modalAddNotas.html'
 	};
 
 })

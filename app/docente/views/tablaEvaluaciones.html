@@ -10,7 +10,7 @@
             <td>{{examen.tipo_evaluacion}}</td>
             <td>{{examen.ponderacion}}</td>
             <td>
-             <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".modal-Evaluaciones" ng-click="examenNotas(examen)">
+             <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(examen)">
               <span class="visible-lg visible-md visible-sm">Calificar</span>               
              </button>
             </td>
@@ -26,7 +26,7 @@
                 </span>             
             </td>    
         </tr>
-        <tr><td></td><td><strong>total</strong></td><td>{{total}}</td><td></td></tr>
+       
     </tbody>
 </table>
 
@@ -45,7 +45,7 @@
       </div>
       <div class="col-md-2 list-group-item" >
          <strong></strong>
-         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".modal-Evaluaciones" ng-click="examenNotas(examen)"> 
+         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(examen)"> 
             <span>Calificar</span>
         </button>&nbsp&nbsp
         <span class="pull-right">

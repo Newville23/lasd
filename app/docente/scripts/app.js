@@ -97,28 +97,7 @@ angular.module('CDapp',[
         
         $scope.Logros = data.contenido;
         $scope.Evaluaciones = data.calificaciones;
-
-        //console.log(data.calificaciones);
-        var control = function(){
-            var e = $scope.Evaluaciones;
-            var tp =[];
-
-            for(i=0 ; i<e.length ; i++){
-                for( var key in e[i]){
-                    if(key=="ponderacion"){
-                        tp.push(e[i][key]);
-                    }
-                }
-            }
-            //console.log(tp);
-            var total = 0;
-            $.each(tp,function() {
-                total += this;
-            });
-            //console.log(total);
-            $scope.total=total;
-        };
-        control();
+        
     });
 
     $http.get('scripts/Json/estudiantes.json').success(function (data){
@@ -127,7 +106,7 @@ angular.module('CDapp',[
     });
 
     $scope.editEvaluacion = function(examen){
-        $scope.nExamen = examen;
+        $scope.editExamen = examen;
     };
 
     $scope.examenNotas = function(examen){

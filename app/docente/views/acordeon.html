@@ -23,7 +23,6 @@
                             <span class="visible-xs">+ Evaluacion</span>
                         </button>
                         <br> 
-
                         <tabla-evaluaciones></tabla-evaluaciones>
                         <hr>
                     </div>
@@ -31,13 +30,14 @@
             </div>
         </div>
     </div>
-    <md-button class="pluss md-primary md-fab" ng-click="toggleSidenav('right')" 
-        title="Nuevo Logro" data-toggle="tooltip" data-placement="top">
-        <i class="fa fa-plus fa-lg"></i>
-    </md-button>
+    <span data-toggle="modal" data-target="#modalNewLogro">
+    <md-button class="pluss md-primary md-fab" title="Nuevo Logro" data-toggle="tooltip" data-placement="top" aria-label="Nuevo Logro">
+        <i class="fa fa-plus fa-lg" ></i>
+    </md-button></span>
 </div>
 <!-- Modales de Contenido-->
+<modal-new-logro></modal-new-logro>
 <modal-add-evaluaciones></modal-add-evaluaciones>
-<modal-estudiantes></modal-estudiantes>
+<modal-add-notas></modal-add-notas>
 <modal-eliminar></modal-eliminar>
 <modal-edit-evaluacion></modal-edit-evaluacion>
