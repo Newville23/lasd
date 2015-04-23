@@ -18,7 +18,7 @@
 
                     <div class="collapse" id="{{x.id_indicador}}">
                         <hr>
-                        <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#mymodal" ng-click="showLogro(x)">
+                        <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAddEvaluaciones" ng-click="showLogro(x)">
                             <span class="visible-lg visible-md visible-sm">Agregar Evaluacion</span>
                             <span class="visible-xs">+ Evaluacion</span>
                         </button>
@@ -36,8 +36,8 @@
         <i class="fa fa-plus fa-lg"></i>
     </md-button>
 </div>
-
-<modal-evaluaciones></modal-evaluaciones>
+<!-- Modales de Contenido-->
+<modal-add-evaluaciones></modal-add-evaluaciones>
 <modal-estudiantes></modal-estudiantes>
-<!-- <modal-vernotas></modal-vernotas> -->
 <modal-eliminar></modal-eliminar>
+<modal-edit-evaluacion></modal-edit-evaluacion>

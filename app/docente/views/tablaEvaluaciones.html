@@ -10,17 +10,17 @@
             <td>{{examen.tipo_evaluacion}}</td>
             <td>{{examen.ponderacion}}</td>
             <td>
-             <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".modal-Evaluaciones">
+             <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".modal-Evaluaciones" ng-click="examenNotas(examen)">
               <span class="visible-lg visible-md visible-sm">Calificar</span>               
              </button>
             </td>
 
             <td>
-               <span title="Edita aquí esta Evaluación" data-toggle="tooltip">
-                <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="edit(examen)" data-toggle="modal" data-target="#mymodal">                     
+               <span title="Editar Evaluación" data-toggle="tooltip">
+                <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="editEvaluacion(examen)" data-toggle="modal" data-target="#modalEditEvaluacion">                     
                 </i>
                </span>&nbsp&nbsp
-               <span title="Elimina aquí esta Evaluación" data-toggle="tooltip">
+               <span title="Eliminar Evaluación" data-toggle="tooltip">
                 <i class="fa fa-close fa-lg" style="color:#E60013;" data-toggle="modal" data-target="#modalEliminar">
                 </i>
                 </span>             
@@ -45,11 +45,11 @@
       </div>
       <div class="col-md-2 list-group-item" >
          <strong></strong>
-         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".modal-Evaluaciones"> 
+         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target=".modal-Evaluaciones" ng-click="examenNotas(examen)"> 
             <span>Calificar</span>
         </button>&nbsp&nbsp
         <span class="pull-right">
-            <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="edit(examen)" data-toggle="modal" data-target="#mymodal"></i>&nbsp&nbsp
+            <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="editEvaluacion(examen)" data-toggle="modal" data-target="#modalEditEvaluacion"></i>&nbsp&nbsp
             <i class="fa fa-close fa-lg" style="color:#E60013;" data-toggle="modal" data-target="#modalEliminar"></i>
         </span>
 

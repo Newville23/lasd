@@ -87,10 +87,10 @@ angular.module('Dirapp',[])
     }
   };
 })
-.directive('modalEvaluaciones', function (){
+.directive('modalAddEvaluaciones', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'views/modalEvaluaciones.html'
+		templateUrl:'views/modalAddEvaluaciones.html'
 	};
 
 })
@@ -105,6 +105,13 @@ angular.module('Dirapp',[])
 	return{
 		restrict: 'E',      
 		templateUrl:'views/modalEstudiantesaddNota.html'
+	};
+
+})
+.directive('modalEditEvaluacion', function (){
+	return{
+		restrict: 'E',      
+		templateUrl:'views/modalEditEvaluacion.html'
 	};
 
 })

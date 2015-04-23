@@ -4,7 +4,9 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Agrega aquí la Nota de cada Estudiante</h4>
+        <h4 class="modal-title text-center" id="myModalLabel" style="margin-bottom:5px;">Agregar Nota correspondiente a la Evaluación:</h4>
+        <p class="well"><strong>Concepto: </strong> {{calificar.concepto}} &nbsp &nbsp <strong>tipo: </strong>{{calificar.tipo_evaluacion}} &nbsp &nbsp <strong> valor: </strong> {{calificar.ponderacion}}</p>
+
       </div>
       <div class="modal-body">
       <tabla-estudiantesaddnotas></tabla-estudiantesaddnotas>        

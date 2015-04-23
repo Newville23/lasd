@@ -126,8 +126,12 @@ angular.module('CDapp',[
         //console.log($scope.Estudiantes);
     });
 
-    $scope.edit = function(examen){
+    $scope.editEvaluacion = function(examen){
         $scope.nExamen = examen;
+    };
+
+    $scope.examenNotas = function(examen){
+        $scope.calificar = examen;
     };
 
     $scope.valor = function(key){
