@@ -72,6 +72,9 @@
 			-o-transition: background-color 0.5s ease,color 0.5s ease;
 			transition: background-color 0.5s ease,color 0.5s ease;
 		}
+		.md-dialog-container{
+			z-index: 1083
+		}
 	</style>
 
 
@@ -91,7 +94,7 @@
 
 				<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
-						<li ><a class="text-center" data-toggle="modal" data-target=".bs-example-modal-sm">Ingresar</a></li>
+						<li ><a class="text-center" ng-click="showAdvanced($event)">Ingresar</a></li>
 					</ul>
 				</div>
 			</div>
@@ -154,39 +157,4 @@
 		</div>
 	</footer> 
 
-	<!-- Modal de Login -->
-	<div class="modal fade in bs-example-modal-sm" tabindex="-1" role="dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-
-		<div class="modal-dialog modal-sm">
-			<div class="modal-content">
-				<div class="modal-header">
-					<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-					<h4 class="modal-title text-center">Iniciar sesión</h4>
-				</div>
-				<div class="modal-body">
-					<div id="errorvalidation2" class="hidden">
-                        <div class="alert alert-danger">
-                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-                        </div>
-                    </div>
-					<div class="main">
-						<form ng-submit="setLoginForm()">
-							<div class="form-group">
-								<label >Usuario</label>
-								<input type="text" required class="form-control" name="usuario" ng-model="form.usuario" placeholder="Ingrese su usuario">
-							</div>
-							<div class="form-group">
-								<label >Clave <a href="#" style="font-size: 75%;">¿Olvido su contraseña?</a></label>
-								<input type="password" required class="form-control" name="pass" ng-model="form.pass" placeholder="Ingrese su clave">
-							</div>
-							<button type="submit" class="btn-azul btn-default form-control">Acceder</button>
-						</form>
-					</div>
-				</div>
-			</div><!-- /.modal-content -->
-		</div><!-- /.modal-dialog -->
-	
-	</div><!-- /.modal -->
-
-	<!-- End modal Login -->
 </div>

@@ -35,6 +35,7 @@ module.exports = function(app, pool) {
     //---------- Manejo de sesiones --------------------------
     app.post(version + '/usuario/login.json', usuario.login);    
     app.get(version + '/usuario/login.json', usuario.getlogin);
+    
     app.post(version + '/usuario/logout.json', usuario.logout);
 
     app.get(version + '/usuario/checkuser', estudiante.checkUser);
@@ -109,9 +110,9 @@ function Usuario (pool) {
             if (err){
                 if (err.noUsuario) {
                     return res.status(400).json({status: '400', err: err});
-                }else if(err.errorUsuarioDeshabilitado){
+                }else if(err.usuarioDeshabilitado){
                     return res.status(400).json({status: '400', err: err});
-                }else if(err.invalidPasswordRrror){
+                }else if(err.invalid_password){
                     return res.status(400).json({status: '400', err: err});
                 }else{
                     return next(err); // otro tipo de error
