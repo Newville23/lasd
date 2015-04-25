@@ -24,6 +24,18 @@ angular.module('Dirapp')
                 console.log('You cancelled the dialog.');
             });
     };
+
+    
+}])
+.controller('logoutCtrl', ['$scope', '$location', 'Usuario', function ($scope, $location, Usuario) {
+    $scope.logout = function () {
+        Usuario.logout.save(function(data){
+            if (!data.login) {
+                $location.path("/login");
+                console.log('sesion cerrada');
+            };
+        });
+    }
 }]);
 
 function LoginCtrl($scope, Usuario, $location, $mdDialog) {

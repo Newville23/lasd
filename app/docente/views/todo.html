@@ -9,7 +9,7 @@
     </md-toolbar>
     <md-content  class="md-padding" layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
         <md-button flex ng-click = "close()" ng-repeat="clase in clases" class="md-raised md-primary" ui-sref="Docente({idclase:clase.state})" >
-            <strong>{{clase.curso}}</strong><br>
+            <strong>{{clase.curso}}</strong>
             <small>{{clase.materia}}</small>
         </md-button>
     </md-content>
@@ -18,13 +18,23 @@
 <md-content flex class="board">
 	<md-toolbar md-theme="top" layout="row">
 	    <div class="md-toolbar-tools">
-            <nav-tab flex="70"></nav-tab>
+            <nav-tab flex-sm="65" flex-gt-sm="80"></nav-tab>
             <div flex>
-            <div layout="row" layout-align="end center">
-                <md-button class="md-fab md-mini" aria-label="Favorite">
-                    <i class="fa fa-user fa-lg"></i>
-                </md-button>    
-            </div>
+                <div layout="row" layout-align="end center" ng-controller="logoutCtrl">
+                    <div class="dropdown">
+                        <md-button class="md-fab md-mini" aria-label="Favorite" data-toggle="dropdown">
+                            <i class="fa fa-user fa-lg"></i>
+                        </md-button>
+                        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Perfil</a></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Configuración</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Ayuda</a></li>
+                            <li role="presentation" class="divider"></li>
+                            <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="logout()">Cerrar sesión</a></li>
+                        </ul>
+                    </div>
+                </div>
             </div>
             
 	    </div>

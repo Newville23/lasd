@@ -17,7 +17,8 @@ angular.module('SerFlugel', ['ngResource'])
 }])
 .factory('Usuario',['$resource', 'Config', function ContenidoFactory($resource, Config){
 	return {
-		login : $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/usuario/login.json')
+		login : $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/usuario/login.json'),
+		logout : $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/usuario/logout.json')
 	}
 }])
 

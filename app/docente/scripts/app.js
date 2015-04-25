@@ -29,11 +29,13 @@ angular.module('CDapp',[
     // Rol de Doncente que cuenta con un parametro para cada clase
     .state('Home', {
         url: "/Docente/",
-        templateUrl: "views/todo.html"
+        templateUrl: "views/todo.html",
+        controller: "soloDatosCtrl"
     })
     .state('Docente',{
         url:"/Docente/{idclase:[0-9a-fA-F]{1,25}}", // sólo caracteres alfanuméricos
-        templateUrl:"views/todo.html"
+        templateUrl:"views/todo.html",
+        controller: "soloDatosCtrl"
     })
     .state('login', {
         url: "/login",
@@ -75,7 +77,15 @@ angular.module('CDapp',[
     })
 })
 
-.controller('soloDatosCtrl',['$http','$scope','$mdSidenav','$timeout', '$mdBottomSheet','Datos', function ($http,$scope,$mdSidenav,$timeout,$mdBottomSheet,Datos){
+.controller('soloDatosCtrl',['$http','$scope','$mdSidenav','$timeout', '$mdBottomSheet','Datos', '$location', 'Usuario', function ($http,$scope,$mdSidenav,$timeout,$mdBottomSheet,Datos, $location, Usuario){
+    // Valida que la sesion haya iniciado
+    Usuario.login.get(function (data) {
+        if (data.login == false) {
+            $location.path("/login");
+        }    
+    },function(data){
+        console.log(data);
+    });
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
