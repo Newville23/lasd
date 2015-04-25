@@ -67,7 +67,6 @@ module.exports = function(app, pool) {
     app.put(version + '/docente/notas.json', contenido.putNotas);
 
     app.get(version + '/docente/estudiante.json', estudiante.getEstudiantes);
-    ￼ 1
 
     app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
 
