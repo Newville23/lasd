@@ -17,12 +17,20 @@ function Dialogasistencia($scope, $mdDialog) {
 }
 
 angular.module('Dirapp')
-  .controller('EstudiantesCtrl', function ($scope, $mdSidenav, $mdDialog, $mdToast, Docente) {
+  .controller('EstudiantesCtrl', function ($scope, $mdSidenav, $mdDialog, $mdToast, $stateParams, Docente) {
     'use strict';
 
     $scope.checked = true; // variable que inabilita el form
     $scope.asist = true;
     $scope.estudiantes = {};
+
+    $scope.idClase = $stateParams.idclase;
+    Docente.estudiantes.query({idclase: $scope.idClase}, function(data){
+        $scope.estudiantes = data;
+        //console.log(data);
+    }, function(data){      
+        console.log(data); // Error
+    });
 
     $scope.infoRight = function(name) {
         $mdSidenav('info').toggle()
@@ -30,14 +38,6 @@ angular.module('Dirapp')
             $scope.name = name;
         });
     };
-
-    var query = {idclase: '13775731636734635'};
-    Docente.estudiantes.query(query, function(data){
-        $scope.estudiantes = data;
-        //console.log(data);
-    }, function(data){      
-        console.log(data); // Error
-    });
 
     $scope.save = function(ev) {
         $mdDialog.show({

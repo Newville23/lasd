@@ -9,6 +9,7 @@ angular.module('SerFlugel', ['ngResource'])
 })
 .factory('Docente',['$resource', 'Config', function ContenidoFactory($resource, Config){
 	return {
+		listaClases : $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/docente/listaclases.json'),
 		contenido : $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/docente/contenido.json', {}, { update: {method: 'PUT'}}),
 		calificaciones: $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/docente/calificaciones.json', {}, { update: {method: 'PUT'}}),
 		notas: $resource('http://' + Config.ip + ':' + Config.port + '/' + Config.version +'/docente/notas.json', {}, { update: {method: 'PUT'}}),

@@ -33,7 +33,7 @@ angular.module('CDapp',[
         controller: "soloDatosCtrl"
     })
     .state('Docente',{
-        url:"/Docente/{idclase:[0-9a-fA-F]{1,25}}", // sólo caracteres alfanuméricos
+        url:"/Docente/{idclase:int}", // sólo caracteres alfanuméricos
         templateUrl:"views/todo.html",
         controller: "soloDatosCtrl"
     })
@@ -77,15 +77,21 @@ angular.module('CDapp',[
     })
 })
 
-.controller('soloDatosCtrl',['$http','$scope','$mdSidenav','$timeout', '$mdBottomSheet','Datos', '$location', 'Usuario', function ($http,$scope,$mdSidenav,$timeout,$mdBottomSheet,Datos, $location, Usuario){
+.controller('soloDatosCtrl',['$http','$scope','$mdSidenav','$timeout', '$mdBottomSheet','Datos', '$location', 'Usuario', 'Docente', function ($http,$scope,$mdSidenav,$timeout,$mdBottomSheet,Datos, $location, Usuario, Docente){
     // Valida que la sesion haya iniciado
     Usuario.login.get(function (data) {
         if (data.login == false) {
             $location.path("/login");
+        }else {
+            Docente.listaClases.query({idprofesor: data.userData.identificacion}, function (clases) {
+                $scope.clases = clases;
+            });
         }    
     },function(data){
         console.log(data);
     });
+
+
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
@@ -95,24 +101,11 @@ angular.module('CDapp',[
      $mdSidenav('left').close();
     };
 
-    $scope.clases =[
-        {curso:'10A', materia:'Matematicas',state:'10A'},
-        {curso:'8B', materia:'Geometria',state:'8B'},
-        {curso:'7E', materia:'Matematicas',state:'7E'},
-        {curso:'8F', materia:'Matematicas',state:'8F'}
-    ];
-
-
     $http.get('scripts/Json/contenido.json').success(function (data){
         
         $scope.Logros = data.contenido;
         $scope.Evaluaciones = data.calificaciones;
         
-    });
-
-    $http.get('scripts/Json/estudiantes.json').success(function (data){
-        $scope.Estudiantes = data;
-        //console.log($scope.Estudiantes);
     });
 
     $scope.editEvaluacion = function(examen){
