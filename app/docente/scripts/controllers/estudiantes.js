@@ -47,8 +47,11 @@ angular.module('Dirapp')
         })
         .then(function(sw) {
             if (sw) {
-                //Aqui se debe ejecutar el post a la DB, Agrgando fecha al objeto a envíar
-                console.log('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, mollitia recusand')
+                var getParams = {idclase : $scope.idClase, numeroEstudiantes: _.size($scope.estudiantes)};
+                var asistencia = _.map($scope.estudiantes, function(obj){ return _.pick(obj, 'id_estudiante', 'asistencia')});
+                Docente.asistencia.save(getParams, asistencia,function(data){
+                    console.log(data);
+                });
             };            
         });             
     }

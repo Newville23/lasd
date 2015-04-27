@@ -741,7 +741,7 @@ function Estudiante (pool) {
         // se valida que la fecha no sea futura
         if (moment().format('YYYY-MM-DD') < fecha) {
             return res.status(400).json({status: '404', msg: "Escoge una fecha valida."});
-        };
+        }
 
         // === Validacion de no editar la lista de asistencia (que no se haya realizado ya la asistencia) ========
         var  list = "SELECT *  FROM lasd3.Asistencia WHERE Clase_numero = " + pool.escape(id_clase) + " AND fecha = " + pool.escape(fecha);
