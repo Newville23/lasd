@@ -1,0 +1,18 @@
+<div layout="row" layout-gt-sm="row" layout-fill layout-wrap layout-align="center center" style="z-index: 1083">
+    <md-dialog aria-label="Login" flex-sm="100" flex-md="80" flex-gt-md="60" class="modal-content" style="max-height: 100vh;">
+        <div style="overflow-y: auto;">
+            <div class="modal-header">
+                <button type="button" class="close" ng-click="cancel()" aria-label="Close">
+                    <span aria-hidden="true"><i class="fa fa-times fa-lg"></i></span>
+                </button>
+                <h4 class="modal-title" id="myModalLabel">Detalles del Estudiante</h4>
+            </div>
+            <div class="modal-body" style="background-color: #FAFAFA;">
+                <detalle-estudiante></detalle-estudiante>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cerrar</button>
+            </div>
+        </div>
+    </md-dialog>
+</div>

@@ -621,7 +621,7 @@ function Estudiante (pool) {
                             "ON Estudiante.identificacion = Matricula.Estudiante_identificacion " +
                         "JOIN lasd3.Usuario " +
                             "ON Usuario.id = Estudiante.Usuario_id " +
-                    "WHERE Clase.numero = " + id_clase + " ORDER BY nombre, apellido";
+                    "WHERE Clase.numero = " + id_clase;
         
         if (id_clase) {
             pool.query(query, function(err, rows, fields) {
@@ -646,6 +646,7 @@ function Estudiante (pool) {
         var id_institucion = req.session.userData.Institucion_rut;
 
         var Curso_codigo = req.query.cursocodigo ? 'AND Curso_codigo = ' + pool.escape(req.query.cursocodigo) : '';
+        var id_estudiante = req.query.idestudiante ? 'AND Estudiante_identificacion = ' + pool.escape(req.query.idestudiante) : '';
 
         var query = "SELECT Estudiante_identificacion AS id_estudiante, tipo_identificacion, usuario, nombre, apellido, rol, fecha_nacimiento, " +
                         "email, tipo_sangre, Curso_codigo AS id_curso, Institucion_rut AS id_institucion, year, fecha_creacion " +
@@ -654,7 +655,7 @@ function Estudiante (pool) {
                         "ON Estudiante.identificacion = Matricula.Estudiante_identificacion " +
                         "JOIN lasd3.Usuario " +
                         "ON Usuario.id = Estudiante.Usuario_id " +
-                        "WHERE Institucion_rut = "+ id_institucion + " " + Curso_codigo;
+                        "WHERE Institucion_rut = "+ id_institucion + " " + Curso_codigo + " " + id_estudiante;
         
         pool.query(query, function(err, rows, fields) {
             if (err){

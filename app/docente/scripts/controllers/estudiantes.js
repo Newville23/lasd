@@ -3,8 +3,8 @@
 //Controlador del dialogo nueva asistencia /
 function Dialogasistencia($scope, $mdDialog) {
 
-    $scope.save = function(estudiantes) {
-       $mdDialog.hide(estudiantes);
+    $scope.save = function() {
+       $mdDialog.hide(true);
     };
 
     $scope.hide = function() {
@@ -27,7 +27,6 @@ angular.module('Dirapp')
     $scope.idClase = $stateParams.idclase;
     Docente.estudiantes.query({idclase: $scope.idClase}, function(data){
         $scope.estudiantes = data;
-        //console.log(data);
     }, function(data){      
         console.log(data); // Error
     });
@@ -39,15 +38,36 @@ angular.module('Dirapp')
         });
     };
 
+    // Modal de envío de asistensia
     $scope.save = function(ev) {
         $mdDialog.show({
             controller: Dialogasistencia,
             templateUrl: 'views/estudiantes/dialogos/nasist.html',
             targetEvent: ev,
         })
-        .then(function(estudiantes) {
+        .then(function(sw) {
+            if (sw) {
                 //Aqui se debe ejecutar el post a la DB, Agrgando fecha al objeto a envíar
+                console.log('Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iusto, mollitia recusand')
+            };            
         });             
+    }
+
+    //Moda para perfil del estudiante
+    $scope.showStudentProfile = function (ev, idEstudiante) {
+        $mdDialog.show({
+            controller: DialogStudentProfile,
+            templateUrl: 'views/estudiantes/dialogos/modalestudiante.html',
+            targetEvent: ev,
+            locals: { idEstudiante: idEstudiante }
+        })
+        .then(function(answer) {
+                //$scope.alert = 'You said the information was "' + answer + '".';
+                console.log(answer);
+        }, function() {
+                //$scope.alert = 'You cancelled the dialog.';
+                console.log('You cancelled the dialog.');
+        });  
     }
                 
     // Toast para la toma de asistencia //
@@ -72,5 +92,21 @@ angular.module('Dirapp')
         };
     };
 
-});
+})
+//Controlador del perfil del estudiante
+function DialogStudentProfile($scope, $mdDialog, $stateParams, idEstudiante, Coordinador) {
+
+    $scope.cancel = function() {
+      $mdDialog.cancel();
+    };
+   
+    Coordinador.estudiantes.query({idestudiante: idEstudiante}, function(data){
+        if (_.size(data)) {
+            $scope.estudiante = data[0];
+            console.log(data);
+        }       
+    }, function(data){      
+        console.log(data); // Error
+    });
+}
 

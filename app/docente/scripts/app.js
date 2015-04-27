@@ -124,21 +124,4 @@ angular.module('CDapp',[
         $scope.texto=Logro;
 
     };
-}])
-.controller('ListCtrl', function($scope, $mdDialog) {
-
-  $scope.settings = [
-    { name: 'Wi-Fi', extraScreen: 'Wi-fi menu', icon: 'device:network-wifi', enabled: true },
-    { name: 'Bluetooth', extraScreen: 'Bluetooth menu', icon: 'device:bluetooth', enabled: false },
-  ];
-  $scope.navigateTo = function(to, event) {
-    $mdDialog.show(
-      $mdDialog.alert()
-        .title('Navigating')
-        .content('Imagine being taken to ' + to)
-        .ariaLabel('Navigation demo')
-        .ok('Neat!')
-        .targetEvent(event)
-    );
-  };
-});
+}]);

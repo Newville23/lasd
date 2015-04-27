@@ -156,4 +156,16 @@ angular.module('Dirapp',[])
 		templateUrl:'views/tablaEstudiantesaddNotas.html'
 	};
 
-});
+})
+.directive('modalDetalle', [function () {
+	return {
+		restrict: 'E',
+		templateUrl:'views/estudiantes/dialogos/modalestudiante.html'
+	};
+}])
+.directive('detalleEstudiante', [function () {
+	return {
+		restrict: 'E',
+		templateUrl:'views/estudiantes/dialogos/detalle.html'
+	};
+}])

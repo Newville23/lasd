@@ -12,12 +12,12 @@
     </div>
    <!-- lista de estudiantes-->
     <div layout="row">
-        <md-list flex="100" style="margin-bottom:34px" ng-controller="ListCtrl">
+        <md-list flex="100" style="margin-bottom:34px">
             <md-list-item class="md-whiteframe-z1 md-2-line itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
                 <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" />
-                <div  class="md-list-item-text" ng-click="navigateTo(setting.extraScreen, $event)">
+                <div  class="md-list-item-text" ng-click="showStudentProfile($event, estudiante.id_estudiante)">
                     <h3>{{estudiante.nombre}} {{estudiante.apellido}}</h3>
-                    <h4>Curso - {{estudiante.curso}}</h4>
+                    <small>{{estudiante.tipo_identificacion}} : {{estudiante.id_estudiante}}</small>
                 </div>
                 <!-- Grupo de botones para gestionar la toma de asistencias -->
                 <div  class="btn-group md-secondary listbtn" >
@@ -40,32 +40,6 @@
             <md-tooltip hide-sm>Enviar asistencia</md-tooltip>
             <i class="fa fa-paper-plane fa-lg"></i>
         </md-button>
-        
-        <!-- menu derecho se desplegable  para +info -->
-
-        <md-sidenav  layout-fill class="md-sidenav-right " md-component-id="info" >
-            <md-toolbar >
-                <div layout="row" layout-align="start center">
-                    <div flex="25" class="md-tile-left">
-                        <img style = "background: white;" ng-src="{{name.face}}" class="face" alt="{{estudiante.nombre}}">
-                    </div>
-                    <h1 flex="80" style="color: white;" class="md-toolbar-tools">{{name.nombre}} {{name.apellido}}</h1>
-                </div>
-            </md-toolbar>
-
-            <md-content layout="column" layout-fill  class="md-padding">
-                <form name="userForm">
-                    <md-input-container flex>
-                      <label>Tipo de sangre</label>
-                      <input ng-model="name.tipoSangre" ng-model="checked" ng-disabled="checked">
-                    </md-input-container>
-                    <md-input-container flex>
-                      <label>Curso</label>
-                      <input ng-model="name.curso" ng-model="checked" ng-disabled="checked">
-                    </md-input-container>
-                </form>
-            </md-content>
-        </md-sidenav>
     </div>
 <!--  <pre>{{estudiantes | json}}</pre> -->
 </div>

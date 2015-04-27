@@ -22,6 +22,11 @@ angular.module('SerFlugel', ['ngResource'])
 		logout : $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/usuario/logout.json')
 	}
 }])
+.factory('Coordinador',['$resource', 'Config', function ContenidoFactory($resource, Config){
+	return {
+		estudiantes : $resource('http://' + Config.ip + ':' + Config.port + '/' +  Config.version + '/coordinador/estudiante.json')
+	}
+}])
 
 .controller('testCotroller', ['$scope', 'Docente', function ($scope, Docente) {
 	
