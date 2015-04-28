@@ -13,19 +13,23 @@
         <div id="{{periodo.targetid}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
             <div class="panel-body">
                 <!-- aqui se filtra cada logro de acuerdo con su periodo que es una propiedad del scope Logros y periodo.id que es una propidad del escope Periodos -->
-                <div ng-repeat="x in Logros | filter:{periodo:periodo.id}">
+                <div ng-repeat="x in Logros | filter:{periodo:periodo.id}" style="padding: 1px 0;">
+                <md-card>
                     <well-logros></well-logros>
 
                     <div class="collapse" id="{{x.id_indicador}}">
-                        <hr>
-                        <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAddEvaluaciones" ng-click="showLogro(x)">
-                            <span class="visible-lg visible-md visible-sm">Agregar Evaluacion</span>
-                            <span class="visible-xs">+ Evaluacion</span>
-                        </button>
-                        <br> 
-                        <tabla-evaluaciones></tabla-evaluaciones>
-                        <hr>
+                        <div layout-padding>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#modalAddEvaluaciones" ng-click="showLogro(x)">
+                                <span class="visible-lg visible-md visible-sm">Agregar Evaluacion</span>
+                                <span class="visible-xs">+ Evaluacion</span>
+                            </button>
+                        </div>
+                        <div layout-padding>
+                            <tabla-evaluaciones></tabla-evaluaciones>
+                        </div>
+                        
                     </div>
+                    </md-card>
                 </div>
             </div>
         </div>

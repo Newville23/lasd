@@ -3,7 +3,7 @@ angular.module('Dirapp',[])
 .directive('aCordeon', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'views/acordeon.html',
+		templateUrl:'views/contenido/acordeon.html',
 		controller:['$scope', function ($scope){
 			$scope.Periodos =[
 			{periodo:'Primer Perido',targetid:'primero',expanded:true,id:'1'},
@@ -146,7 +146,7 @@ angular.module('Dirapp',[])
 .directive('wellLogros', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'views/wellLogros.html'
+		templateUrl:'views/contenido/wellLogros.html'
 	};
 
 })

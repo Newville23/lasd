@@ -77,9 +77,9 @@ md-checkbox{
 }
 .well, .well-margin{
   margin-bottom: 4px;
-  margin-top: 2px;
-  margin-left: 2px;
-  margin-right: 2px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
 .well-sm{
@@ -87,12 +87,13 @@ md-checkbox{
   padding:6px !important;
   background: -webkit-gradient(linear, left top, left bottom, color-stop(59%,rgba(250, 250, 250, 1)), color-stop(100%,rgba(228, 228, 228, 0.59)));
   background:-moz-linear-gradient(8% 100% 91deg, rgba(228, 228, 228, 0.59), rgba(250, 250, 250, 1) 59%);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4),0 0 0 1px rgba(0,0,0,0.06);   
+  min-height: 2.5em;
+  /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4),0 0 0 1px rgba(0,0,0,0.06);*/
 }
 .logro{
-  margin-bottom: 3px;
+  margin-bottom: 0px;
   padding-left: 0px;
-  padding-right: 5px;
+  padding-right: 0px;
 }
 .logro p{
   margin: 0px;

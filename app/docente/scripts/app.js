@@ -56,7 +56,7 @@ angular.module('CDapp',[
     // estados anidaddos
     .state('Docente.Contenido', {
         url: "/Contenido",
-        templateUrl: "views/Contenido.html"
+        templateUrl: "views/contenido/index.html"
     })
     .state('Docente.Evaluaciones', {
         url: "/Evaluaciones",
