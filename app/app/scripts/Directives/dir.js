@@ -132,7 +132,7 @@ angular.module('Dirapp',[])
 .directive('tablaEvaluaciones', function (){
 	return{
 		restrict: 'E',      
-		templateUrl:'views/tablaEvaluaciones.html'
+		templateUrl:'views/contenido/tablaEvaluaciones.html'
 	};
 
 })

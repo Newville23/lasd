@@ -1,103 +1,267 @@
-/* Space out content a bit */
-body {
-	padding-top: 20px;
-	padding-bottom: 20px;
+body{
+  font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+::-webkit-datetime-edit-year-field {
+  font-weight: bold;
+}
+hr {
+  margin-top: 10px !important; 
+  margin-bottom:10px !important;
+}
+h4{
+  font-weight: bold;
+}
+a{
+  text-decoration: none !important;
+  cursor: pointer;
+ }
+ hr{
+  margin-top: 2px;
+  margin-bottom: 2px;
+ }
+ label{
+  margin-bottom: 2px;
+ }
+.smtable{
+margin-left: 0px;
+margin-right: 0px;
+ }
+
+md-sidenav {
+  width: 240px;
+  min-width: 240px;
+}
+md-sidenav.md-locked-open{
+  width: 250px;
+  min-width: 250px;
+}
+md-sidenav.md-sidenav-right{
+  width: 60%;
+  min-width: 250px;
+  max-width: 400px;
 }
 
-/* Everything but the jumbotron gets side spacing for mobile first views */
-.header,
-.marketing,
-.footer {
-	padding-left: 15px;
-	padding-right: 15px;
+md-whiteframe{
+  cursor: pointer;
+  border-radius: 3px;
+}
+md-input-container{
+  padding: 2px;
+}
+md-input-container .md-default-theme{
+  height: 40px !important;
+}
+md-checkbox{
+  padding: 2px;
+  margin: 4px;
+  height: 25px;
+  width: 25px;
+}
+.md-button.md-default-theme.md-fab {
+  margin:10px;
 }
 
-/* Custom page header */
-.header {
-	border-bottom: 1px solid #e5e5e5;
+.titulo{
+  padding-top: 5px;
+  padding-right: 35%;
+  padding-bottom: 5px;
+  cursor: pointer;
 }
-/* Make the masthead heading the same height as the navigation */
-.header h3 {
-	margin-top: 0;
-	margin-bottom: 0;
-	line-height: 40px;
-	padding-bottom: 19px;
+.panel-default{
+  /*border-color:rgb(0,150,136);*/
 }
-
-/* Custom page footer */
-.footer {
-	padding-top: 19px;
-	color: #777;
-	border-top: 1px solid #e5e5e5;
+.panel-default >.panel-heading{
+ /* background-color:rgb(0,150,136); 
+  color:white;*/
+ padding: 15px;
 }
-
-/* Customize container */
-@media (min-width: 768px) {
-	.container {
-		/*max-width: 730px;*/
-	}
-}
-.container-narrow > hr {
-	margin: 30px 0;
+.well, .well-margin{
+  margin-bottom: 4px;
+  margin-top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
 }
 
-/* Main marketing message and sign up button */
-.jumbotron {
-	text-align: center;
-	border-bottom: 1px solid #e5e5e5;
+.well-sm{
+
+  padding:6px !important;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(59%,rgba(250, 250, 250, 1)), color-stop(100%,rgba(228, 228, 228, 0.59)));
+  background:-moz-linear-gradient(8% 100% 91deg, rgba(228, 228, 228, 0.59), rgba(250, 250, 250, 1) 59%);
+  min-height: 2.5em;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2),0 0 0 1px rgba(0,0,0,0.06);
 }
-.jumbotron .btn {
-	font-size: 21px;
-	padding: 14px 24px;
+.logro{
+  margin-bottom: 0px;
+  padding-left: 0px;
+  padding-right: 0px;
+}
+.logro p{
+  margin: 0px;
+}
+.well-lista{
+  height: 40px;
+  /*background: #eaeaea url("//d2hkcehpyog59.cloudfront.net/d8eb47c96f8338aadf4a911effb08924b37ea55f/images/textures/task.png") 
+  repeat-x;*/
+  padding: 1px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(59%,rgba(250, 250, 250, 1)), 
+    color-stop(100%,rgba(228, 228, 228, 0.59)));
+  box-shadow: 0 2px 3px rgba(0,0,0,0.4),0 0 0 2px rgba(0,0,0,0.08);
+  border-radius: 4px;
+  /*border-top:solid 2px #ccc;*/
+  /*height: 67px;*/
+  margin: 5px 5px 0 0px;
+  min-height: 10px;
 }
 
-/* Supporting marketing content */
-.marketing {
-	margin: 40px 0;
+.fa{
+  /*font-size: 1.3em;*/
+  /*margin-right: 5px !important;*/
+  cursor: pointer;
 }
-.marketing p + h4 {
-	margin-top: 28px;
+a.Matbar2:hover{
+  text-decoration: none;
+  color: #fff;
 }
-
-/* Responsive: Portrait tablets and up */
-@media screen and (min-width: 768px) {
-	/* Remove the padding we set earlier */
-	.header,
-	.marketing,
-	.footer {
-		padding-left: 0;
-		padding-right: 0;
-	}
-	/* Space out the masthead */
-	.header {
-		margin-bottom: 30px;
-	}
-	/* Remove the bottom border on the jumbotron for visual effect */
-	.jumbotron {
-		border-bottom: 0;
-	}
+ul {
+  list-style: none;
+}
+.Matbar2{
+  text-decoration: none !important;
+  display: inline-block;
+  background-color: #0075c4;
+  margin-top: 4%;
+  margin-right: 4%;
+  margin-left:4%;
+  padding-top: 4%;
+  padding-bottom: 4%;
+ text-align: center;
+  color: #fff;
+/*  font-size: 1.5em;*/
+  
+  border-radius: 4px;
+  transition:All 0.2s;
+  -webkit-transition:All 0.2s;
+}
+.Matbar2:hover{
+  background-color: rgb(0, 105, 175);
+  box-shadow: 0px 0px 20px rgb(121, 191, 255);
+}
+.Matbar2:focus{
+  background-color: rgb(0, 105, 175)!important;
+  box-shadow: 0px 0px 20px rgb(121, 191, 255);
+  color:white;
+}
+h5{
+  margin-left: 4%;
 }
 
 .site-logo {
-	z-index: 9;
-	position: absolute;
-	top: -10px;
-	left: 5px;
-	width: auto;
-	height: 70px;
-	padding: -5px 0px -5px 0px;
-	-webkit-transition: 400ms all ease;
-	-moz-transition: 400ms all ease;
-	-ms-transition: 400ms all ease;
-	-o-transition: 400ms all ease;
-	transition: 400ms all ease;
+  z-index: 9;
+  position: absolute;
+  top: -4px;
+  left: 10px;
+  width: auto;
+  height: 70px;
+  padding: -5px 0px -5px 0px;
+  -webkit-transition: 400ms all ease;
+  -moz-transition: 400ms all ease;
+  -ms-transition: 400ms all ease;
+  -o-transition: 400ms all ease;
+  transition: 400ms all ease;
 }
 .site-logo:hover {
-	transform: rotate(20deg);
+  transform: rotate(20deg);
 }
 
-body {
-	background: url("/images/fondoflugecenter.png")
-	no-repeat bottom center fixed #bdddeb;
-	padding-top: 70px;
+.board{
+  background-color: #e5e5e5 !important;
+}
+.itemList{
+    background-color: #fff;
+  border-bottom: 1px solid #ececec;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  cursor: pointer;
+  outline: none;
+  width: 100%;
+}
+
+.btn-group{
+      margin-right: 16px;
+
+}
+
+.radio{
+  display : none  ;
+}
+
+/*Boton Flotante */
+
+.pluss{
+    position: fixed;
+     bottom: 12px; 
+    right: 2rem;
+    box-shadow: 0px 2px 10px rgba(0,0,0,.3),0px 0px 1px rgba(0,0,0,.1),inset 0px 1px 0px rgba(255,255,255,.25),inset 0px -1px 0px rgba(0,0,0,.15);
+}
+
+.face {
+  border-radius: 30px;
+  border: 1px solid #ddd;
+  width: 48px;
+  margin: 16px; 
+}
+
+.md-tile-content h3 {
+  font-weight: bold;
+}
+
+.btn-green{
+    color: #333;
+}
+.btn-green.active{
+  color: #fff;
+  background-color: #47a447 !important;
+  border-color: #398439 !important;
+}
+
+.btn-red.active{
+  color: #fff;;
+  background-color: #d9534f !important;
+  border-color: #d43f3a !important;
+}
+.listbtn{
+
+    padding-top: 19px !important;
+}
+
+.nav-justified-only {
+  width: 100%;
+}
+.nav-justified-only > li {
+  float: none;
+}
+.nav-justified-only > li > a {
+  margin-bottom: 5px;
+  text-align: center;
+}
+.nav-justified-only > .dropdown .dropdown-menu {
+  top: auto;
+  left: auto;
+}
+.nav-justified-only > li {
+  display: table-cell;
+  width: 1%;
+}
+
+.nav-pills-only>li.active>a {
+  color: #144c87;
+  /* background-color: #337ab7; */
+}
+.nav-pills-only>li>a {
+  color: gray;
+}
+
+.md-list-item-text:focus {
+  outline: none;
+  background-color: rgb(250,250,250);
 }

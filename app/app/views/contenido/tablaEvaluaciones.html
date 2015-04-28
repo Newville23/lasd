@@ -1,7 +1,11 @@
 <table class="table table-responsive hidden-xs">
     <thead>
         <tr>
-            <th>Descripción</th><th>Tipo</th><th>Peso</th><th></th><th></th>    
+            <th>Descripción</th>
+            <th>Tipo</th>
+            <th>Peso</th>
+            <th></th>
+            <th></th>    
         </tr>
     </thead>
     <tbody>
@@ -10,23 +14,21 @@
             <td>{{examen.tipo_evaluacion}}</td>
             <td>{{examen.ponderacion}}</td>
             <td>
-             <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(examen)">
-              <span class="visible-lg visible-md visible-sm">Calificar</span>               
-             </button>
+               <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(examen)">
+                  <span class="visible-lg visible-md visible-sm">Calificar</span>               
+              </button>
             </td>
 
             <td>
-               <span title="Editar Evaluación" data-toggle="tooltip">
-                <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="editEvaluacion(examen)" data-toggle="modal" data-target="#modalEditEvaluacion">                     
-                </i>
-               </span>&nbsp&nbsp
-               <span title="Eliminar Evaluación" data-toggle="tooltip">
-                <i class="fa fa-close fa-lg" style="color:#E60013;" data-toggle="modal" data-target="#modalEliminar">
-                </i>
+                <span title="Editar Evaluación" data-toggle="tooltip">
+                    <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="editEvaluacion(examen)" data-toggle="modal" data-target="#modalEditEvaluacion"></i>
+                </span>&nbsp&nbsp
+                <span title="Eliminar Evaluación" data-toggle="tooltip">
+                    <i class="fa fa-close fa-lg" style="color:#E60013;" data-toggle="modal" data-target="#modalEliminar"></i>
                 </span>             
             </td>    
         </tr>
-       
+
     </tbody>
 </table>
 
