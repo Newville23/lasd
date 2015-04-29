@@ -9,7 +9,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="examen in Evaluaciones | filter:{id_indicador:x.id_indicador}">
+        <tr ng-repeat="examen in Evaluaciones | filter:{id_indicador:logro.id_indicador}">
             <td>{{examen.concepto}}</td>
             <td>{{examen.tipo_evaluacion}}</td>
             <td>{{examen.ponderacion}}</td>

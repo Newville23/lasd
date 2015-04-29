@@ -56,7 +56,8 @@ angular.module('CDapp',[
     // estados anidaddos
     .state('Docente.Contenido', {
         url: "/Contenido",
-        templateUrl: "views/contenido/index.html"
+        templateUrl: "views/contenido/index.html",
+        controller: "ContenidoCtrl"
     })
     .state('Docente.Evaluaciones', {
         url: "/Evaluaciones",
@@ -100,13 +101,6 @@ angular.module('CDapp',[
     $scope.close = function() {
      $mdSidenav('left').close();
     };
-
-    $http.get('scripts/Json/contenido.json').success(function (data){
-        
-        $scope.Logros = data.contenido;
-        $scope.Evaluaciones = data.calificaciones;
-        
-    });
 
     $scope.editEvaluacion = function(examen){
         $scope.editExamen = examen;
