@@ -1,18 +1,15 @@
 angular.module('Dirapp')
-  .controller('ContenidoCtrl', function ($scope, $http, $mdSidenav, $mdDialog, $mdToast, $stateParams, Docente) {
+  .controller('ContenidoCtrl', ['$scope', '$mdDialog', '$stateParams', 'Docente', function ($scope, $mdDialog, $stateParams, Docente) {
     'use strict';
 
     var idClase = $stateParams.idclase;
-    Docente.contenido.query({idclase: idClase}, function(data){
-    	console.log(data);
-    	$scope.Logros = data;
+    Docente.contenido.query({idclase: idClase}, function(logros){
+    	console.log(logros);
+    	$scope.Logros = logros;
+
+        Docente.calificaciones.query({idclase: idClase}, function(evaluaciones){
+            $scope.evaluaciones = evaluaciones;
+            console.log(evaluaciones);
+        });
     });
-    
-    $http.get('scripts/Json/contenido.json').success(function (data){
-        
-        //$scope.Logros = data.contenido;
-        $scope.Evaluaciones = data.calificaciones;
-        console.log(data.contenido);
-        
-    });
-});
+}]);

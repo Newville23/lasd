@@ -9,19 +9,19 @@
         </tr>
     </thead>
     <tbody>
-        <tr ng-repeat="examen in Evaluaciones | filter:{id_indicador:logro.id_indicador}">
-            <td>{{examen.concepto}}</td>
-            <td>{{examen.tipo_evaluacion}}</td>
-            <td>{{examen.ponderacion}}</td>
+        <tr ng-repeat="evaluacion in evaluaciones | filter:{id_indicador:logro.id_indicador}">
+            <td>{{evaluacion.concepto}}</td>
+            <td>{{evaluacion.tipo_evaluacion}}</td>
+            <td>{{evaluacion.ponderacion}}</td>
             <td>
-               <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(examen)">
+               <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(evaluacion)">
                   <span class="visible-lg visible-md visible-sm">Calificar</span>               
               </button>
             </td>
 
             <td>
                 <span title="Editar Evaluación" data-toggle="tooltip">
-                    <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="editEvaluacion(examen)" data-toggle="modal" data-target="#modalEditEvaluacion"></i>
+                    <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="editEvaluacion(evaluacion)" data-toggle="modal" data-target="#modalEditEvaluacion"></i>
                 </span>&nbsp&nbsp
                 <span title="Eliminar Evaluación" data-toggle="tooltip">
                     <i class="fa fa-close fa-lg" style="color:#E60013;" data-toggle="modal" data-target="#modalEliminar"></i>
@@ -35,23 +35,23 @@
 <!-- solucion para el responsive de la tabla -->
 <div class="visible-xs-block">
    <br>
-   <div class="row list-group smtable" ng-repeat="examen in Evaluaciones | filter:{id_indicador:x.id_indicador}">
+   <div class="row list-group smtable" ng-repeat="evaluacion in evaluaciones | filter:{id_indicador:logro.id_indicador}">
       <div class="col-md-2 list-group-item">
-         <strong>Descripción :</strong> {{examen.concepto}}
+         <strong>Descripción :</strong> {{evaluacion.concepto}}
       </div>
       <div class="col-md-2 list-group-item" >
-         <strong>Tipo :</strong> {{examen.tipo_evaluacion}}
+         <strong>Tipo :</strong> {{evaluacion.tipo_evaluacion}}
       </div>
       <div class="col-md-2 list-group-item" >
-         <strong>Peso :</strong> {{examen.ponderacion}}
+         <strong>Peso :</strong> {{evaluacion.ponderacion}}
       </div>
       <div class="col-md-2 list-group-item" >
          <strong></strong>
-         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(examen)"> 
+         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(evaluacion)"> 
             <span>Calificar</span>
         </button>&nbsp&nbsp
         <span class="pull-right">
-            <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="editEvaluacion(examen)" data-toggle="modal" data-target="#modalEditEvaluacion"></i>&nbsp&nbsp
+            <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="editEvaluacion(evaluacion)" data-toggle="modal" data-target="#modalEditEvaluacion"></i>&nbsp&nbsp
             <i class="fa fa-close fa-lg" style="color:#E60013;" data-toggle="modal" data-target="#modalEliminar"></i>
         </span>
 
