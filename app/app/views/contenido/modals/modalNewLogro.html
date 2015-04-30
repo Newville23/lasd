@@ -10,7 +10,7 @@
      </div>
 
     <div class="modal-body">
-        <form ng-submit="saveLogro()">
+        <form ng-submit="saveLogro(logro.id_indicador)">
             <div class="form-group">
                 <label for="">Contenido del logro</label>
                 <textarea placeholder="Contenido del logro" required class="form-control input-lg"
@@ -30,11 +30,11 @@
                 </div>
                 <div class="form-group col-md-6">
                     <label for="">Fecha Vencimiento</label>
-                    <input type="text" class="form-control input-lg" ng-model="logro.fechavencimiento" min="0" max="1000">
+                    <input type="text" class="form-control input-lg" ng-model="logro.fecha_vencimiento" min="0" max="1000">
                 </div>
             </div>
             <div class="modal-footer" layout-align="center center">
-              <md-button class="md-raised md-primary">Agregar logro</md-button>
+                <md-button class="md-raised md-primary"><i class="fa fa-paper-plane fa-lg"></i> Enviar</md-button>
             </div>
         </form>
     </div>

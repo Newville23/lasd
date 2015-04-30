@@ -9,11 +9,13 @@
         -<strong>{{logro.fecha_vencimiento |date:format:timezone}}</strong>-
       </p>
     </div>
-
+    
     <div class="col-md-1 logro text-right">
-            <button  class="btn btn-success btn-xs" title="Editar Logro" data-toggle="tooltip" data-placement="top" data-togle="modal" data-target="#modalEliminar">
+        <span title="Editar Logro" data-toggle="tooltip" data-placement="top">
+            <button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#modalNewLogro" ng-click="launchEditModal(logro.id_indicador)">
                 <i class="fa fa-edit fa-lg"></i> Editar
             </button>
+        </span>            
     </div>
 </div>
 
@@ -28,9 +30,11 @@
         </div>
         <div class="col-md-2 list-group-item" >
             -<strong>{{logro.fecha_vencimiento |date:format:timezone}}</strong>-
-            <button class="pull-right btn btn-success btn-xs">
-                <i class="fa fa-edit fa-lg"></i>Editar
-            </button>
+            <span title="Editar Logro" data-toggle="tooltip" data-placement="top">
+                <button class="pull-right btn btn-success btn-xs" data-toggle="modal" data-target="#modalNewLogro" ng-click="launchEditModal(logro.id_indicador)">
+                    <i class="fa fa-edit fa-lg"></i>Editar
+                </button>
+            </span>
         </div>
     </div>
 </div>
