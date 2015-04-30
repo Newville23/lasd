@@ -19,23 +19,23 @@ _.requiredList = function(obj, arrayKeys){
 
 module.exports = function(app, pool) {
     app.use(bodyParser.json());
-    app.use(bodyParser.urlencoded({ extended: false })); 
+    app.use(bodyParser.urlencoded({ extended: false }));
     app.use(cookieParser());
-    
+
     var version = '/' + packageJson.version;
 
-    var usuario = new Usuario(pool);    
-    app.use(usuario.isLoggedInMiddleware);    
+    var usuario = new Usuario(pool);
+    app.use(usuario.isLoggedInMiddleware);
 
     var contenido = new Contenido(pool);
-    var estudiante = new Estudiante(pool);  
+    var estudiante = new Estudiante(pool);
     var docente = new Docente(pool);
 
 
     //---------- Manejo de sesiones --------------------------
-    app.post(version + '/usuario/login.json', usuario.login);    
+    app.post(version + '/usuario/login.json', usuario.login);
     app.get(version + '/usuario/login.json', usuario.getlogin);
-    
+
     app.post(version + '/usuario/logout.json', usuario.logout);
 
     app.get(version + '/usuario/checkuser', estudiante.checkUser);
@@ -88,7 +88,7 @@ function Usuario (pool) {
     var session = new SessionHandler(pool);
     var userModel = new UserModel(pool);
     var usuarioThis = this;
-    
+
     this.login = function (req, res, next) {
         "use strict";
         var post = req.body;
@@ -132,7 +132,7 @@ function Usuario (pool) {
         if (req.session.err) {
             return res.status(500).json(req.session);
         }
-        res.json(req.session);     
+        res.json(req.session);
     }
 
     this.logout = function(req, res, next){
@@ -157,7 +157,7 @@ function Usuario (pool) {
         function validateUserDoc(err, rows, fields) {
             "use strict";
 
-            if (err) return callback(err, null);     
+            if (err) return callback(err, null);
 
             if (!_.size(rows[0])) {
                 var errorNoUsuario = new Error("Usuario: " + usuario + " no existe");
@@ -177,7 +177,7 @@ function Usuario (pool) {
                 var invalidPasswordRrror = new Error("Invalid password");
                 invalidPasswordRrror.invalid_password = true;
                 callback(invalidPasswordRrror, null);
-            }            
+            }
         };
         var query = 'SELECT * FROM Usuario WHERE usuario = ?';
         pool.query(query, [usuario] , validateUserDoc);
@@ -197,7 +197,7 @@ function Usuario (pool) {
 
         var query = 'SELECT * FROM Sesion_temp WHERE id_session = ?';
         pool.query(query, [id_session] , function(err, rows, fields) {
-            "use strict";            
+            "use strict";
             if (err){
                 req.session.err = err; return next();
             } if (!_.size(rows)) {
@@ -215,11 +215,11 @@ function Usuario (pool) {
                 req.session.login = true;
                 return next();
             });
-            
+
         });
     };
 
-    this.datos = function (req, res) {     
+    this.datos = function (req, res) {
         "use strict";
         if(!req.session.user){
             return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
@@ -236,13 +236,13 @@ function Usuario (pool) {
     this.insertDatos = function (data, callback) {}
 }
 
-function Docente (pool) {    
+function Docente (pool) {
     var userModel = new UserModel(pool);
-    
+
     this.listaClases = function(req, res){
 
         var id_profesor = req.query.idprofesor;
-        if (!id_profesor) { 
+        if (!id_profesor) {
             return res.status(400).json({error: '400'});
         }
 
@@ -253,7 +253,7 @@ function Docente (pool) {
         };*/
 
         var query = 'SELECT numero AS id_clase, Materia_id AS id_materia, Profesor_identificacion AS id_profesor, codigo as id_curso, ' +
-                    'Clase.Institucion_rut AS id_institucion, nombre AS materia, nombre_curso, indice, ' + 
+                    'Clase.Institucion_rut AS id_institucion, nombre AS materia, nombre_curso, indice, ' +
                     'Profesor_director_grupo_identificacion AS id_profesor_grupo ' +
                     'FROM lasd3.Clase ' +
                     'JOIN Materia ON Materia.id = Clase.Materia_id ' +
@@ -261,24 +261,24 @@ function Docente (pool) {
                     'WHERE Profesor_identificacion = ?';
 
         pool.query(query, [id_profesor], function(err, rows, fields) {
-                
+
             if (err){
                 return res.status(500).json({error: '500', err: err});
             }if (!_.size(rows)) {
                 return res.status(404).json({error: '404'});
-            }              
+            }
             return res.json(rows);
         });
     }
 
     this.getProfesores = function (req, res) {
 
-        if(!req.session.userData){            
+        if(!req.session.userData){
             return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
         }else if(req.session.userData.rol != "admin"){
             return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
         }
-       
+
         var institucion_rut = req.session.userData.Institucion_rut;
         var rol = 'profesor';
 
@@ -295,7 +295,7 @@ function Docente (pool) {
 
     this.postProfesor = function (req, res) {
         "use strict";
-        if(!req.session.userData){            
+        if(!req.session.userData){
             return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
         }else if(req.session.userData.rol != "admin"){
             return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
@@ -326,17 +326,17 @@ function Docente (pool) {
                     if (err) {return res.status(500)};
                     if (sw) { return res.status(409).json({"errors":[{"code":12, "message":"teacher already exist"}]})};
 
-                    // Insertar en la tabla usuario ------------------                    
+                    // Insertar en la tabla usuario ------------------
                     userModel.addUser(post, bcrypt, moment, function (err, rows) {
-                        if (err) {return res.status(500).json(err)};                        
+                        if (err) {return res.status(500).json(err)};
 
                         // Insetar tabla estudiante -----------------------
                         userModel.addProfesor(post, rows.dataUser, function (err, rows) {
                             if (err) {return res.status(500).json(err)};
                             return res.json(rows);
-                        });                        
-   
-                    });                    
+                        });
+
+                    });
                 });
 
             });
@@ -352,28 +352,23 @@ function Contenido (pool) {
         //var Clase_numero = pool.escape(req.query.clasenumero);
         var id_clase = req.query.idclase ? pool.escape(req.query.idclase) : null;
         var data = {};
-        
+
         if (id_clase) {
 
             var contenidoIndicadoresQuery = "SELECT id AS id_indicador, CAST(Clase_numero AS CHAR) id_clase, contenido, periodo, estado, " +
             "fecha_vencimiento, datetime_creacion, datetime_modificacion " +
             "FROM lasd3.Clase_indicador WHERE Clase_numero = " + id_clase;
 
-            var Calificaciones = "SELECT CAST(id AS CHAR) as id_calificacion, id_indicador, tipo_evaluacion, " + 
-            "concepto, ponderacion, CAST(Clase_numero AS CHAR) id_clase, Clase_Materia_id, datetime_creacion " + 
+            var Calificaciones = "SELECT CAST(id AS CHAR) as id_calificacion, id_indicador, tipo_evaluacion, " +
+            "concepto, ponderacion, CAST(Clase_numero AS CHAR) id_clase, Clase_Materia_id, datetime_creacion " +
             "FROM lasd3.Calificacion WHERE Clase_numero = " + id_clase;
             var query = contenidoIndicadoresQuery + ';' + Calificaciones;
 
             pool.query(contenidoIndicadoresQuery, function(err, rows, fields) {
-                
+
                 if (err){
                     return res.status(500).json({error: '500'});
-                }else if(rows[0].length == 0){
-                    return res.status(404).json({error: '404'});
                 }
-
-                data.contenido = rows[0];
-                data.calificaciones = rows[1];
                 return res.json(rows);
             });
         }else{
@@ -382,7 +377,7 @@ function Contenido (pool) {
     }
     this.postContenido = function(req, res){
         var post = req.body;
-        
+
         // se validan todos los parametros requeridos
         if (!_.requiredList(post, ['idclase', 'contenido', 'periodo'])) {
             res.status(400).json({status: '400'});return;
@@ -432,22 +427,20 @@ function Contenido (pool) {
         var id_clase = req.query.idclase ? 'AND Clase_numero = ' + pool.escape(req.query.idclase) : '';
         var id_indicador = req.query.idindicador ? 'AND id_indicador = ' + pool.escape(req.query.idindicador) : '';
         var id_calificacion = req.query.idcalificacion ? 'AND id = ' + pool.escape(req.query.idcalificacion) : '';
-        
+
         if (id_clase) {
 
-            var query = "SELECT CAST(id AS CHAR) as id_calificacion, id_indicador, tipo_evaluacion, " + 
-            "concepto, ponderacion, CAST(Clase_numero AS CHAR) id_clase, Clase_Materia_id, datetime_creacion " + 
+            var query = "SELECT CAST(id AS CHAR) as id_calificacion, id_indicador, tipo_evaluacion, " +
+            "concepto, ponderacion, CAST(Clase_numero AS CHAR) id_clase, Clase_Materia_id, datetime_creacion " +
             "FROM Calificacion WHERE 1 ";
 
             var where = id_calificacion + ' ' + id_indicador + ' ' + id_clase;
             query = query + where;
 
             pool.query(query, function(err, rows, fields) {
-                
+
                 if (err){
                     return res.status(500).json({error: '500', err: err});
-                }else if(rows.length == 0){
-                    return res.status(404).json({error: '404'});
                 }
                 return res.json(rows);
             });
@@ -540,10 +533,10 @@ function Contenido (pool) {
 
         }else{
             return res.status(400).json({status: '400'});
-        }   
+        }
     }
     this.postNotas = function (req, res) {
-        
+
         var post = req.body;
 
         // se validan todos los parametros requeridos
@@ -565,7 +558,7 @@ function Contenido (pool) {
     }
 
     this.putNotas = function (req, res) {
-        
+
         var get ={};
         id_estudiante = req.query.idestudiante || null;
         id_calificacion = req.query.idcalificacion || null;
@@ -584,11 +577,11 @@ function Contenido (pool) {
                 rows.data = post;
                 res.json(rows);
             });
-        
+
         }else{
             return res.status(400).json({status: '400', msg: 'Faltan datos requeridos'});
         }
-        
+
     }
 }
 
@@ -598,7 +591,7 @@ function Estudiante (pool) {
 
     var estudianteThis = this;
 
-    //Devuelve la lista de los estudiantes con los datos, además de la asistencia, 
+    //Devuelve la lista de los estudiantes con los datos, además de la asistencia,
     //dada la id de la clase y la fecha. Si no se especifica la fecha, se toma la actual.
     this.getEstudiantes = function (req, res) {
         "use strict";
@@ -622,7 +615,7 @@ function Estudiante (pool) {
                         "JOIN lasd3.Usuario " +
                             "ON Usuario.id = Estudiante.Usuario_id " +
                     "WHERE Clase.numero = " + id_clase;
-        
+
         if (id_clase) {
             pool.query(query, function(err, rows, fields) {
                 if (err){
@@ -656,7 +649,7 @@ function Estudiante (pool) {
                         "JOIN lasd3.Usuario " +
                         "ON Usuario.id = Estudiante.Usuario_id " +
                         "WHERE Institucion_rut = "+ id_institucion + " " + Curso_codigo + " " + id_estudiante;
-        
+
         pool.query(query, function(err, rows, fields) {
             if (err){
                 return res.status(500).json({error: '500'});
@@ -672,7 +665,7 @@ function Estudiante (pool) {
         if(!req.session.userData){
             return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
         }
-        
+
         var post = req.body;
         post.id_institucion = req.session.userData.Institucion_rut;
 
@@ -698,22 +691,22 @@ function Estudiante (pool) {
                     if (err) {return res.status(500)};
                     if (sw) { return res.status(409).json({"errors":[{"code":12, "message":"student already exist"}]})};
 
-                    // Insertar en la tabla usuario ------------------                    
+                    // Insertar en la tabla usuario ------------------
                     userModel.addUser(post, bcrypt, moment, function (err, rows) {
-                        if (err) {return res.status(500).json(err)};                        
+                        if (err) {return res.status(500).json(err)};
 
                         // Insetar tabla estudiante -----------------------
                         userModel.addStudent(post, rows.dataUser, function (err, rows) {
                             if (err) {return res.status(500).json(err)};
                             return res.json(rows);
-                        });                        
-   
-                    });                    
+                        });
+
+                    });
                 });
             });
         });
     }
-    
+
     this.postAsistencia = function (req, res) {
         'use strict';
         var data = [];
@@ -745,10 +738,10 @@ function Estudiante (pool) {
 
         // === Validacion de no editar la lista de asistencia (que no se haya realizado ya la asistencia) ========
         var  list = "SELECT *  FROM lasd3.Asistencia WHERE Clase_numero = " + pool.escape(id_clase) + " AND fecha = " + pool.escape(fecha);
-        
+
         pool.query(list, function (err, rows, fields) {
             if (err){res.status(500).json({status: '500', err: err});return;}
-            
+
             if (_.size(rows) > 0){
                 return res.status(400).json({status: '400', msg: "Ya se realizó la asistencia"});
             }else{
@@ -768,12 +761,12 @@ function Estudiante (pool) {
                     res.json(rows);
                 });
             }
-        });       
+        });
     }
 
     this.checkUser = function(req, res){
         var fiel = req.query.usuario;
-        if (!fiel) {return res.status(400).json({status: '400'});}        
+        if (!fiel) {return res.status(400).json({status: '400'});}
 
         var fielName = 'usuario', tableName = 'Usuario';
         userModel.checkField(fiel, fielName, tableName, function (err, sw) {
@@ -783,7 +776,7 @@ function Estudiante (pool) {
     }
     this.checkEmail = function (req, res) {
         var fiel = req.query.email;
-        if (!fiel) {return res.status(400).json({status: '400'});}        
+        if (!fiel) {return res.status(400).json({status: '400'});}
 
         var fielName = 'email', tableName = 'Usuario';
         userModel.checkField(fiel, fielName, tableName, function (err, sw) {
@@ -794,7 +787,7 @@ function Estudiante (pool) {
 
     this.checkidEstudiante = function (req, res) {
         var fiel = req.query.idestudiante;
-        if (!fiel) {return res.status(400).json({status: '400'});}        
+        if (!fiel) {return res.status(400).json({status: '400'});}
 
         var fielName = 'identificacion', tableName = 'Estudiante';
         userModel.checkField(fiel, fielName, tableName, function (err, sw) {

@@ -89,7 +89,13 @@ md-checkbox{
   background:-moz-linear-gradient(8% 100% 91deg, rgba(241, 241, 241, 0.59), rgba(250, 250, 250, 1) 34%);
   min-height: 2.5em;
   box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2),0 0 0 1px rgba(0,0,0,0.06);
+transition:All 0.5s ease;
+-webkit-transition:All 0.5s ease;
+-moz-transition:All 0.5s ease;
 
+}
+.well-sm:hover{
+  box-shadow: 0 1px 6px rgba(92, 184, 92, 1),0 0 0 1px rgba(0,0,0,0.06);
 }
 .logro{
   margin-bottom: 0px;

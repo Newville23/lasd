@@ -10,15 +10,10 @@
       </p>
     </div>
 
-    <div class="col-md-1 logro">
-        <span >
-            <span  title="Editar Logro" data-toggle="tooltip" data-placement="top" data-togle="modal" data-target="#modalEliminar">
-               <i class="fa fa-edit fa-lg" style="color:#00D63F;"></i>
-            </span>&nbsp
-            <span title="Eliminar Logro" data-toggle="tooltip">
-                <i class="fa fa-close fa-lg" style="color:#E60013;"></i>
-            </span>
-        </span>
+    <div class="col-md-1 logro text-right">
+            <button  class="btn btn-success btn-xs" title="Editar Logro" data-toggle="tooltip" data-placement="top" data-togle="modal" data-target="#modalEliminar">
+                <i class="fa fa-edit fa-lg"></i> Editar
+            </button>
     </div>
 </div>
 
@@ -33,9 +28,9 @@
         </div>
         <div class="col-md-2 list-group-item" >
             -<strong>{{logro.fecha_vencimiento |date:format:timezone}}</strong>-
-            <span class="pull-right CRUD">
-                <i class="fa fa-edit fa-lg" style="color:#00D63F;"></i>&nbsp&nbsp<i class="fa fa-close fa-lg" style="color:#E60013;"></i>
-            </span>
+            <button class="pull-right btn btn-success btn-xs">
+                <i class="fa fa-edit fa-lg"></i>Editar
+            </button>
         </div>
     </div>
 </div>

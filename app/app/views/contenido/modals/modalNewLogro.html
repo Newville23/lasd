@@ -1,0 +1,43 @@
+<!-- Modal para Crear Un nuevo Logro-->
+<div class="modal fade" id="modalNewLogro" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times fa-lg"></i></span></button>
+        <h4 class="modal-title text-center" id="myModalLabel">
+            Nuevo Logro
+        </h4>
+     </div>
+
+    <div class="modal-body">
+        <form ng-submit="saveLogro()">
+            <div class="form-group">
+                <label for="">Contenido del logro</label>
+                <textarea placeholder="Contenido del logro" required class="form-control input-lg"
+                name="" id="" cols="30" rows="3" ng-model="logro.contenido" style="resize: vertical;">
+                </textarea>
+            </div>
+            <div class="row">
+                <div class="form-group col-md-6">
+                    <label for="">Periodo</label>
+                    <select class="form-control input-lg" required name="" id="" ng-model="logro.periodo">
+                      <option value="">Selecciona un periodo</option>
+                    	<option value="1">Primero</option>
+                    	<option value="2">Segundo</option>
+                    	<option value="3">Tercero</option>
+                    	<option value="4">Cuarto</option>
+                    </select>
+                </div>
+                <div class="form-group col-md-6">
+                    <label for="">Fecha Vencimiento</label>
+                    <input type="text" class="form-control input-lg" ng-model="logro.fechavencimiento" min="0" max="1000">
+                </div>
+            </div>
+            <div class="modal-footer" layout-align="center center">
+              <md-button class="md-raised md-primary">Agregar logro</md-button>
+            </div>
+        </form>
+    </div>
+</div>
+</div>
+</div>
