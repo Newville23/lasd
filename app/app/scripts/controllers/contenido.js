@@ -14,12 +14,22 @@ angular.module('Dirapp')
     });
 
     $scope.saveLogro = function(id_indicador){
-      
-        if (id_indicador) {
-            if (_.size($scope.logro)) {
-                console.log($scope.logro);
-            }
 
+        if (id_indicador) {
+          // PUT
+            if (_.size($scope.logro)) {
+                var getParams = {idindicador : $scope.logro.id_indicador}
+                var putlogro = _.pick($scope.logro, 'contenido', 'periodo', 'fecha_vencimiento');
+                Docente.contenido.update(getParams, putlogro, function (log) {
+                    var logro = _.findWhere($scope.Logros, {id_indicador: id_indicador});
+                    logro.contenido = log.data.contenido;
+                    logro.periodo = log.data.periodo;
+                    logro.fecha_vencimiento = log.data.fecha_vencimiento;
+                    _.delay(function(){
+                        $('#modalNewLogro').modal('hide');
+                    }, 500);
+                });
+            }
         }else{
 
             // POST logro
@@ -35,20 +45,15 @@ angular.module('Dirapp')
                 $scope.Logros.push(logro);
                 _.delay(function(){
                     $('#modalNewLogro').modal('hide');
-                }, 1000);        
+                }, 500);
             });
         }
     };
 
-    $scope.launchPostModal = function(){
-        $scope.logro = {};
-    };
-
     $scope.launchEditModal = function(id_indicador){
-        //console.log(moment().format("ddd, hA"));
-        $scope.logro = _.findWhere($scope.Logros, {id_indicador: id_indicador});
+        $scope.logro = _.clone(_.findWhere($scope.Logros, {id_indicador: id_indicador}));
         if ($scope.logro.fecha_vencimiento) {
-            $scope.logro.fecha_vencimiento = moment(new Date($scope.logro.fecha_vencimiento)).format("YYYY-MM-DD");
+            $scope.logro.fecha_vencimiento = $scope.logro.fecha_vencimiento.substring(0, 10);
         }
     };
 }]);

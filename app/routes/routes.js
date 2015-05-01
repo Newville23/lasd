@@ -264,8 +264,6 @@ function Docente (pool) {
 
             if (err){
                 return res.status(500).json({error: '500', err: err});
-            }if (!_.size(rows)) {
-                return res.status(404).json({error: '404'});
             }
             return res.json(rows);
         });
@@ -285,9 +283,6 @@ function Docente (pool) {
         userModel.getDataDocentes(institucion_rut, rol, function (err, rows) {
             if (err) {
                 return res.status(500).json({error: '500', err: err});
-            }
-            if (!_.size(rows)) {
-                return res.status(404).json({error: '404'});
             }
             return res.json(rows);
         })
@@ -399,9 +394,9 @@ function Contenido (pool) {
     this.putContenido = function(req, res) {
         var post = req.body;
 
-        var id_contenido = req.query.idcontenido;
+        var id_indicador = req.query.idindicador;
 
-        if (!id_contenido) {
+        if (!id_indicador) {
             return res.status(400).json({status: '400', msg: "Falta especificar parametros GET"});
         };
 
@@ -414,7 +409,7 @@ function Contenido (pool) {
         //     "datetime_modificacion" : moment().format('YYYY-MM-DD h:mm:ss');
         // }
 
-        query = pool.query('UPDATE Clase_indicador SET ? WHERE id = ?', [post, id_contenido] , function(err, rows, fields) {
+        query = pool.query('UPDATE Clase_indicador SET ? WHERE id = ?', [post, id_indicador] , function(err, rows, fields) {
             if (err){res.status(400).json({status: '400'});return;}
             rows.data = post;
             res.json(rows);
@@ -525,8 +520,6 @@ function Contenido (pool) {
             pool.query(query, function(err, rows, fields) {
                 if (err){
                     return res.status(500).json({status: '500', err: err});
-                }else if(rows.length == 0){
-                    return res.status(404).json({status: '404'});
                 }
                 return res.json(rows);
             });
@@ -620,8 +613,6 @@ function Estudiante (pool) {
             pool.query(query, function(err, rows, fields) {
                 if (err){
                     return res.status(500).json({error: '500'});
-                }else if(rows.length == 0){
-                    return res.status(404).json({error: '404'});
                 }
                 return res.json(rows);
             });
@@ -653,8 +644,6 @@ function Estudiante (pool) {
         pool.query(query, function(err, rows, fields) {
             if (err){
                 return res.status(500).json({error: '500'});
-            }else if(rows.length == 0){
-                return res.status(404).json({error: '404'});
             }
             return res.json(rows);
         });
