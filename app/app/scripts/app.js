@@ -101,10 +101,6 @@ angular.module('CDapp',[
      $mdSidenav('left').close();
     };
 
-    $scope.editEvaluacion = function(examen){
-        $scope.editExamen = examen;
-    };
-
     $scope.examenNotas = function(examen){
         $scope.calificar = examen;
     };

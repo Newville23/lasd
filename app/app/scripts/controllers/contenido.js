@@ -65,8 +65,8 @@ angular.module('Dirapp')
 
     $scope.showLogroFromCollapse = function(logro){
         $scope.logro= _.clone(logro);
+        $scope.evaluacion = {};
     };
-
 
     $scope.saveEvaluacion = function (id_indicador) {
         var evaluacion = {
@@ -83,7 +83,31 @@ angular.module('Dirapp')
 
             $scope.evaluaciones.push($scope.evaluacion);
             $scope.evaluacion = {};
-            console.log($scope.evaluaciones);
         });
-    }
+    };
+
+    $scope.showEditEvaluacion = function(evaluacion){
+        $scope.evaluacion = _.clone(evaluacion);
+    };
+    $scope.editEvaluacion = function() {
+        var evaluacion = {
+            "id_indicador" : $scope.evaluacion.id_indicador,
+            "tipo_evaluacion": $scope.evaluacion.tipo_evaluacion,
+            "concepto": $scope.evaluacion.concepto,
+            "ponderacion": $scope.evaluacion.ponderacion,
+            "Clase_numero": $scope.evaluacion.id_clase
+        };
+        var idcalificacion = {idcalificacion : $scope.evaluacion.id_calificacion};
+        Docente.calificaciones.update(idcalificacion, evaluacion, function (log) {
+
+            var logro = _.findWhere($scope.evaluaciones, {id_calificacion: $scope.evaluacion.id_calificacion});
+            logro.tipo_evaluacion = log.data.tipo_evaluacion;
+            logro.concepto = log.data.concepto;
+            logro.ponderacion = log.data.ponderacion;
+
+            _.delay(function(){
+                $('#modalEditEvaluacion').modal('hide');
+            }, 500);
+        });
+    };
 }]);

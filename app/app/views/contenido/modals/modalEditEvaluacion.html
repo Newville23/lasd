@@ -1,0 +1,36 @@
+<!-- Modal para Editar las Evaluciones-->
+<div class="modal fade" id="modalEditEvaluacion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-dialog">
+		<div class="modal-content">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times fa-lg"></i></span></button>
+				<h4 class="modal-title text-center" id="myModalLabel">
+					Editar la Evaluacion:
+				</h4>
+			</div>
+
+			<div class="modal-body">
+					<form ng-submit="editEvaluacion()" id="editEvaluacion">
+							<div class="form-group">
+									<label for=""> Concepto</label>
+									<textarea class="form-control" required name="" id="" cols="30" rows="1" ng-model="evaluacion.concepto"></textarea>
+							</div>
+							<div class="row">
+									<div class="form-group col-md-6">
+											<label for=""> Tipo de Evaluación</label>
+											<input type="text" required class="form-control" ng-model="evaluacion.tipo_evaluacion">
+									</div>
+									<div class="form-group col-md-6">
+											<label for="">Valor Porcentual</label>
+											<input type="number" required class="form-control" ng-model="evaluacion.ponderacion" min="0" max="1000">
+									</div>
+							</div>
+					</form>
+			</div>
+
+			<div class="modal-footer">
+        	<md-button class="md-raised md-primary" form="editEvaluacion"><i class="fa fa-paper-plane"></i> Guardar</md-button>
+			</div>
+		</div>
+	</div>
+</div>

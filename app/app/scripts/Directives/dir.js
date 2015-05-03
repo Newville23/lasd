@@ -104,28 +104,28 @@ angular.module('Dirapp',[])
 .directive('modalVernotas', function (){
 	return{
 		restrict: 'E',
-		templateUrl:'views/modalverNotas.html'
+		templateUrl:'views/contenido/modals/modalverNotas.html'
 	};
 
 })
 .directive('modalAddNotas', function (){
 	return{
 		restrict: 'E',
-		templateUrl:'views/modalAddNotas.html'
+		templateUrl:'views/contenido/modals/modalAddNotas.html'
 	};
 
 })
 .directive('modalEditEvaluacion', function (){
 	return{
 		restrict: 'E',
-		templateUrl:'views/modalEditEvaluacion.html'
+		templateUrl:'views/contenido/modals/modalEditEvaluacion.html'
 	};
 
 })
 .directive('modalEliminar', function (){
 	return{
 		restrict: 'E',
-		templateUrl:'views/modalEliminar.html'
+		templateUrl:'views/contenido/modals/modalEliminar.html'
 	};
 
 })
