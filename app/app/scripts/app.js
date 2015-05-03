@@ -3,7 +3,6 @@ angular.module('CDapp',[
     'ngMaterial',
     'ngMessages',
     'ngCookies',
-    'xeditable',
     'Dirapp',
     'Servapp',
     'SerFlugel'
@@ -78,10 +77,6 @@ angular.module('CDapp',[
         template: "<h3>Espacio Trabajos<h3/>",
     })
 })
-.run(function(editableOptions) {
-  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
-})
-
 .controller('soloDatosCtrl',['$http','$scope','$mdSidenav','$timeout', '$mdBottomSheet','Datos', '$location', 'Usuario', 'Docente', function ($http,$scope,$mdSidenav,$timeout,$mdBottomSheet,Datos, $location, Usuario, Docente){
     // Valida que la sesion haya iniciado
     Usuario.login.get(function (data) {
