@@ -1,0 +1,50 @@
+<!-- Modal para Evaluciones-->
+<div class="modal fade" id="modalAddEvaluaciones" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true"><i class="fa fa-times fa-lg"></i></span></button>
+        <div class="well well-logro md-title" style="margin-top:1.5em">
+            {{logro.contenido}}
+        </div>
+
+    </div>
+    <div class="modal-body">
+        <p class="text-center">se registran las siguientes evaluaciones para este logro:</p>
+
+        <!-- tabla para mostrar todas las evaluaciones ya regristradas-->
+        <table class="table table-responsive">
+            <thead>
+                <tr>
+                    <th>Concepto</th><th>Tipo</th><th>Peso</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="evaluacion in evaluaciones | filter:{id_indicador:logro.id_indicador}">
+                    <td>{{evaluacion.concepto}}</td>
+                    <td>{{evaluacion.tipo_evaluacion}}</td>
+                    <td class="text-center">{{evaluacion.ponderacion}}</td>
+                </tr>
+                <tr>
+                    <form ng-submit="saveEvaluacion(logro.id_indicador)" id="formEvaluacion">
+                        <td class="col-md-clear">
+                            <md-input-container flex>
+                                <textarea class="form-control clear-input" name="" id="{{'areaConcepto'}}" cols="30" rows="1" ng-model="evaluacion.concepto"  style="resize: vertical;"></textarea>
+                            </md-input-container>
+                        </td>
+                        <td class="col-md-clear"><input type="text" class="form-control clear-input" ng-model="evaluacion.tipo_evaluacion"></td>
+                        <td class="col-md-clear"><input type="number" required class="form-control clear-input text-center col-md-clear" ng-model="evaluacion.ponderacion" min="0" max="1000"></td>
+                    </form>
+                </tr>
+                <!-- <tr><td></td><td><strong>total</strong></td><td>{{total}}</td></tr> -->
+            </tbody>
+        </table>
+        <!-- tabla para mostrar todas las evaluaciones ya regristradas-->
+    </div>
+
+    <div class="modal-footer">
+        <md-button class="md-raised md-primary" form="formEvaluacion"><i class="fa fa-paper-plane fa-lg"></i> Guardar</md-button>
+    </div>
+</div>
+</div>
+</div>

@@ -97,7 +97,7 @@ angular.module('Dirapp',[])
 .directive('modalAddEvaluaciones', function (){
 	return{
 		restrict: 'E',
-		templateUrl:'views/modalAddEvaluaciones.html'
+		templateUrl:'views/contenido/modals/modalAddEvaluaciones.html'
 	};
 
 })

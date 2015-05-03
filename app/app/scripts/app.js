@@ -3,6 +3,7 @@ angular.module('CDapp',[
     'ngMaterial',
     'ngMessages',
     'ngCookies',
+    'xeditable',
     'Dirapp',
     'Servapp',
     'SerFlugel'
@@ -52,7 +53,7 @@ angular.module('CDapp',[
         template: "<h1>test2</h1>",
         controller: 'test2Cotroller'
     })
-    
+
     // estados anidaddos
     .state('Docente.Contenido', {
         url: "/Contenido",
@@ -77,6 +78,9 @@ angular.module('CDapp',[
         template: "<h3>Espacio Trabajos<h3/>",
     })
 })
+.run(function(editableOptions) {
+  editableOptions.theme = 'bs3'; // bootstrap3 theme. Can be also 'bs2', 'default'
+})
 
 .controller('soloDatosCtrl',['$http','$scope','$mdSidenav','$timeout', '$mdBottomSheet','Datos', '$location', 'Usuario', 'Docente', function ($http,$scope,$mdSidenav,$timeout,$mdBottomSheet,Datos, $location, Usuario, Docente){
     // Valida que la sesion haya iniciado
@@ -87,7 +91,7 @@ angular.module('CDapp',[
             Docente.listaClases.query({idprofesor: data.userData.identificacion}, function (clases) {
                 $scope.clases = clases;
             });
-        }    
+        }
     },function(data){
         console.log(data);
     });
@@ -97,7 +101,7 @@ angular.module('CDapp',[
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
     };
-    
+
     $scope.close = function() {
      $mdSidenav('left').close();
     };
@@ -114,8 +118,4 @@ angular.module('CDapp',[
         console.log(key);
     };
 
-    $scope.showLogro = function(Logro){
-        $scope.texto=Logro;
-
-    };
 }]);

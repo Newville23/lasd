@@ -1,21 +1,21 @@
 <!-- tamaño grande de pantalla muestra de logros  -->
 <div class="container-fluid logro">
 
-  <div class="row well-margin well-sm logro hidden-xs">
-    <div class=" col-md-11 logro" style="cursor:pointer;" data-toggle="collapse" data-target="#{{logro.id_indicador}}" aria-expanded="false">
+  <div class="row well-margin well-sm logro hidden-xs" style="cursor:pointer;" data-toggle="collapse" data-target="#{{logro.id_indicador}}" aria-expanded="false">
+    <div class=" col-md-11 logro">
       <p aling="justify" >
 
         <span class="md-body-1">{{logro.contenido}}&nbsp&nbsp&nbsp</span>
         -<strong>{{logro.fecha_vencimiento |date:format:timezone}}</strong>-
       </p>
     </div>
-    
+
     <div class="col-md-1 logro text-right">
         <span title="Editar Logro" data-toggle="tooltip" data-placement="top">
             <button  class="btn btn-success btn-xs" data-toggle="modal" data-target="#modalNewLogro" ng-click="launchEditModal(logro.id_indicador)">
                 <i class="fa fa-edit fa-lg"></i> Editar
             </button>
-        </span>            
+        </span>
     </div>
 </div>
 

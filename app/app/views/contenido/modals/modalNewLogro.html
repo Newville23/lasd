@@ -10,14 +10,14 @@
      </div>
 
     <div class="modal-body">
-        <form ng-submit="saveLogro(logro.id_indicador)">
-            <div class="form-group">
-                <label for="">Contenido del logro</label>
-                <textarea placeholder="Contenido del logro" required class="form-control input-lg"
-                name="" id="" cols="30" rows="3" ng-model="logro.contenido" style="resize: vertical;">
+        <form ng-submit="saveLogro(logro.id_indicador)" layout-margin id="savelogro">
+            <md-input-container flex>
+                <label>Contenido del logro</label>
+                <textarea required class="input-lg"
+                name="" id="" rows="1" ng-model="logro.contenido">
                 </textarea>
-            </div>
-            <div class="row">
+            </md-input-container>
+            <div class="row" flex>
                 <div class="form-group col-md-6">
                     <label for="">Periodo</label>
                     <select class="form-control input-lg" required name="" id="" ng-model="logro.periodo">
@@ -33,10 +33,10 @@
                     <input type="text" class="form-control input-lg" ng-model="logro.fecha_vencimiento" min="0" max="1000">
                 </div>
             </div>
-            <div class="modal-footer" layout-align="center center">
-                <md-button class="md-raised md-primary"><i class="fa fa-paper-plane fa-lg"></i> Enviar</md-button>
-            </div>
         </form>
+    </div>
+    <div class="modal-footer" layout-align="center center">
+        <md-button class="md-raised md-primary" form="savelogro"><i class="fa fa-paper-plane fa-lg"></i> Guardar</md-button>
     </div>
 </div>
 </div>

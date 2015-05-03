@@ -5,7 +5,7 @@ angular.module('Dirapp')
     Usuario.login.get(function (data) {
         if (data.login == true) {
             $location.path("/Docente");
-        }    
+        }
     },function(data){
         console.log(data);
     });
@@ -25,7 +25,7 @@ angular.module('Dirapp')
             });
     };
 
-    
+
 }])
 .controller('logoutCtrl', ['$scope', '$location', 'Usuario', function ($scope, $location, Usuario) {
     $scope.logout = function () {
@@ -42,10 +42,8 @@ function LoginCtrl($scope, Usuario, $location, $mdDialog) {
     $scope.form = {};
 
     $scope.setLoginForm = function () {
-        console.log($scope.form);
-
         //Enviar a API
-        Usuario.login.save($scope.form, function(data){            
+        Usuario.login.save($scope.form, function(data){
             if (data.login) {
                 $mdDialog.hide();
                 $location.path("/Docente");
