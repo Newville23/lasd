@@ -11,19 +11,19 @@
 
 			<div class="modal-body">
 					<form ng-submit="editEvaluacion()" id="editEvaluacion">
-							<div class="form-group">
+							<md-input-container>
 									<label for=""> Concepto</label>
-									<textarea class="form-control" required name="" id="" cols="30" rows="1" ng-model="evaluacion.concepto"></textarea>
-							</div>
+									<textarea required name="" id="" cols="30" rows="1" ng-model="evaluacion.concepto"></textarea>
+							</md-input-container >
 							<div class="row">
-									<div class="form-group col-md-6">
+									<md-input-container  class="col-md-6">
 											<label for=""> Tipo de Evaluación</label>
-											<input type="text" required class="form-control" ng-model="evaluacion.tipo_evaluacion">
-									</div>
-									<div class="form-group col-md-6">
+											<input type="text" required ng-model="evaluacion.tipo_evaluacion">
+									</md-input-container >
+									<md-input-container class="col-md-6">
 											<label for="">Valor Porcentual</label>
-											<input type="number" required class="form-control" ng-model="evaluacion.ponderacion" min="0" max="1000">
-									</div>
+											<input type="number" required ng-model="evaluacion.ponderacion" min="0" max="1000">
+									</md-input-container>
 							</div>
 					</form>
 			</div>
