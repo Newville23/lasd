@@ -10,17 +10,16 @@
      </div>
 
     <div class="modal-body">
-        <form ng-submit="saveLogro(logro.id_indicador)" layout-margin id="savelogro">
-            <md-input-container flex>
+        <form ng-submit="saveLogro(logro.id_indicador)" layout="row" layout-margin layout-wrap id="savelogro">
+            <md-input-container flex="100">
                 <label>Contenido del logro</label>
                 <textarea required class="input-lg"
                 name="" id="" rows="1" ng-model="logro.contenido">
                 </textarea>
             </md-input-container>
-            <div class="row" flex>
-                <div class="form-group col-md-6">
+                <div flex="40">
                     <label for="">Periodo</label>
-                    <select class="form-control input-lg" required name="" id="" ng-model="logro.periodo">
+                    <select class="form-control inputjj-lg line-input" required name="" id="" ng-model="logro.periodo">
                       <option value="">Selecciona un periodo</option>
                     	<option value="1">Primero</option>
                     	<option value="2">Segundo</option>
@@ -28,11 +27,10 @@
                     	<option value="4">Cuarto</option>
                     </select>
                 </div>
-                <div class="form-group col-md-6">
+                <md-input-container flex="50">
                     <label for="">Fecha Vencimiento</label>
-                    <input type="text" class="form-control input-lg" ng-model="logro.fecha_vencimiento" min="0" max="1000">
-                </div>
-            </div>
+                    <input type="text" class="" ng-model="logro.fecha_vencimiento" min="0" max="1000">
+                </md-input-container>
         </form>
     </div>
     <div class="modal-footer" layout-align="center center">

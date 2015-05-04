@@ -295,3 +295,16 @@ h5{
     box-shadow: none;
     border-color: #66afe9 !important;
 }
+
+.line-input {
+  background: none repeat scroll 0% 0% transparent;
+  box-shadow: none;
+  outline: medium none;
+  border: none;
+  border-radius: 0;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1) !important;
+}
+.line-input:focus {
+  box-shadow: none;
+  border-bottom: 2px solid rgb(63, 81, 181) !important;
+}
