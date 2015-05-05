@@ -4,10 +4,11 @@
   <div class="row well-margin well-sm logro hidden-xs" style="cursor:pointer;" data-toggle="collapse" data-target="#{{logro.id_indicador}}" aria-expanded="false">
     <div class=" col-md-11 logro">
       <p aling="justify" >
-
         <span class="md-body-1">{{logro.contenido}}&nbsp&nbsp&nbsp</span>
-        -<strong>{{logro.fecha_vencimiento |date:format:timezone}}</strong>-
+
       </p>
+      <small class="md-caption text-muted">{{"5 Evaluaciones"}}</small>
+      <span class="label label-info" style="padding: 0.3em 0.6em 0.2em;">{{logro.fecha_vencimiento |date:format:timezone}}</span>
     </div>
 
     <div class="col-md-1 logro text-right">
@@ -28,8 +29,8 @@
         <div class="col-md-2 list-group-item" style="background-color: #f5f5f5" data-toggle="collapse" data-target="#{{logro.id_indicador}}" aria-expanded="false">
            {{logro.contenido}}
         </div>
-        <div class="col-md-2 list-group-item" >
-            -<strong>{{logro.fecha_vencimiento |date:format:timezone}}</strong>-
+        <div class="col-md-2 list-group-item">
+            <span class="label label-info" style="padding: 0.3em 0.6em 0.2em;">{{logro.fecha_vencimiento |date:format:timezone}}</span>
             <span title="Editar Logro" data-toggle="tooltip" data-placement="top">
                 <button class="pull-right btn btn-success btn-xs" data-toggle="modal" data-target="#modalNewLogro" ng-click="launchEditModal(logro.id_indicador)">
                     <i class="fa fa-edit fa-lg"></i>Editar

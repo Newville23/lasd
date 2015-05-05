@@ -63,7 +63,7 @@ md-checkbox{
 
 .titulo{
   padding-top: 5px;
-  padding-right: 35%;
+  /*padding-right: 35%;*/
   padding-bottom: 5px;
   cursor: pointer;
 }
@@ -110,7 +110,7 @@ transition:All 0.5s ease;
   padding-right: 0px;
 }
 .logro p{
-  margin: 0px;
+  margin: 2px;
 }
 .well-lista{
   height: 40px;

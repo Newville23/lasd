@@ -4,10 +4,10 @@
 
         <div class="panel-heading" role="tab" id="headingOne" data-toggle="collapse" data-target="#{{periodo.targetid}}" aria-expanded="{{periodo.expanded}}" aria-controls="{{periodo.targetid}}" data-parent="#accordion"style="cursor: pointer;" >
             <h4 class="panel-title">
-               <span class="titulo">
-                  {{periodo.periodo}}
-              </span>
+               <span class="titulo">{{periodo.periodo}} <small class="md-caption">{{"4 logros"}}</small></span>
+
             </h4>
+
         </div>
 
         <div id="{{periodo.targetid}}" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
@@ -40,6 +40,7 @@
         </md-button>
     </span>
 </div>
+
 <!-- Modales de Contenido-->
 <modal-new-logro></modal-new-logro>
 <modal-add-evaluaciones></modal-add-evaluaciones>
