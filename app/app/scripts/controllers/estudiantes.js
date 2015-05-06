@@ -17,8 +17,16 @@ function Dialogasistencia($scope, $mdDialog) {
 }
 
 angular.module('Dirapp')
-  .controller('EstudiantesCtrl', function ($scope, $mdSidenav, $mdDialog, $mdToast, $stateParams, Docente) {
+  .controller('EstudiantesCtrl', function ($scope, $mdSidenav, $mdDialog, $mdToast, $stateParams, Docente, $state) {
     'use strict';
+
+    $scope.$on('$viewContentLoaded', 
+        function(event){                
+            if ($state.current.url == '/Estudiantes') {
+                $state.go('Docente.Estudiantes.lista')
+            };
+        }
+    );
 
     $scope.checked = true; // variable que inabilita el form
     $scope.asist = true;

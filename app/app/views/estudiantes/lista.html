@@ -1,0 +1,45 @@
+<div layout="column" layout-padding ng-controller="EstudiantesCtrl" layout-fill>
+    <div>
+        <md-input-container class="col-md-7">
+            <label>buscar</label>
+            <input ng-model="search">
+        </md-input-container>
+
+        <md-switch class="col-md-3" ng-model="asist" ng-click="asisToast()" aria-label="Asistencia" ng-true-value="false" ng-false-value="true">
+            <div>Asistencia</div>
+            <md-tooltip hide-sm>Activar Asistencia</md-tooltip>
+        </md-switch>
+    </div>
+   <!-- lista de estudiantes-->
+    <div layout="row">
+        <md-list flex="100" style="margin-bottom:34px">
+            <md-list-item class="md-whiteframe-z1 md-2-line itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
+                <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" />
+                <div  class="md-list-item-text" ng-click="showStudentProfile($event, estudiante.id_estudiante)">
+                    <h3>{{estudiante.nombre}} {{estudiante.apellido}}</h3>
+                    <small>{{estudiante.tipo_identificacion}} : {{estudiante.id_estudiante}}</small>
+                </div>
+                <!-- Grupo de botones para gestionar la toma de asistencias -->
+                <div  class="btn-group md-secondary listbtn" >
+                    <label ng-disabled="asist" class="btn btn-default btn-green btn-sm" ng-class="{active: estudiante.asistencia == 'si'}">
+                        <input class="radio"  type="radio" ng-model="estudiante.asistencia"  value="si" >
+                        <i class="fa fa-check fa-lg"></i>
+                    </label>
+
+                    <label ng-disabled="asist" class="btn btn-default btn-red btn-sm" ng-class="{active: estudiante.asistencia == 'no'}">
+                        <input class="radio" type="radio" ng-model="estudiante.asistencia" value="no" >
+                        <i class="fa fa-times fa-lg"></i>
+                    </label>
+                </div>
+            </md-list-item>
+        </md-list>
+
+        <!-- Boton para envío de asistencia al servidor  -->
+
+        <md-button ng-show="!asist" flex class="pluss md-fab md-primary" md-theme="" aria-label="Profile" ng-click="save($event)">
+            <md-tooltip hide-sm>Enviar asistencia</md-tooltip>
+            <i class="fa fa-paper-plane fa-lg"></i>
+        </md-button>
+    </div>
+<!--  <pre>{{estudiantes | json}}</pre> -->
+</div>

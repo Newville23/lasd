@@ -76,10 +76,19 @@ angular.module('CDapp',[
         url: "/Trabajos",
         template: "<h3>Espacio Trabajos<h3/>",
     })
+
     // Segundo anillo
-    .state('Docente.Estudiantes.stat', {
-        url: "/home",
-        template: "<h3>Espacio Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quod quidem quia fugit omnis dicta. Debitis, reiciendis tempora velit nesciunt non odio accusantium et iusto pariatur, voluptatum saepe quisquam recusandae error. Trabajos<h3/>",
+    .state('Docente.Estudiantes.lista', {
+        url: "/lista",
+        templateUrl: "views/estudiantes/lista.html",
+    })
+    .state('Docente.Estudiantes.asistencia', {
+        url: "/asistencia",
+        templateUrl: "views/estudiantes/asistencia.html",
+    })
+    .state('Docente.Estudiantes.calificaciones', {
+        url: "/calificaciones",
+        template: "<h2>Con esta melodía tu color tu fantasía, con tu filosofía mi cabeza está vacía... ya no puedo masss<h2/>",
     })
 })
 .controller('soloDatosCtrl',['$http','$scope','$mdSidenav','$timeout', '$mdBottomSheet','Datos', '$location', 'Usuario', 'Docente', function ($http,$scope,$mdSidenav,$timeout,$mdBottomSheet,Datos, $location, Usuario, Docente){

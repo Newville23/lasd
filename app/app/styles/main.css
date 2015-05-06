@@ -274,6 +274,10 @@ h5{
 .nav-pills-only>li>a {
   color: gray;
 }
+.nav-clear>li {
+  float: left;
+  margin-bottom: -1px;
+}
 
 .md-list-item-text:focus {
   outline: none;

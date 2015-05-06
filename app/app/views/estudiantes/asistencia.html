@@ -1,0 +1,8 @@
+<div layout="row" layout-margin layout-align="center center">
+        <md-list flex="100" style="margin-bottom:34px">
+            <md-list-item class="md-whiteframe-z1 itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
+                <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" />
+                <p>{{estudiante.nombre}} {{estudiante.apellido}}</p>
+            </md-list-item>
+        </md-list>
+</div>
