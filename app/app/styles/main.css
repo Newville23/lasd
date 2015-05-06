@@ -308,3 +308,26 @@ h5{
   box-shadow: none;
   border-bottom: 2px solid rgb(63, 81, 181) !important;
 }
+
+.progress-min {
+  height: 8px;
+  border-radius: 1px;
+}
+.progress-success{
+  background-color: rgba(92, 184, 92, 0.25);
+}
+.progress-warning{
+  background-color: rgba(240, 173, 78, 0.27);
+}
+.progress-dart{
+  background-color: rgba(152, 186, 214, 0.25);
+}
+.progress-bar-dart {
+  background-color: #CBCBCB;
+}
+.language-color {
+  display: inline-block;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+}
