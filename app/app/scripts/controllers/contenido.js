@@ -110,4 +110,23 @@ angular.module('Dirapp')
             }, 500);
         });
     };
+}])
+.controller('estudianteAsistenciaListCtrl', ['$scope', function ($scope) {
+    var x,y,top,left,down;
+
+    $("#stuff").mousedown(function(e){
+        e.preventDefault();
+        down=true;
+        x=e.pageX;
+        left=$(this).scrollLeft();
+    });
+
+    $("#stuff").mousemove(function(e){
+        if(down){
+            var newX=e.pageX;
+            $("#stuff").scrollLeft(left-newX+x);    
+        }
+    });
+
+    $("#stuff").mouseup(function(e){down=false;});
 }]);

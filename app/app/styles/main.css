@@ -335,3 +335,14 @@ h5{
   height: 12px;
   border-radius: 50%;
 }
+.asistencia-color {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+.dragging {
+  cursor: -webkit-grab;
+  cursor: -moz-grab;
+  cursor: grab;
+}

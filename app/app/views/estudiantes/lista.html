@@ -16,7 +16,7 @@
             <md-list-item class="md-whiteframe-z1 md-2-line itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
                 <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" />
                 <div  class="md-list-item-text" ng-click="showStudentProfile($event, estudiante.id_estudiante)">
-                    <h3>{{estudiante.nombre}} {{estudiante.apellido}}</h3>
+                    <h3 class="text-capitalize">{{estudiante.nombre}} {{estudiante.apellido}}</h3>
                     <small>{{estudiante.tipo_identificacion}} : {{estudiante.id_estudiante}}</small>
                 </div>
                 <!-- Grupo de botones para gestionar la toma de asistencias -->
