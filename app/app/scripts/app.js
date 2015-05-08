@@ -42,16 +42,6 @@ angular.module('CDapp',[
         templateUrl: "views/landing/index.html",
         controller: "LandingCtrl"
     })
-    .state('Test', {
-        url: "/test",
-        template: "<h1>test</h1>",
-        controller: 'testCotroller'
-    })
-    .state('Test2', {
-        url: "/test2",
-        template: "<h1>test2</h1>",
-        controller: 'test2Cotroller'
-    })
 
     // estados anidaddos
     .state('Docente.Contenido', {
@@ -62,10 +52,6 @@ angular.module('CDapp',[
     .state('Docente.Evaluaciones', {
         url: "/Evaluaciones",
         templateUrl: "views/Evaluaciones.html",
-    })
-    .state('Docente.Foro', {
-        url: "/Foro",
-        template: "<h3>Espacio Foro<h3/>"
     })
     .state('Docente.Estudiantes', {
         url: "/Estudiantes",

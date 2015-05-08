@@ -16,7 +16,7 @@
                     </md-input-container>
                 </div>
 
-                <div style="overflow-x: auto;" id="stuff">
+                <div style="overflow-x: auto;" id="stuff" class="dragging">
                     <md-list-item layout="row" layout="fill">
                         <div flex-sm="15" flex-md="15" flex-gt-md="5"></div>
                         <div flex-sm="60" flex-md="45" flex-gt-md="25"></div>
@@ -57,7 +57,7 @@
                         <md-divider ng-if="!$last"></md-divider>
                     </md-list-item>         
                     
-                    <md-list-item layout="row" class="dragging" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
+                    <md-list-item layout="row"  ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
                         <div flex-sm="15" flex-md="15" flex-gt-md="5">
                             <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" style="width:35px" />
                         </div>
