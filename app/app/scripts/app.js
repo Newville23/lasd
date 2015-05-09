@@ -77,8 +77,9 @@ angular.module('CDapp',[
         template: "<h2>Con esta melodía tu color tu fantasía, con tu filosofía mi cabeza está vacía... ya no puedo masss<h2/>",
     })
 })
-.controller('soloDatosCtrl',['$http','$scope','$mdSidenav','$timeout', '$mdBottomSheet','Datos', '$location', 'Usuario', 'Docente', function ($http,$scope,$mdSidenav,$timeout,$mdBottomSheet,Datos, $location, Usuario, Docente){
+.controller('soloDatosCtrl',['$scope','$mdSidenav', '$location', 'Usuario', 'Docente', '$state', function ($scope,$mdSidenav, $location, Usuario, Docente, $state){
     // Valida que la sesion haya iniciado
+
     Usuario.login.get(function (data) {
         if (data.login == false) {
             $location.path("/login");
@@ -91,7 +92,11 @@ angular.module('CDapp',[
         console.log(data);
     });
 
-
+    var currentIdClase = $state.params.idclase;
+    $scope.routeChangeClass = function (idClass) {
+        var next = location.hash.split(currentIdClase)[1];
+        return '#/Docente/' + idClass + next;
+    }
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
