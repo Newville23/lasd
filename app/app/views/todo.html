@@ -8,8 +8,8 @@
         </div>
     </md-toolbar>
     <md-content  class="md-padding" layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
-        <md-button flex ng-click = "close()" ng-repeat="clase in clases" class="md-raised md-primary" ng-href="{{routeChangeClass(clase.id_clase)}}">
-            <strong>{{clase.nombre_curso}}{{clase.indice}}</strong>
+        <md-button ui-sref-active="active" flex ng-click = "close()" ng-repeat="clase in clases" class="md-raised md-primary" ng-href="{{routeChangeClass(clase.id_clase)}}">
+            <strong>{{clase.nombre_curso}}{{clase.indice}}</strong><a ui-sref="Docente({idclase:clase.id_clase})"></a>
             <small>{{clase.materia}}</small>
         </md-button>
     </md-content>

@@ -346,3 +346,8 @@ h5{
   cursor: -moz-grab;
   cursor: grab;
 }
+
+a.md-button.active {
+  color: rgba(255,255,255,0.87) !important;
+  background-color: rgb(48, 60, 126) !important;
+}
