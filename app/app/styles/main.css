@@ -357,3 +357,15 @@ a.md-button.active {
   color: rgba(255,255,255,0.87) !important;
   background-color: rgb(48, 60, 126) !important;
 }
+
+.hover-card {
+  transition:All 0.5s ease;
+  -webkit-transition:All 0.5s ease;
+  -moz-transition:All 0.5s ease;
+}
+.hover-card:hover{
+  /*box-shadow: 0 1px 6px rgba(92, 184, 92, 1),0 0 0 1px rgba(0,0,0,0.06);*/
+  /*box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2), 0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
+  box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2), 0px 6px 10px 0px rgba(0, 0, 0, 0.14), 0px 1px 18px 0px rgba(0, 0, 0, 0.12);*/
+  box-shadow: 0px 5px 5px -3px rgba(0, 0, 0, 0.2), 0px 8px 10px 1px rgba(0, 0, 0, 0.14), 0px 3px 14px 2px rgba(0, 0, 0, 0.12);
+}

@@ -29,7 +29,7 @@ angular.module('CDapp',[
     // Rol de Doncente que cuenta con un parametro para cada clase
     .state('Home', {
         url: "/Docente/",
-        template: "hola",
+        templateUrl: "views/home.html",
         controller: "soloDatosCtrl"
     })
     .state('Docente',{
