@@ -326,8 +326,14 @@ h5{
 .progress-dart{
   background-color: rgba(152, 186, 214, 0.25);
 }
+.progress-info-cool{
+  background-color: rgba(0, 171, 222, 0.25);
+}
 .progress-bar-dart {
   background-color: #CBCBCB;
+}
+.progress-bar-info-cool {
+    background-color: #00ABDE;
 }
 .language-color {
   display: inline-block;

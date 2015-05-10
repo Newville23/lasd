@@ -1,44 +1,76 @@
  <!-- este es el sidenav left (barra de la izquierda) abierto por defecto -->
- <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
-    <md-toolbar  md-theme="top">
-        <div class="md-toolbar-tools" ng-click = "close()">
-            <a  class="navbar-brand" href="#/Docente" style="color:#144c87; font-size:1.6em; margin-left: 50px">
-                <img class="site-logo" ng-src="images/flugels.png">Flügel
-            </a>
-        </div>
-    </md-toolbar>
-    <md-content  class="md-padding" layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
-        <md-button ui-sref-active="active" flex ng-click = "close()" ng-repeat="clase in clases" class="md-raised md-primary" ng-href="{{routeChangeClass(clase.id_clase)}}">
-            <strong>{{clase.nombre_curso}}{{clase.indice}}</strong><a ui-sref="Docente({idclase:clase.id_clase})"></a>
-            <small>{{clase.materia}}</small>
-        </md-button>
-    </md-content>
-</md-sidenav>
+ <div layout="row" flex>
 
-<md-content flex class="board">
-	<md-toolbar md-theme="top" layout="row" class="md-whiteframe-z2">
-	    <div class="md-toolbar-tools">
-            <nav-tab flex-sm="65" flex-gt-sm="80"></nav-tab>
-            <div flex>
-                <div layout="row" layout-align="end center" ng-controller="logoutCtrl">
-                    <div class="dropdown">
-                        <md-button class="md-fab md-mini" aria-label="Favorite" data-toggle="dropdown">
-                            <i class="fa fa-user fa-lg"></i>
-                        </md-button>
-                        <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-user"></i> Perfil</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-cog"></i> Configuración</a></li>
-                            <li role="presentation" class="divider"></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-question-circle"></i> Ayuda</a></li>
-                            <li role="presentation" class="divider"></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="logout()"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
-                        </ul>
-                    </div>
+    <div layout="column" flex>
+        <md-toolbar md-theme="top" class="md-whiteframe-z2">
+            <div class="md-toolbar-tools">
+              
+                <nav-tab flex-sm="65" flex-gt-sm="90"></nav-tab>
+
+                <div flex-sm="35" flex layout="row" layout-align="end center" ng-controller="logoutCtrl">
+                          <div class="dropdown">
+                              <md-button class="md-fab md-mini" aria-label="Favorite" data-toggle="dropdown">
+                                  <i class="fa fa-user fa-lg"></i>
+                              </md-button>
+                              <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-user"></i> Perfil</a></li>
+                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-cog"></i> Configuración</a></li>
+                                  <li role="presentation" class="divider"></li>
+                                  <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-question-circle"></i> Ayuda</a></li>
+                                  <li role="presentation" class="divider"></li>
+                                  <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="logout()"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
+                              </ul>
+                          </div>
                 </div>
+
             </div>
+        </md-toolbar>
 
-	    </div>
-	</md-toolbar>
+          <div layout="row" flex>
 
-	<div  ui-view class="board"  layout="column"></div>
-</md-content>
+             <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')" >
+                <md-toolbar hide-gt-sm md-theme="top">
+                    <div class="md-toolbar-tools" ng-click = "close()">
+                        <a  class="navbar-brand" href="#/Docente" style="color:#144c87; font-size:1.6em; margin-left: 50px">
+                            <img class="site-logo" ng-src="images/flugels.png">Flügel
+                        </a>
+                    </div>
+                </md-toolbar>
+                <md-content  class="md-padding" layout="column">    <!-- aca de deine el parametro en la url con cada tab-->
+                    <md-button ui-sref-active="active" flex ng-click = "close()" ng-repeat="clase in clases" class="md-raised md-primary" ng-href="{{routeChangeClass(clase.id_clase)}}">
+                        <strong>{{clase.nombre_curso}}{{clase.indice}}</strong><a ui-sref="Docente({idclase:clase.id_clase})"></a>
+                        <small>{{clase.materia}}</small>
+                    </md-button>
+                </md-content>
+            </md-sidenav>
+
+            <md-content flex class="board">
+            	<!-- <md-toolbar md-theme="top" layout="row" class="md-whiteframe-z2">
+            	    <div class="md-toolbar-tools">
+                        <nav-tab flex-sm="65" flex-gt-sm="80"></nav-tab>
+                        <div flex>
+                            <div layout="row" layout-align="end center" ng-controller="logoutCtrl">
+                                <div class="dropdown">
+                                    <md-button class="md-fab md-mini" aria-label="Favorite" data-toggle="dropdown">
+                                        <i class="fa fa-user fa-lg"></i>
+                                    </md-button>
+                                    <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-user"></i> Perfil</a></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-cog"></i> Configuración</a></li>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-question-circle"></i> Ayuda</a></li>
+                                        <li role="presentation" class="divider"></li>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="logout()"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+
+            	    </div>
+            	</md-toolbar> -->
+
+            	<div  ui-view class="board"  layout="column"></div>
+            </md-content>
+        </div>
+    </div>
+</div>

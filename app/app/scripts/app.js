@@ -29,7 +29,7 @@ angular.module('CDapp',[
     // Rol de Doncente que cuenta con un parametro para cada clase
     .state('Home', {
         url: "/Docente/",
-        templateUrl: "views/todo.html",
+        template: "hola",
         controller: "soloDatosCtrl"
     })
     .state('Docente',{
@@ -94,8 +94,8 @@ angular.module('CDapp',[
 
     var currentIdClase = $state.params.idclase;
     $scope.routeChangeClass = function (idClass) {
-        var next = location.hash.split(currentIdClase)[1];
-        return '#/Docente/' + idClass + next;
+        var splitUrl = location.hash.split(currentIdClase);
+        return splitUrl[0] + idClass + splitUrl[1];
     }
 
     $scope.toggleSidenav = function(menuId) {
@@ -103,7 +103,7 @@ angular.module('CDapp',[
     };
 
     $scope.close = function() {
-     $mdSidenav('left').close();
+        $mdSidenav('left').close();
     };
 
     $scope.examenNotas = function(examen){
