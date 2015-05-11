@@ -1,22 +1,26 @@
 <div layout="column" layout-padding ng-controller="EstudiantesCtrl" layout-fill>
-    <div>
-        <md-input-container class="col-md-7">
-            <label>buscar</label>
+    <md-card layout="row" layout-sm="column" layout-padding>
+        <md-input-container flex>
+            <label><i class="fa fa-search fa-lg"></i> buscar estudiantes</label>
             <input ng-model="search">
         </md-input-container>
-
-        <md-switch class="col-md-3" ng-model="asist" ng-click="asisToast()" aria-label="Asistencia" ng-true-value="false" ng-false-value="true">
-            <div>Asistencia</div>
-            <md-tooltip hide-sm>Activar Asistencia</md-tooltip>
+        <md-switch flex ng-model="asist" ng-click="asisToast()" aria-label="Asistencia" ng-true-value="false" ng-false-value="true">
+            <div>Activar asistencia</div>
         </md-switch>
-    </div>
+    </md-card>
    <!-- lista de estudiantes-->
-    <div layout="row">
-        <md-list flex="100" style="margin-bottom:34px">
-            <md-list-item class="md-whiteframe-z1 md-2-line itemList" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
+    <md-card ng-hide="estudiantes.length">
+       <md-card-content ng-hide="estudiantes.length || 0">
+           <h3 class="md-title">Esta clase aún no tiene estudiantes.</h3>
+       <md-card-content>
+    </md-card>
+
+    <md-card layout="row" ng-show="estudiantes.length">
+        <md-list flex="100">
+            <md-list-item class="md-2-line" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
                 <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" />
-                <div  class="md-list-item-text" ng-click="showStudentProfile($event, estudiante.id_estudiante)">
-                    <h3 class="text-capitalize">{{estudiante.nombre}} {{estudiante.apellido}}</h3>
+                <div  class="md-list-item-text">
+                    <h3><a ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">{{estudiante.nombre}} {{estudiante.apellido}}</a></h3>
                     <small>{{estudiante.tipo_identificacion}} : {{estudiante.id_estudiante}}</small>
                 </div>
                 <!-- Grupo de botones para gestionar la toma de asistencias -->
@@ -31,6 +35,7 @@
                         <i class="fa fa-times fa-lg"></i>
                     </label>
                 </div>
+                <md-divider ng-if="!$last"></md-divider>
             </md-list-item>
         </md-list>
 
@@ -40,6 +45,6 @@
             <md-tooltip hide-sm>Enviar asistencia</md-tooltip>
             <i class="fa fa-paper-plane fa-lg"></i>
         </md-button>
-    </div>
+    </md-card>
 <!--  <pre>{{estudiantes | json}}</pre> -->
 </div>

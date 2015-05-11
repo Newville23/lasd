@@ -74,7 +74,7 @@ angular.module('CDapp',[
     })
     .state('Docente.Estudiantes.calificaciones', {
         url: "/calificaciones",
-        template: "<h2>Con esta melodía tu color tu fantasía, con tu filosofía mi cabeza está vacía... ya no puedo masss<h2/>",
+        templateUrl: "views/estudiantes/calificaciones.html",
     })
 })
 .controller('soloDatosCtrl',['$scope','$mdSidenav', '$location', 'Usuario', 'Docente', '$state', function ($scope,$mdSidenav, $location, Usuario, Docente, $state){
