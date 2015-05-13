@@ -1,5 +1,5 @@
 <div layout="column" layout-margin layout-fill ng-controller="estudianteAsistenciaListCtrl">
-        <md-list style="margin-bottom:34px;" >
+        
             <md-card ng-show="estudiantes.length">
 
                 <div layout="row" layout-sm="column" layout-padding>
@@ -16,8 +16,8 @@
                     </md-input-container>
                 </div>
 
-                <div style="overflow-x: auto;" id="stuff" class="dragging">
-
+                <div style="overflow-x: scroll;" id="stuff" class="dragging">
+                    <md-list>
                     <md-list-item layout="row" layout="fill">
                         <div flex-sm="15" flex-md="15" flex-gt-md="5"></div>
                         <div flex-sm="60" flex-md="45" flex-gt-md="25"></div>
@@ -100,6 +100,7 @@
                         </div>
                         <md-divider ng-if="!$last"></md-divider>
                     </md-list-item>
+                    </md-list>
                 </div>
             </md-card>
 
@@ -108,5 +109,5 @@
                     <h3 class="md-title">Esta clase aún no tiene estudiantes.</h3>
                 <md-card-content>
             </md-card>
-        </md-list>
+        
 </div>

@@ -1,57 +1,70 @@
-<div layout="column" layout-margin layout-fill ng-controller="estudianteAsistenciaListCtrl">
-        <md-list style="margin-bottom:34px;" >
-            <md-card ng-show="estudiantes.length">
+<div layout="column" layout-fill ng-controller="estudianteAsistenciaListCtrl">
+    <div layout="row" layout-sm="column" layout-wrap>
+        <div flex="35" flex-md="100" flex-sm="100">
+            <md-card >
+                    <md-list>
+                        <md-list-item class="md-3-line active" >
+                            <div class="md-list-item-text text-capitalize">
+                                <h3>
+                                    <span class="badge" style="background:#E0E0E0;color: #424242;">{{'12'}}%</span>
+                                    {{'evaluacion.tipo_evaluacion'}}
+                                </h3>
+                                <p style="width:80%;"><strong>Concepto: </strong>{{'evaluacion.concepto'}}</p>
+                            </div>
+                            <md-divider ng-if="!$last"></md-divider>
+                        </md-list-item>
 
+                        <md-list-item class="md-3-line" >
+                            <div class="md-list-item-text text-capitalize">
+                                <h3>
+                                    <span class="badge" style="background:#E0E0E0;color: #424242;">{{'25'}}%</span>
+                                    {{'evaluacion.tipo_evaluacion 2'}}
+                                </h3>
+                                <p style="width:80%;"><strong>Concepto: </strong>{{'evaluacion.concepto'}}</p>
+                            </div>
+                            <md-divider ng-if="!$last"></md-divider>
+                        </md-list-item>
+                    </md-list>
+            </md-card>
+        </div>
+    
+        <div flex="65" flex-md="100" flex-sm="100" layout="column">
+            <md-card>
+                    <md-card-content layout="row" class="text-center">
+                        <div flex="25">
+                            <h3  style="margin: 0">3.5</h3>
+                            <small>Nota promedio</small>
+                        </div>
+                        <div flex="25">
+                            <h3 style="margin: 0">3.8</h3>
+                            <small>Nota del curso</small>
+                        </div>
+                        <div flex="25">
+                            <h3 style="margin: 0">4.8</h3>
+                            <small>Nota máxima</small>
+                        </div>
+                        <div flex="25">
+                            <h3 style="margin: 0">2.1</h3>
+                            <small>Nota mínima</small>
+                        </div>
+                    <md-card-content>
+            </md-card>
+
+            <md-card ng-show="estudiantes.length">
                 <div layout="row" layout-sm="column" layout-padding>
                     <md-input-container flex-sm="100" flex-gt-sm="50">
-                        <label>Buscar estudiante</label>
+                        <label><i class="fa fa-search fa-lg"></i> Buscar estudiante</label>
                         <input type="text" ng-model="search">
                     </md-input-container>
-
-                    <md-input-container flex-sm="100" flex-gt-sm="50">
-                        <md-select placeholder="Pick" ng-model="someVal">
-                            <md-option value="1">One</md-option>
-                            <md-option value="2">Two</md-option>
-                        </md-select>
-                    </md-input-container>
                 </div>
-
-                <div style="overflow-x: auto;" id="stuff" class="dragging">
-
+                <md-list>
                     <md-list-item layout="row" layout="fill">
                         <div flex-sm="15" flex-md="15" flex-gt-md="5"></div>
                         <div flex-sm="60" flex-md="45" flex-gt-md="25"></div>
-                        <div flex-sm="100" flex-md="100" flex-gt-md="70">
+                        <div flex-sm="25" flex-md="40" flex-gt-md="70">
                             <div layout="row" layout-fill>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">1</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">2</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">3</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">4</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">5</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">6</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">7</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">8</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">9</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">10</small>
+                                <div flex layout="row" layout-align="center center">
+                                    <small class="text-muted">Nota</small>
                                 </div>
                             </div>
                         </div>
@@ -62,51 +75,25 @@
                         <div flex-sm="15" flex-md="15" flex-gt-md="5">
                             <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" style="width:35px" />
                         </div>
-                        <div flex-sm="60" flex-md="45" flex-gt-md="25" style="padding-left:15px"><a href ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">{{estudiante.nombre}} {{estudiante.apellido}}</a href ></div>
-                        <div flex-sm="100" flex-md="100" flex-gt-md="70">
+                        <div flex-sm="60" flex-md="45" flex-gt-md="25" style="padding-left:15px"><a href ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">{{estudiante.nombre}} {{estudiante.apellido}}</a href >
+                        </div>
+                        <div flex-sm="25" flex-md="40" flex-gt-md="70">
                             <div layout="row" layout-fill>
-                                <div flex layout="row" layout-fill layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-fill layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color btn-danger"></div>
-                                </div>
-
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color btn-danger"></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
+                                <div flex layout="row" layout-fill layout-align="center center">
+                                    <div class="calificacion-color" style="background-color:rgba(92, 184, 92, 0.25);" >{{'3.9'}}</div>
                                 </div>
                             </div>
                         </div>
                         <md-divider ng-if="!$last"></md-divider>
                     </md-list-item>
-                </div>
+                </md-list>
             </md-card>
-
-            <md-card ng-hide="estudiantes.length">
-                <md-card-content>
-                    <h3 class="md-title">Esta clase aún no tiene estudiantes.</h3>
-                <md-card-content>
-            </md-card>
-        </md-list>
+        </div>
+    </div>
+    <md-card ng-hide="estudiantes.length">
+        <md-card-content>
+            <h3 class="md-title">Esta clase aún no tiene estudiantes.</h3>
+        <md-card-content>
+    </md-card>
+        
 </div>

@@ -346,6 +346,14 @@ h5{
   height: 10px;
   border-radius: 50%;
 }
+.calificacion-color {
+  display: inline-block;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  padding: 6px;
+  text-align: center;
+}
 .dragging {
   cursor: -webkit-grab;
   cursor: -moz-grab;
