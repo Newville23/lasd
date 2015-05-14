@@ -15,7 +15,7 @@
        <md-card-content>
     </md-card>
 
-    <md-card layout="row" ng-show="estudiantes.length">
+    <md-card layout="row" ng-show="estudiantes.length" style="margin-bottom: 75px">
         <md-list flex="100">
             <md-list-item class="md-2-line" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
                 <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" />

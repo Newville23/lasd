@@ -1,5 +1,5 @@
 <div layout="column" layout-fill ng-controller="estudianteAsistenciaListCtrl">
-    <div layout="row" layout-sm="column" layout-wrap>
+    <div layout="row"  layout-wrap layout-fill>
         <div flex="35" flex-md="100" flex-sm="100">
             <md-card >
                     <md-list>
@@ -28,29 +28,27 @@
             </md-card>
         </div>
     
-        <div flex="65" flex-md="100" flex-sm="100" layout="column">
-            <md-card>
-                    <md-card-content layout="row" class="text-center">
-                        <div flex="25">
+        <div flex="65" flex-md="100" flex-sm="100">
+            <md-card  layout="row" layout-padding layout-align="center center">
+                        <div flex class="text-center">
                             <h3  style="margin: 0">3.5</h3>
                             <small>Nota promedio</small>
                         </div>
-                        <div flex="25">
+                        <div flex class="text-center">
                             <h3 style="margin: 0">3.8</h3>
                             <small>Nota del curso</small>
                         </div>
-                        <div flex="25">
+                        <div flex class="text-center">
                             <h3 style="margin: 0">4.8</h3>
                             <small>Nota máxima</small>
                         </div>
-                        <div flex="25">
+                        <div flex class="text-center">
                             <h3 style="margin: 0">2.1</h3>
                             <small>Nota mínima</small>
                         </div>
-                    <md-card-content>
             </md-card>
 
-            <md-card ng-show="estudiantes.length">
+            <md-card flex ng-show="estudiantes.length">
                 <div layout="row" layout-sm="column" layout-padding>
                     <md-input-container flex-sm="100" flex-gt-sm="50">
                         <label><i class="fa fa-search fa-lg"></i> Buscar estudiante</label>
@@ -90,10 +88,11 @@
             </md-card>
         </div>
     </div>
-    <md-card ng-hide="estudiantes.length">
-        <md-card-content>
-            <h3 class="md-title">Esta clase aún no tiene estudiantes.</h3>
-        <md-card-content>
-    </md-card>
-        
+    <div>
+        <md-card ng-hide="estudiantes.length">
+            <md-card-content>
+                <h3 class="md-title">Esta clase aún no tiene estudiantes.</h3>
+            <md-card-content>
+        </md-card>
+    </div>
 </div>

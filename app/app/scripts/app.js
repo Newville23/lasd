@@ -71,6 +71,7 @@ angular.module('CDapp',[
     .state('Docente.Estudiantes.asistencia', {
         url: "/asistencia",
         templateUrl: "views/estudiantes/asistencia.html",
+        controller: 'CalificacionCtrl'
     })
     .state('Docente.Estudiantes.calificaciones', {
         url: "/calificaciones",
@@ -78,8 +79,8 @@ angular.module('CDapp',[
     })
 })
 .controller('soloDatosCtrl',['$scope','$mdSidenav', '$location', 'Usuario', 'Docente', '$state', function ($scope,$mdSidenav, $location, Usuario, Docente, $state){
+    moment.locale('es');
     // Valida que la sesion haya iniciado
-
     Usuario.login.get(function (data) {
         if (data.login == false) {
             $location.path("/login");

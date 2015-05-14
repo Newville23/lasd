@@ -1,10 +1,11 @@
 <div layout="row" layout-gt-sm="column" layout-fill layout-wrap style="z-index: 1083" layout-align="center">
 	<md-dialog aria-label="Login" flex-sm="100" offset-gt-sm="33" flex-gt-sm="50" style="overflow-y: visible;" class="modal-content">
-				<div >
-					<div class="modal-header">
-						<button type="button" class="close" ng-click="cancel()"><i class="fa fa-times"></i></button>
-						<h4 class="modal-title text-center">Iniciar sesión</h4>
-					</div>
+				
+				<div class="modal-header">
+					<button type="button" class="close" ng-click="cancel()"><i class="fa fa-times"></i></button>
+					<h4 class="modal-title text-center">Iniciar sesión</h4>
+				</div>
+				<md-dialog-content>
 					<div class="modal-body">
 						<div id="errorvalidation2" class="hidden">
 	                        <div class="alert alert-danger">
@@ -25,6 +26,6 @@
 							</form>
 						</div>
 					</div>
-				</div><!-- /.modal-content -->
+				</md-dialog-content><!-- /.modal-content -->
 	</md-dialog>
 </div>

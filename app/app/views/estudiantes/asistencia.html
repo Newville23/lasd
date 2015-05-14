@@ -9,9 +9,8 @@
                     </md-input-container>
 
                     <md-input-container flex-sm="100" flex-gt-sm="50">
-                        <md-select placeholder="Pick" ng-model="someVal">
-                            <md-option value="1">One</md-option>
-                            <md-option value="2">Two</md-option>
+                        <md-select placeholder="Fecha" ng-model="mesSeleccionado" ng-change="getFechaasistecia(mesSeleccionado)">
+                            <md-option ng-repeat="mes in meses" class="text-capitalize" value="{{mes[1]}}">{{mes[0]}}</md-option>
                         </md-select>
                     </md-input-container>
                 </div>
@@ -23,35 +22,8 @@
                         <div flex-sm="60" flex-md="45" flex-gt-md="25"></div>
                         <div flex-sm="100" flex-md="100" flex-gt-md="70">
                             <div layout="row" layout-fill>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">1</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">2</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">3</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">4</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">5</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">6</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">7</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">8</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">9</small>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <small class="text-muted">10</small>
+                                <div ng-repeat="fecha in fechas" flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
+                                    <small class="text-muted">{{fecha | date:'dd'}}</small>
                                 </div>
                             </div>
                         </div>
@@ -65,36 +37,9 @@
                         <div flex-sm="60" flex-md="45" flex-gt-md="25" style="padding-left:15px"><a href ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">{{estudiante.nombre}} {{estudiante.apellido}}</a href ></div>
                         <div flex-sm="100" flex-md="100" flex-gt-md="70">
                             <div layout="row" layout-fill>
-                                <div flex layout="row" layout-fill layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-fill layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color btn-danger"></div>
-                                </div>
-
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color btn-danger"></div>
-                                </div>
-                                <div flex layout="row" layout-align="center center" style="border-left:solid 1px #ddd;">
-                                    <div class="asistencia-color" style="background-color:rgba(92, 184, 92, 0.5);" ></div>
+                                
+                                <div ng-repeat="asistencia in asistencias[estudiante.id_estudiante]" flex layout="row" layout-fill layout-align="center center" style="border-left:solid 1px #ddd;">
+                                    <div class="asistencia-color {{asistencia.Asistencia}}-color"></div>
                                 </div>
                             </div>
                         </div>

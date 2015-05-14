@@ -68,6 +68,7 @@ module.exports = function(app, pool) {
 
     app.get(version + '/docente/estudiante.json', estudiante.getEstudiantes);
 
+    app.get(version + '/docente/asistencia.json', estudiante.getAsistencia);
     app.post(version + '/docente/asistencia.json', estudiante.postAsistencia);
 
     app.get(version + '/docente/datos.json', usuario.datos);
@@ -693,6 +694,23 @@ function Estudiante (pool) {
                     });
                 });
             });
+        });
+    }
+
+    this.getAsistencia = function(req, res){
+        'use strict';
+        var fecha_inicial = req.query.fechainicial || null;
+        var fecha_final = req.query.fechafinal || null;
+        var id_clase = req.query.idclase || null;
+
+        if (!fecha_inicial || !fecha_final || !id_clase) {
+            return res.status(400).json({status: '400', msg: "Falta especificar parametros GET"});
+        };
+
+        var query = "SELECT * FROM Asistencia where Clase_numero = ? and cast(datetime_creacion as date) BETWEEN ? AND ?";
+        pool.query(query, [id_clase, fecha_inicial, fecha_final] , function(err, rows, fields) {
+            if (err){res.status(500).json({status: '500', err: err});return;}
+            res.json(rows);
         });
     }
 

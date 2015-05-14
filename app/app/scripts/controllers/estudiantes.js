@@ -121,6 +121,36 @@ angular.module('Dirapp')
     });
 
     $("#stuff").mouseup(function(e){down=false;});
+}])
+.controller('CalificacionCtrl', ['$scope', '$stateParams', 'Docente', function($scope, $stateParams, Docente){
+
+    $scope.idClase = $stateParams.idclase;
+    Docente.estudiantes.query({idclase: $scope.idClase}, function(data){
+        $scope.estudiantes = data;
+
+        Docente.asistencia.query({idclase: $scope.idClase, fechainicial: '2015-05-08', fechafinal: '2015-05-14'}, function(asistencia){
+            $scope.asistencias = _.groupBy(asistencia, 'Estudiante_identificacion');
+            $scope.fechas = _.keys(_.indexBy(asistencia, 'fecha'));
+        });
+
+    }, function(data){      
+        console.log(data); // Error
+    });
+
+
+    $scope.meses = [];
+    for (var i = 0; i <= moment().month(); i++) {
+        $scope.meses.push([moment().month(i).format("MMMM"), i+1]);
+    }
+    console.log($scope.meses);
+
+
+    $scope.getFechaasistecia = function(mes){
+        console.log(mes);
+    };
+
+
+    
 }]);
 
 //Controlador del perfil del estudiante

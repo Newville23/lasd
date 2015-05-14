@@ -346,6 +346,14 @@ h5{
   height: 10px;
   border-radius: 50%;
 }
+
+.si-color {
+  background-color:rgba(92, 184, 92, 0.5);
+}
+.no-color {
+  background-color: #d43f3a;
+}
+
 .calificacion-color {
   display: inline-block;
   width: 32px;
