@@ -34,10 +34,13 @@
                         <div flex-sm="15" flex-md="15" flex-gt-md="5">
                             <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" style="width:35px" />
                         </div>
-                        <div flex-sm="60" flex-md="45" flex-gt-md="25" style="padding-left:15px"><a href ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">{{estudiante.nombre}} {{estudiante.apellido}}</a href ></div>
+                        <div flex-sm="60" flex-md="45" flex-gt-md="25" style="padding-left:15px">
+                            <a href ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">{{estudiante.nombre}} {{estudiante.apellido}}</a>
+                            <div><small>Inasistencias: {{getCountAsis(asistencias[estudiante.id_estudiante]).no || 0}}</small></div>
+                        </div>
+
                         <div flex-sm="100" flex-md="100" flex-gt-md="70">
                             <div layout="row" layout-fill>
-
                                 <div  ng-repeat="asistencia in asistencias[estudiante.id_estudiante]" flex layout="row" layout-fill layout-align="center center" style="border-left:solid 1px #ddd;">
                                     <div class="asistencia-color {{asistencia.Asistencia}}-color"></div>
                                 </div>

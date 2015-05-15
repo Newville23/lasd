@@ -151,6 +151,14 @@ angular.module('Dirapp')
         });
     };
 
+    $scope.getCountAsis = function (list) {
+        var count = _.countBy(list, function(obj) {
+          return obj.Asistencia;
+        });
+        count.percent = count.no / (count.si + count.no)*100 || 0;
+        return count;
+    }
+
 
 
 }]);
