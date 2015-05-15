@@ -71,7 +71,7 @@ angular.module('CDapp',[
     .state('Docente.Estudiantes.asistencia', {
         url: "/asistencia",
         templateUrl: "views/estudiantes/asistencia.html",
-        controller: 'CalificacionCtrl'
+        controller: 'AsistenciaCtrl'
     })
     .state('Docente.Estudiantes.calificaciones', {
         url: "/calificaciones",

@@ -702,16 +702,27 @@ function Estudiante (pool) {
         var fecha_inicial = req.query.fechainicial || null;
         var fecha_final = req.query.fechafinal || null;
         var id_clase = req.query.idclase || null;
+        var mes = req.query.mes || null;
 
-        if (!fecha_inicial || !fecha_final || !id_clase) {
+        if (!id_clase) {
             return res.status(400).json({status: '400', msg: "Falta especificar parametros GET"});
         };
+        if (mes) {
+            var query = "SELECT * FROM lasd3.Asistencia where Clase_numero = ? and year(fecha) = year(curdate()) and month(fecha) = ?"
+            pool.query(query, [id_clase, mes] , function(err, rows, fields) {
+                if (err){ return res.status(500).json({status: '500', err: err}) }
+                res.json(rows);
+            });
 
-        var query = "SELECT * FROM Asistencia where Clase_numero = ? and cast(datetime_creacion as date) BETWEEN ? AND ?";
-        pool.query(query, [id_clase, fecha_inicial, fecha_final] , function(err, rows, fields) {
-            if (err){res.status(500).json({status: '500', err: err});return;}
-            res.json(rows);
-        });
+        }else if (fecha_inicial && fecha_final) {
+            var query = "SELECT * FROM Asistencia where Clase_numero = ? and cast(datetime_creacion as date) BETWEEN ? AND ?";
+            pool.query(query, [id_clase, fecha_inicial, fecha_final] , function(err, rows, fields) {
+                if (err){ return res.status(500).json({status: '500', err: err}) }
+                res.json(rows);
+            });
+        }else{
+            return res.status(400).json({status: '400', msg: "Falta especificar parametros GET"});
+        }
     }
 
     this.postAsistencia = function (req, res) {

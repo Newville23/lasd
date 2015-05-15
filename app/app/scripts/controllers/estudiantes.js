@@ -20,8 +20,8 @@ angular.module('Dirapp')
   .controller('EstudiantesCtrl', function ($scope, $mdSidenav, $mdDialog, $mdToast, $stateParams, Docente, $state) {
     'use strict';
 
-    $scope.$on('$viewContentLoaded', 
-        function(event){                
+    $scope.$on('$viewContentLoaded',
+        function(event){
             if ($state.current.url == '/Estudiantes') {
                 $state.go('Docente.Estudiantes.lista')
             };
@@ -35,13 +35,13 @@ angular.module('Dirapp')
     $scope.idClase = $stateParams.idclase;
     Docente.estudiantes.query({idclase: $scope.idClase}, function(data){
         $scope.estudiantes = data;
-    }, function(data){      
+    }, function(data){
         console.log(data); // Error
     });
 
     $scope.infoRight = function(name) {
         $mdSidenav('info').toggle()
-        .then(function(){    
+        .then(function(){
             $scope.name = name;
         });
     };
@@ -60,8 +60,8 @@ angular.module('Dirapp')
                 Docente.asistencia.save(getParams, asistencia,function(data){
                     console.log(data);
                 });
-            };            
-        });             
+            };
+        });
     }
 
     //Moda para perfil del estudiante
@@ -78,13 +78,13 @@ angular.module('Dirapp')
         }, function() {
                 //$scope.alert = 'You cancelled the dialog.';
                 console.log('You cancelled the dialog.');
-        });  
+        });
     }
-                
+
     // Toast para la toma de asistencia //
-    
-    $scope.toastPosition = {  bottom: false, top: true, left: false, right: true }; 
-      
+
+    $scope.toastPosition = {  bottom: false, top: true, left: false, right: true };
+
     $scope.getToastPosition = function() {
         return Object.keys($scope.toastPosition)
           .filter(function(pos) { return $scope.toastPosition[pos]; })
@@ -116,41 +116,43 @@ angular.module('Dirapp')
     $("#stuff").mousemove(function(e){
         if(down){
             var newX=e.pageX;
-            $("#stuff").scrollLeft(left-newX+x);    
+            $("#stuff").scrollLeft(left-newX+x);
         }
     });
 
     $("#stuff").mouseup(function(e){down=false;});
 }])
-.controller('CalificacionCtrl', ['$scope', '$stateParams', 'Docente', function($scope, $stateParams, Docente){
+.controller('AsistenciaCtrl', ['$scope', '$stateParams', 'Docente', function($scope, $stateParams, Docente){
+
+    $scope.meses = [];
+    $scope.curMes = moment().month() + 1;
+    for (var i = 0; i < $scope.curMes; i++) {
+        $scope.meses.push([moment().month(i).format("MMMM"), i+1]);
+    }
 
     $scope.idClase = $stateParams.idclase;
     Docente.estudiantes.query({idclase: $scope.idClase}, function(data){
-        $scope.estudiantes = data;
+        $scope.estudiantesC = data;
 
-        Docente.asistencia.query({idclase: $scope.idClase, fechainicial: '2015-05-08', fechafinal: '2015-05-14'}, function(asistencia){
+        Docente.asistencia.query({idclase: $scope.idClase, mes: $scope.curMes}, function(asistencia){
             $scope.asistencias = _.groupBy(asistencia, 'Estudiante_identificacion');
             $scope.fechas = _.keys(_.indexBy(asistencia, 'fecha'));
         });
 
-    }, function(data){      
+    }, function(data){
         console.log(data); // Error
     });
 
 
-    $scope.meses = [];
-    for (var i = 0; i <= moment().month(); i++) {
-        $scope.meses.push([moment().month(i).format("MMMM"), i+1]);
-    }
-    console.log($scope.meses);
-
-
     $scope.getFechaasistecia = function(mes){
-        console.log(mes);
+        Docente.asistencia.query({idclase: $scope.idClase, mes: mes}, function(asistencia){
+            $scope.asistencias = _.groupBy(asistencia, 'Estudiante_identificacion');
+            $scope.fechas = _.keys(_.indexBy(asistencia, 'fecha'));
+        });
     };
 
 
-    
+
 }]);
 
 //Controlador del perfil del estudiante
@@ -159,14 +161,13 @@ function DialogStudentProfile($scope, $mdDialog, $stateParams, idEstudiante, Coo
     $scope.cancel = function() {
       $mdDialog.cancel();
     };
-   
+
     Coordinador.estudiantes.query({idestudiante: idEstudiante}, function(data){
         if (_.size(data)) {
             $scope.estudiante = data[0];
             console.log(data);
-        }       
-    }, function(data){      
+        }
+    }, function(data){
         console.log(data); // Error
     });
 }
-
