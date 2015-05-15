@@ -41,7 +41,7 @@
 
                         <div flex-sm="100" flex-md="100" flex-gt-md="70">
                             <div layout="row" layout-fill>
-                                <div  ng-repeat="asistencia in asistencias[estudiante.id_estudiante]" flex layout="row" layout-fill layout-align="center center" style="border-left:solid 1px #ddd;">
+                                <div  ng-repeat="asistencia in asistencias[estudiante.id_estudiante]  | orderBy:'-fecha'" flex layout="row" layout-fill layout-align="center center" style="border-left:solid 1px #ddd;">
                                     <div class="asistencia-color {{asistencia.Asistencia}}-color"></div>
                                 </div>
                             </div>

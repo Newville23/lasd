@@ -124,30 +124,18 @@ angular.module('Dirapp')
 }])
 .controller('AsistenciaCtrl', ['$scope', '$stateParams', 'Docente', function($scope, $stateParams, Docente){
 
+    $scope.idClase = $stateParams.idclase;
     $scope.meses = [];
     $scope.curMes = moment().month() + 1;
     for (var i = 0; i < $scope.curMes; i++) {
         $scope.meses.push([moment().month(i).format("MMMM"), i+1]);
     }
 
-    $scope.idClase = $stateParams.idclase;
-    Docente.estudiantes.query({idclase: $scope.idClase}, function(data){
-        $scope.estudiantesC = data;
-
-        Docente.asistencia.query({idclase: $scope.idClase, mes: $scope.curMes}, function(asistencia){
-            $scope.asistencias = _.groupBy(asistencia, 'Estudiante_identificacion');
-            $scope.fechas = _.keys(_.indexBy(asistencia, 'fecha'));
-        });
-
-    }, function(data){
-        console.log(data); // Error
-    });
-
-
+    // Dado un mes retorna las inasistencias del mes del año actual
     $scope.getFechaasistecia = function(mes){
         Docente.asistencia.query({idclase: $scope.idClase, mes: mes}, function(asistencia){
             $scope.asistencias = _.groupBy(asistencia, 'Estudiante_identificacion');
-            $scope.fechas = _.keys(_.indexBy(asistencia, 'fecha'));
+            $scope.fechas = _.keys(_.indexBy(asistencia, 'fecha')).sort().reverse();
         });
     };
 
@@ -158,8 +146,6 @@ angular.module('Dirapp')
         count.percent = count.no / (count.si + count.no)*100 || 0;
         return count;
     }
-
-
 
 }]);
 
