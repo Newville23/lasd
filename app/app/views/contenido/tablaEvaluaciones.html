@@ -7,14 +7,14 @@
           </h3>
           <p style="width:80%;"><strong>Concepto: </strong>{{evaluacion.concepto}}</p>
           <span hide-gt-md>
-              <a href="" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(evaluacion)">Calificar</a>
+              <a ng-href="#{{evaluacion.id_calificacion}}" ng-click="examenNotas(evaluacion)">Calificar</a>
                ·
               <a href="" ng-click="showEditEvaluacion(evaluacion)" data-toggle="modal" data-target="#modalEditEvaluacion"> Editar</a>
           </span>
         </div>
 
         <div hide show-gt-md class="md-secondary">
-            <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(evaluacion)">
+            <button class="btn btn-default btn-sm"  ng-click="calificar(evaluacion.id_calificacion)">
                <span>Calificar</span>
            </button>
            <span title="Editar Evaluación" data-toggle="tooltip">
@@ -27,62 +27,3 @@
     </md-list-item>
 
 </md-list>
-
-<!-- <table class="table table-responsive hidden-xs">
-    <thead>
-        <tr>
-            <th>Descripción</th>
-            <th>Tipo</th>
-            <th>Peso</th>
-            <th></th>
-            <th></th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr ng-repeat="evaluacion in evaluaciones | filter:{id_indicador:logro.id_indicador}">
-            <td>{{evaluacion.concepto}}</td>
-            <td>{{evaluacion.tipo_evaluacion}}</td>
-            <td>{{evaluacion.ponderacion}}</td>
-            <td>
-               <button class="btn btn-default btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(evaluacion)">
-                  <span class="visible-lg visible-md visible-sm">Calificar</span>
-              </button>
-            </td>
-
-            <td>
-                <span title="Editar Evaluación" data-toggle="tooltip">
-                  <button class="btn btn-success btn-sm"  ng-click="showEditEvaluacion(evaluacion)" data-toggle="modal" data-target="#modalEditEvaluacion">
-                      <i class="fa fa-edit fa-lg"></i>
-                  </button>
-                </span>
-            </td>
-        </tr>
-
-    </tbody>
-</table>
-
-<div class="visible-xs-block">
-   <br>
-   <div class="row list-group smtable" ng-repeat="evaluacion in evaluaciones | filter:{id_indicador:logro.id_indicador}">
-      <div class="col-md-2 list-group-item">
-         <strong>Descripción :</strong> {{evaluacion.concepto}}
-      </div>
-      <div class="col-md-2 list-group-item" >
-         <strong>Tipo :</strong> {{evaluacion.tipo_evaluacion}}
-      </div>
-      <div class="col-md-2 list-group-item" >
-         <strong>Peso :</strong> {{evaluacion.ponderacion}}
-      </div>
-      <div class="col-md-2 list-group-item" >
-         <strong></strong>
-         <button type="button" class="btn btn-success btn-sm" data-toggle="modal" data-target="#modalAddNotas" ng-click="examenNotas(evaluacion)">
-            <span>Calificar</span>
-        </button>&nbsp&nbsp
-        <span class="pull-right">
-            <i class="fa fa-edit fa-lg" style="color:#00D63F;" ng-click="showEditEvaluacion(evaluacion)" data-toggle="modal" data-target="#modalEditEvaluacion"></i>&nbsp&nbsp
-            <i class="fa fa-close fa-lg" style="color:#E60013;" data-toggle="modal" data-target="#modalEliminar"></i>
-        </span>
-
-     </div>
-  </div>
-</div> -->

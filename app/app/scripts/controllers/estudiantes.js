@@ -31,7 +31,6 @@ angular.module('Dirapp')
     $scope.checked = true; // variable que inabilita el form
     $scope.asist = true;
     $scope.estudiantes = {};
-
     $scope.idClase = $stateParams.idclase;
     Docente.estudiantes.query({idclase: $scope.idClase}, function(data){
         $scope.estudiantes = data;
@@ -102,26 +101,28 @@ angular.module('Dirapp')
             );
         };
     };
+})
 
-}).controller('estudianteAsistenciaListCtrl', ['$scope', function ($scope) {
-    var x,y,top,left,down;
+  .controller('estudianteAsistenciaListCtrl', ['$scope', function ($scope) {
+      var x,y,top,left,down;
 
-    $("#stuff").mousedown(function(e){
-        e.preventDefault();
-        down=true;
-        x=e.pageX;
-        left=$(this).scrollLeft();
-    });
+      $("#stuff").mousedown(function(e){
+          e.preventDefault();
+          down=true;
+          x=e.pageX;
+          left=$(this).scrollLeft();
+      });
 
-    $("#stuff").mousemove(function(e){
-        if(down){
-            var newX=e.pageX;
-            $("#stuff").scrollLeft(left-newX+x);
-        }
-    });
+      $("#stuff").mousemove(function(e){
+          if(down){
+              var newX=e.pageX;
+              $("#stuff").scrollLeft(left-newX+x);
+          }
+      });
 
-    $("#stuff").mouseup(function(e){down=false;});
-}])
+      $("#stuff").mouseup(function(e){down=false;});
+  }])
+
 .controller('AsistenciaCtrl', ['$scope', '$stateParams', 'Docente', function($scope, $stateParams, Docente){
 
     $scope.idClase = $stateParams.idclase;
@@ -145,6 +146,62 @@ angular.module('Dirapp')
         });
         count.percent = count.no / (count.si + count.no)*100 || 0;
         return count;
+    }
+
+}])
+
+.controller('CalificacionCtrl', ['$scope', '$stateParams', '$state', 'Docente', '$location', function($scope, $stateParams, $state, Docente, $location){
+    var idClase = $stateParams.idclase;
+    $scope.logroSW = 1;
+
+    if ($stateParams.idcalificacion) {
+      Docente.notas.query({idclase: idClase, idcalificacion:$stateParams.idcalificacion}, function (notas) {
+          if (_.size(notas)) {
+              var idindicador = notas[0].id_indicador;
+              Docente.contenido.query({idclase: idClase, idindicador: idindicador}, function (logros) {
+                  if (_.size(logros)) {
+                      $scope.periodo = logros[0].periodo;
+                      $scope.logros = logros;
+                      $scope.logro = idindicador;
+                      $scope.logroSW = 0;
+                      $scope.notas = notas;
+                      Docente.calificaciones.query({idclase: idClase, idindicador: idindicador}, function(evaluaciones){
+                          $scope.evaluaciones = evaluaciones;
+                      });
+                  }
+              });
+          }
+      });
+    }
+
+    $scope.getcontenido = function (periodo) {
+        console.log(periodo);
+        Docente.contenido.query({idclase: idClase, periodo: periodo}, function(logros){
+            $scope.logros = logros;
+            $scope.logro = null;
+            $scope.logroSW = 0;
+        });
+    };
+
+    $scope.getCalificaciones = function (logro) {
+      Docente.calificaciones.query({idclase: idClase, idindicador: logro}, function(evaluaciones){
+          $scope.evaluaciones = evaluaciones;
+      });
+        //
+    }
+
+    $scope.changeCalificacion = function (idcalificacion) {
+
+        Docente.notas.query({idclase: idClase, idcalificacion: idcalificacion}, function (notas) {
+            $scope.notas = notas;
+            $state.go('Docente.Estudiantes.calificaciones', {idcalificacion: idcalificacion}, {location:"replace", inherit:false});
+            //var url = $location.$$path + '?idcalificacion=' + idcalificacion;
+            //$location.search('idcalificacion', idcalificacion);
+        });
+    }
+
+    $scope.findWhere = function (idestudiante) {
+        return _.findWhere($scope.notas, {id_estudiante: idestudiante});
     }
 
 }]);

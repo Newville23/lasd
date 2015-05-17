@@ -16,6 +16,7 @@ angular.module('CDapp',[
       'hue-2': '700', // use shade 600 for the <code>md-hue-2</code> class
       'hue-3': '300' // use shade A100 for the <code>md-hue-3</code> class
     })
+    .dark()
     .accentPalette('blue');
 })
 
@@ -74,8 +75,9 @@ angular.module('CDapp',[
         controller: 'AsistenciaCtrl'
     })
     .state('Docente.Estudiantes.calificaciones', {
-        url: "/calificaciones",
+        url: "/calificaciones?idcalificacion",
         templateUrl: "views/estudiantes/calificaciones.html",
+        controller: 'CalificacionCtrl'
     })
 })
 .controller('soloDatosCtrl',['$scope','$mdSidenav', '$location', 'Usuario', 'Docente', '$state', function ($scope,$mdSidenav, $location, Usuario, Docente, $state){
@@ -105,10 +107,6 @@ angular.module('CDapp',[
 
     $scope.close = function() {
         $mdSidenav('left').close();
-    };
-
-    $scope.examenNotas = function(examen){
-        $scope.calificar = examen;
     };
 
     $scope.valor = function(key){

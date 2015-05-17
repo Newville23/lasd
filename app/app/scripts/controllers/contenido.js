@@ -1,5 +1,5 @@
 angular.module('Dirapp')
-  .controller('ContenidoCtrl', ['$scope', '$mdDialog', '$stateParams', 'Docente', function ($scope, $mdDialog, $stateParams, Docente) {
+  .controller('ContenidoCtrl', ['$scope', '$mdDialog', '$stateParams', '$state', 'Docente', function ($scope, $mdDialog, $stateParams, $state, Docente) {
     'use strict';
 
     var idClase = $stateParams.idclase;
@@ -109,5 +109,16 @@ angular.module('Dirapp')
                 $('#modalEditEvaluacion').modal('hide');
             }, 500);
         });
+    };
+
+    $scope.calificar2 = function(id_calificacion){
+        var url = '/Docente/' + idClase + '/Estudiantes/calificaciones?idcalificacion=' + id_calificacion;
+        console.log(url);
+        $location.path(url);        
+    };
+    $scope.calificar = function(id_calificacion){
+        //var url = 'Docente/10095/Estudiantes/calificaciones?idcalificacion=dsfsfdfdf';
+        //console.log(url);
+        $state.go('Docente.Estudiantes.calificaciones', {idcalificacion: id_calificacion});        
     };
 }]);

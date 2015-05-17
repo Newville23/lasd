@@ -31,11 +31,13 @@
                     </md-list-item>
 
                     <md-list-item layout="row"  ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
-                        <div flex-sm="15" flex-md="15" flex-gt-md="5">
+                        <div flex-sm="10" flex-md="15" flex-gt-md="5">
                             <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" style="width:35px" />
                         </div>
                         <div flex-sm="60" flex-md="45" flex-gt-md="25" style="padding-left:15px">
-                            <a href ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">{{estudiante.nombre}} {{estudiante.apellido}}</a>
+                            <a href ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">
+                                {{estudiante.nombre | lowercase}} {{estudiante.apellido | lowercase}}
+                            </a>
                             <div><small>Inasistencias: {{getCountAsis(asistencias[estudiante.id_estudiante]).no || 0}}</small></div>
                         </div>
 

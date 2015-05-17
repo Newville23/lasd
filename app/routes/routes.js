@@ -347,23 +347,19 @@ function Contenido (pool) {
 
         //var Clase_numero = pool.escape(req.query.clasenumero);
         var id_clase = req.query.idclase ? pool.escape(req.query.idclase) : null;
+        var periodo = req.query.periodo ? 'AND periodo = ' + pool.escape(req.query.periodo) : '';
+        var id = req.query.id ? 'AND id = ' + pool.escape(req.query.id) : '';
         var data = {};
 
         if (id_clase) {
 
             var contenidoIndicadoresQuery = "SELECT id AS id_indicador, CAST(Clase_numero AS CHAR) id_clase, contenido, periodo, estado, " +
             "fecha_vencimiento, datetime_creacion, datetime_modificacion " +
-            "FROM lasd3.Clase_indicador WHERE Clase_numero = " + id_clase;
-
-            var Calificaciones = "SELECT CAST(id AS CHAR) as id_calificacion, id_indicador, tipo_evaluacion, " +
-            "concepto, ponderacion, CAST(Clase_numero AS CHAR) id_clase, Clase_Materia_id, datetime_creacion " +
-            "FROM lasd3.Calificacion WHERE Clase_numero = " + id_clase;
-            var query = contenidoIndicadoresQuery + ';' + Calificaciones;
+            "FROM lasd3.Clase_indicador WHERE Clase_numero = " + id_clase + ' ' + id + ' ' + periodo;
 
             pool.query(contenidoIndicadoresQuery, function(err, rows, fields) {
-
                 if (err){
-                    return res.status(500).json({error: '500'});
+                    return res.status(500).json({status: '500', err: err});
                 }
                 return res.json(rows);
             });
@@ -526,7 +522,7 @@ function Contenido (pool) {
             });
 
         }else{
-            return res.status(400).json({status: '400'});
+            return res.status(400).json({status: '400', msg: "Falta especificar parametros GET"});
         }
     }
     this.postNotas = function (req, res) {
