@@ -165,6 +165,7 @@ angular.module('Dirapp')
                       $scope.logro = idindicador;
                       $scope.logroSW = 0;
                       $scope.notas = notas;
+                      console.log(notas);
                       Docente.calificaciones.query({idclase: idClase, idindicador: idindicador}, function(evaluaciones){
                           $scope.evaluaciones = evaluaciones;
                       });
@@ -187,7 +188,6 @@ angular.module('Dirapp')
       Docente.calificaciones.query({idclase: idClase, idindicador: logro}, function(evaluaciones){
           $scope.evaluaciones = evaluaciones;
       });
-        //
     }
 
     $scope.changeCalificacion = function (idcalificacion) {
@@ -200,8 +200,29 @@ angular.module('Dirapp')
         });
     }
 
-    $scope.findWhere = function (idestudiante) {
-        return _.findWhere($scope.notas, {id_estudiante: idestudiante});
+    $scope.saveNota = function (nota) {
+
+        // validar si existe nota
+        if (nota.fecha_creacion_nota || nota.saved) {
+            var getParams = {idestudiante: nota.id_estudiante, idcalificacion: nota.id_calificacion};
+            var post = {nota: nota.nota};
+            Docente.notas.update(getParams, post, function (data) {
+                console.log(data);
+            });
+        }else {
+            var post = {
+                idestudiante: nota.id_estudiante,
+                idcalificacion : nota.id_calificacion,
+                nota: nota.nota
+            };
+            Docente.notas.save(post, function(data){
+                // si se creo se activa la bandera saved, para que se actualice en la proxima
+                nota.saved = true;
+                console.log('guardado');
+                console.log(data);
+            });
+        }
+
     }
 
 }]);

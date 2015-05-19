@@ -500,7 +500,7 @@ function Contenido (pool) {
         var id_calificacion = req.query.idcalificacion ? 'AND Calificacion.id = ' + pool.escape(req.query.idcalificacion) : '';
         var id_estudiante = req.query.idestudiante ? 'AND Matricula.Estudiante_identificacion = ' + pool.escape(req.query.idestudiante) : '';
 
-        var notasQuery = "SELECT CAST(Clase.numero AS CHAR) AS id_clase,  Calificacion.id_indicador, CAST(Calificacion.id AS CHAR) AS id_calificacion, " +
+        var notasQueryqq = "SELECT CAST(Clase.numero AS CHAR) AS id_clase,  Calificacion.id_indicador, CAST(Calificacion.id AS CHAR) AS id_calificacion, " +
                             "Matricula.Estudiante_identificacion as id_estudiante, tipo_evaluacion, nota, " +
                             "fecha AS fecha_creacion_nota, concepto, ponderacion " +
                             "FROM Calificacion " +
@@ -509,6 +509,18 @@ function Contenido (pool) {
                             "LEFT JOIN Agregar_notas ON Agregar_notas.Calificacion_id = Calificacion.id  " +
                                     "AND Agregar_notas.Estudiante_identificacion = Matricula.Estudiante_identificacion " +
                         "WHERE 1 ";
+
+        var notasQuery = "SELECT CAST(Clase.numero AS CHAR) AS id_clase,  Calificacion.id_indicador, CAST(Calificacion.id AS CHAR) AS id_calificacion, " +
+                          "Matricula.Estudiante_identificacion as id_estudiante, nombre, apellido, tipo_evaluacion, nota, " +
+                          "fecha AS fecha_creacion_nota, concepto, ponderacion " +
+                          "FROM Calificacion " +
+                          "JOIN Clase ON Clase.numero = Calificacion.Clase_numero " +
+                          "JOIN Matricula ON Clase.Curso_codigo = Matricula.Curso_codigo " +
+                          "JOIN Estudiante ON Estudiante.identificacion = Matricula.Estudiante_identificacion " +
+                          "JOIN Usuario ON Usuario.id = Estudiante.Usuario_id " +
+                          "LEFT JOIN Agregar_notas ON Agregar_notas.Calificacion_id = Calificacion.id " +
+                                  "AND Agregar_notas.Estudiante_identificacion = Matricula.Estudiante_identificacion " +
+                      "WHERE 1 ";
 
         if (id_clase || id_calificacion) {
             var where = id_clase + ' ' + id_indicador + ' ' + id_calificacion + ' ' + id_estudiante;

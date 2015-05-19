@@ -68,9 +68,9 @@
                 </div>
                 <md-list>
                     <md-list-item layout="row" layout="fill">
-                        <div flex-sm="15" flex-md="15" flex-gt-md="5"></div>
-                        <div flex-sm="60" flex-md="45" flex-gt-md="25"></div>
-                        <div flex-sm="25" flex-md="40" flex-gt-md="70">
+                        <div flex-sm="15" flex-md="15" flex-gt-md="10"></div>
+                        <div flex-sm="60" flex-md="45" flex-gt-md="50"></div>
+                        <div flex-sm="25" flex-md="40" flex-gt-md="20">
                             <div layout="row" layout-fill>
                                 <div flex layout="row" layout-align="center center">
                                     <small class="text-muted">Nota</small>
@@ -80,21 +80,32 @@
                         <md-divider ng-if="!$last"></md-divider>
                     </md-list-item>
 
-                    <md-list-item layout="row"  ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
+                    <md-list-item layout="row"  ng-repeat="nota in notas| filter:search | orderBy:'nombre'">
                         <div flex-sm="10" flex-md="15" flex-gt-md="10">
                             <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" style="width:35px" />
                         </div>
                         <div flex-sm="60" flex-md="45" flex-gt-md="50" style="padding-left:15px">
                         <a href ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">
-                            {{estudiante.nombre | lowercase}} {{estudiante.apellido | lowercase}}
+                            {{nota.nombre | lowercase}} {{nota.apellido | lowercase}}
                         </a>
                         </div>
-                        <div flex-sm="25" flex-md="40" flex-gt-md="40">
+                        <!-- <div flex-sm="25" flex-md="40" flex-gt-md="20">
                             <div layout="row" layout-fill>
                                 <div flex layout="row" layout-fill layout-align="center center">
-                                    <div class="calificacion-color" style="background-color:rgba(92, 184, 92, 0.25);" >{{findWhere(estudiante.id_estudiante).nota}}</div>
+                                    <div class="calificacion-color" style="background-color:rgba(92, 184, 92, 0.25);" >{{nota.nota}}</div>
                                 </div>
                             </div>
+                        </div> -->
+                        <div flex-sm="25" flex-md="40" flex-gt-md="20">
+                            <div layout="row" layout-fill>
+                                <div flex layout="row" layout-fill layout-align="center center">
+                                  <md-input-container flex>
+                                      <label></label>
+                                      <input type="number"  min="0" max="5" step="0.1" ng-change="saveNota(nota)" class="text-center" ng-model="nota.nota">
+                                  </md-input-container>
+                                </div>
+                            </div>
+
                         </div>
                         <md-divider ng-if="!$last"></md-divider>
                     </md-list-item>
