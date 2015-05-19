@@ -165,7 +165,6 @@ angular.module('Dirapp')
                       $scope.logro = idindicador;
                       $scope.logroSW = 0;
                       $scope.notas = notas;
-                      console.log(notas);
                       Docente.calificaciones.query({idclase: idClase, idindicador: idindicador}, function(evaluaciones){
                           $scope.evaluaciones = evaluaciones;
                       });

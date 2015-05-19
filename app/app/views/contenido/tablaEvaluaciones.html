@@ -7,7 +7,7 @@
           </h3>
           <p style="width:80%;"><strong>Concepto: </strong>{{evaluacion.concepto}}</p>
           <span hide-gt-md>
-              <a ng-href="#{{evaluacion.id_calificacion}}" ng-click="examenNotas(evaluacion)">Calificar</a>
+              <a href ng-click="calificar(evaluacion.id_calificacion)">Calificar</a>
                ·
               <a href="" ng-click="showEditEvaluacion(evaluacion)" data-toggle="modal" data-target="#modalEditEvaluacion"> Editar</a>
           </span>
