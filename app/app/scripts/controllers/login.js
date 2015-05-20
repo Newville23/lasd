@@ -43,6 +43,7 @@ function LoginCtrl($scope, Usuario, $location, $mdDialog) {
 
     $scope.setLoginForm = function () {
         //Enviar a API
+        // Validar el tipo de usuario (Docente, admin, etc)
         Usuario.login.save($scope.form, function(data){
             if (data.login) {
                 $mdDialog.hide();

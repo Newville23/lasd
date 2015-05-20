@@ -38,10 +38,22 @@ angular.module('CDapp',[
         templateUrl:"views/todo.html",
         controller: "soloDatosCtrl"
     })
+    .state('admin', {
+        url:"/admin",
+        template: "admin"
+    })
     .state('login', {
         url: "/login",
         templateUrl: "views/landing/index.html",
         controller: "LandingCtrl"
+    })
+    .state('configuracion',{
+        url:"/configuracion",
+        template: "<h2>Settings init</h2>"
+    })
+    .state('ayuda',{
+        url:"/ayuda",
+        template: "<h2>Help</h2>"
     })
 
     // estados anidaddos
