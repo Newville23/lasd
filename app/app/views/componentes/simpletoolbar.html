@@ -1,0 +1,24 @@
+<md-toolbar md-theme="top" class="md-whiteframe-z2">
+    <div class="md-toolbar-tools">
+        <a  flex-gt-sm="30" class="navbar-brand" href="#/Docente" style="color:#144c87; font-size:1.6em; margin-left: 50px;margin-right: 80px;">
+            <img class="site-logo" ng-src="images/flugels.png">Flügel
+        </a>
+
+        <div flex-sm="35" flex layout="row" layout-align="end center" ng-controller="logoutCtrl">
+                  <div class="dropdown">
+                      <md-button class="md-fab md-mini" aria-label="Favorite" data-toggle="dropdown">
+                          <i class="fa fa-user fa-lg"></i>
+                      </md-button>
+                      <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-user"></i> Perfil</a></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-cog"></i> Configuración</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" ui-sref="ayuda"><i class="fa fa-question-circle"></i> Ayuda</a></li>
+                          <li role="presentation" class="divider"></li>
+                          <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="logout()"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
+                      </ul>
+                  </div>
+        </div>
+
+    </div>
+</md-toolbar>

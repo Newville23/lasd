@@ -2,41 +2,27 @@
 <div layout="row" flex>
 
    <div layout="column" flex>
-       <md-toolbar md-theme="top" class="md-whiteframe-z2">
-           <div class="md-toolbar-tools">
-               <a  flex-gt-sm="30" class="navbar-brand" href="#/Docente" style="color:#144c87; font-size:1.6em; margin-left: 50px;margin-right: 80px;">
-                   <img class="site-logo" ng-src="images/flugels.png">Flügel
-               </a>
-
-               <div flex-sm="35" flex layout="row" layout-align="end center" ng-controller="logoutCtrl">
-                         <div class="dropdown">
-                             <md-button class="md-fab md-mini" aria-label="Favorite" data-toggle="dropdown">
-                                 <i class="fa fa-user fa-lg"></i>
-                             </md-button>
-                             <ul class="dropdown-menu dropdown-menu-right" role="menu" aria-labelledby="dropdownMenu1">
-                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-user"></i> Perfil</a></li>
-                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-cog"></i> Configuración</a></li>
-                                 <li role="presentation" class="divider"></li>
-                                 <li role="presentation"><a role="menuitem" tabindex="-1" href="#"><i class="fa fa-question-circle"></i> Ayuda</a></li>
-                                 <li role="presentation" class="divider"></li>
-                                 <li role="presentation"><a role="menuitem" tabindex="-1" ng-click="logout()"><i class="fa fa-power-off"></i> Cerrar sesión</a></li>
-                             </ul>
-                         </div>
-               </div>
-
-           </div>
-       </md-toolbar>
+       <simple-toolbar></simple-toolbar>
 
          <div layout="column" flex>
                <div layout="row" layout-margin layout-padding flex layout-align="center start">
-               <div flex-sm="90" flex="60" class="md-padding" layout="row" layout-wrap layout-align="center center">
-                   <md-card ng-repeat="clase in clases" flex="80">
-                       <a class="text-center text-muted hover-card" flex layout-padding ng-click="close()"  ng-href="#/Docente/{{clase.id_clase}}/Contenido">
-                           <h3 class="md-title" style="margin-top: 10px;">{{clase.materia}}</h3>
-                           <strong class="md-subhead">{{clase.nombre_curso}}{{clase.indice}}</strong>
-                       </a>
-                   </md-card>
-               </div>
+                   <div flex-sm="90" flex="60" class="md-padding" layout="row" layout-wrap layout-align="center center">
+
+                       <md-card ng-repeat="clase in clases" flex="80" class="hover-card" style="background-image: url('images/textures/symphony.png')">
+                           <a class="text-center text-muted" flex  ng-click="close()"  ng-href="#/Docente/{{clase.id_clase}}/Contenido">
+                               <div layout-padding>
+                                   <h3 class="md-title" style="margin-top: 10px;">{{clase.materia}}</h3>
+                                   <strong class="md-subhead">{{clase.nombre_curso}}{{clase.indice}}</strong>
+                               </div>
+                               <div layout="row" layout-align="center center" class="text-center" style="background: #eee;padding:1%">
+                                   <div flex> 23% <br><small>Progreso</small></div>
+                                   <div flex> 3%  <br><small>Inasistencias</small></div>
+                                   <div flex> 4,3 <br><small>Promedio de notas</small></div>
+                               </div>
+                           </a>
+                       </md-card>
+                       
+                   </div>
                </div>
        </div>
    </div>

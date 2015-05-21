@@ -31,16 +31,16 @@ angular.module('CDapp',[
     .state('Home', {
         url: "/Docente/",
         templateUrl: "views/home.html",
-        controller: "soloDatosCtrl"
+        controller: "docenteCtrl"
     })
     .state('Docente',{
         url:"/Docente/{idclase:int}", // sólo caracteres alfanuméricos
         templateUrl:"views/todo.html",
-        controller: "soloDatosCtrl"
+        controller: "docenteCtrl"
     })
     .state('admin', {
         url:"/admin",
-        template: "admin"
+        templateUrl: "views/admin/index.html"
     })
     .state('login', {
         url: "/login",
@@ -91,38 +91,4 @@ angular.module('CDapp',[
         templateUrl: "views/estudiantes/calificaciones.html",
         controller: 'CalificacionCtrl'
     })
-})
-.controller('soloDatosCtrl',['$scope','$mdSidenav', '$location', 'Usuario', 'Docente', '$state', function ($scope,$mdSidenav, $location, Usuario, Docente, $state){
-    moment.locale('es');
-    // Valida que la sesion haya iniciado
-    Usuario.login.get(function (data) {
-        if (data.login == false) {
-            $location.path("/login");
-        }else {
-            Docente.listaClases.query({idprofesor: data.userData.identificacion}, function (clases) {
-                $scope.clases = clases;
-            });
-        }
-    },function(data){
-        console.log(data);
-    });
-
-    var currentIdClase = $state.params.idclase;
-    $scope.routeChangeClass = function (idClass) {
-        var splitUrl = location.hash.split(currentIdClase);
-        return splitUrl[0] + idClass + splitUrl[1];
-    }
-
-    $scope.toggleSidenav = function(menuId) {
-        $mdSidenav(menuId).toggle();
-    };
-
-    $scope.close = function() {
-        $mdSidenav('left').close();
-    };
-
-    $scope.valor = function(key){
-        console.log(key);
-    };
-
-}]);
+});

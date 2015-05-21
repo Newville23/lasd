@@ -36,7 +36,6 @@ angular.module('Dirapp')
         Usuario.logout.save(function(data){
             if (!data.login) {
                 $location.path("/login");
-                console.log('sesion cerrada');
             };
         });
     }
@@ -50,11 +49,11 @@ function LoginCtrl($scope, Usuario, $location, $mdDialog) {
         // Validar el tipo de usuario (Docente, admin, etc)
         Usuario.login.save($scope.form, function(data){
             console.log(data);
+            $mdDialog.hide();
             if (data.login && data.userData) {
                 if (data.userData.rol == "admin") {
                     $location.path("/admin");
                 }else if (data.userData.rol == "profesor") {
-                    $mdDialog.hide();
                     $location.path("/Docente");
                 }
             };
