@@ -4,7 +4,11 @@ angular.module('Dirapp')
 
     Usuario.login.get(function (data) {
         if (data.login == true) {
-            $location.path("/Docente");
+            if (data.userData.rol == "admin") {
+                $location.path("/admin");
+            }else if(data.userData.rol == "profesor") {
+                $location.path("/Docente");
+            }
         }
     },function(data){
         console.log(data);
@@ -45,9 +49,14 @@ function LoginCtrl($scope, Usuario, $location, $mdDialog) {
         //Enviar a API
         // Validar el tipo de usuario (Docente, admin, etc)
         Usuario.login.save($scope.form, function(data){
-            if (data.login) {
-                $mdDialog.hide();
-                $location.path("/Docente");
+            console.log(data);
+            if (data.login && data.userData) {
+                if (data.userData.rol == "admin") {
+                    $location.path("/admin");
+                }else if (data.userData.rol == "profesor") {
+                    $mdDialog.hide();
+                    $location.path("/Docente");
+                }
             };
         });
     };

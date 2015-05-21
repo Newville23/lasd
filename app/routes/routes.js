@@ -101,7 +101,7 @@ function Usuario (pool) {
 
         // valida que no exista sesiones
         if(req.session.user){
-            if (req.session.user.usuario == post.usuario) {
+            if (req.session.user.usuario.toLowerCase() == post.usuario.toLowerCase()) {
                 return res.json({usuario: req.session.user.usuario, login: true, msg: 'sesión iniciada'});
             }
         }
@@ -124,7 +124,8 @@ function Usuario (pool) {
                 "use strict";
                 if (err) return next(err);
                 res.cookie('session', id_session);
-                return res.json({usuario: usuario.usuario, login: true});
+                var userCopy = _.omit(usuario, 'pass'); //copia del objeto usuario sin password
+                return res.json({userData: userCopy, login: true});
             })
         });
     };
