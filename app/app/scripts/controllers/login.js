@@ -43,8 +43,12 @@ angular.module('Dirapp')
 
 function LoginCtrl($scope, Usuario, $location, $mdDialog) {
     $scope.form = {};
+    $scope.userAlert = false;
+    $scope.passAlert = false;
 
     $scope.setLoginForm = function () {
+        $scope.userAlert = false;
+        $scope.passAlert = false;
         //Enviar a API
         // Validar el tipo de usuario (Docente, admin, etc)
         Usuario.login.save($scope.form, function(data){
@@ -57,6 +61,15 @@ function LoginCtrl($scope, Usuario, $location, $mdDialog) {
                     $location.path("/Docente");
                 }
             };
+        }, function (err) {
+          console.log(err);
+            if (err.data.noUsuario) {
+              console.log('El usuario no existe');
+              $scope.userAlert = true;
+            }else if (err.data.invalid_password) {
+              $scope.passAlert = true;
+              console.log(err.data.invalid_password);
+            }
         });
     };
 

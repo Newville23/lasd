@@ -110,11 +110,11 @@ function Usuario (pool) {
         usuarioThis.validateLogin(post.usuario, post.pass, function(err, usuario){
             if (err){
                 if (err.noUsuario) {
-                    return res.status(400).json({status: '400', err: err});
+                    return res.status(400).json(err);
                 }else if(err.usuarioDeshabilitado){
-                    return res.status(400).json({status: '400', err: err});
+                    return res.status(400).json(err);
                 }else if(err.invalid_password){
-                    return res.status(400).json({status: '400', err: err});
+                    return res.status(400).json(err);
                 }else{
                     return next(err); // otro tipo de error
                 }

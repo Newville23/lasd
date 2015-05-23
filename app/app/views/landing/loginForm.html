@@ -1,18 +1,14 @@
-<div layout="row" layout-gt-sm="column" layout-fill layout-wrap style="z-index: 1083" layout-align="center">
-	<md-dialog aria-label="Login" flex-sm="100" offset-gt-sm="33" flex-gt-sm="50" style="overflow-y: visible;" class="modal-content">
-				
+<div layout="row" layout-gt-sm="column" layout-fill layout-wrap style="z-index: 1" layout-align="center" layout-align-gt-sm="center center">
+	<md-dialog aria-label="Login" flex-sm="100" flex-md="70" flex-gt-md="50" style="overflow-y: visible;" class="modal-content">
+
 				<div class="modal-header">
 					<button type="button" class="close" ng-click="cancel()"><i class="fa fa-times"></i></button>
 					<h4 class="modal-title text-center">Iniciar sesión</h4>
 				</div>
 				<md-dialog-content>
 					<div class="modal-body">
-						<div id="errorvalidation2" class="hidden">
-	                        <div class="alert alert-danger">
-	                            <button type="button" class="close" data-dismiss="alert">&times;</button>
-	                        </div>
-	                    </div>
-						<div class="main">
+
+						<div class="main" style="margin-bottom:20px">
 							<form ng-submit="setLoginForm()">
 								<div class="form-group">
 									<label >Usuario</label>
@@ -24,6 +20,19 @@
 								</div>
 								<button type="submit" class="btn-azul btn-default form-control">Acceder</button>
 							</form>
+						</div>
+
+						<div ng-show="userAlert">
+								<div class="alert alert-danger">
+									El usuario no existe
+									<button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+								</div>
+						</div>
+						<div ng-show="passAlert">
+								<div class="alert alert-danger">
+									Contraseña incorrecta
+									<button type="button" class="close" data-dismiss="alert"><i class="fa fa-times"></i></button>
+								</div>
 						</div>
 					</div>
 				</md-dialog-content><!-- /.modal-content -->
