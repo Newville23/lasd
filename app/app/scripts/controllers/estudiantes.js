@@ -58,6 +58,14 @@ angular.module('Dirapp')
                 var asistencia = _.map($scope.estudiantes, function(obj){ return _.pick(obj, 'id_estudiante', 'asistencia')});
                 Docente.asistencia.save(getParams, asistencia,function(data){
                     console.log(data);
+                    $mdToast.show($mdToast.simple().content('Asistensia enviada correctamente!').hideDelay(3000));
+                }, function(err){
+                  if (err.data.nofill) {
+                      $mdToast.show($mdToast.simple().content('Faltan datos por llenar.').hideDelay(3000));
+                  }
+                  if (err.data.assistance) {
+                    $mdToast.show($mdToast.simple().content('Ya se realizó la asistencia!').hideDelay(3000));
+                  }
                 });
             };
         });

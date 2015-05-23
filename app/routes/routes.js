@@ -110,11 +110,11 @@ function Usuario (pool) {
         usuarioThis.validateLogin(post.usuario, post.pass, function(err, usuario){
             if (err){
                 if (err.noUsuario) {
-                    return res.status(400).json(err);
+                    return res.status(401).json(err);
                 }else if(err.usuarioDeshabilitado){
-                    return res.status(400).json(err);
+                    return res.status(401).json(err);
                 }else if(err.invalid_password){
-                    return res.status(400).json(err);
+                    return res.status(401).json(err);
                 }else{
                     return next(err); // otro tipo de error
                 }
@@ -737,30 +737,36 @@ function Estudiante (pool) {
         // analizar y ajustar datos post
         var post = req.body;
 
+        var nullParams = _.find(post, function(obj){return obj.asistencia != 'no' && obj.asistencia != 'si'});
+
         if (!id_clase || !numeroEstudiantes) {
-            return res.status(400).json({status: '400', msg: "Falta especificar parametros GET"});
+            return res.status(400).json({err: "Falta especificar parametros GET"});
         }
 
         if (!_.isArray(post)) {
-            return res.status(400).json({status: '400', msg: "Datos POST incorrectos o no especificados"});
+            return res.status(400).json({err: "Datos POST incorrectos o no especificados"});
         }
 
         if (_.size(post) != numeroEstudiantes ) {
-            return res.status(400).json({status: '404', msg: "Numero de estudiantes no concuerda"});
+            return res.status(400).json({err: "Numero de estudiantes no concuerda"});
+        }
+
+        if (_.size(nullParams)) {
+            return res.status(400).json({nofill : true});
         }
         // se valida que la fecha no sea futura
         if (moment().format('YYYY-MM-DD') < fecha) {
-            return res.status(400).json({status: '404', msg: "Escoge una fecha valida."});
+            return res.status(400).json({invalidDate: true});
         }
 
         // === Validacion de no editar la lista de asistencia (que no se haya realizado ya la asistencia) ========
         var  list = "SELECT *  FROM lasd3.Asistencia WHERE Clase_numero = " + pool.escape(id_clase) + " AND fecha = " + pool.escape(fecha);
 
         pool.query(list, function (err, rows, fields) {
-            if (err){res.status(500).json({status: '500', err: err});return;}
+            if (err){res.status(500).json(err);return;}
 
             if (_.size(rows) > 0){
-                return res.status(400).json({status: '400', msg: "Ya se realizó la asistencia"});
+                return res.status(400).json({assistance: true});
             }else{
 
                 /* asigna al array data un grupo de array que corresonden a los valores a insertar
@@ -773,7 +779,7 @@ function Estudiante (pool) {
                 // insercion de asistencia
                 var query = 'INSERT INTO Asistencia (Estudiante_identificacion, Asistencia, Clase_numero, fecha) VALUES  ?';
                 pool.query(query, [data] , function(err, rows, fields) {
-                    if (err){res.status(500).json({status: '500', err: err});return;}
+                    if (err){res.status(500).json({err: err});return;}
                     rows.data = post;
                     res.json(rows);
                 });
