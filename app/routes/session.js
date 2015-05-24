@@ -4,7 +4,6 @@ function Session (pool) {
     "use strict";
     
     this.startSession = function(req, user, callback) {
-        "use strict";
 
         // Generate session id
         var current_date = (new Date()).valueOf().toString();
@@ -20,18 +19,15 @@ function Session (pool) {
 
         var query = 'INSERT INTO Sesion_temp SET ?';
         pool.query(query, [data] , function(err, rows, fields) {
-            "use strict";
             if (err){return callback(err, null);}
             callback(null, id_session);
         });
     };
 
     this.endSession = function(id_session, callback) {
-        "use strict";
         // Remove session document
         var query = 'DELETE FROM Sesion_temp WHERE id_session = ?';
         pool.query(query, [id_session] , function(err, rows, fields) {
-            "use strict";
             callback(err);
         });
     };

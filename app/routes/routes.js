@@ -485,7 +485,7 @@ function Contenido (pool) {
         //     "Clase_numero": post.idclase
         // }
 
-        query = pool.query('UPDATE Calificacion SET ? WHERE id = ?', [post, id_calificacion] , function(err, rows, fields) {
+        pool.query('UPDATE Calificacion SET ? WHERE id = ?', [post, id_calificacion] , function(err, rows, fields) {
             if (err){res.status(400).json({status: '400'});return;}
             rows.data = post;
             res.json(rows);

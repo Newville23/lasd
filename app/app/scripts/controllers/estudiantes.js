@@ -1,8 +1,6 @@
-'use strict';
-
 //Controlador del dialogo nueva asistencia /
 function Dialogasistencia($scope, $mdDialog) {
-
+    "use strict";
     $scope.save = function() {
        $mdDialog.hide(true);
     };
@@ -23,8 +21,8 @@ angular.module('Dirapp')
     $scope.$on('$viewContentLoaded',
         function(event){
             if ($state.current.url == '/Estudiantes') {
-                $state.go('Docente.Estudiantes.lista')
-            };
+                $state.go('Docente.Estudiantes.lista');
+            }
         }
     );
 
@@ -55,7 +53,7 @@ angular.module('Dirapp')
         .then(function(sw) {
             if (sw) {
                 var getParams = {idclase : $scope.idClase, numeroEstudiantes: _.size($scope.estudiantes)};
-                var asistencia = _.map($scope.estudiantes, function(obj){ return _.pick(obj, 'id_estudiante', 'asistencia')});
+                var asistencia = _.map($scope.estudiantes, function(obj){ return _.pick(obj, 'id_estudiante', 'asistencia');});
                 Docente.asistencia.save(getParams, asistencia,function(data){
                     console.log(data);
                     $mdToast.show($mdToast.simple().content('Asistensia enviada correctamente!').hideDelay(3000));
@@ -67,9 +65,9 @@ angular.module('Dirapp')
                     $mdToast.show($mdToast.simple().content('Ya se realizó la asistencia!').hideDelay(3000));
                   }
                 });
-            };
+            }
         });
-    }
+    };
 
     //Moda para perfil del estudiante
     $scope.showStudentProfile = function (ev, idEstudiante) {
@@ -86,7 +84,7 @@ angular.module('Dirapp')
                 //$scope.alert = 'You cancelled the dialog.';
                 console.log('You cancelled the dialog.');
         });
-    }
+    };
 
     // Toast para la toma de asistencia //
 
@@ -107,7 +105,7 @@ angular.module('Dirapp')
                 .position($scope.getToastPosition())
                 .hideDelay(1500)
             );
-        };
+        }
     };
 })
 
@@ -154,7 +152,7 @@ angular.module('Dirapp')
         });
         count.percent = count.no / (count.si + count.no)*100 || 0;
         return count;
-    }
+    };
 
 }])
 
@@ -195,7 +193,7 @@ angular.module('Dirapp')
       Docente.calificaciones.query({idclase: idClase, idindicador: logro}, function(evaluaciones){
           $scope.evaluaciones = evaluaciones;
       });
-    }
+    };
 
     $scope.changeCalificacion = function (idcalificacion) {
 
@@ -205,19 +203,20 @@ angular.module('Dirapp')
             //var url = $location.$$path + '?idcalificacion=' + idcalificacion;
             //$location.search('idcalificacion', idcalificacion);
         });
-    }
+    };
 
     $scope.saveNota = function (nota) {
 
+        var post = {};
         // validar si existe nota
         if (nota.fecha_creacion_nota || nota.saved) {
             var getParams = {idestudiante: nota.id_estudiante, idcalificacion: nota.id_calificacion};
-            var post = {nota: nota.nota};
+            post = {nota: nota.nota};
             Docente.notas.update(getParams, post, function (data) {
                 console.log(data);
             });
         }else {
-            var post = {
+            post = {
                 idestudiante: nota.id_estudiante,
                 idcalificacion : nota.id_calificacion,
                 nota: nota.nota
@@ -230,7 +229,7 @@ angular.module('Dirapp')
             });
         }
 
-    }
+    };
 
 }]);
 

@@ -1,7 +1,7 @@
 var express = require('express'),
  	app = express(),
  	mysql = require('mysql'),
- 	routes = require('./routes/routes')
+ 	routes = require('./routes/routes'),
  	cors = require('cors'),
  	port = 3000;
 

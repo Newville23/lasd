@@ -20,7 +20,7 @@ angular.module('Dirapp')
         if (id_indicador) {
           // PUT
             if (_.size($scope.logro)) {
-                var getParams = {idindicador : $scope.logro.id_indicador}
+                var getParams = {idindicador : $scope.logro.id_indicador};
                 var putlogro = _.pick($scope.logro, 'contenido', 'periodo', 'fecha_vencimiento');
                 Docente.contenido.update(getParams, putlogro, function (log) {
                     var logro = _.findWhere($scope.Logros, {id_indicador: id_indicador});
@@ -77,9 +77,9 @@ angular.module('Dirapp')
             idclase: idClase
         };
         Docente.calificaciones.save(evaluacion, function (log) {
-            $scope.evaluacion.id_indicador = id_indicador
-            $scope.evaluacion.id_clase = idClase
-            $scope.evaluacion.id_calificacion = log.data.idcalificacion
+            $scope.evaluacion.id_indicador = id_indicador;
+            $scope.evaluacion.id_clase = idClase;
+            $scope.evaluacion.id_calificacion = log.data.idcalificacion;
 
             $scope.evaluaciones.push($scope.evaluacion);
             $scope.evaluacion = {};

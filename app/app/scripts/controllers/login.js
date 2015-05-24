@@ -3,7 +3,7 @@ angular.module('Dirapp')
     'use strict';
 
     Usuario.login.get(function (data) {
-        if (data.login == true) {
+        if (data.login === true) {
             if (data.userData.rol == "admin") {
                 $location.path("/admin");
             }else if(data.userData.rol == "profesor") {
@@ -36,9 +36,9 @@ angular.module('Dirapp')
         Usuario.logout.save(function(data){
             if (!data.login) {
                 $location.path("/login");
-            };
+            }
         });
-    }
+    };
 }]);
 
 function LoginCtrl($scope, Usuario, $location, $mdDialog) {
@@ -60,7 +60,7 @@ function LoginCtrl($scope, Usuario, $location, $mdDialog) {
                 }else if (data.userData.rol == "profesor") {
                     $location.path("/Docente");
                 }
-            };
+            }
         }, function (err) {
           console.log(err);
             if (err.data.noUsuario) {

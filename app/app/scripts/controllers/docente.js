@@ -3,7 +3,7 @@ angular.module('Dirapp')
     moment.locale('es');
     // Valida que la sesion haya iniciado
     Usuario.login.get(function (data) {
-        if (data.login == false) {
+        if (data.login === false) {
             $location.path("/login");
         }else {
             var rol = data.userData.rol;
@@ -23,7 +23,7 @@ angular.module('Dirapp')
     $scope.routeChangeClass = function (idClass) {
         var splitUrl = location.hash.split(currentIdClase);
         return splitUrl[0] + idClass + splitUrl[1];
-    }
+    };
 
     $scope.toggleSidenav = function(menuId) {
         $mdSidenav(menuId).toggle();
