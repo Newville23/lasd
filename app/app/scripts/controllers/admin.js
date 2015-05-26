@@ -12,7 +12,9 @@ angular.module('Dirapp')
             }else if (rol == 'admin') {
                 Coordinador.cursos.query(function (cursos) {
                     $scope.cursos = cursos;
+                    $scope.grados = _.keys(_.indexBy(cursos, 'nombre_curso'));
                     console.log(cursos);
+                    console.log($scope.grados);
                 });
             }
         }

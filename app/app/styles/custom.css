@@ -1,6 +1,5 @@
-body{
-	background-color: #E5E5E6;
-
+body, html{
+	background: no-repeat bottom center fixed #e5e5e5;
 }
 header{
 	height: 70px;

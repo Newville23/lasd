@@ -188,7 +188,7 @@ h5{
 }
 
 .board{
-  background-color: #e5e5e5 !important;
+  background: fixed #e5e5e5 !important;
 }
 .itemList{
     background-color: #fff;
