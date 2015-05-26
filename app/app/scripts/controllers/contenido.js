@@ -6,6 +6,13 @@ angular.module('Dirapp')
     $scope.logro = {};
     $scope.evaluacion = {};
 
+    $scope.Periodos =[
+        {periodo:'Primer Perido',targetid:'primero',expanded:true,id:'1'},
+        {periodo:'Segundo Perido',targetid:'segundo',expanded:false,id:'2'},
+        {periodo:'Tercer Perido',targetid:'tercero',expanded:false,id:'3'},
+        {periodo:'Cuarto Perido',targetid:'cuarto',expanded:false,id:'4'}
+    ];
+
     Docente.contenido.query({idclase: idClase}, function(logros){
     	$scope.Logros = logros;
 
@@ -114,11 +121,11 @@ angular.module('Dirapp')
     $scope.calificar2 = function(id_calificacion){
         var url = '/Docente/' + idClase + '/Estudiantes/calificaciones?idcalificacion=' + id_calificacion;
         console.log(url);
-        $location.path(url);        
+        $location.path(url);
     };
     $scope.calificar = function(id_calificacion){
         //var url = 'Docente/10095/Estudiantes/calificaciones?idcalificacion=dsfsfdfdf';
         //console.log(url);
-        $state.go('Docente.Estudiantes.calificaciones', {idcalificacion: id_calificacion});        
+        $state.go('Docente.Estudiantes.calificaciones', {idcalificacion: id_calificacion});
     };
 }]);

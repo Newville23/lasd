@@ -17,12 +17,14 @@
                         <div flex> 4,3 <br><small>Promedio de notas</small></div>
                     </md-card>
 
-                    <div flex layout="row">
+                    <div flex layout="row" ng-repeat="curso in cursos">
                         <div flex class="hover-card md-whiteframe-z1" style="background-image: url('images/textures/symphony.png')">
                             <a class="text-center text-muted" flex  ng-click="close()"  href="">
                                 <div layout-padding>
-                                    <h3 class="md-title" style="margin-top: 10px;">{{'clase.materia'}}</h3>
-                                    <strong class="md-subhead">{{'clase.nombre_curso'}} {{'clase.indice'}}</strong>
+                                    <h2 class="md-headline" style="margin-top: 10px;">
+                                        {{curso.nombre_curso}} <span ng-show="curso.indice">-</span> {{curso.indice}}
+                                    </h2>
+                                    <strong class="md-subhead"><span ng-show="curso.id_profesor">Docente tutor:</span>{{curso.id_profesor}}</strong>
                                 </div>
                                 <div layout="row" layout-align="center center" class="text-center" style="background: #eee;padding:1%">
                                     <div flex> 23% <br><small>Progreso</small></div>
@@ -32,36 +34,7 @@
                             </a>
                         </div>
                     </div>
-                    <div flex layout="row">
-                        <div flex class="hover-card md-whiteframe-z1" style="background-image: url('images/textures/symphony.png')">
-                            <a class="text-center text-muted" flex  ng-click="close()"  href="">
-                                <div layout-padding>
-                                    <h3 class="md-title" style="margin-top: 10px;">{{'clase.materia'}}</h3>
-                                    <strong class="md-subhead">{{'clase.nombre_curso'}} {{'clase.indice'}}</strong>
-                                </div>
-                                <div layout="row" layout-align="center center" class="text-center" style="background: #eee;padding:1%">
-                                    <div flex> 23% <br><small>Progreso</small></div>
-                                    <div flex> 3%  <br><small>Inasistencias</small></div>
-                                    <div flex> 4,3 <br><small>Promedio de notas</small></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                    <div flex layout="row">
-                        <div flex class="hover-card md-whiteframe-z1" style="background-image: url('images/textures/symphony.png')">
-                            <a class="text-center text-muted" flex  ng-click="close()"  href="">
-                                <div layout-padding>
-                                    <h3 class="md-title" style="margin-top: 10px;">{{'clase.materia'}}</h3>
-                                    <strong class="md-subhead">{{'clase.nombre_curso'}} {{'clase.indice'}}</strong>
-                                </div>
-                                <div layout="row" layout-align="center center" class="text-center" style="background: #eee;padding:1%">
-                                    <div flex> 23% <br><small>Progreso</small></div>
-                                    <div flex> 3%  <br><small>Inasistencias</small></div>
-                                    <div flex> 4,3 <br><small>Promedio de notas</small></div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
+
                 </div>
             </div>
         </div>

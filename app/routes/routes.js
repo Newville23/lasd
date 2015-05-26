@@ -30,6 +30,7 @@ module.exports = function(app, pool) {
     var contenido = new Contenido(pool);
     var estudiante = new Estudiante(pool);
     var docente = new Docente(pool);
+    var institucion = new Institucion(pool);
 
 
     //---------- Manejo de sesiones --------------------------
@@ -50,6 +51,8 @@ module.exports = function(app, pool) {
 
     app.get(version + '/coordinador/profesor.json', docente.getProfesores);
     app.post(version + '/coordinador/profesor.json', docente.postProfesor);
+
+    app.get(version + '/coordinador/cursos.json', institucion.getCursos);
     // ----------- Fin para módulo de coordinadores ----------------
 
 
@@ -82,7 +85,7 @@ module.exports = function(app, pool) {
         console.error(err.stack);
         res.status(500).json({ error: err });
     });
-}
+};
 
 function Usuario (pool) {
     "use strict";
@@ -579,7 +582,7 @@ function Contenido (pool) {
 }
 
 function Estudiante (pool) {
-
+    "use strict";
     var userModel = new UserModel(pool);
 
     var estudianteThis = this;
@@ -622,7 +625,7 @@ function Estudiante (pool) {
     }
 
     this.getEstudiantesByCurso = function (req, res) {
-        "use strict";
+
         if(!req.session.userData){
             return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
         }
@@ -819,4 +822,28 @@ function Estudiante (pool) {
         });
     }
 
+}
+
+function Institucion(pool) {
+
+    this.getCursos = function (req, res) {
+
+        if(!req.session.userData || req.session.userData.rol != 'admin'){
+            return res.status(400).json({"errors":[{"code":215,"message":"Bad Authentication data."}]});
+        }
+        var id_institucion = req.session.userData.Institucion_rut;
+
+        var query = "SELECT codigo as id_curso, nombre_curso, indice, Curso.color, Profesor_director_grupo_identificacion as id_profesor, " +
+                    "Usuario_id as id_usuario, Curso.Institucion_rut as id_institucion " +
+                    "FROM Curso " +
+                    "LEFT JOIN Profesor ON Profesor.identificacion = Curso.Profesor_director_grupo_identificacion " +
+                    "WHERE Curso.Institucion_rut = ?";
+        pool.query(query, [id_institucion], function(err, rows, fields){
+            if (err) {
+                return res.status(500).json({error: '500', err: err});
+            }
+            return res.json(rows);
+        });
+
+    };
 }

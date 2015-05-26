@@ -40,7 +40,8 @@ angular.module('CDapp',[
     })
     .state('admin', {
         url:"/admin",
-        templateUrl: "views/admin/index.html"
+        templateUrl: "views/admin/index.html",
+        controller: "adminCtrl"
     })
     .state('login', {
         url: "/login",
