@@ -17,7 +17,7 @@
 
     <md-card layout="row" ng-show="estudiantes.length" style="margin-bottom: 75px">
         <md-list flex="100">
-            <md-list-item class="md-2-line" ng-repeat="estudiante in estudiantes| filter:search | orderBy:'nombre'">
+            <md-list-item class="md-2-line" ng-repeat="(key, estudiante) in estudiantes| filter:search | orderBy:'nombre'">
                 <img ng-src="/images/yeoman.png" class="md-avatar" alt="{{estudiante.nombre}}" />
                 <div  class="md-list-item-text">
                     <h3><a ng-click="showStudentProfile($event, estudiante.id_estudiante)" class="text-capitalize">
