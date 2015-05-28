@@ -1,10 +1,12 @@
 <div layout="row" flex>
 
     <div layout="column" flex>
-        <simple-toolbar></simple-toolbar>
+        <simple-toolbar style="z-index:61"></simple-toolbar>
         <section layout="row" flex>
             <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
-                us cum, hic, reprehenderit sunt molestiae tempora nihil, voluptate aperiam rem. Quidem, nisi quo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe autem, quia suscipit eum porro consequatur voluptatem neque deserunt? Quaerat asperiores porro quam quod non sint minus tempora itaque, ex ut.
+                <div style="margin-top:5%">
+                    us cum, hic, reprehenderit sunt molestiae tempora nihil, voluptate aperiam rem. Quidem, nisi quo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe autem, quia suscipit eum porro consequatur voluptatem neque deserunt? Quaerat asperiores porro quam quod non sint minus tempora itaque, ex ut.
+                </div>
             </md-sidenav>
 
             <md-content flex>
@@ -26,8 +28,9 @@
                                 </md-card>
                             </div>
                             <div layout="row" flex layout-wrap layout-padding layout-align="center center">
-                                <div ng-repeat="grado in grados">
-                                    <div flex-sm="100" flex-md="35" layout-margin flex-gt-lg="25" flex="30" ng-repeat="curso in cursos | filter:{nombre_curso:grado}:true | orderBy:'nombre_curso':true">
+
+                                <div layout="row" layout-wrap ng-repeat="grado in grados" layout-align="center center"><!-- flex-sm="100" flex-md="35"  flex-gt-lg="25" flex="30" -->
+                                    <div flex-md="90" layout-margin ng-repeat="curso in cursos | filter:{nombre_curso:grado}:true | orderBy:'nombre_curso':true">
                                         <div class="hover-card md-whiteframe-z1"
                                         style="background: url('images/textures/symphony2.png')">
                                             <a class="text-center text-muted" flex  ng-click="close()"  href="">
