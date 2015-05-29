@@ -5,54 +5,52 @@
         <section layout="row" flex>
             <md-sidenav class="md-sidenav-left md-whiteframe-z2" md-component-id="left" md-is-locked-open="$mdMedia('gt-sm')">
                 <div style="margin-top:5%">
-                    us cum, hic, reprehenderit sunt molestiae tempora nihil, voluptate aperiam rem. Quidem, nisi quo. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Saepe autem, quia suscipit eum porro consequatur voluptatem neque deserunt? Quaerat asperiores porro quam quod non sint minus tempora itaque, ex ut.
+                    <ul style="padding:0">
+                        <li><md-button style="width:100%;margin:0;padding:0"ng-href="{{googleUrl}}" target="_blank">Default Link</md-button></li>
+                        <li><md-button style="width:100%;margin:0;padding:0"ng-href="{{googleUrl}}" target="_blank">Default Link</md-button></li>
+                        <li><md-button style="width:100%;margin:0;padding:0"ng-href="{{googleUrl}}" target="_blank">Default Link</md-button></li>
+                        <li><md-button style="width:100%;margin:0;padding:0"ng-href="{{googleUrl}}" target="_blank">Default Link</md-button></li>
+                        <li><md-button style="width:100%;margin:0;padding:0"ng-href="{{googleUrl}}" target="_blank">Default Link</md-button></li>
+                    </ul>
                 </div>
             </md-sidenav>
 
-            <md-content flex>
+            <md-content flex class="board" style="margin:20px">
+                <div flex layout="row" layout-align="center center" layout-margin>
+                    <md-card flex-sm="100" flex="80">
+                        <input  class="btn input-lg cls-input" placeholder="Busqueda de cursos, docentes, alumnos" ng-model="user.title">
+                    </md-card>
+                </div>
 
-                <!-- <div layout="column" flex> -->
-                    <!-- <div layout="row" layout-margin flex layout-align="center start"> -->
-                        <!-- <div  layout="column" flex="100" flex-sm="100" flex-gt-md="100"> -->
-                            <div flex layout="row" layout-align="center center" layout-margin>
-                                <md-card flex-sm="100" flex="80">
-                                    <input  class="btn input-lg cls-input" placeholder="Busqueda de cursos, docentes, alumnos" ng-model="user.title">
-                                </md-card>
-                            </div>
+                <div layout="row" flex layout-align="center center" class="text-center" layout-margin>
+                    <md-card layout="row" style="padding:1%" flex-sm="100" flex="80">
+                        <h3 style="margin:0" flex> 23% <br><small class="md-caption">Progreso</small></h3>
+                        <h3 style="margin:0" flex> 3%  <br><small class="md-caption">Inasistencias</small></h3>
+                        <h3 style="margin:0" flex> 4,3 <br><small class="md-caption">Promedio de notas</small></h3>
+                    </md-card>
+                </div>
+                <div layout="row" flex layout-wrap layout-padding layout-align="center center">
 
-                            <div layout="row" flex layout-align="center center" class="text-center" layout-margin>
-                                <md-card layout="row" style="padding:1%" flex-sm="100" flex="80">
-                                    <h3 style="margin:0" flex> 23% <br><small class="md-caption">Progreso</small></h3>
-                                    <h3 style="margin:0" flex> 3%  <br><small class="md-caption">Inasistencias</small></h3>
-                                    <h3 style="margin:0" flex> 4,3 <br><small class="md-caption">Promedio de notas</small></h3>
-                                </md-card>
-                            </div>
-                            <div layout="row" flex layout-wrap layout-padding layout-align="center center">
-
-                                <div layout="row" layout-wrap ng-repeat="grado in grados" layout-align="center center"><!-- flex-sm="100" flex-md="35"  flex-gt-lg="25" flex="30" -->
-                                    <div flex-md="90" layout-margin ng-repeat="curso in cursos | filter:{nombre_curso:grado}:true | orderBy:'nombre_curso':true">
-                                        <div class="hover-card md-whiteframe-z1"
-                                        style="background: url('images/textures/symphony2.png')">
-                                            <a class="text-center text-muted" flex  ng-click="close()"  href="">
-                                                <div layout-padding style="background-color: {{curso.color}};">
-                                                    <h2 class="md-headline" style="color:white;margin-top: 10px;text-shadow:1px 2px 6px #000000">
-                                                        {{curso.nombre_curso}} <span ng-show="curso.indice">-</span> {{curso.indice}}
-                                                    </h2>
-                                                    <strong class="md-subhead"><span ng-show="curso.id_profesor">Docente tutor:</span>{{curso.id_profesor}}</strong>
-                                                </div>
-                                                <div layout="row" layout-align="center center" class="text-center" style="background: #eee;padding:1%">
-                                                    <div flex> 23% <br><small>Progreso</small></div>
-                                                    <div flex> 3%  <br><small>Inasistencias</small></div>
-                                                    <div flex> 4,3 <br><small>Promedio de notas</small></div>
-                                                </div>
-                                            </a>
-                                        </div>
+                    <div layout="row" layout-wrap ng-repeat="grado in grados" layout-align="center center"><!-- flex-sm="100" flex-md="35"  flex-gt-lg="25" flex="30" -->
+                        <div flex-md="90" layout-margin ng-repeat="curso in cursos | filter:{nombre_curso:grado}:true | orderBy:'nombre_curso':true">
+                            <div class="hover-card md-whiteframe-z1" style="background: url('images/textures/symphony2.png')">
+                                <a class="text-center text-muted" flex  ng-click="close()"  href="">
+                                    <div layout-padding style="background-color: {{curso.color}};">
+                                        <h2 class="md-headline" style="color:white;margin-top: 10px;text-shadow:1px 2px 6px #000000">
+                                            {{curso.nombre_curso}} <span ng-show="curso.indice">-</span> {{curso.indice}}
+                                        </h2>
+                                        <strong class="md-subhead"><span ng-show="curso.id_profesor">Docente tutor:</span>{{curso.id_profesor}}</strong>
                                     </div>
-                                <!-- </div> -->
+                                    <div layout="row" layout-align="center center" class="text-center" style="background: #eee;padding:1%">
+                                        <div flex> 23% <br><small>Progreso</small></div>
+                                        <div flex> 3%  <br><small>Inasistencias</small></div>
+                                        <div flex> 4,3 <br><small>Promedio de notas</small></div>
+                                    </div>
+                                </a>
                             </div>
-                        <!-- </div> -->
-                    <!-- </div> -->
-                <!-- </div> -->
+                        </div>
+                    </div>
+                </div>
             </md-content>
         </section>
     </div>
